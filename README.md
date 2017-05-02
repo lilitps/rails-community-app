@@ -39,3 +39,31 @@ $ rails server
 
 For more information, see the
 [*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
+
+## Automated tests with Guard
+
+Use Guard to automate the running of the tests.
+
+```
+bundle exec guard
+```
+
+### Spring processes
+
+Any time something isn’t behaving as expected or a process appears to be frozen, 
+it’s a good idea to run 
+```
+ps aux | grep spring
+```
+to see what’s going on, and then run 
+
+```
+spring stop
+```
+To kill all the spring processes gunking up your system.
+
+Sometimes this doesn’t work, though, and you can kill all the processes with name spring 
+using the pkill command as follows:
+```
+pkill -15 -f spring
+```
