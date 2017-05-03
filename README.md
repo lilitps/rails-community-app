@@ -1,6 +1,7 @@
 # Community web application (based on Ruby on Rails Tutorial sample application)
 
-This is a community web application to meet needs of small communities like sport clubs and non-govermantal organisations
+This is a [Community web application](https://rails-community-app.herokuapp.com/) to meet needs 
+of small communities like sport clubs and non-govermantal organisations.
 
 This application is based on the sample application for 
 [*Ruby on Rails Tutorial:
