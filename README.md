@@ -48,7 +48,7 @@ Use Guard to automate the running of the tests.
 bundle exec guard
 ```
 
-### Spring processes
+## Spring processes
 
 Any time something isn’t behaving as expected or a process appears to be frozen, 
 it’s a good idea to run 
