@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update]
   before_action :correct_user,   only: [:edit, :update]
 
   # Users a fully RESTful resource
@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   # GET	      /users/1/edit	  edit	      edit_user_path(user)	  page to edit user with id 1
   # PATCH	    /users/1	      update	    user_path(user)	        update user
   # DELETE	  /users/1	      destroy	    user_path(user)	        delete user
+
+  def index
+    @users = User.all
+  end
 
   def show
     @user = User.find(params[:id])
