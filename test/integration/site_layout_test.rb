@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
 
-  test "layout links without log in" do
+  test "layout links when not logged in" do
     get root_path
     # header
     assert_template 'static_pages/home'
@@ -17,7 +17,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", help_path
   end
 
-  test "page title without log in" do
+  test "page title when not logged in" do
     # header
     get root_path
     assert_select "title", full_title("")
@@ -35,15 +35,15 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", full_title("Help")
   end
 
-  test "layout links after log in" do
+  test "layout links when logged in" do
     user = users(:michael)
     log_in_as(user)
     get root_path
     # header
     assert_select "a[href=?]", login_path, count: 0
-    # menu administration
-    assert_select 'li.dropdown a.dropdown-toggle', 'Administration', count: 1
-    assert_select "a[href=?]", users_path
+    # no menu administration
+    assert_select 'li.dropdown a.dropdown-toggle', count: 1
+    assert_select "a[href=?]", users_path, count: 0
     # menu account
     assert_select 'li.dropdown a.dropdown-toggle', 'Account', count: 1
     assert_select "a[href=?]", user_path(user)
@@ -55,16 +55,33 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", help_path
   end
 
-  test "page title after log in" do
+  test "page title when logged in" do
     user = users(:michael)
     log_in_as(user)
-    # menu administration
-    get users_path
-    assert_select "title", full_title("All users")
     # menu account
     get user_path(user)
     assert_select "title", full_title(user.name)
     get edit_user_path
     assert_select "title", full_title("Edit user")
+  end
+
+
+  test "layout links when logged in as admin" do
+    user = users(:lana)
+    log_in_as(user)
+    get root_path
+    # header
+    assert_select "a[href=?]", login_path, count: 0
+    # menu administration
+    assert_select 'li.dropdown a.dropdown-toggle', 'Administration', count: 1
+    assert_select "a[href=?]", users_path
+  end
+
+  test "page title when logged in as admin" do
+    user = users(:lana)
+    log_in_as(user)
+    # menu administration
+    get users_path
+    assert_select "title", full_title("All users")
   end
 end
