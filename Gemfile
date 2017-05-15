@@ -33,6 +33,12 @@ gem 'jbuilder', '~> 2.6'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1'
+# Use Faker to easily generate fake data: names, addresses, phone numbers, etc.
+gem 'faker', '~> 1.7'
+# Use Will Paginate for performing paginated queries with Active Record
+gem 'will_paginate', '~> 3.1'
+# Use Bootstrap Will Paginate to format the html to match Twitter Bootstrap styling
+gem 'bootstrap-will_paginate', '~> 1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
