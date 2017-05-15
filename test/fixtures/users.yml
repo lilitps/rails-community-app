@@ -14,6 +14,7 @@ lana:
   name: Lana Kane
   email: hands@example.gov
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 malory:
   name: Malory Archer
