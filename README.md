@@ -52,6 +52,12 @@ heroku run rails db:migrate
 heroku maintenance:off
 ```
 
+To reset the production database use:
+
+```
+heroku pg:reset DATABASE
+```
+
 ## Automated tests with Guard
 
 Use Guard to automate the running of the tests.
