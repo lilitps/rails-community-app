@@ -46,11 +46,15 @@ gem 'bootstrap-will_paginate', '~> 1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Use IRB alternative for better code completion in console
+  gem 'pry'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
 
 group :development do
+  # Use with 'ap object' for nice print Ruby objects in console
+  gem 'awesome_print'
   # Use for fighting the N+1 problem in Ruby
   gem 'bullet'
   gem 'listen', '~> 3.0.5'
