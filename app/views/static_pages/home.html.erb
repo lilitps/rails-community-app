@@ -4,3 +4,14 @@
     This is the <%= yield(:title) %> page for the community.
   </p>
 </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <% if @posts.any? %>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+        <%= will_paginate @posts %>
+    <% end %>
+  </div>
+</div>

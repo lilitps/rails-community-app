@@ -6,9 +6,9 @@
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 /* miscellaneous */
@@ -85,6 +85,55 @@ p {
   &:hover {
     color: $gray-base;
     text-decoration: none;
+  }
+}
+
+/* posts */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+  }
+  .content {
+    display: block;
+    width: 100%;
+    margin-left: 10px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .stamp {
+    color: $gray-light;
+    display: block;
+    float: right;
+    margin-right: 10px;
+    .user {
+      margin-top: 5em;
+      padding-top: 0;
+    }
+    .gravatar {
+      float: none;
+      margin-left: 5px;
+      margin-right: 0px;
+    }
+  }
+
+}
+
+aside {
+  textarea {
+    height: 200px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }
 
