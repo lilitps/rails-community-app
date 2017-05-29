@@ -5,13 +5,23 @@
   </p>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <% if @posts.any? %>
-        <ol class="posts">
-          <%= render @posts %>
-        </ol>
-        <%= will_paginate @posts %>
-    <% end %>
+<div class="row">
+  <% if logged_in? %>
+      <aside class="col-md-4">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+      </aside>
+
+      <div class="col-md-8">
+        <%= render 'static_pages/posts' %>
+      </div>
+      <div class="col-md-8 new-post">
+        <%= render 'shared/post_form' %>
+      </div>
+  <% else %>
+      <div class="col-md-12">
+        <%= render 'posts' %>
+  <% end %>
   </div>
 </div>

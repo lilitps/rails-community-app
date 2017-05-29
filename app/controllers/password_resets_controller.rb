@@ -3,7 +3,6 @@ class PasswordResetsController < ApplicationController
   before_action :valid_user, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
 
-  # Users a fully RESTful resource
   # HTTP 	    URL	                          Action	    Named route	                      Purpose
   # request
   # GET	    /password_resets/new	          new	        new_password_reset_path

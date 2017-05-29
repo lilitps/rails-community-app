@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
+  include PostsHelper
+
   def home
-    @posts = Post.all.paginate(page: params[:page], per_page: 5)
+    @post = current_user.posts.build if logged_in?
+    @posts = load_posts(params[:page])
   end
 
   def about

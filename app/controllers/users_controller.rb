@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:index, :destroy]
 
-  # Users a fully RESTful resource
   # HTTP 	    URL	            Action	    Named route	            Purpose
   # request
   # GET	      /users	        index	      users_path	            page to list all users
@@ -65,15 +64,6 @@ class UsersController < ApplicationController
   end
 
   # Before filters
-
-  # Confirms a logged-in user.
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
 
   # Confirms the correct user.
   def correct_user
