@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @post = current_user.posts.build if logged_in?
-    @posts = load_posts(params[:page])
+    @feed = feed(params[:page])
   end
 
   def about

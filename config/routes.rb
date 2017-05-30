@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get   '/help',      to: 'static_pages#help'
 
   get   '/posts',     to: 'static_pages#home'
+  get   '/feed',      to: 'static_pages#home'
 
   root 'static_pages#home'
 
