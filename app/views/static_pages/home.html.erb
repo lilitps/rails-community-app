@@ -4,24 +4,16 @@
     This is the <%= yield(:title) %> page for the community.
   </p>
 </div>
-
 <div class="row">
-  <% if logged_in? %>
-      <aside class="col-md-4">
-        <section class="user_info">
-          <%= render 'shared/user_info' %>
-        </section>
-      </aside>
-
-      <div class="col-md-8">
-        <%= render 'shared/feed' %>
-      </div>
-      <div class="col-md-8 new-post">
-        <%= render 'shared/post_form' %>
-      </div>
-  <% else %>
-      <div class="col-md-12">
-        <%= render 'shared/feed' %>
-  <% end %>
+  <div class="col-md-12">
+    <%= render 'shared/feed' %>
   </div>
+
+  <% if logged_in? %>
+      <% if current_user.admin? %>
+          <div class="col-md-12 new-post">
+            <%= render 'shared/post_form' %>
+          </div>
+      <% end %>
+  <% end %>
 </div>

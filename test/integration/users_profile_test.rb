@@ -8,10 +8,11 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   end
 
   test "profile display" do
+    log_in_as(@user)
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.name)
     assert_select 'h1', text: @user.name
-    assert_select 'h1>img.gravatar'
+    assert_select 'section.user_info>a>img.gravatar'
   end
 end

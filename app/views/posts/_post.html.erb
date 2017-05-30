@@ -1,9 +1,18 @@
 <li id="post-<%= post.id %>">
   <span class="content"><%= post.content %></span>
   <span class="stamp">
-    Posted by
-    <%= link_to gravatar_for(post.user, size: 12), post.user %>
-    <%= link_to post.user.name, post.user, class: "user" %>
-    <%= time_ago_in_words(post.created_at) %> ago.
+    <% if logged_in? %>
+        Posted by
+        <%= link_to gravatar_for(post.user, size: 12), post.user %>
+        <%= link_to post.user.name, post.user, class: "user" %>
+        <%= time_ago_in_words(post.created_at) %> ago.
+
+        <% if current_user.admin? %>
+          <%= link_to "delete", post, method: :delete,
+                      data: {confirm: "You sure?"} %>
+        <% end %>
+    <% else %>
+        Posted <%= time_ago_in_words(post.created_at) %> ago.
+    <% end %>
   </span>
 </li>
