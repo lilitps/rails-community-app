@@ -39,6 +39,12 @@ gem 'faker', '~> 1.7'
 gem 'will_paginate', '~> 3.1'
 # Use Bootstrap Will Paginate to format the html to match Twitter Bootstrap styling
 gem 'bootstrap-will_paginate', '~> 1.0'
+# Use CarrierWave to upload files
+gem 'carrierwave',             '~> 1.1'
+# User Mini Magick to manipulate images with minimal use of memory
+gem 'mini_magick',             '~> 4.7'
+# Cloud services library
+gem 'fog',                     '~> 1.40'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

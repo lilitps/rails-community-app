@@ -16,15 +16,19 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
       post posts_path, params: { post: { content: "" } }
     end
     log_in_as(@admin)
+    get root_path
+    assert_select 'input[type=file]'
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: "" } }
     end
     assert_select 'div#error_explanation'
     # Valid submission (only admin)
     content = "This post really ties the room together"
+    picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
     assert_difference 'Post.count', 1 do
-      post posts_path, params: { post: { content: content } }
+      post posts_path, params: { post: { content: content, picture: picture } }
     end
+    assert @admin.posts.first.picture?
     assert_redirected_to root_url
     follow_redirect!
     assert_match content, response.body

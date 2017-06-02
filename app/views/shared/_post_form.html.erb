@@ -3,5 +3,20 @@
     <div class="field">
       <%= f.text_area :content, placeholder: "Compose new post...", rows: 6 %>
     </div>
+
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', aria: {describedby: "helpBlock"} %>
+    </span>
+    <span id="helpBlock" class="help-block">JPEG, GIF and PNG are allowed to be uploaded. Maximum file size is 5MB.</span>
+
     <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
+
+<script type="text/javascript">
+    $('#post_picture').bind('change', function () {
+        var size_in_megabytes = this.files[0].size / 1024 / 1024;
+        if (size_in_megabytes > 5) {
+            alert('Maximum file size is 5MB. Please choose a smaller file.');
+        }
+    });
+</script>
