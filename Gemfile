@@ -40,11 +40,15 @@ gem 'will_paginate', '~> 3.1'
 # Use Bootstrap Will Paginate to format the html to match Twitter Bootstrap styling
 gem 'bootstrap-will_paginate', '~> 1.0'
 # Use CarrierWave to upload files
-gem 'carrierwave',             '~> 1.1'
+gem 'carrierwave', '~> 1.1'
 # User Mini Magick to manipulate images with minimal use of memory
-gem 'mini_magick',             '~> 4.7'
+gem 'mini_magick', '~> 4.7'
 # Cloud services library
-gem 'fog',                     '~> 1.40'
+gem 'fog', '~> 1.40'
+# Use google drive to upload and download files
+gem 'fog-google'
+gem 'google-api-client', '~> 0.12'
+gem 'mime-types'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -73,9 +77,9 @@ end
 
 group :test do
   gem 'rails-controller-testing', '~> 1.0'
-  gem 'minitest-reporters',       '~> 1.1'
-  gem 'guard',                    '~> 2.14'
-  gem 'guard-minitest',           '~> 2.4'
+  gem 'minitest-reporters', '~> 1.1'
+  gem 'guard', '~> 2.14'
+  gem 'guard-minitest', '~> 2.4'
 
 end
 
