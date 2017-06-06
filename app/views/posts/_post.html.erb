@@ -1,6 +1,8 @@
 <li id="post-<%= post.id %>">
   <span class="content"><%= post.content %></span>
-  <%= image_tag post.picture.url if post.picture? %>
+  <span class="picture">
+    <%= link_to image_tag(post.picture.thumb.url, alt: post.picture.filename), post.picture.url, target: "_blank" if post.picture? %>
+  </span>
 
   <span class="stamp">
     <% if logged_in? %>
