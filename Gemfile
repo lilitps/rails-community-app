@@ -43,9 +43,7 @@ gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'carrierwave', '~> 1.1'
 # User Mini Magick to manipulate images with minimal use of memory
 gem 'mini_magick', '~> 4.7'
-# Cloud services library
-gem 'fog', '~> 1.40'
-# Use google drive to upload and download files
+# Use google drive to upload and download files through cloud services library fog
 gem 'fog-google'
 gem 'google-api-client', '~> 0.12'
 gem 'mime-types'

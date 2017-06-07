@@ -104,6 +104,15 @@ To reset the production database use:
 $ heroku pg:reset DATABASE
 ```
 
+After the production database reset, seed the database with start users 
+(Rails uses the standard file **db/seeds.rb**):
+
+```
+$ heroku run rails db:migrate
+$ heroku run rails db:seed
+$ heroku restart
+```
+
 ## Application mailer
 
 This app uses the Action Mailer library in account activation step to verify that 

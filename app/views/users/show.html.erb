@@ -5,7 +5,9 @@
   </aside>
 
   <div class="col-md-12">
-    <h3><%= @user.name %>'s Post Feed</h3>
+    <% if @user.posts.any? %>
+      <h3><%= @user.name %>'s Post Feed</h3>
+    <% end %>
     <%= render 'shared/feed' %>
   </div>
 </div>
