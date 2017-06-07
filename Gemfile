@@ -45,7 +45,7 @@ gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.7'
 # Use google drive to upload and download files through cloud services library fog
 gem 'fog-google'
-gem 'google-api-client', '~> 0.12'
+gem 'google-api-client', '> 0.8.5', '< 0.9'
 gem 'mime-types'
 
 # Use Capistrano for deployment
@@ -54,6 +54,8 @@ gem 'mime-types'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Shim to load environment variables from .env into ENV
+  gem 'dotenv-rails'
   # Use IRB alternative for better code completion in console
   gem 'pry'
   # Use sqlite3 as the database for Active Record

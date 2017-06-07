@@ -25,3 +25,6 @@
 
 # Ignore tmp file uploads
 public/uploads
+
+# Ignore dev environment variables
+.env

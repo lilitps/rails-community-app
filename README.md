@@ -41,12 +41,20 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 
+### Automated tests with Guard
+
+Use Guard to automate the running of the tests.
+
+```
+$ bundle exec guard
+```
+
 ## Production webserver
 
 This app uses Puma webserver suitable for production applications. See [Heroku Puma documentation](
 https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server).
 
-### Heroku setup
+### Heroku application setup
 
 You have to create and configure a new Heroku account. 
 The first step is to [sign up for Heroku](http://signup.heroku.com/). 
@@ -57,7 +65,8 @@ Then check to see if your system already has the
 $ heroku version
 ```
 
-Use the heroku command to log in and add your SSH key:
+Use the heroku command to log in and 
+[add your SSH key](https://help.github.com/articles/connecting-to-github-with-ssh/):
 
 ```
 $ heroku login
@@ -73,7 +82,7 @@ $ heroku create
 Rename the application as follows:
 
 ```
-$ heroku rename <your heroku app>
+$ heroku rename <your-heroku-app>
 ```
 
 #### Custom domain
@@ -87,7 +96,105 @@ for more information about custom domains.
 If you want to run SSL on a custom domain, such as www.example.com, refer to 
 [Heroku’s documentation on SSL](http://devcenter.heroku.com/articles/ssl).
 
-#### Deploying to Heroku
+### Application mailer
+
+This app uses the Action Mailer library in account activation step to verify that 
+the user controls the email address they used to sign up.
+
+#### Add SendGrid add-on to Heroku
+
+To send email, this app uses SendGrid, which is available as an add-on at Heroku for verified accounts.
+The “starter” tier, which as of this writing is limited to 400 emails a day but costs nothing, 
+is the best fit.
+
+Add it to community app as follows:
+
+```
+$ heroku addons:create sendgrid:starter
+```
+
+#### Define a host variable and change to custom domain
+
+You will also have to define a **host** variable with the address of your production website, 
+found in **config/environments/production.rb**. If you use custom domain, please change it too.
+
+```
+.
+.
+host = '<your-heroku-app>.herokuapp.com'
+.
+.
+    .
+    :domain         => 'heroku.com',
+    .
+.
+.
+```
+
+#### Mailer layout (optional)
+
+Change mailer layout corresponding to the email format.
+The HTML and plain-text mailer layouts can be found in **app/views/layouts**
+
+#### Default from address (optional)
+
+Change default **from** address common to all mailers in the application 
+found in **app/mailers/application_mailer.rb**
+
+#### Mailer templates (optional)
+
+Change two view templates (if needed) for each mailer, 
+one for plain-text email and one for HTML email, found in 
+**app/views/user_mailer/account_activation.text.erb** and
+**app/views/user_mailer/account_activation.html.erb**
+
+### Picture uploader
+
+This app needs Google Cloud Storage service to store images separately from application.
+To store images, this app uses [fog-google](https://github.com/fog/fog-google/blob/master/README.md) 
+and google-api-client games.
+
+#### Google Cloud Platform setup
+
+You have to create a new Google account for this app or use existent account. 
+The first step is to [sign up for Google Cloud Platform](https://console.cloud.google.com).
+
+[Add a new project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) 
+to your Google Cloud Platform which a name of your choice, e.g. '**your-heroku-app**'.
+
+Then, [enable billing for your project](https://support.google.com/cloud/answer/6293499#enable-billing) 
+and link this billing account to your new project.
+
+#### Google Cloud Storage setup
+
+This app needs a bucket inside your Google Cloud Storage. 
+Open the [Cloud Storage browser](https://console.cloud.google.com/storage/) 
+in the Google Cloud Platform Console and click **CREATE BUCKET**. 
+
+Setup your bucket as [described](https://cloud.google.com/storage/docs/quickstart-console), e.g. 
+with the name **communityapp**.
+
+Turn on [Interoperability API](https://cloud.google.com/storage/docs/migrating#keys) 
+for your Google Cloud Platform project and click **Create a new Key** 
+to get an **Access Key** and a **Secret**.
+
+#### Heroku config vars setup
+
+Finally, use the heroku config command to 
+[setup config vars](https://devcenter.heroku.com/articles/config-vars) 
+for [Google Cloud Storage](https://github.com/carrierwaveuploader/carrierwave#using-google-storage-for-developers) 
+using Google's interoperability keys to access it:
+
+```
+$ heroku config:set G_STORAGE_ACCESS_KEY=**<your-access-key>**
+$ heroku config:set G_STORAGE_SECRET_KEY=**<your-secret>**
+$ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=**<your-bucket-name, e.g. 'communityapp'>**
+```
+
+Hint: In order to use this [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1), 
+you can add them with right values to **.env** file in the root of your project.
+
+### Deploying to Heroku
 
 Before deploying to Heroku, it’s a good idea to turn maintenance mode on before making the changes:
 
@@ -111,66 +218,6 @@ After the production database reset, seed the database with start users
 $ heroku run rails db:migrate
 $ heroku run rails db:seed
 $ heroku restart
-```
-
-## Application mailer
-
-This app uses the Action Mailer library in account activation step to verify that 
-the user controls the email address they used to sign up.
-
-### Add SendGrid add-on to Heroku
-
-To send email, this app use SendGrid, which is available as an add-on at Heroku for verified accounts.
-The “starter” tier, which as of this writing is limited to 400 emails a day but costs nothing, 
-is the best fit.
-
-Add it to community app as follows:
-
-```
-$ heroku addons:create sendgrid:starter
-```
-
-### Define a host variable and change to custom domain
-
-You will also have to define a **host** variable with the address of your production website, 
-found in **config/environments/production.rb**. If you use custom domain, please change it too.
-
-```
-.
-.
-host = '<your heroku app>.herokuapp.com'
-.
-.
-    .
-    :domain         => 'heroku.com',
-    .
-.
-.
-```
-
-### Mailer layout (optional)
-
-Change mailer layout corresponding to the email format.
-The HTML and plain-text mailer layouts can be found in **app/views/layouts**
-
-### Default from address (optional)
-
-Change default **from** address common to all mailers in the application 
-found in **app/mailers/application_mailer.rb**
-
-### Mailer templates (optional)
-
-Change two view templates (if needed) for each mailer, 
-one for plain-text email and one for HTML email, found in 
-**app/views/user_mailer/account_activation.text.erb** and
-**app/views/user_mailer/account_activation.html.erb**
-
-## Automated tests with Guard
-
-Use Guard to automate the running of the tests.
-
-```
-$ bundle exec guard
 ```
 
 ## Spring processes
