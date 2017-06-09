@@ -51,8 +51,8 @@ $ bundle exec guard
 
 ## Production webserver
 
-This app uses Puma webserver suitable for production applications. See [Heroku Puma documentation](
-https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server).
+This app uses Puma webserver suitable for production applications on Heroku platform (cloud platform as a service). 
+See [Heroku Puma documentation](https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server).
 
 ### Heroku application setup
 
@@ -152,7 +152,7 @@ one for plain-text email and one for HTML email, found in
 
 This app needs Google Cloud Storage service to store images separately from application.
 To store images, this app uses [fog-google](https://github.com/fog/fog-google/blob/master/README.md) 
-and google-api-client games.
+and google-api-client gems.
 
 #### Google Cloud Platform setup
 
