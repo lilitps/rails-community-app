@@ -1,17 +1,20 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:index, :destroy]
 
-  # HTTP 	    URL	            Action	    Named route	            Purpose
+  # HTTP 	    URL	                  Action	    Named route	            Purpose
   # request
-  # GET	      /users	        index	      users_path	            page to list all users
-  # GET	      /users/1	      show	      user_path(user)	        page to show user
-  # GET	      /users/new	    new	        new_user_path	          page to make a new user (signup)
-  # POST	    /users	        create	    users_path	            create a new user
-  # GET	      /users/1/edit	  edit	      edit_user_path(user)	  page to edit user with id 1
-  # PATCH	    /users/1	      update	    user_path(user)	        update user
-  # DELETE	  /users/1	      destroy	    user_path(user)	        delete user
+  # GET	      /users	              index	      users_path	            page to list all users
+  # GET	      /users/1	            show	      user_path(user)	        page to show user
+  # GET	      /users/new	          new	        new_user_path	          page to make a new user (signup)
+  # POST	    /users	              create	    users_path	            create a new user
+  # GET	      /users/1/edit	        edit	      edit_user_path(user)	  page to edit user with id 1
+  # PATCH	    /users/1	            update	    user_path(user)	        update user
+  # DELETE	  /users/1	            destroy	    user_path(user)	        delete user
+
+  # GET	      /users/1/following	  following	  following_user_path(1)
+  # GET	      /users/1/followers	  followers	  followers_user_path(1)
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
@@ -56,6 +59,20 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private
