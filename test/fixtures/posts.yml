@@ -5,7 +5,7 @@ orange:
 
 tau_manifesto:
   content: "Check out the @tauday site by @mhartl: http://tauday.com"
-  created_at: <%= 3.years.ago %>
+  created_at: <%= 1.years.ago %>
   user: lana
 
 cat_video:
@@ -38,9 +38,19 @@ van:
   created_at: <%= 4.hours.ago %>
   user: michael
 
+enthusiastic:
+  content: "Do you want to have user submitted content on your site?"
+  created_at: <%= 4.minutes.ago %>
+  user: tina
+
+future:
+  content: "The best way to predict the future is to invent it."
+  created_at: <%= 5.days.ago %>
+  user: alan
+
 <% 30.times do |n| %>
 post_<%= n %>:
   content: <%= Faker::Lorem.sentence(5) %>
   created_at: <%= 42.days.ago %>
-  user: lana
+  user: malory
 <% end %>

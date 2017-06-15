@@ -52,6 +52,13 @@ if Rails.env.development?
     admins.each {|user| user.posts.create!(content: content)}
   end
 
+  # Posts by non admins
+  users = User.where(admin: false)
+  2.times do
+    content = Faker::Lorem.sentence(5)
+    users.each {|user| user.posts.create!(content: content)}
+  end
+
   # Following relationships
   users = User.all
   user  = users.first

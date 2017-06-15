@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class SiteFeedTest < ActionDispatch::IntegrationTest
+  include PostsHelper
 
   def setup
     @admin = users(:lana)
@@ -16,7 +17,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     log_in_as(@non_admin)
     get root_path
     assert_select 'a>img.gravatar', count: 5
-    first_page_of_feed = Post.includes(:user).where(users: {admin: true}).paginate(page: 1, per_page: 5)
+    first_page_of_feed = feed(1)
     assert_not first_page_of_feed.empty?
     first_page_of_feed.each do |post|
       assert_select 'li#post-' + post.id.to_s, count: 1
@@ -24,10 +25,44 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     end
     log_in_as(@admin)
     get root_path
-    first_page_of_feed = Post.includes(:user).where(users: {admin: true}).paginate(page: 1, per_page: 5)
+    first_page_of_feed = feed(1)
     assert_not first_page_of_feed.empty?
     first_page_of_feed.each do |post|
       assert_select 'a[href=?]', post_path(post), text: 'delete'
+    end
+  end
+
+  test "feed should have the right posts" do
+    tina = users(:tina)
+    # Posts from admin user only
+    get root_path
+    assert_template 'static_pages/home'
+    @feed = assigns(:feed)
+    assert_not @feed.empty?
+    @feed.each do |post|
+      assert post.user.admin
+    end
+    # Posts from admin user, logged in user and following users
+    posts = posts(:most_recent, :orange, :tone, :cat_video, :van)
+    log_in_as(@non_admin)
+    get root_path
+    @feed = assigns(:feed)
+    assert_not @feed.empty?
+    @feed.each do |post|
+      assert posts.include?(post)
+    end
+    # Posts from unfollowed user
+    tina.posts.each do |post_unfollowed|
+      assert_not @feed.include?(post_unfollowed)
+    end
+    # Posts from self
+    posts = posts(:most_recent, :enthusiastic, :orange, :cat_video, :future)
+    log_in_as(tina)
+    get root_path
+    @feed = assigns(:feed)
+    assert_not @feed.empty?
+    @feed.each do |post|
+      assert posts.include?(post)
     end
   end
 end

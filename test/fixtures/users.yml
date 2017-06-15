@@ -26,6 +26,17 @@ malory:
   admin: true
   <<: *DEFAULTS
 
+tina:
+  name: Tina Keen
+  email: tkeen@example.net
+  <<: *DEFAULTS
+
+alan:
+  name: Alan Kay
+  email: kay@example.net
+  admin: true
+  <<: *DEFAULTS
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name:  <%= "User #{n}" %>
