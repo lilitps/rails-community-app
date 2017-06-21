@@ -40,6 +40,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     @feed = assigns(:feed)
     assert_not @feed.empty?
     @feed.each do |post|
+      assert_match CGI.escapeHTML(post.content), response.body
       assert post.user.admin
     end
     # Posts from admin user, logged in user and following users
@@ -48,8 +49,9 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     get root_path
     @feed = assigns(:feed)
     assert_not @feed.empty?
-    @feed.each do |post|
-      assert posts.include?(post)
+    posts.each do |post|
+      assert @feed.include?(post)
+      assert_match CGI.escapeHTML(post.content), response.body
     end
     # Posts from unfollowed user
     tina.posts.each do |post_unfollowed|
@@ -61,8 +63,9 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     get root_path
     @feed = assigns(:feed)
     assert_not @feed.empty?
-    @feed.each do |post|
-      assert posts.include?(post)
+    posts.each do |post|
+      assert @feed.include?(post)
+      assert_match CGI.escapeHTML(post.content), response.body
     end
   end
 end
