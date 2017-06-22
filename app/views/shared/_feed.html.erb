@@ -2,5 +2,5 @@
     <ol class="feed">
       <%= render @feed %>
     </ol>
-    <%= will_paginate @feed %>
+    <%= will_paginate @feed, class: 'pagination-sm' %>
 <% end %>

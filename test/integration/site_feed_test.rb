@@ -11,7 +11,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
   test "should display first 5 posts on home page feed" do
     get root_path
     assert_template 'static_pages/home'
-    assert_select 'div.pagination', count: 1
+    assert_select 'div.pagination-sm', count: 1
     assert_select 'ol.feed', count: 1
     assert_select 'a>img.gravatar', count: 0
     log_in_as(@non_admin)

@@ -10,7 +10,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
   test "post interface" do
     log_in_as(@non_admin)
     get root_path
-    assert_select 'div.pagination'
+    assert_select 'div.pagination-sm'
     # Invalid submission
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: "" } }
