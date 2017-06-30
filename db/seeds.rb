@@ -11,6 +11,7 @@ User.create!(name: "Viktor Schmidt",
              password: "password",
              password_confirmation: "password",
              admin: true,
+             locale: 'en',
              activated: true,
              activated_at: Time.zone.now)
 
@@ -28,6 +29,7 @@ if Rails.env.development?
                  password: password,
                  password_confirmation: password,
                  admin: true,
+                 locale: 'en',
                  activated: true,
                  activated_at: Time.zone.now)
   end
@@ -41,6 +43,7 @@ if Rails.env.development?
                  email: email,
                  password: password,
                  password_confirmation: password,
+                 locale: 'en',
                  activated: true,
                  activated_at: Time.zone.now)
   end

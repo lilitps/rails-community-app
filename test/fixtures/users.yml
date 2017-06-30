@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 DEFAULTS: &DEFAULTS
   password_digest: <%= User.digest('password') %>
+  locale: 'en'
   activated: true
   activated_at: <%= Time.zone.now %>
 
