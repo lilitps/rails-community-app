@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Specifying an exact Ruby version
-ruby '2.4.0'
+ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1'
@@ -47,6 +47,8 @@ gem 'mini_magick', '~> 4.7'
 gem 'fog-google'
 gem 'google-api-client', '> 0.8.5', '< 0.9'
 gem 'mime-types'
+# Find out which locale the user preferes by reading the languages they specified in their browser
+gem 'http_accept_language', '~> 2.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -90,3 +92,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# to avoid polling for changes
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
