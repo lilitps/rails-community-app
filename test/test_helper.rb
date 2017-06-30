@@ -24,11 +24,19 @@ end
 
 
 class ActionDispatch::IntegrationTest
-
   # Log in as a particular user.
   def log_in_as(user, password: 'password', remember_me: '1')
-    post login_path, params: { session: { email: user.email,
-                                          password: password,
-                                          remember_me: remember_me } }
+    post login_path, params: {session: {email: user.email,
+                                        password: password,
+                                        remember_me: remember_me}}
+  end
+end
+
+# Fixes the missing default locale problem in request specs.
+# See http://www.ruby-forum.com/topic/3448797
+class ActionDispatch::Routing::RouteSet
+  # Include the locale params in every URL
+  def default_url_options
+    {locale: I18n.locale}
   end
 end

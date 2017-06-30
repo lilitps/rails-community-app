@@ -1,32 +1,33 @@
-                 Prefix Verb   URI Pattern                             Controller#Action
-                 signup GET    /signup(.:format)                       users#new
-                        POST   /signup(.:format)                       users#create
-                  login GET    /login(.:format)                        sessions#new
-                        POST   /login(.:format)                        sessions#create
-                 logout DELETE /logout(.:format)                       sessions#destroy
-                  about GET    /about(.:format)                        static_pages#about
-                contact GET    /contact(.:format)                      static_pages#contact
-                   help GET    /help(.:format)                         static_pages#help
-                  posts GET    /posts(.:format)                        static_pages#home
-                   feed GET    /feed(.:format)                         static_pages#home
-                   root GET    /                                       static_pages#home
-         following_user GET    /users/:id/following(.:format)          users#following
-         followers_user GET    /users/:id/followers(.:format)          users#followers
-                  users GET    /users(.:format)                        users#index
-                        POST   /users(.:format)                        users#create
-               new_user GET    /users/new(.:format)                    users#new
-              edit_user GET    /users/:id/edit(.:format)               users#edit
-                   user GET    /users/:id(.:format)                    users#show
-                        PATCH  /users/:id(.:format)                    users#update
-                        PUT    /users/:id(.:format)                    users#update
-                        DELETE /users/:id(.:format)                    users#destroy
-edit_account_activation GET    /account_activations/:id/edit(.:format) account_activations#edit
-        password_resets POST   /password_resets(.:format)              password_resets#create
-     new_password_reset GET    /password_resets/new(.:format)          password_resets#new
-    edit_password_reset GET    /password_resets/:id/edit(.:format)     password_resets#edit
-         password_reset PATCH  /password_resets/:id(.:format)          password_resets#update
-                        PUT    /password_resets/:id(.:format)          password_resets#update
-                        POST   /posts(.:format)                        posts#create
-                   post DELETE /posts/:id(.:format)                    posts#destroy
-          relationships POST   /relationships(.:format)                relationships#create
-           relationship DELETE /relationships/:id(.:format)            relationships#destroy
+                 Prefix Verb   URI Pattern                                       Controller#Action
+                  posts GET    (/:locale)/posts(.:format)                        static_pages#home {:locale=>/en|de/}
+                   feed GET    (/:locale)/feed(.:format)                         static_pages#home {:locale=>/en|de/}
+                  about GET    (/:locale)/about(.:format)                        static_pages#about {:locale=>/en|de/}
+                contact GET    (/:locale)/contact(.:format)                      static_pages#contact {:locale=>/en|de/}
+                   help GET    (/:locale)/help(.:format)                         static_pages#help {:locale=>/en|de/}
+                 signup GET    (/:locale)/signup(.:format)                       users#new {:locale=>/en|de/}
+                        POST   (/:locale)/signup(.:format)                       users#create {:locale=>/en|de/}
+                  login GET    (/:locale)/login(.:format)                        sessions#new {:locale=>/en|de/}
+                        POST   (/:locale)/login(.:format)                        sessions#create {:locale=>/en|de/}
+                 logout DELETE (/:locale)/logout(.:format)                       sessions#destroy {:locale=>/en|de/}
+                 locale POST   (/:locale)/locale(.:format)                       locales#update {:locale=>/en|de/}
+         following_user GET    (/:locale)/users/:id/following(.:format)          users#following {:locale=>/en|de/}
+         followers_user GET    (/:locale)/users/:id/followers(.:format)          users#followers {:locale=>/en|de/}
+                  users GET    (/:locale)/users(.:format)                        users#index {:locale=>/en|de/}
+                        POST   (/:locale)/users(.:format)                        users#create {:locale=>/en|de/}
+               new_user GET    (/:locale)/users/new(.:format)                    users#new {:locale=>/en|de/}
+              edit_user GET    (/:locale)/users/:id/edit(.:format)               users#edit {:locale=>/en|de/}
+                   user GET    (/:locale)/users/:id(.:format)                    users#show {:locale=>/en|de/}
+                        PATCH  (/:locale)/users/:id(.:format)                    users#update {:locale=>/en|de/}
+                        PUT    (/:locale)/users/:id(.:format)                    users#update {:locale=>/en|de/}
+                        DELETE (/:locale)/users/:id(.:format)                    users#destroy {:locale=>/en|de/}
+edit_account_activation GET    (/:locale)/account_activations/:id/edit(.:format) account_activations#edit {:locale=>/en|de/}
+        password_resets POST   (/:locale)/password_resets(.:format)              password_resets#create {:locale=>/en|de/}
+     new_password_reset GET    (/:locale)/password_resets/new(.:format)          password_resets#new {:locale=>/en|de/}
+    edit_password_reset GET    (/:locale)/password_resets/:id/edit(.:format)     password_resets#edit {:locale=>/en|de/}
+         password_reset PATCH  (/:locale)/password_resets/:id(.:format)          password_resets#update {:locale=>/en|de/}
+                        PUT    (/:locale)/password_resets/:id(.:format)          password_resets#update {:locale=>/en|de/}
+                        POST   (/:locale)/posts(.:format)                        posts#create {:locale=>/en|de/}
+                   post DELETE (/:locale)/posts/:id(.:format)                    posts#destroy {:locale=>/en|de/}
+          relationships POST   (/:locale)/relationships(.:format)                relationships#create {:locale=>/en|de/}
+           relationship DELETE (/:locale)/relationships/:id(.:format)            relationships#destroy {:locale=>/en|de/}
+                   root GET    /(:locale)(.:format)                              static_pages#home {:locale=>/en|de/}
