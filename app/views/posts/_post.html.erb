@@ -6,17 +6,18 @@
 
   <span class="stamp">
     <% if logged_in? %>
-        Posted by
+        <%= t('posted_by') %>
         <%= link_to gravatar_for(post.user, size: 12), post.user %>
         <%= link_to post.user.name, post.user, class: "user" %>
-        <%= time_ago_in_words(post.created_at) %> ago.
+        <%= t('ago', time_ago_in_words: time_ago_in_words(post.created_at)) %>
 
         <% if current_user.admin? %>
-          <%= link_to "delete", post, method: :delete,
-                      data: {confirm: "You sure?"} %>
+          <%= link_to t('delete'), post, method: :delete,
+                      data: {confirm: t('you_sure')} %>
         <% end %>
     <% else %>
-        Posted <%= time_ago_in_words(post.created_at) %> ago.
+        <%= t('posted') %>
+        <%= t('ago', time_ago_in_words: time_ago_in_words(post.created_at)) %>.
     <% end %>
   </span>
 </li>
