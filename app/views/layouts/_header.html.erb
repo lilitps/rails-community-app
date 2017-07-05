@@ -1,33 +1,34 @@
 <header class="navbar navbar-default navbar-fixed-top ">
   <div class="container">
-    <%= link_to image_tag("rails.png", height: "20", alt: "Community logo"), root_path, class: "navbar-brand" %>
+    <%= link_to image_tag("rails.png", height: "20", alt: t('community_logo')), root_path, class: "navbar-brand" %>
 
     <nav>
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "News", root_path(anchor: "news") %></li>
+        <li><%= link_to t('menu.home'), root_path %></li>
+        <li><%= link_to t('menu.news'), root_path(anchor: "news") %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b> </a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= t('menu.account.account') %><b class="caret"></b> </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
+                <li><%= link_to t('menu.account.profile'), current_user %></li>
+                <li><%= link_to t('menu.account.profile_settings'), edit_user_path(current_user) %></li>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to "Log out", logout_path, method: :delete %></li>
+                <li><%= link_to t('menu.account.log_out'), logout_path, method: :delete %></li>
               </ul>
             </li>
         <% else %>
-            <li><%= link_to "Log in", login_path %></li>
-            <li><%= link_to "Sign up now!", signup_path %></li>
+            <li><%= link_to t('menu.account.log_in'), login_path %></li>
+            <li><%= link_to t('menu.account.sign_up_now'), signup_path %></li>
         <% end %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Language <b class="caret"></b> </a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('menu.language.language') %><b class="caret"></b> </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "English", locale_path(locale: 'en'), method: :post %></li>
-            <li><%= link_to "Deutsch", locale_path(locale: 'de'), method: :post %></li>
+            <li><%= link_to t('menu.language.english'), locale_path(locale: 'en'), method: :post %></li>
+            <li><%= link_to t('menu.language.german'), locale_path(locale: 'de'), method: :post %></li>
           </ul>
         </li>
       </ul>

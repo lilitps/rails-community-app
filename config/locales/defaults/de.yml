@@ -1,0 +1,77 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+de:
+  # Layouts
+  community_logo: "Logo der Gemeinschaft"
+  rails_logo: "Logo von Rails"
+
+  # Page titles
+  page_title:
+    root: ""
+    log_in: "Log in"
+    sign_up: "Sign up"
+    about: "About"
+    contact: "Contact"
+    help: "Help"
+    edit_user: "Edit user"
+    all_users: "All users"
+
+  # Menu
+  menu:
+      home: "Startseite"
+      news: "Nachrichten"
+      about: "Über"
+      contact: "Kontakt"
+      help: "Hilfe"
+
+      account:
+        account: "Konto"
+        profile: "Profil"
+        profile_settings: "Profil Einstellungen"
+        log_in: "Einloggen"
+        log_out: "Ausloggen"
+        sign_up_now: "Melden Sie sich jetzt an!"
+
+      language:
+        language: "Sprache"
+        english: "English"
+        german: "Deutsch"
+
+      administration:
+        administration: "Verwaltung"
+        users: "Benutzer"
+
+  # pagination
+  will_paginate:
+    previous_label: "&#8592; Vorherige"
+    next_label: "Nächste &#8594;"
+    page_gap: "&hellip;"
+
+  # certain keys must be escaped
+  success:
+    'true':  'Wahr!'
+    'on':    'An!'
+    'false': 'Falsch!'
+  failure:
+    true:    'Wahr!'
+    off:     'Aus!'
+    false:   'Falsch!'

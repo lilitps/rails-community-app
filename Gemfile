@@ -41,7 +41,7 @@ gem 'will_paginate', '~> 3.1'
 gem 'bootstrap-will_paginate', '~> 1.0'
 # Use CarrierWave to upload files
 gem 'carrierwave', '~> 1.1'
-# User Mini Magick to manipulate images with minimal use of memory
+# Use Mini Magick to manipulate images with minimal use of memory
 gem 'mini_magick', '~> 4.7'
 # Use google drive to upload and download files through cloud services library fog
 gem 'fog-google'
@@ -49,6 +49,8 @@ gem 'google-api-client', '> 0.8.5', '< 0.9'
 gem 'mime-types'
 # Find out which locale the user preferes by reading the languages they specified in their browser
 gem 'http_accept_language', '~> 2.1'
+# Use rails-i18n to get default pluralization and transliteration rules
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -69,7 +71,9 @@ group :development do
   gem 'awesome_print'
   # Use for fighting the N+1 problem in Ruby
   gem 'bullet'
-  gem 'listen', '~> 3.0.5'
+  # Use i18n-tasks to find and manage missing and unused translations
+  gem 'i18n-tasks', '~> 0.9.15'
+  gem 'listen', '~> 3.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0'
