@@ -1,0 +1,52 @@
+de:
+  # posts
+  compose_new_post: "Neuen Beitrag verfassen..."
+  maximum_file_size: "JPEG, GIF und PNG dürfen hochgeladen werden. Maximale Dateigröße beträgt 5 MB."
+  maximum_file_size_alert: "Maximale Dateigröße beträgt 5 MB. Bitte wählen Sie eine kleinere Datei."
+  post: "Veröffentlichen"
+  post_created: "Beitrag erstellt!"
+
+  posted_by: "Veröffentlicht durch"
+  posted: "Veröffentlicht"
+  ago: "vor %{time_ago_in_words}" #see datetime
+
+  delete: "löschen"
+  you_sure: "Sind Sie sicher?"
+  post_deleted: "Beitrag gelöscht"
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "etwa einer Stunde"
+        other: "etwa %{count} Stunden"
+      about_x_months:
+        one: "etwa einem Monat"
+        other: "etwa %{count} Monaten"
+      about_x_years:
+        one: "etwa einem Jahr"
+        other: "etwa %{count} Jahren"
+      almost_x_years:
+        one: "fast einem Jahr"
+        other: "fast %{count} Jahren"
+      half_a_minute: "einer halben Minute"
+      less_than_x_minutes:
+        one: "weniger als einer Minute"
+        other: "weniger als %{count} Minuten"
+      less_than_x_seconds:
+        one: "weniger als einer Sekunde"
+        other: "weniger als %{count} Sekunden"
+      over_x_years:
+        one: "mehr als einem Jahr"
+        other: "mehr als %{count} Jahren"
+      x_days:
+        one: "einem Tag"
+        other: "%{count} Tagen"
+      x_minutes:
+        one: "einer Minute"
+        other: "%{count} Minuten"
+      x_months:
+        one: "einem Monat"
+        other: "%{count} Monaten"
+      x_seconds:
+        one: "einer Sekunde"
+        other: "%{count} Sekunden"

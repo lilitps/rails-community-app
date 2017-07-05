@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Post created!"
+      flash[:success] = t('post_created')
       redirect_to root_url
     else
       @feed = []
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:success] = "Post deleted"
+    flash[:success] = t('post_deleted')
     redirect_back(fallback_location: root_url)
   end
 
