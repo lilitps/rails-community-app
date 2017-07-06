@@ -6,7 +6,7 @@ class LocalesControllerTest < ActionDispatch::IntegrationTest
     post locale_path(locale: 'de')
     assert_redirected_to root_url(locale: 'de')
     assert_not flash[:success].empty?
-    assert_equal 'de', cookies['locale']
+    assert_equal 'de', session['locale']
     assert_equal :de, I18n.locale
   end
 end

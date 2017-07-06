@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
 
   # Managing the Locale across Requests
   def set_locale
-    I18n.locale = current_user.try(:locale) || try {cookies.permanent[:locale]} || try {http_accept_language.preferred_language_from(I18n.available_locales)} || I18n.default_locale
+    I18n.locale = current_user&.locale ||
+        session[:locale] ||
+        http_accept_language.preferred_language_from(I18n.available_locales) ||
+        I18n.default_locale
   end
 
   private
