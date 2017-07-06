@@ -1,0 +1,11 @@
+de:
+  # log in
+  forgot_password: "(Passwort vergessen)"
+  remember_me: "Erinnere mich an diesem Computer"
+  log_in: "Einloggen"
+  account_not_activated: "Konto nicht aktiviert. "
+  invalid_credentials: "Ungültige E-Mail- / Passwort-Kombination"
+
+  # sign up
+  new_user: "Neuer Benutzer?"
+  sign_up_now: "Melden Sie sich jetzt an!"
