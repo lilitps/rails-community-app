@@ -1,6 +1,9 @@
 en:
   # users
+  # account activation
   check_email_to_activate_account: "Please check your email to activate your account."
+  account_activated: "Account activated!"
+  invalid_activation_link: "Invalid activation link"
 
   # user info
   view_my_profile: "view my profile"
