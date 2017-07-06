@@ -10,6 +10,4 @@ en:
   posted: "Posted"
   ago: "%{time_ago_in_words} ago"
 
-  delete: "delete"
-  you_sure: "You sure?"
   post_deleted: "Post deleted"

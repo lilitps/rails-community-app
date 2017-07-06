@@ -60,11 +60,10 @@ en:
       administration: "Administration"
       users: "Users"
 
-  # pagination
-  will_paginate:
-    previous_label: "&#8592; Previous"
-    next_label: "Next &#8594;"
-    page_gap: "&hellip;"
+  # buttons
+  delete: "delete"
+  you_sure: "You sure?"
+  change: "change"
 
   # certain keys must be escaped
   success:

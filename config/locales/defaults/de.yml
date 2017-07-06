@@ -27,13 +27,13 @@ de:
   # Page titles
   page_title:
     root: ""
-    log_in: "Log in"
-    sign_up: "Sign up"
-    about: "About"
-    contact: "Contact"
-    help: "Help"
-    edit_user: "Edit user"
-    all_users: "All users"
+    log_in: "Einloggen"
+    sign_up: "Anmelden"
+    about: "Über"
+    contact: "Kontakt"
+    help: "Hilfe"
+    edit_user: "Benutzer bearbeiten"
+    all_users: "Alle Benutzer"
 
   # Menu
   menu:
@@ -60,11 +60,10 @@ de:
         administration: "Verwaltung"
         users: "Benutzer"
 
-  # pagination
-  will_paginate:
-    previous_label: "&#8592; Vorherige"
-    next_label: "Nächste &#8594;"
-    page_gap: "&hellip;"
+  # buttons
+  delete: "löschen"
+  you_sure: "Sind Sie sicher?"
+  change: "ändern"
 
   # certain keys must be escaped
   success:

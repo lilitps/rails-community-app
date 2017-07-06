@@ -1,7 +1,7 @@
-<% provide(:title, "Edit user") %>
-<% provide(:button_text, 'Save changes') %>
+<% provide(:title, t('page_title.edit_user')) %>
+<% provide(:button_text, t('save_changes')) %>
 
-<h1>Update your profile</h1>
+<h1><%= t('update_your_profile') %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -9,7 +9,7 @@
 
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+      <a href="http://gravatar.com/emails" target="_blank" rel="noopener"><%= t('change') %></a>
     </div>
   </div>
 </div>

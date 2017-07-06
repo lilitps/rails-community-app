@@ -10,8 +10,6 @@ de:
   posted: "Veröffentlicht"
   ago: "vor %{time_ago_in_words}" #see datetime
 
-  delete: "löschen"
-  you_sure: "Sind Sie sicher?"
   post_deleted: "Beitrag gelöscht"
 
   datetime:

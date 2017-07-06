@@ -1,0 +1,20 @@
+en:
+  # users
+  check_email_to_activate_account: "Please check your email to activate your account."
+
+  # user info
+  view_my_profile: "view my profile"
+  posts: "post"
+  # follow user
+  following: "Following"
+  followers: "Followers"
+  # user feed
+  user_feed_header: "%{user_name}'s Post Feed"
+
+  # edit user
+  update_your_profile: "Update your profile"
+  save_changes: "Save changes"
+  profile_updated: "Profile updated"
+
+  # delete user
+  user_deleted: "User deleted"

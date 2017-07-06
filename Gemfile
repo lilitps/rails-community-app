@@ -50,7 +50,9 @@ gem 'mime-types'
 # Find out which locale the user preferes by reading the languages they specified in their browser
 gem 'http_accept_language', '~> 2.1'
 # Use rails-i18n to get default pluralization and transliteration rules
-gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
+gem 'rails-i18n', '~> 5.0' # For 5.0.x and 5.1.x
+# Translations for the will_paginate gem
+gem 'will-paginate-i18n', '~> 0.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

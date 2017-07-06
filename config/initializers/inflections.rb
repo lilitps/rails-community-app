@@ -14,3 +14,16 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+# Inflections for de
+ActiveSupport::Inflector.inflections(:de) do |inflect|
+  inflect.clear
+
+  # Pluralendung n/en
+  # inflect.plural /(ent)$/i, 'enten'
+  # inflect.singular /(enten)$/i, 'ent'
+  # inflect.plural /(e|in|ion|ik|heit|keit|schaft|tät|ung)$/i, 'ionen'
+  # inflect.singular /(ionen)$/i, 'ion'
+
+  inflect.irregular 'Beitrag', 'Beiträge'
+end
