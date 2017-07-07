@@ -1,5 +1,9 @@
 de:
   # users
+  # create account
+  password_confirmation: "Passwortbestätigung"
+  create_my_account: "Mein Konto erstellen"
+
   # account activation
   check_email_to_activate_account: "Bitte überprüfen Sie Ihre E-Mail, um Ihr Konto zu aktivieren."
   account_activated: "Konto aktiviert!"
@@ -8,9 +12,13 @@ de:
   # user info
   view_my_profile: "Mein Profil ansehen"
   posts: "Beitrag"
-  # follow user
+
+  # relationships
+  follow: "Folgen"
+  unfollow: "Entfolgen"
   following: "Folge ich"
   followers: "Follower"
+
   # user feed
   user_feed_header: "%{user_name}'s Beiträge-Feed"
 
@@ -19,5 +27,9 @@ de:
   save_changes: "Änderungen speichern"
   profile_updated: "Profil aktualisiert"
 
+  # user locale
+  locale_set_to: "Sprache geändert auf %{locale}!"
+
+  # delete user
   user_deleted: "Benutzer gelöscht"
 
