@@ -21,6 +21,7 @@
 
 en:
   # Layouts
+  community_name: "Community App"
   community_logo: "Community logo"
   rails_logo: "Rails logo"
 
