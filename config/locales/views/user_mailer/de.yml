@@ -1,0 +1,18 @@
+de:
+  user_mailer:
+    account_activation:
+      subject: "Kontoaktivierung"
+    password_reset:
+      subject: "Passwort zurücksetzen"
+
+  # account activation
+  greeting: "Hallo %{user_name}"
+  welcome: "Willkommen in %{community_name}!"
+  click_link_to_activate: "Um Ihr Konto zu aktivieren, klicken Sie auf den Link unten:"
+  activate: "Aktivieren"
+
+  # password reset
+  click_link_to_reset_pw: "Um Ihr Passwort zurückzusetzen, klicken Sie auf den Link unten:"
+  reset_password: "Passwort zurücksetzen"
+  link_will_expire: "Dieser Link läuft in zwei Stunden ab."
+  ignore_password_reset: "Wenn Sie ihr Passwort nicht zurücksetzen möchten, ignorieren Sie diese Email. Ihr bisheriges Passwort bleibt weiterhin aktuell."

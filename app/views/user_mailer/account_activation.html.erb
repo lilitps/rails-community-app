@@ -1,11 +1,12 @@
-<h1>Community App</h1>
+<h1><%= t('community_name') %></h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p><%= t('greeting', user_name: @user.name) %>,</p>
 
 <p>
-  Welcome to the Community App! Click on the link below to activate your account:
+  <%= t('welcome', community_name: t('community_name'))  %>
+  <%= t('click_link_to_activate') %>
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+<%= link_to t('activate'), edit_account_activation_url(@user.activation_token,
                                                     email: @user.email,
                                                     locale: I18n.locale) %>
