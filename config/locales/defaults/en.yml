@@ -34,6 +34,8 @@ en:
     help: "Help"
     edit_user: "Edit user"
     all_users: "All users"
+    forgot_password: "Forgot password"
+    reset_password: "Reset password"
 
   # Menu
   menu:
@@ -64,6 +66,7 @@ en:
   delete: "delete"
   you_sure: "You sure?"
   change: "change"
+  submit: "Submit"
 
   # certain keys must be escaped
   success:

@@ -1,0 +1,7 @@
+de:
+  # password resets
+  password_reset_email_sent: "E-Mail mit Passwort-Reset-Anleitung gesendet"
+  email_address_not_found: "E-Mail-Adresse wurde nicht gefunden"
+  update_password: "Passwort erneuern"
+  password_has_been_reset: "Passwort wurde zurückgesetzt."
+  password_reset_has_expired: "Passwort-Reset ist abgelaufen."
