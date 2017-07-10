@@ -20,9 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 de:
-  # Layouts
+  # General
   community_name: "Community App"
   community_logo: "Logo der Gemeinschaft"
+  community_page_description: "Dies ist die Seite von der Gemeinschaft."
+  community_about: "Dies ist eine einfache Seite für eine Gemeinschaft."
+  community_description: "Die Gemeinschaft ist eine ..."
+  community_contact: "Kontaktieren Sie die Gemeinschaft."
   rails_logo: "Logo von Rails"
 
   # Page titles
