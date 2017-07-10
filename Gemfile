@@ -62,6 +62,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Shim to load environment variables from .env into ENV
   gem 'dotenv-rails'
+  # Preview email in the default browser instead of sending it.
+  gem 'letter_opener'
   # Use IRB alternative for better code completion in console
   gem 'pry'
   # Use sqlite3 as the database for Active Record
