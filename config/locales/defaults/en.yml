@@ -73,6 +73,13 @@ en:
   change: "change"
   submit: "Submit"
 
+  # errors
+  errors:
+    error: "error"
+    form_contains_errors: "The form contains %{errors}"
+    can_not_be_empty: "can't be empty"
+    maximum_file_size: "should be less than 5MB"
+
   # certain keys must be escaped
   success:
     'true':  'True!'

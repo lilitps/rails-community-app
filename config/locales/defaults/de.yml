@@ -73,6 +73,13 @@ de:
   change: "ändern"
   submit: "Abschicken"
 
+  # errors
+  errors:
+    error: "Fehler"
+    form_contains_errors: "Das Formular enthält %{errors}"
+    can_not_be_empty: "kann nicht leer sein"
+    maximum_file_size: "sollte kleiner als 5MB sein"
+
   # certain keys must be escaped
   success:
     'true':  'Wahr!'

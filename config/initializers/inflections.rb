@@ -26,4 +26,5 @@ ActiveSupport::Inflector.inflections(:de) do |inflect|
   # inflect.singular /(ionen)$/i, 'ion'
 
   inflect.irregular 'Beitrag', 'Beiträge'
+  inflect.irregular 'Fehler', 'Fehler'
 end

@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   # Validates the size of an uploaded picture.
   def picture_size
     if picture.size > 5.megabytes
-      errors.add(:picture, "should be less than 5MB")
+      errors.add(:picture, t('errors.maximum_file_size'))
     end
   end
 end
