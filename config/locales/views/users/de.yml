@@ -28,7 +28,7 @@ de:
   profile_updated: "Profil aktualisiert"
 
   # user locale
-  locale_set_to: "Sprache geändert auf %{locale}!"
+  locale_set_to: "Sprache geändert auf %{language}!"
 
   # delete user
   user_deleted: "Benutzer gelöscht"

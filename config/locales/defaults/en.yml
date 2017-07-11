@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  language_name: "English"
+
   # General
   community_name: "Community App"
   community_logo: "Community logo"
