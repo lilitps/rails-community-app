@@ -1,0 +1,19 @@
+en:
+  # activerecord models
+  activerecord:
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        admin: "Admin"
+        password: "Password"
+        activated: "Activated"
+        activated_at: "Activated at"
+        locale: "Locale"
+      post:
+        content: "Content"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        picture: "Picture"

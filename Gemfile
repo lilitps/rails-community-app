@@ -51,6 +51,9 @@ gem 'mime-types'
 gem 'http_accept_language', '~> 2.1'
 # Use rails-i18n to get default pluralization and transliteration rules
 gem 'rails-i18n', '~> 5.0' # For 5.0.x and 5.1.x
+# I18n library for ActiveRecord model/data translation
+# gem 'globalize', git: 'https://github.com/globalize/globalize'
+# gem 'activemodel-serializers-xml'
 # Translations for the will_paginate gem
 gem 'will-paginate-i18n', '~> 0.1'
 
