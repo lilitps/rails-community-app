@@ -81,31 +81,43 @@ p {
 .feed {
   list-style: none;
   padding: 0;
-  li {
-    padding: 10px 0;
+  div {
+    padding: 12px 12px 0;
   }
   .content {
     display: block;
     width: 100%;
-    margin-left: 10px;
+    float: left;
+    padding-top: 10px;
+    text-align: justify;
     img {
       display: block;
+      margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto;
       padding: 5px 0;
+      horiz-align: center;
     }
   }
   .stamp {
     color: $gray-light;
     display: block;
-    float: right;
-    margin-right: 10px;
+    width: 100%;
+    float: left;
     .user {
       margin-top: 5em;
       padding-top: 0;
     }
     .gravatar {
-      float: none;
-      margin-left: 5px;
-      margin-right: 0px;
+      display: block;
+      float: left;
+      margin-right: 8px;
+    }
+    .options {
+      float: right;
+      .dropdown-menu {
+        position: relative;
+      }
     }
   }
 }

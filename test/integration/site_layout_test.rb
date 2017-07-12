@@ -87,8 +87,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'li.dropdown>a.dropdown-toggle', 'Administration'
     assert_select "a[href=?]", users_path
 
-    # all menus active
-    assert_select 'li.dropdown>a.dropdown-toggle', count: 3
+    # all menus and posts menus active
+    assert_select 'li.dropdown>a.dropdown-toggle', count: 8
   end
 
   test "page title when logged in as admin" do

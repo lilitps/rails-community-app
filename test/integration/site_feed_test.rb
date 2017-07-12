@@ -12,7 +12,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template 'static_pages/home'
     assert_select 'div.pagination-sm', count: 1
-    assert_select 'ol.feed', count: 1
+    assert_select 'div.feed', count: 1
     assert_select 'a>img.gravatar', count: 0
     log_in_as(@non_admin)
     get root_path
@@ -20,7 +20,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     first_page_of_feed = feed(1)
     assert_not first_page_of_feed.empty?
     first_page_of_feed.each do |post|
-      assert_select 'li#post-' + post.id.to_s, count: 1
+      assert_select 'div#post-' + post.id.to_s, count: 1
       assert_match post.content, response.body
     end
     log_in_as(@admin)
