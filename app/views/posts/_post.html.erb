@@ -1,4 +1,4 @@
-<li id="post-<%= post.id %>">
+<div id="post-<%= post.id %>">
   <span class="content"><%= post.content %></span>
   <span class="picture">
     <%= link_to image_tag(post.picture.thumb.url, alt: post.picture.filename), post.picture.url, target: "_blank" if post.picture? %>
@@ -20,4 +20,4 @@
         <%= t('ago', time_ago_in_words: time_ago_in_words(post.created_at)) %>.
     <% end %>
   </span>
-</li>
+</div>

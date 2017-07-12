@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = t('profile_updated')
+      flash[:success] = t('profile_updated', locale: @user.locale)
       redirect_to @user
     else
       render 'edit'
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :locale)
   end
 
   # Before filters

@@ -25,15 +25,18 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_redirected_to edit_user_url(@user)
     name = "Foo Bar"
     email = "foo@bar.com"
+    locale = "de"
     patch user_path(@user), params: {user: {name: name,
                                             email: email,
                                             password: "",
-                                            password_confirmation: ""}}
+                                            password_confirmation: "",
+                                            locale: locale}}
     assert_not flash.empty?
     assert_redirected_to @user
     assert_nil session[:forwarding_url]
     @user.reload
     assert_equal name, @user.name
     assert_equal email, @user.email
+    assert_equal locale, @user.locale
   end
 end

@@ -14,10 +14,10 @@
     <%= f.password_field :password_confirmation, class: 'form-control' %>
 
     <%= f.label :locale %>
-    <%= select_tag(:locale, options_for_select([[t('menu.language.english'), :en],
-                                                  [t('menu.language.german'), :de]],
+    <%= f.select(:locale, options_for_select([[t('menu.language.english'), :en],
+                                                [t('menu.language.german'), :de]],
                                                @user.locale),
-                     class: 'form-control') %>
+                   class: 'form-control') %>
 
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
