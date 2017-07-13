@@ -1,5 +1,5 @@
 <% if @feed.any? %>
-    <div class="feed">
+    <div class="row feed">
       <%= render @feed %>
     </div>
     <%= will_paginate @feed, class: 'pagination-sm' %>

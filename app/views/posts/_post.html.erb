@@ -1,34 +1,37 @@
 <div id="post-<%= post.id %>">
-  <span class="stamp">
-    <% if logged_in? %>
-        <%= t('posted_by') %>
-        <%= link_to gravatar_for(post.user, size: 40), post.user %>
-        <%= link_to post.user.name, post.user, class: "user" %>
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
+      <div class="caption">
+        <div class="stamp">
+          <% if logged_in? %>
+              <%= t('posted_by') %>
+              <%= link_to gravatar_for(post.user, size: 40), post.user %>
+              <%= link_to post.user.name, post.user, class: "user" %>
 
-        <% if current_user.admin? %>
-            <li class="options dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <b class="caret"></b> </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to t('delete'), post, method: :delete, data: {confirm: t('you_sure')} %></li>
-              </ul>
-            </li>
-        <% end %>
-        <br>
-        <%= t('ago', time_ago_in_words: time_ago_in_words(post.created_at)) %>
-    <% else %>
-        <%= t('posted') %>
-        <%= t('ago', time_ago_in_words: time_ago_in_words(post.created_at)) %>.
-    <% end %>
-  </span>
+              <% if current_user.admin? %>
+                  <li class="options dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <b class="caret"></b> </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to t('delete'), post, method: :delete, data: {confirm: t('you_sure')} %></li>
+                    </ul>
+                  </li>
+              <% end %>
+              <br>
+              <%= t('ago', time_ago_in_words: time_ago_in_words(post.created_at)) %>
+          <% else %>
+              <%= t('posted') %>
+              <%= t('ago', time_ago_in_words: time_ago_in_words(post.created_at)) %>.
+          <% end %>
+        </div>
 
-  <span class="content">
-    <%= post.content %>
+        <div class="content">
+          <%= post.content %>
+        </div>
+      </div>
 
-    <span class="picture">
-    <%= link_to image_tag(post.picture.thumb.url, alt: post.picture.filename, align: "middle"),
-                post.picture.url, target: "_blank" if post.picture? %>
-  </span>
-  </span>
-
+      <%= link_to image_tag(post.picture.thumb.url, alt: post.picture.filename, align: "middle"),
+                  post.picture.url, target: "_blank" if post.picture? %>
+    </div>
+  </div>
 </div>
