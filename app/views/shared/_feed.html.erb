@@ -1,6 +1,17 @@
-<% if @feed.any? %>
-    <div class="row feed">
+<div id="feed" class="row feed">
+  <% if @post && logged_in? %>
+      <% if current_user.admin? %>
+          <div id="post-new">
+            <%= render 'posts/post_form' %>
+          </div>
+      <% end %>
+  <% end %>
+
+  <% if @feed.any? %>
       <%= render @feed %>
-    </div>
-    <%= will_paginate @feed, class: 'pagination-sm' %>
-<% end %>
+
+      <div class="col-sm-12 col-md-12 col-lg-12 center">
+        <%= will_paginate @feed, class: 'pagination-sm' %>
+      </div>
+  <% end %>
+</div>

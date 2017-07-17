@@ -5,6 +5,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
   def setup
     @admin = users(:lana)
     @non_admin = users(:archer)
+    @post = posts(:orange)
   end
 
   test "post interface" do
@@ -13,21 +14,23 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'div.pagination-sm'
     # Invalid submission
     assert_no_difference 'Post.count' do
-      post posts_path, params: { post: { content: "" } }
+      post posts_path, params: {post: {content: ""}}
     end
+    # Invalid submission as admin
     log_in_as(@admin)
     get root_path
     assert_select 'input[type=file]'
     assert_no_difference 'Post.count' do
-      post posts_path, params: { post: { content: "" } }
+      post posts_path, params: {post: {content: ""}}
     end
     assert_select 'div#error_explanation'
     # Valid submission (only admin)
     content = "This post really ties the room together"
     picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
     assert_difference 'Post.count', 1 do
-      post posts_path, params: { post: { content: content, picture: picture } }
+      post posts_path, params: {post: {content: content, picture: picture}}
     end
+    assert_not flash.empty?
     assert @admin.posts.first.picture?
     assert_redirected_to root_url
     follow_redirect!
@@ -38,6 +41,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference 'Post.count', -1 do
       delete post_path(first_post)
     end
+    assert_not flash.empty?
     # Visit different user as admin
     get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 2
@@ -45,5 +49,25 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     log_in_as(@non_admin)
     get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
+  end
+
+  test "update posts" do
+    log_in_as(@admin)
+    get root_path
+    content = ""
+    assert_no_difference 'Post.count' do
+      patch post_path(@post), params: {post: {content: content}}
+    end
+    assert_select 'div#error_explanation'
+    content = "This post really ties the room together"
+    picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
+    assert_no_difference 'Post.count' do
+      patch post_path(@post), params: {post: {content: content, picture: picture}}
+    end
+    assert_not flash.empty?
+    @post.reload
+    assert_equal @post.content,content
+    assert_not_nil @post.picture
+    # assert_equal @post.picture.filename,picture.original_filename
   end
 end

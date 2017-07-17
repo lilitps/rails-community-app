@@ -1,0 +1,9 @@
+<% if @post.errors.any? %>
+  $("#post-new").html("<%= escape_javascript(render('posts/post_form')) %>");
+<% else %>
+  var post_new = $("#post-new");
+  post_new.find('input:text,textarea').val('');
+  post_new.find('#error_explanation').empty();
+  $("#feed").html("<%= escape_javascript(render('shared/feed')) %>");
+  $("#flash").html("<%= escape_javascript(render 'shared/flash_messages') %>");
+<% end %>

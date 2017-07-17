@@ -3,19 +3,7 @@
   <p>
     <%= t('community_page_description') %>
   </p>
-  <!-- news anchor -->
-  <div id="news"></div>
+  <div id="news_anchor"></div>
 </div>
-<div class="row">
-  <div class="col-md-12">
-    <%= render 'shared/feed' %>
-  </div>
 
-  <% if logged_in? %>
-      <% if current_user.admin? %>
-          <div class="col-md-12 new-post">
-            <%= render 'shared/post_form' %>
-          </div>
-      <% end %>
-  <% end %>
-</div>
+<%= render 'shared/feed' %>

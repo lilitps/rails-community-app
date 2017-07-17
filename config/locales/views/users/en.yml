@@ -24,7 +24,6 @@ en:
 
   # edit user
   update_your_profile: "Update your profile"
-  save_changes: "Save changes"
   profile_updated: "Profile updated"
 
   # user locale

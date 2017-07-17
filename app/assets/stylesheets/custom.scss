@@ -57,9 +57,18 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+h3 {
+  font-size: 1.1em;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: normal;
   color: $gray-light;
@@ -101,16 +110,8 @@ p {
     }
     .options {
       list-style: none;
-      float: right;
-      .dropdown-menu {
-        position: relative;
-      }
     }
   }
-}
-
-.new-post {
-  margin-top: 5px;
 }
 
 aside {
@@ -120,7 +121,7 @@ aside {
   }
 }
 
-span.picture {
+span.picture_input {
   margin-left: 10px;
   margin-top: 5px;
   input {

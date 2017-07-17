@@ -13,7 +13,7 @@ de:
         activated_at: "Aktiviert am"
         locale: "Sprache"
       post:
-        content: "Content"
+        content: "Text"
         created_at: "Angelegt am"
         updated_at: "Aktualisiert am"
-        picture: "Picture"
+        picture: "Bild"

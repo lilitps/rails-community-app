@@ -1,29 +1,71 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
   before_action :admin_user, only: [:create]
-  before_action :admin_user, :correct_user, only: [:destroy]
+  before_action :admin_user, :correct_user, only: [:edit, :update, :destroy]
   include PostsHelper
 
   # HTTP 	    URL	            Action	    Named route	            Purpose
   # request
   # POST	    /posts	        create	    posts_path
+  # GET	      /posts/1/edit	  edit	      edit_post_path(post)	  page to edit post with id 1
+  # PATCH	    /posts/1	      update	    post_path(post)	        update post
   # DELETE	  /posts/1	      destroy	    post_path(post)
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = t('post_created')
-      redirect_to root_url
+      flash.now[:success] = t('post_created')
+      @post = current_user.posts.build if logged_in?
+      @feed = feed(params[:page])
+      respond_to do |format|
+        format.html {redirect_to root_url}
+        format.js
+      end
     else
       @feed = []
-      render 'static_pages/home'
+      respond_to do |format|
+        format.html {render 'static_pages/home'}
+        format.js
+      end
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html {
+        redirect_to edit_post_path(@post)
+      }
+      format.js
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      flash.now[:success] = t('post_updated')
+      respond_to do |format|
+        format.html {redirect_back(fallback_location: root_url)}
+        format.js
+      end
+    else
+      @feed = []
+      respond_to do |format|
+        format.html {render 'static_pages/home'}
+        format.js
+      end
     end
   end
 
   def destroy
     @post.destroy
-    flash[:success] = t('post_deleted')
-    redirect_back(fallback_location: root_url)
+    flash.now[:success] = t('post_deleted')
+    @post = current_user.posts.build if logged_in?
+    @feed = feed(params[:page])
+    respond_to do |format|
+      format.html {redirect_back(fallback_location: root_url)}
+      format.js
+    end
   end
 
   private

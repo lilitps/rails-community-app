@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'posts_controller/edit'
+
+  get 'posts_controller/update'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Use an optional locale in path scope
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
@@ -24,7 +28,7 @@ Rails.application.routes.draw do
     end
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]
-    resources :posts,               only: [:create, :destroy]
+    resources :posts,               only: [:create, :edit, :update, :destroy]
     resources :relationships,       only: [:create, :destroy]
 
     root    'static_pages#home'

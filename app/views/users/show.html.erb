@@ -4,12 +4,14 @@
     <%= render 'shared/user_info' %>
     <%= render 'shared/stats' %>
   </aside>
-
+</div>
+<div class="row">
   <div class="col-md-12">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.posts.any? %>
-        <h3><%= t('user_feed_header', user_name: @user.name) %></h3>
-        <%= render 'shared/feed' %>
-    <% end %>
   </div>
 </div>
+<% if @user.posts.any? %>
+    <h2><%= t('user_feed_header', user_name: @user.name) %></h2>
+
+    <%= render 'shared/feed' %>
+<% end %>

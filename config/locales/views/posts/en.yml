@@ -1,13 +1,18 @@
 en:
   # posts
+  # create post
   compose_new_post: "Compose new post..."
   maximum_file_size: "JPEG, GIF and PNG are allowed to be uploaded. Maximum file size is 5MB."
   maximum_file_size_alert: "Maximum file size is 5MB. Please choose a smaller file."
-  post: "Publish"
   post_created: "Post created!"
 
+  # post info
   posted_by: "Posted by"
   posted: "Posted"
   ago: "%{time_ago_in_words} ago"
 
+  # edit post
+  post_updated: "Post updated"
+
+  # delete post
   post_deleted: "Post deleted"

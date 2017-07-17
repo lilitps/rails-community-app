@@ -1,17 +1,23 @@
 de:
   # posts
+  # create post
   compose_new_post: "Neuen Beitrag verfassen..."
   maximum_file_size: "JPEG, GIF und PNG dürfen hochgeladen werden. Maximale Dateigröße beträgt 5 MB."
   maximum_file_size_alert: "Maximale Dateigröße beträgt 5 MB. Bitte wählen Sie eine kleinere Datei."
-  post: "Veröffentlichen"
   post_created: "Beitrag erstellt!"
 
+  # post info
   posted_by: "Veröffentlicht durch"
   posted: "Veröffentlicht"
   ago: "vor %{time_ago_in_words}" #see datetime
 
+  # edit post
+  post_updated: "Beitrag aktualisiert"
+
+  # delete post
   post_deleted: "Beitrag gelöscht"
 
+  # posted ... ago
   datetime:
     distance_in_words:
       about_x_hours:

@@ -70,10 +70,17 @@ de:
         users: "Benutzer"
 
   # buttons
+  edit: "bearbeiten"
   delete: "löschen"
   you_sure: "Sind Sie sicher?"
   change: "ändern"
   submit: "Abschicken"
+  save: "Speichern"
+  saving: "Speichere..."
+  save_changes: "Änderungen speichern"
+  saving_changes: "Änderungen werden gespeichert..."
+  post: "Veröffentlichen"
+  posting: "Veröffentliche..."
 
   # errors
   errors:

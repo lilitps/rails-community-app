@@ -70,10 +70,17 @@ en:
       users: "Users"
 
   # buttons
+  edit: "edit"
   delete: "delete"
   you_sure: "You sure?"
   change: "change"
   submit: "Submit"
+  save: "Save"
+  saving: "Saving..."
+  save_changes: "Save changes"
+  saving_changes: "Saving changes..."
+  post: "Publish"
+  posting: "Publishing..."
 
   # errors
   errors:
