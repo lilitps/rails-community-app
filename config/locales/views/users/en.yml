@@ -15,7 +15,9 @@ en:
 
   # relationships
   follow: "Follow"
+  following: "Follow..."
   unfollow: "Unfollow"
+  unfollowing: "Unfollow..."
   following: "Following"
   followers: "Followers"
 

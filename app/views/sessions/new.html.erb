@@ -17,7 +17,7 @@
             <span><%= t('remember_me') %></span>
         <% end %>
 
-        <%= f.submit t('log_in'), class: "btn btn-primary" %>
+        <%= f.submit t('log_in'), data: {disable_with: t('loging_in')}, class: "btn btn-primary" %>
     <% end %>
 
     <p><%= t('new_user') %>

@@ -15,7 +15,9 @@ de:
 
   # relationships
   follow: "Folgen"
+  following: "Folge..."
   unfollow: "Entfolgen"
+  unfollowing: "Entfolge..."
   following: "Folge ich"
   followers: "Follower"
 

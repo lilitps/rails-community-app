@@ -72,9 +72,11 @@ en:
   # buttons
   edit: "edit"
   delete: "delete"
+  deleting: "deleting..."
   you_sure: "You sure?"
   change: "change"
   submit: "Submit"
+  submitting: "Submit"
   save: "Save"
   saving: "Saving..."
   save_changes: "Save changes"

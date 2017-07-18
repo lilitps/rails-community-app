@@ -72,9 +72,11 @@ de:
   # buttons
   edit: "bearbeiten"
   delete: "löschen"
+  deleting: "lösche..."
   you_sure: "Sind Sie sicher?"
   change: "ändern"
-  submit: "Abschicken"
+  submit: "Senden"
+  submitting: "Sende..."
   save: "Speichern"
   saving: "Speichere..."
   save_changes: "Änderungen speichern"

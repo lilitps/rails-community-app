@@ -3,6 +3,7 @@ de:
   forgot_password: "(Passwort vergessen)"
   remember_me: "Erinnere mich an diesem Computer"
   log_in: "Einloggen"
+  loging_in: "Einloggen..."
   please_log_in: "Bitte loggen Sie sich ein."
   account_not_activated: "Konto ist nicht aktiviert. "
   invalid_credentials: "Ungültige E-Mail- / Passwort-Kombination"

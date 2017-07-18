@@ -17,9 +17,9 @@
         <span id="helpBlock" class="help-block"><%= t('maximum_file_size') %></span>
 
         <% if @post.id? %>
-            <%= f.submit t('save_changes'), class: "btn btn-primary" %>
+            <%= f.submit t('save_changes'), data: {disable_with: t('saving_changes')}, class: "btn btn-primary" %>
         <% else %>
-            <%= f.submit t('post'), object: f.object, class: "btn btn-primary" %>
+            <%= f.submit t('post'), data: {disable_with: t('posting')}, object: f.object, class: "btn btn-primary" %>
         <% end %>
     <% end %>
   </div>
