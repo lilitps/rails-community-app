@@ -13,17 +13,15 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save
-      flash.now[:success] = t('post_created')
-      @post = current_user.posts.build if logged_in?
-      @feed = feed(params[:page])
-      respond_to do |format|
+    respond_to do |format|
+      if @post.save
+        flash.now[:success] = t('post_created')
+        @post = current_user.posts.build if logged_in?
+        @feed = feed(params[:page])
         format.html {redirect_to root_url}
         format.js
-      end
-    else
-      @feed = []
-      respond_to do |format|
+      else
+        @feed = []
         format.html {render 'static_pages/home'}
         format.js
       end
@@ -42,15 +40,13 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update_attributes(post_params)
-      flash.now[:success] = t('post_updated')
-      respond_to do |format|
+    respond_to do |format|
+      if @post.update_attributes(post_params)
+        flash.now[:success] = t('post_updated')
         format.html {redirect_back(fallback_location: root_url)}
         format.js
-      end
-    else
-      @feed = []
-      respond_to do |format|
+      else
+        @feed = []
         format.html {render 'static_pages/home'}
         format.js
       end
