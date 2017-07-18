@@ -31,9 +31,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     respond_to do |format|
-      format.html {
-        redirect_to edit_post_path(@post)
-      }
+      format.html {redirect_to edit_post_path(@post)}
       format.js
     end
   end
@@ -54,6 +52,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @destroedPostId = @post.id
     @post.destroy
     flash.now[:success] = t('post_deleted')
     @post = current_user.posts.build if logged_in?

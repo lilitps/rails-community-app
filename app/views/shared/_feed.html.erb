@@ -1,9 +1,7 @@
 <div id="feed" class="row feed">
   <% if @post && logged_in? %>
       <% if current_user.admin? %>
-          <div id="post-new">
-            <%= render 'posts/post_form' %>
-          </div>
+          <%= render 'posts/post_form' %>
       <% end %>
   <% end %>
 

@@ -1,6 +1,6 @@
 <% if @post.errors.any? %>
-  $("#post-<%= @post.id %>").html("<%= escape_javascript(render('posts/post_form')) %>");
+  $("#edit_post_<%= @post.id %>").replaceWith("<%= escape_javascript(render('posts/post_form')) %>");
 <% else %>
-  $("#post-<%= @post.id %>").html("<%= escape_javascript(render(@post)) %>");
-  $("#flash").html("<%= escape_javascript(render 'shared/flash_messages') %>");
+  $("#edit_post_<%= @post.id %>").replaceWith("<%= escape_javascript(render(@post)) %>");
+  $("#flash").replaceWith("<%= escape_javascript(render 'shared/flash_messages') %>");
 <% end %>
