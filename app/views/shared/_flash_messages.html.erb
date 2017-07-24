@@ -1,10 +1,10 @@
 <div id="flash">
   <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %> alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <div><%= message %></div>
-      </div>
+      <%= js add_gritter message,
+                         class_name: "alert alert-#{message_type}",
+                         title: t("gflash.titles.#{message_type}"),
+                         image: message_type,
+                         fade_in_speed: 'medium',
+                         fade_out_speed: '1000' %>
   <% end %>
 </div>

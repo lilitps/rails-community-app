@@ -39,6 +39,8 @@ gem 'faker', '~> 1.7'
 gem 'will_paginate', '~> 3.1'
 # Use Bootstrap Will Paginate to format the html to match Twitter Bootstrap styling
 gem 'bootstrap-will_paginate', '~> 1.0'
+# Easily add Growl-like notifications
+gem 'gritter', '~> 1.2'
 # Use CarrierWave to upload files
 gem 'carrierwave', '~> 1.1'
 # Use Mini Magick to manipulate images with minimal use of memory

@@ -1,5 +1,5 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-sprockets";
 
 /* mixins, variables, etc. */
 
@@ -83,6 +83,49 @@ p {
 
 .navbar-right {
   margin-right: 0px;
+}
+
+/* flash */
+div .gritter-item {
+  color: inherit;
+  padding: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  filter: inherit; // ie8 fix
+
+  &.gritter-css3 {
+    background: inherit;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .gritter-title {
+      font-size: 1.3em;
+      text-shadow: none;
+    }
+
+    .gritter-with-image,
+    .gritter-without-image {
+      padding: 0px;
+    }
+
+    .gritter-image {
+      width: 24px;
+      height: 24px;
+    }
+
+    .gritter-close {
+      background: asset-url('gritter-close.png') no-repeat;
+      left:90%;
+    }
+  }
+}
+
+div :hover .gritter-item.gritter-css3 {
+  padding: 0px;
+  border: none;
 }
 
 /* feed */
@@ -209,7 +252,7 @@ input, textarea, select, .uneditable-input {
 }
 
 input {
-  height: auto !important;
+  height: auto;
 }
 
 #error_explanation {
