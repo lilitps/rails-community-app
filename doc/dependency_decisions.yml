@@ -1,0 +1,61 @@
+---
+- - :ignore_group
+  - production
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-25 09:10:05.349564000 Z
+- - :whitelist
+  - MIT
+  - :who: Viktor Schmidt
+    :why: any package with the MIT license should be approved
+    :versions: []
+    :when: 2017-07-25 09:26:18.035502000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-07-25 09:35:35.347419000 Z
+- - :whitelist
+  - New BSD
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-07-25 09:41:23.244942000 Z
+- - :whitelist
+  - Simplified BSD
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-07-25 09:41:44.280683000 Z
+- - :whitelist
+  - GPL-3.0+
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-07-25 09:43:53.072084000 Z
+- - :whitelist
+  - ruby
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-07-25 09:44:37.711483000 Z
+- - :whitelist
+  - WTFPL
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-07-25 09:45:28.916824000 Z
+- - :whitelist
+  - ISC
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-07-25 09:46:31.455527000 Z
+- - :approve
+  - easy_translate
+  - :who: Viktor Schmidt
+    :why: MIT
+    :versions: []
+    :when: 2017-07-25 09:51:39.509866000 Z

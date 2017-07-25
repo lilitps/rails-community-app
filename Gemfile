@@ -78,6 +78,10 @@ end
 group :development do
   # Use with 'ap object' for nice print Ruby objects in console
   gem 'awesome_print'
+  # bundler-audit provides patch-level verification for Bundled apps
+  gem 'bundler-audit', '~> 0.6.0'
+  # compare licenses against a user-defined whitelist, and give you an actionable exception report
+  gem 'license_finder', '~> 3.0', '>= 3.0.1'
   # Use for fighting the N+1 problem in Ruby
   gem 'bullet'
   # Use i18n-tasks to find and manage missing and unused translations
@@ -104,6 +108,6 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] if Gem.win_platform?
 # to avoid polling for changes
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
