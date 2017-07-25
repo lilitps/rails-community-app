@@ -6,4 +6,10 @@
   <div id="news_anchor"></div>
 </div>
 
-<%= render 'shared/feed' %>
+<div class="row">
+    <% if logged_in? && current_user.admin? %>
+        <%= render 'posts/post_form' %>
+    <% end %>
+
+    <%= render 'shared/feed' %>
+</div>

@@ -13,5 +13,7 @@
 <% if @user.posts.any? %>
     <h2><%= t('user_feed_header', user_name: @user.name) %></h2>
 
-    <%= render 'shared/feed' %>
+    <div class="row">
+      <%= render 'shared/feed' %>
+    </div>
 <% end %>

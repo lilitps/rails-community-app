@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     @destroedPostId = @post.id
     @post.destroy
     flash.now[:success] = t('post_deleted')
-    @post = current_user.posts.build if logged_in?
+    @post = current_user.posts.build if logged_in? && current_user.admin?
     @feed = feed(params[:page])
     respond_to do |format|
       format.html {redirect_back(fallback_location: root_url)}

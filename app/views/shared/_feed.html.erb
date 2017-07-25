@@ -1,10 +1,4 @@
-<div id="feed" class="row feed">
-  <% if @post && logged_in? %>
-      <% if current_user.admin? %>
-          <%= render 'posts/post_form' %>
-      <% end %>
-  <% end %>
-
+<div id="feed" class="feed">
   <% if @feed.any? %>
       <%= render @feed %>
 
