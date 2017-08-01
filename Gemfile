@@ -58,6 +58,10 @@ gem 'rails-i18n', '~> 5.0' # For 5.0.x and 5.1.x
 # gem 'activemodel-serializers-xml'
 # Translations for the will_paginate gem
 gem 'will-paginate-i18n', '~> 0.1'
+# SDK for Facebook. It allows read/write access to the social graph
+gem 'koala', '~> 3.0'
+# Collection of filters for transforming text into HTML code
+gem 'auto_html', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -83,6 +83,7 @@ en:
   saving_changes: "Saving changes..."
   post: "Publish"
   posting: "Publishing..."
+  read_more: "Read more"
 
   # errors
   errors:

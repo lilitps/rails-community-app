@@ -7,9 +7,18 @@
 </div>
 
 <div class="row">
-    <% if logged_in? && current_user.admin? %>
-        <%= render 'posts/post_form' %>
-    <% end %>
+  <% if logged_in? && current_user.admin? %>
+      <%= render 'posts/post_form' %>
+  <% end %>
 
-    <%= render 'shared/feed' %>
+  <%= render 'shared/feed' %>
 </div>
+<% if @fb_feed && @fb_feed.any? %>
+    <div class="row">
+      <div id="fb-feed" class="feed">
+        <% @fb_feed.each do |post| %>
+            <%= render 'shared/fb_story', post: post %>
+        <% end %>
+      </div>
+    </div>
+<% end %>

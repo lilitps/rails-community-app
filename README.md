@@ -194,6 +194,32 @@ $ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=**<your-bucket-name, e.g.
 Hint: In order to use this [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1), 
 you can add them with right values to **.env** file in the root of your project.
 
+### Facebook page posts (optional)
+
+You can use Facebook App to get public posts from some certain public page 
+(e.g. facebook page of your community). 
+After that, the most recent posts will be displayed under news feed of your community app.
+
+#### Facebook App setup
+
+Login to [Facebook for Developers](https://developers.facebook.com/apps/) and click 
+"Add a New App" in order to create new Facebook App.
+Go to Facebook App Settings > Advanced > Security and switch "Require App Secret" to "Yes".
+
+#### Facebook App config vars setup 
+
+Finally, use the heroku config command to [setup config vars](https://devcenter.heroku.com/articles/config-vars) 
+for Facebook App.
+
+```
+$ heroku config:set MY_APP_ID=**<your-fb-app-id>**
+$ heroku config:set MY_APP_SECRET=**<your-fb-app-secret>**
+$ heroku config:set MY_PAGE_ID=**<your-fb-page-id>**
+```
+
+You will find the Facebook App ID and Facebook App SECRET on your Facebook App Dashboard.
+Use [https://findmyfbid.com/](https://findmyfbid.com/) in order to find facebook page ID of your community.
+
 ### Deploying to Heroku
 
 Before deploying to Heroku, it’s a good idea to turn maintenance mode on before making the changes:

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class SiteFeedTest < ActionDispatch::IntegrationTest
   include PostsHelper
+  include ActionView::Helpers::TextHelper
 
   def setup
     @admin = users(:lana)
@@ -12,11 +13,12 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template 'static_pages/home'
     assert_select 'div.pagination-sm', count: 1
-    assert_select 'div.feed', count: 1
+    assert_select 'div#feed', count: 1
     assert_select 'a>img.gravatar', count: 0
     log_in_as(@non_admin)
     get root_path
     assert_select 'a>img.gravatar', count: 5
+    assert_select '#feed>div>div>.thumbnail', count: 5
     first_page_of_feed = feed(1)
     assert_not first_page_of_feed.empty?
     first_page_of_feed.each do |post|
@@ -66,6 +68,22 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     posts.each do |post|
       assert @feed.include?(post)
       assert_match CGI.escapeHTML(post.content), response.body
+    end
+  end
+
+  test "should display first 3 facebook page posts on home page feed" do
+    if Koala.config.app_id.present? && Koala.config.app_secret.present?
+      get root_path
+      assert_template 'static_pages/home'
+      assert_select 'div#fb-feed', count: 1
+      assert_select '#fb-feed>div>div>.thumbnail', count: 3
+      feed = fb_feed
+      assert_not feed.empty?
+      feed.each do |post|
+        assert_select 'div#post-' + post['id'], count: 1
+        assert_match auto_format_html(post['message']), response.body
+        assert_select 'a[href=?]', post['permalink_url']
+      end
     end
   end
 end
