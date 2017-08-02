@@ -42,7 +42,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     @feed = assigns(:feed)
     assert_not @feed.empty?
     @feed.each do |post|
-      assert_match CGI.escapeHTML(post.content), response.body
+      assert_match auto_format_html(post.content), response.body
       assert post.user.admin
     end
     # Posts from admin user, logged in user and following users

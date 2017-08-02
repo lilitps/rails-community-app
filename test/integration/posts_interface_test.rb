@@ -68,6 +68,6 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     @post.reload
     assert_equal @post.content,content
     assert_not_nil @post.picture
-    # assert_equal @post.picture.filename,picture.original_filename
+    # assert_equal @post.picture.file.basename,picture.original_filename
   end
 end

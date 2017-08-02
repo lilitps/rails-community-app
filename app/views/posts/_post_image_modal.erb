@@ -1,0 +1,20 @@
+<% if post&.picture? %>
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h3 id="imagePost<%= post.id %>ModalLabel" class="modal-title"><%= post.picture.file.basename %></h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="thumbnail">
+                <%= image_tag(post.picture.url, alt: post.picture.file.basename, align: "middle") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+<% end %>
