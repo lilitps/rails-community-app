@@ -6,13 +6,15 @@
   <div id="news_anchor"></div>
 </div>
 
-<div class="row">
-  <% if logged_in? && current_user.admin? %>
-      <%= render 'posts/post_form' %>
-  <% end %>
+<% if logged_in? && current_user.admin? %>
+    <%= render 'posts/post_form' %>
+<% end %>
 
-  <%= render 'shared/feed' %>
-</div>
+<% if @feed && @feed.any? %>
+    <div class="row">
+      <%= render 'shared/feed' %>
+    </div>
+<% end %>
 <% if @fb_feed && @fb_feed.any? %>
     <div class="row">
       <div id="fb-feed" class="feed">

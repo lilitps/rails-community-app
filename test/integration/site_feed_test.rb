@@ -17,8 +17,8 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     assert_select 'a>img.gravatar', count: 0
     log_in_as(@non_admin)
     get root_path
-    assert_select 'a>img.gravatar', count: 5
-    assert_select '#feed>div>div>.thumbnail', count: 5
+    assert_select 'a>img.gravatar', count: 3
+    assert_select '#feed>div>div>.thumbnail', count: 3
     first_page_of_feed = feed(1)
     assert_not first_page_of_feed.empty?
     first_page_of_feed.each do |post|
@@ -46,7 +46,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
       assert post.user.admin
     end
     # Posts from admin user, logged in user and following users
-    posts = posts(:most_recent, :orange, :tone, :cat_video, :van)
+    posts = posts(:most_recent, :orange, :tone)
     log_in_as(@non_admin)
     get root_path
     @feed = assigns(:feed)
@@ -60,7 +60,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
       assert_not @feed.include?(post_unfollowed)
     end
     # Posts from self
-    posts = posts(:most_recent, :enthusiastic, :orange, :cat_video, :future)
+    posts = posts(:most_recent, :enthusiastic, :orange)
     log_in_as(tina)
     get root_path
     @feed = assigns(:feed)

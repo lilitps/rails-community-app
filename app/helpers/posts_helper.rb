@@ -5,7 +5,7 @@ module PostsHelper
   include SessionsHelper
 
   # Returns 5 posts per page
-  def feed(page, per_page = 5, only_admin = true)
+  def feed(page, per_page = 3, only_admin = true)
     query = Post.includes(:user).where(users: {admin: only_admin})
     if logged_in?
       following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
