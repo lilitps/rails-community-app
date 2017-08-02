@@ -17,10 +17,6 @@
 <% end %>
 <% if @fb_feed && @fb_feed.any? %>
     <div class="row">
-      <div id="fb-feed" class="feed">
-        <% @fb_feed.each do |post| %>
-            <%= render 'shared/fb_story', post: post %>
-        <% end %>
-      </div>
+      <%= render 'facebook/fb_feed' %>
     </div>
 <% end %>
