@@ -6,16 +6,42 @@
   <div id="news_anchor"></div>
 </div>
 
-<% if logged_in? && current_user.admin? %>
-    <%= render 'posts/post_form' %>
-<% end %>
+<div id="all-modals">
+  <% if @feed && @feed.any? %>
+      <% @feed.each do |post| %>
+          <%= render 'posts/post_image_modal', post: post %>
+      <% end %>
+  <% end %>
+
+  <% if logged_in? && current_user.admin? %>
+      <%= render 'posts/post_form_modal', post: @post %>
+
+      <% if @feed && @feed.any? %>
+          <% @feed.each do |post| %>
+              <%= render 'posts/post_form_modal', post: post %>
+          <% end %>
+      <% end %>
+  <% end %>
+</div>
+
+<h2>
+  <%= t('feed_header') %>
+  <% if logged_in? && current_user.admin? %>
+      <%= link_to "<span class=\"pull-right glyphicon glyphicon-plus\"
+      aria-label=\"#{t('compose_new_post')}\"></span>".html_safe,
+                  '#', data: {toggle: 'modal', target: '#new-post-modal'} %>
+  <% end %>
+</h2>
 
 <% if @feed && @feed.any? %>
     <div class="row">
       <%= render 'shared/feed' %>
     </div>
 <% end %>
+
 <% if @fb_feed && @fb_feed.any? %>
+    <h2><%= t('fb_feed_header') %></h2>
+
     <div class="row">
       <%= render 'facebook/fb_feed' %>
     </div>

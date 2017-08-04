@@ -1,6 +1,7 @@
 <% if @post.errors.any? %>
-  $("#edit_post_<%= @post.id %>").replaceWith("<%= escape_javascript(render('posts/post_form')) %>");
+  $("#edit_post_<%= @post.id %>").replaceWith("<%= escape_javascript(render('posts/post_form', post: @post)) %>");
 <% else %>
-  $("#edit_post_<%= @post.id %>").replaceWith("<%= escape_javascript(render(@post)) %>");
+  $("#edit-post-modal-<%= @post.id %>").modal('hide');
+  $("#post-<%= @post.id %>").replaceWith("<%= escape_javascript(render('posts/post', post: @post)) %>");
   $("#flash").replaceWith("<%= escape_javascript(render 'shared/flash_messages') %>");
 <% end %>

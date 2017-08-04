@@ -3,7 +3,7 @@
       <%= render @feed %>
 
       <div class="col-sm-12 col-md-12 col-lg-12 center">
-        <%= will_paginate @feed, class: 'pagination-sm' %>
+        <%= will_paginate @feed, class: 'pagination-sm', inner_window: 2, outer_window: 0 %>
       </div>
   <% end %>
 </div>

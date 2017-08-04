@@ -19,7 +19,7 @@
         <ul class="users follow">
           <%= render @users %>
         </ul>
-        <%= will_paginate class: 'pagination-sm' %>
+        <%= will_paginate class: 'pagination-sm', inner_window: 2, outer_window: 0 %>
     <% end %>
   </div>
 </div>

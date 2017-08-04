@@ -1,10 +1,10 @@
 <% provide(:title, t('page_title.all_users')) %>
 <h1><%= yield(:title) %></h1>
 
-<%= will_paginate class: 'pagination-sm' %>
+<%= will_paginate class: 'pagination-sm', inner_window: 2, outer_window: 0 %>
 
 <ul class="users">
   <%= render @users %>
 </ul>
 
-<%= will_paginate class: 'pagination-sm' %>
+<%= will_paginate class: 'pagination-sm', inner_window: 2, outer_window: 0 %>

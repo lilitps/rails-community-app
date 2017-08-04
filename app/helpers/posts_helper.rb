@@ -4,7 +4,7 @@ require 'auto_html'
 module PostsHelper
   include SessionsHelper
 
-  # Returns 5 posts per page
+  # Returns most recent posts per page
   def feed(page, per_page = 3, only_admin = true)
     query = Post.includes(:user).where(users: {admin: only_admin})
     if logged_in?

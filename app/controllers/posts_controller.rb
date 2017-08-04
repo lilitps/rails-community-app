@@ -41,10 +41,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(post_params)
         flash.now[:success] = t('post_updated')
+        @feed = feed(params[:page])
         format.html {redirect_back(fallback_location: root_url)}
         format.js
       else
-        @feed = []
         format.html {render 'static_pages/home'}
         format.js
       end

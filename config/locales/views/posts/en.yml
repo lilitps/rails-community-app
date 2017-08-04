@@ -1,5 +1,9 @@
 en:
   # posts
+  # page feed
+  feed_header: "News Feed"
+  fb_feed_header: "Facebook Feed"
+
   # create post
   compose_new_post: "Compose new post..."
   maximum_file_size: "JPEG, GIF and PNG are allowed to be uploaded. Maximum file size is 5MB."
@@ -12,6 +16,7 @@ en:
   ago: "%{time_ago_in_words} ago"
 
   # edit post
+  edit_post: "Post bearbeiten..."
   post_updated: "Post updated"
 
   # delete post

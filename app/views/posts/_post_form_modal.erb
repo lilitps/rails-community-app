@@ -1,0 +1,9 @@
+<% if post.id? %>
+    <div id="edit-post-modal-<%= post.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editPost<%= post.id %>ModalLabel">
+      <%= render 'posts/post_form_modal_dialog', post: post %>
+    </div><!-- /.modal -->
+<% else %>
+    <div id="new-post-modal" class="modal fade" tabindex="-1" role="dialog">
+      <%= render 'posts/post_form_modal_dialog', post: post %>
+    </div><!-- /.modal -->
+<% end %>

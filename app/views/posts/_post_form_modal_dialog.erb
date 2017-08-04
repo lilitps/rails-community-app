@@ -1,0 +1,21 @@
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+      <% if post.id? %>
+          <h3 id="editPost<%= post.id %>ModalLabel" class="modal-title"><%= t('edit_post') %></h3>
+      <% else %>
+          <h3 id="editPost<%= post.id %>ModalLabel" class="modal-title"><%= t('compose_new_post') %></h3>
+      <% end %>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= render 'posts/post_form', post: post %>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
