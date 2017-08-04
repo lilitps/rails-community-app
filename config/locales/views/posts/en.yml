@@ -16,7 +16,7 @@ en:
   ago: "%{time_ago_in_words} ago"
 
   # edit post
-  edit_post: "Post bearbeiten..."
+  edit_post: "Edit post..."
   post_updated: "Post updated"
 
   # delete post
