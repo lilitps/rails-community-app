@@ -6,23 +6,9 @@
   <div id="news_anchor"></div>
 </div>
 
-<div id="all-modals">
-  <% if @feed && @feed.any? %>
-      <% @feed.each do |post| %>
-          <%= render 'posts/post_image_modal', post: post %>
-      <% end %>
-  <% end %>
-
-  <% if logged_in? && current_user.admin? %>
-      <%= render 'posts/post_form_modal', post: @post %>
-
-      <% if @feed && @feed.any? %>
-          <% @feed.each do |post| %>
-              <%= render 'posts/post_form_modal', post: post %>
-          <% end %>
-      <% end %>
-  <% end %>
-</div>
+<% if logged_in? && current_user.admin? %>
+    <%= render 'posts/post_form_modal', post: @post %>
+<% end %>
 
 <h2>
   <%= t('feed_header') %>

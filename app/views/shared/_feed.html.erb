@@ -1,3 +1,19 @@
+<div id="all-modals">
+  <% if @feed && @feed.any? %>
+      <% @feed.each do |post| %>
+          <%= render 'posts/post_image_modal', post: post %>
+      <% end %>
+  <% end %>
+
+  <% if logged_in? && current_user.admin? %>
+      <% if @feed && @feed.any? %>
+          <% @feed.each do |post| %>
+              <%= render 'posts/post_form_modal', post: post %>
+          <% end %>
+      <% end %>
+  <% end %>
+</div>
+
 <div id="feed" class="feed">
   <% if @feed.any? %>
       <%= render @feed %>
