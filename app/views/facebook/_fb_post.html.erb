@@ -16,7 +16,18 @@
         </div>
 
         <div class="content">
-          <%= auto_format_html post['message'] %>
+          <% if post['message'].present? && post['message'].length > 150 %>
+              <%= auto_format_html(truncate post['message'], length: 150) %>
+              <%= link_to t('read_more'), '', class: "read-more-#{post['id']}" %>
+              <script>
+                  $('.read-more-<%= post['id'] %>').on('click', function (e) {
+                      e.preventDefault()
+                      $(this).parent().html('<%= escape_javascript auto_format_html(post['message']) %>')
+                  })
+              </script>
+          <% else %>
+              <%= auto_format_html(post['message']) %>
+          <% end %>
         </div>
 
         <div class="thumbnail">
@@ -30,9 +41,9 @@
             <div class="content">
               <% if post['description'].present? && post['description'].length > 150 %>
                   <%= auto_format_html(truncate post['description'], length: 150) %>
-                  <%= link_to t('read_more'), '', class: "read-more-#{post['id']}" %>
+                  <%= link_to t('read_more'), '', class: "read-more-description-#{post['id']}" %>
                   <script>
-                      $('.read-more-<%= post['id'] %>').on('click', function (e) {
+                      $('.read-more-description-<%= post['id'] %>').on('click', function (e) {
                           e.preventDefault()
                           $(this).parent().html('<%= escape_javascript auto_format_html(post['description']) %>')
                       })

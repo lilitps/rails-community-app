@@ -29,13 +29,24 @@
           <% end %>
         </div>
 
-        <div class="content">
-          <p><%= auto_format_html post.content %></p>
-        </div>
-
         <%= link_to image_tag(post.picture.thumb.url, alt: post.picture.file.basename, align: "middle"),
                     '#', target: "_blank",
                     data: {toggle: 'modal', target: "#image-modal-#{post.id}"} if post.picture? %>
+
+        <div class="content">
+          <% if post.content.present? && post.content.length > 150 %>
+              <p><%= auto_format_html(truncate post.content, length: 150) %></p>
+              <%= link_to t('read_more'), '', class: "read-more-#{post.id}" %>
+              <script>
+                  $('.read-more-<%= post.id %>').on('click', function (e) {
+                      e.preventDefault()
+                      $(this).parent().html('<%= escape_javascript auto_format_html(post.content) %>')
+                  })
+              </script>
+          <% else %>
+              <%= auto_format_html post.content %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

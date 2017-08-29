@@ -30,7 +30,14 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     first_page_of_feed = feed(1)
     assert_not first_page_of_feed.empty?
     first_page_of_feed.each do |post|
+      assert_select 'a[href=?]', edit_post_path(post), text: 'edit'
       assert_select 'a[href=?]', post_path(post), text: 'delete'
+      if post.content.present? && post.content.length > 150
+        assert_match auto_format_html(truncate post.content, length: 150), response.body
+        assert_select '.read-more-' + post.id, count: 1
+      else
+        assert_match auto_format_html(post.content), response.body
+      end
     end
   end
 
@@ -127,7 +134,13 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
       assert_not feed.empty?
       feed.each do |post|
         assert_select 'div#post-' + post['id'], count: 1
-        assert_match auto_format_html(post['message']), response.body
+        if post['message'].present? && post['message'].length > 150
+          assert_match auto_format_html(truncate post['message'], length: 150), response.body
+          assert_select '.read-more-' + post['id'], count: 1
+          assert_select '.read-more-description-' + post['id'], count: 1
+        else
+          assert_match auto_format_html(post['message']), response.body
+        end
         assert_select 'a[href=?]', post['permalink_url']
       end
     end
