@@ -91,6 +91,8 @@ group :development do
   # Use i18n-tasks to find and manage missing and unused translations
   gem 'i18n-tasks', '~> 0.9.15'
   gem 'listen', '~> 3.1'
+  # setup your favicon
+  gem 'rails_real_favicon'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0'

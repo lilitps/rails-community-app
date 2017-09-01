@@ -220,6 +220,23 @@ $ heroku config:set MY_PAGE_ID=**<your-fb-page-id>**
 You will find the Facebook App ID and Facebook App SECRET on your Facebook App Dashboard.
 Use [https://findmyfbid.com/](https://findmyfbid.com/) in order to find facebook page ID of your community.
 
+### Change logo (brand) and generate favicon
+
+Replace **assets/images/logo.png** with a logo of your community. 
+Make sure this logo has a **transparent background** and size of approximately **260x260**.
+In order to create a logo you can use [ImageMagick](http://www.imagemagick.org), 
+for example with convert command:
+
+```
+$ convert big-logo.png -resize 260x260 logo.png
+$ convert logo.png -transparent '#ffffff' logo.png
+```
+
+You can setup your favicon in your Ruby on Rails project with **rails_real_favicon** gem and/or use 
+[Favicon Generator for Ruby on Rails](https://realfavicongenerator.net/favicon/ruby_on_rails).
+
+Your picture should be 260x260 or more for optimal results.
+
 ### Deploying to Heroku
 
 Before deploying to Heroku, it’s a good idea to turn maintenance mode on before making the changes:
