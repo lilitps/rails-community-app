@@ -24,7 +24,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 120px;
 }
 
 section {
@@ -81,11 +81,17 @@ p {
 
 /* header */
 
+.navbar > .container .navbar-brand {
+  margin-left: 15px;
+  padding-right: 0px;
+}
+
 .navbar-right {
   margin-right: 0px;
 }
 
 /* flash */
+
 div .gritter-item {
   color: inherit;
   padding: 0px;
@@ -118,7 +124,7 @@ div .gritter-item {
 
     .gritter-close {
       background: asset-url('gritter-close.png') no-repeat;
-      left:90%;
+      left: 90%;
     }
   }
 }
@@ -126,6 +132,12 @@ div .gritter-item {
 div :hover .gritter-item.gritter-css3 {
   padding: 0px;
   border: none;
+}
+
+/* page jumbotron */
+
+div .community-page-image {
+  background: asset-url('fb-cover.jpg') no-repeat;
 }
 
 /* feed */

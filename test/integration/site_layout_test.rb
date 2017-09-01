@@ -6,7 +6,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     # header
     assert_template 'static_pages/home'
-    assert_select "a[href=?]", root_path, count: 2
+    assert_select "a[href=?]", root_path, count: 3
+    assert_select ".navbar-brand", count: 2
     assert_select "a[href=?]", root_path, text: "Home", count: 1
     assert_select "a[href=?]", login_path, count: 1
     assert_select "a[href=?]", signup_path, count: 1

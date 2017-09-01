@@ -20,14 +20,14 @@ module PostsHelper
   # Returns most recent posts from facebook page
   def fb_feed(limit = 3)
     fields = %w(id type icon story name message permalink_url link full_picture description created_time)
-    @fb_feed = facebook_app_client&.get_connection(ENV['MY_PAGE_ID'],
-                                                   'posts',
-                                                   {
-                                                       limit: limit,
-                                                       fields: fields,
-                                                       locale: I18n.locale,
-                                                       return_ssl_resources: true
-                                                   })
+    facebook_app_client&.get_connection(ENV['MY_PAGE_ID'],
+                                        'posts',
+                                        {
+                                            limit: limit,
+                                            fields: fields,
+                                            locale: I18n.locale,
+                                            return_ssl_resources: true
+                                        })
   end
 
   # Returns a composition of filters that transforms input by passing the output
