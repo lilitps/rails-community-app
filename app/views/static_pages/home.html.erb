@@ -5,6 +5,8 @@
   <div id="news_anchor"></div>
 </div>
 
+<%= render 'static_pages/introduction_carousel' %>
+
 <% if logged_in? && current_user.admin? %>
     <%= render 'posts/post_form_modal', post: @post %>
 <% end %>

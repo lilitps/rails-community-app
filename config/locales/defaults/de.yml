@@ -84,6 +84,8 @@ de:
   post: "Veröffentlichen"
   posting: "Veröffentliche..."
   read_more: "Weiterlesen"
+  previous: "Vorige"
+  next: "Weiter"
 
   # errors
   errors:

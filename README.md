@@ -237,6 +237,22 @@ You can setup your favicon in your Ruby on Rails project with **rails_real_favic
 
 Your picture should be 260x260 or more for optimal results.
 
+### Change images for introduction carousel
+
+Replace images for carousel items with images of your community 
+found under **assets/images/introduction/**.
+ 
+Make sure these images have size of **1170x312**, depth of **8 bit** and do **not exceed 1 mb**.
+In order to create these images you can use [ImageMagick](https://www.imagemagick.org/Usage/resize/#fill), 
+for example with convert command:
+
+```
+$ convert item-0.png -resize 1170x312^ -gravity center -extent 1170x312+0-50 item-0.png
+$ convert item-0.png -depth 8 item-0.png
+```
+
+You can change gravity to any direction, like South or East, and use an offset (e.g. x: +0, y: -50). 
+
 ### Deploying to Heroku
 
 Before deploying to Heroku, it’s a good idea to turn maintenance mode on before making the changes:

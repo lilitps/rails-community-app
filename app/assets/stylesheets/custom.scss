@@ -27,6 +27,12 @@ body {
   padding-top: 120px;
 }
 
+@media (max-width: 767px) {
+  body {
+    padding-top: 60px;
+  }
+}
+
 section {
   overflow: auto;
 }
@@ -88,6 +94,25 @@ p {
 
 .navbar-right {
   margin-right: 0px;
+}
+
+/* slide introduction */
+
+.carousel-caption {
+  background: rgba($gray-base, 0.5);
+}
+
+.carousel-caption > p {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: normal;
+  color: #FFFFFF;
+}
+
+@media (max-width: 767px) {
+  .carousel-caption > p {
+    font-size: 1em;
+  }
 }
 
 /* flash */
