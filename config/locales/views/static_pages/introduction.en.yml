@@ -1,5 +1,6 @@
 en:
   introduction:
+    # max. 36 characters per item
     item_0: "Amateur Astronomy In Berlin"
     item_1: "Children And Youth Work"
     item_2: "Observations At Night"
