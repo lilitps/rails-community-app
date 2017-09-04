@@ -25,10 +25,10 @@ de:
   # General
   community_name: "Community App"
   community_logo: "Logo der Gemeinschaft"
-  community_page_description: "Dies ist die Seite von der Gemeinschaft."
-  community_about: "Dies ist eine einfache Seite für eine Gemeinschaft."
-  community_description: "Die Gemeinschaft ist eine ..."
-  community_contact: "Kontaktieren Sie die Gemeinschaft."
+  community_page_introduction: "Dies ist die Seite von der Gemeinschaft."
+  community_about_html: "Dies ist eine einfache Seite für eine Gemeinschaft."
+  community_description_html: "Die Gemeinschaft ist eine ..."
+  community_contact_html: "Kontaktieren Sie die Gemeinschaft."
   rails_logo: "Logo von Rails"
 
   # Page titles
