@@ -100,7 +100,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", full_title("All users")
   end
 
-
   test "community introduction carousel" do
     get root_path
     assert_select "#introduction-carousel", count: 1
@@ -111,5 +110,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select ".item > img", count: 4
     assert_select ".carousel-caption", count: 4
     assert_select ".carousel-control", count: 2
+  end
+
+  test "page header" do
+    get root_path
+    assert_select ".page-header", count: 1
+    assert_select ".page-header h1 > small", count: 1
   end
 end

@@ -1,11 +1,11 @@
-<div class="center jumbotron">
-  <p>
-    <%= t('community_page_description') %>
-  </p>
-  <div id="news_anchor"></div>
-</div>
-
 <%= render 'static_pages/introduction_carousel' %>
+
+<div id="news_anchor"></div>
+<div class="page-header">
+  <h1><%= t('community_name') %>
+    <small class="clearfix"> <%= t('community_page_description') %></small>
+  </h1>
+</div>
 
 <% if logged_in? && current_user.admin? %>
     <%= render 'posts/post_form_modal', post: @post %>
