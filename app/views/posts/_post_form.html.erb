@@ -6,7 +6,7 @@
         <p><%= f.text_area :content, size: "24x6" %></p>
       </div>
 
-      <%= image_tag(post.picture.thumb.url, alt: post.picture.file.basename, align: "middle") if post.picture? %>
+      <%= image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: "middle") if post.picture? %>
 
       <span class="picture_input">
               <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png',
