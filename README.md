@@ -1,7 +1,7 @@
 # Community web application
 
 This is a [Community web application](https://rails-community-app.herokuapp.com/) to meet needs 
-of small communities like sport clubs and non-govermantal organisations.
+of small communities like sport clubs and non-governmental organisations.
 
 This application is based on the sample application for 
 [*Ruby on Rails Tutorial:
@@ -51,7 +51,7 @@ $ bundle exec guard
 
 ## Production webserver
 
-This app uses Puma webserver suitable for production applications on Heroku platform (cloud platform as a service). 
+This app uses Puma webserver that is suitable for production applications on Heroku platform (cloud platform as a service). 
 See [Heroku Puma documentation](https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server).
 
 ### Heroku application setup
@@ -65,18 +65,18 @@ Then check to see if your system already has the
 $ heroku version
 ```
 
-Use the heroku command to log in and 
+Use the Heroku command to log in and 
 [add your SSH key](https://help.github.com/articles/connecting-to-github-with-ssh/):
 
 ```
 $ heroku login
 $ heroku keys:add
 ```
-Finally, use the heroku create command to create a place on the Heroku servers for the 
+Finally, use the Heroku create command to create a place on the Heroku servers for the 
 community app to live:
 
 ```
-$ heroku create
+$ Heroku create
 ```
 
 Rename the application as follows:
@@ -116,7 +116,7 @@ $ heroku addons:create sendgrid:starter
 #### Define a host variable and change to custom domain
 
 You will also have to define a **host** variable with the address of your production website, 
-found in **config/environments/production.rb**. If you use custom domain, please change it too.
+that can be found under **config/environments/production.rb**. If you use custom domain, please change it too.
 
 ```
 .
@@ -134,11 +134,11 @@ host = '<your-heroku-app>.herokuapp.com'
 #### Mailer layout (optional)
 
 Change mailer layout corresponding to the email format.
-The HTML and plain-text mailer layouts can be found in **app/views/layouts**
+The HTML and plain-text mailer layouts can be found under **app/views/layouts**
 
 #### Default from address (optional)
 
-Change default **from** address common to all mailers in the application 
+Change default **from** address, which is common to all mailers in the application, can be 
 found in **app/mailers/application_mailer.rb**
 
 #### Mailer templates (optional)
@@ -156,11 +156,11 @@ and google-api-client gems.
 
 #### Google Cloud Platform setup
 
-You have to create a new Google account for this app or use existent account. 
+You have to create a new Google account for this app or use existing account. 
 The first step is to [sign up for Google Cloud Platform](https://console.cloud.google.com).
 
 [Add a new project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) 
-to your Google Cloud Platform which a name of your choice, e.g. '**your-heroku-app**'.
+to your Google Cloud Platform entering a name of your choice, e.g. '**your-heroku-app**'.
 
 Then, [enable billing for your project](https://support.google.com/cloud/answer/6293499#enable-billing) 
 and link this billing account to your new project.
@@ -180,7 +180,7 @@ to get an **Access Key** and a **Secret**.
 
 #### Heroku config vars setup
 
-Finally, use the heroku config command to 
+Finally, use the Heroku config command to 
 [setup config vars](https://devcenter.heroku.com/articles/config-vars) 
 for [Google Cloud Storage](https://github.com/carrierwaveuploader/carrierwave#using-google-storage-for-developers) 
 using Google's interoperability keys to access it:
@@ -191,12 +191,12 @@ $ heroku config:set G_STORAGE_SECRET_KEY=**<your-secret>**
 $ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=**<your-bucket-name, e.g. 'communityapp'>**
 ```
 
-Hint: In order to use this [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1), 
-you can add them with right values to **.env** file in the root of your project.
+Hint: In order to use these [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1), 
+you should add them with right values to **.env** file in the root of your project.
 
 ### Facebook page posts (optional)
 
-You can use Facebook App to get public posts from some certain public page 
+You can use Facebook App to get public posts from some certain public pages 
 (e.g. facebook page of your community). 
 After that, the most recent posts will be displayed under news feed of your community app.
 
@@ -208,7 +208,7 @@ Go to Facebook App Settings > Advanced > Security and switch "Require App Secret
 
 #### Facebook App config vars setup 
 
-Finally, use the heroku config command to [setup config vars](https://devcenter.heroku.com/articles/config-vars) 
+Finally, use the Heroku config command to [setup config vars](https://devcenter.heroku.com/articles/config-vars) 
 for Facebook App.
 
 ```
@@ -223,7 +223,7 @@ Use [https://findmyfbid.com/](https://findmyfbid.com/) in order to find facebook
 ### Change logo (brand) and generate favicon
 
 Replace **assets/images/logo.png** with a logo of your community. 
-Make sure this logo has a **transparent background** and size of approximately **260x260**.
+Make sure this logo has a **transparent background** and a size of approximately **260x260**.
 In order to create a logo you can use [ImageMagick](http://www.imagemagick.org), 
 for example with convert command:
 
@@ -232,7 +232,7 @@ $ convert big-logo.png -resize 260x260 logo.png
 $ convert logo.png -transparent '#ffffff' logo.png
 ```
 
-You can setup your favicon in your Ruby on Rails project with **rails_real_favicon** gem and/or use 
+You can setup your favicon in your Ruby on Rails project with **rails_real_favicon** gem and/or using 
 [Favicon Generator for Ruby on Rails](https://realfavicongenerator.net/favicon/ruby_on_rails).
 
 Your picture should be 260x260 or more for optimal results.
@@ -240,7 +240,7 @@ Your picture should be 260x260 or more for optimal results.
 ### Change images for introduction carousel
 
 Replace images for carousel items with images of your community 
-found under **assets/images/introduction/**.
+can be found under **assets/images/introduction/**.
  
 Make sure these images have size of **1170x312**, depth of **8 bit** and do **not exceed 1 mb**.
 In order to create these images you can use [ImageMagick](https://www.imagemagick.org/Usage/resize/#fill), 
@@ -251,7 +251,7 @@ $ convert item-0.png -resize 1170x312^ -gravity center -extent 1170x312+0-50 ite
 $ convert item-0.png -depth 8 item-0.png
 ```
 
-You can change gravity to any direction, like South or East, and use an offset (e.g. x: +0, y: -50). 
+You can change gravity in any direction, like South or East, and use an offset (e.g. x: +0, y: -50). 
 
 ### Deploying to Heroku
 
@@ -281,7 +281,7 @@ $ heroku restart
 
 ## Spring processes
 
-Any time something isn’t behaving as expected or a process appears to be frozen, 
+Whether  something isn’t behaving as expected, or a process appears to be frozen, 
 it’s a good idea to run 
 
 ```
