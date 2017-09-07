@@ -242,13 +242,14 @@ Your picture should be 260x260 or more for optimal results.
 Replace images for carousel items with images of your community 
 can be found under **assets/images/introduction/**.
  
-Make sure these images have size of **1170x312**, depth of **8 bit** and do **not exceed 1 mb**.
+Make sure these images have size of **1170x312**, depth of **8 bit** and do **not exceed 200 kb**.
 In order to create these images you can use [ImageMagick](https://www.imagemagick.org/Usage/resize/#fill), 
 for example with convert command:
 
 ```
 $ convert item-0.png -resize 1170x312^ -gravity center -extent 1170x312+0-50 item-0.png
 $ convert item-0.png -depth 8 item-0.png
+$ convert item-0.png -trim -flatten item-0.jpg
 ```
 
 You can change gravity in any direction, like South or East, and use an offset (e.g. x: +0, y: -50). 

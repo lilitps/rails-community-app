@@ -10,7 +10,7 @@
   <div class="carousel-inner" role="listbox">
     <% (0..3).each do |i| %>
         <div class="item <%= i == 0 ? 'active' : '' %>">
-          <%= image_tag("introduction/item-#{i}.png", alt: t("introduction.item_#{i}")) %>
+          <%= image_tag("introduction/item-#{i}.jpg", alt: t("introduction.item_#{i}")) %>
           <div class="carousel-caption">
             <p><%= t("introduction.item_#{i}") %></p>
           </div>
