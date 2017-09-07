@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
   # GET	      /login	      login_path	  new	                    page for a new session (login)
   # POST	    /login	      login_path	  create	                create a new session (login)
   # DELETE	  /logout	      logout_path	  destroy	                delete a session (log out)
-  def new
-  end
+  def new; end
 
   def create
     @user = User.find_by(email: params[:session][:email].downcase)

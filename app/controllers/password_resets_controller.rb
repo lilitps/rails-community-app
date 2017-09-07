@@ -1,7 +1,7 @@
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: [:edit, :update]
-  before_action :valid_user, only: [:edit, :update]
-  before_action :check_expiration, only: [:edit, :update]
+  before_action :get_user, only: %i[edit update]
+  before_action :valid_user, only: %i[edit update]
+  before_action :check_expiration, only: %i[edit update]
 
   # HTTP 	    URL	                          Action	    Named route	                      Purpose
   # request
@@ -9,8 +9,7 @@ class PasswordResetsController < ApplicationController
   # POST	  /password_resets	              create	    password_resets_path
   # GET	    /password_resets/<token>/edit	  edit	      edit_password_reset_path(token)
   # PATCH	  /password_resets/<token>	      update	    password_reset_url(token)
-  def new
-  end
+  def new; end
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
@@ -25,8 +24,7 @@ class PasswordResetsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:user][:password].empty?

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: %i[create edit update destroy]
   before_action :admin_user, only: [:create]
-  before_action :admin_user, :correct_user, only: [:edit, :update, :destroy]
+  before_action :admin_user, :correct_user, only: %i[edit update destroy]
   include PostsHelper
 
   # HTTP 	    URL	            Action	    Named route	            Purpose
@@ -18,11 +18,11 @@ class PostsController < ApplicationController
         flash.now[:success] = t('post_created')
         @post = current_user.posts.build if logged_in?
         @feed = feed(params[:page])
-        format.html {redirect_to root_url}
+        format.html { redirect_to root_url }
         format.js
       else
         @feed = []
-        format.html {render 'static_pages/home'}
+        format.html { render 'static_pages/home' }
         format.js
       end
     end
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     respond_to do |format|
-      format.html {redirect_to edit_post_path(@post)}
+      format.html { redirect_to edit_post_path(@post) }
       format.js
     end
   end
@@ -42,10 +42,10 @@ class PostsController < ApplicationController
       if @post.update_attributes(post_params)
         flash.now[:success] = t('post_updated')
         @feed = feed(params[:page])
-        format.html {redirect_back(fallback_location: root_url)}
+        format.html { redirect_back(fallback_location: root_url) }
         format.js
       else
-        format.html {render 'static_pages/home'}
+        format.html { render 'static_pages/home' }
         format.js
       end
     end
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build if logged_in? && current_user.admin?
     @feed = feed(params[:page])
     respond_to do |format|
-      format.html {redirect_back(fallback_location: root_url)}
+      format.html { redirect_back(fallback_location: root_url) }
       format.js
     end
   end

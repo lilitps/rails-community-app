@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: [:index, :destroy]
+  before_action :logged_in_user, only: %i[index edit update destroy following followers]
+  before_action :correct_user, only: %i[edit update]
+  before_action :admin_user, only: %i[index destroy]
 
   # HTTP 	    URL	                  Action	    Named route	            Purpose
   # request
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    redirect_to root_url and return unless @user.activated
+    redirect_to(root_url) && return unless @user.activated
     @feed = @user.posts.paginate(page: params[:page])
   end
 

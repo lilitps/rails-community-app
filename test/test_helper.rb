@@ -1,7 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require "minitest/reporters"
+require 'minitest/reporters'
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
@@ -22,13 +22,12 @@ class ActiveSupport::TestCase
   end
 end
 
-
 class ActionDispatch::IntegrationTest
   # Log in as a particular user.
   def log_in_as(user, password: 'password', remember_me: '1')
-    post login_path, params: {session: {email: user.email,
-                                        password: password,
-                                        remember_me: remember_me}}
+    post login_path, params: { session: { email: user.email,
+                                          password: password,
+                                          remember_me: remember_me } }
   end
 end
 
@@ -37,6 +36,6 @@ end
 class ActionDispatch::Routing::RouteSet
   # Include the locale params in every URL
   def default_url_options
-    {locale: I18n.locale}
+    { locale: I18n.locale }
   end
 end
