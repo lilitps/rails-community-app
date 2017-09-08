@@ -308,8 +308,25 @@ For more information, see the
 ## RuboCop static code analyzer
 
 Check code with [RuboCop](https://rubocop.readthedocs.io) before committing to Git repository. 
-Run in the project project directory:
+Run in the project directory:
 
 ```
 $ rubocop -FRE -a
+```
+
+## Manage license dependencies
+
+Check dependencies with [license_finder](http://www.rubydoc.info/gems/license_finder), 
+detect the licenses and compare those licenses against a whitelist.
+Run in the project directory:
+
+```
+$ license_finder
+```
+
+**license_finder** will inform you whenever you have an unapproved dependency. 
+To approve the dependency run e.g.:
+
+```
+$ license_finder whitelist add 'MIT' --who '...' --why 'free to use'
 ```
