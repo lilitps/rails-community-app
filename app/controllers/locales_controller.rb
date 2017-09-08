@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A locales controller to set and update application language for users
 class LocalesController < ApplicationController
   include LocalesHelper
 

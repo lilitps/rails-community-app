@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A users controller to manage users
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[index edit update destroy following followers]
   before_action :correct_user, only: %i[edit update]

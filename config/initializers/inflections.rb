@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # Add new inflection rules using the following format. Inflections
@@ -17,6 +19,7 @@
 
 # Inflections for de
 ActiveSupport::Inflector.inflections(:de) do |inflect|
+  # rubocop:disable Style/AsciiComments
   inflect.clear
 
   # Pluralendung n/en
@@ -27,4 +30,5 @@ ActiveSupport::Inflector.inflections(:de) do |inflect|
 
   inflect.irregular 'Beitrag', 'Beiträge'
   inflect.irregular 'Fehler', 'Fehler'
+  # rubocop:enable Style/AsciiComments
 end

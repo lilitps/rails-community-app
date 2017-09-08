@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A relationships controller to create and destroy users relationships
 class RelationshipsController < ApplicationController
   before_action :logged_in_user
 

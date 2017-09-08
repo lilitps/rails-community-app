@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # straight from the Heroku documentation:
 # https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
 workers Integer(ENV['WEB_CONCURRENCY'] || 2) unless Gem.win_platform?

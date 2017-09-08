@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
@@ -16,6 +18,7 @@
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 # Defines the matching rules for Guard.
+# rubocop:disable Metrics/BlockLength
 guard :minitest, spring: 'bin/rails test', all_on_start: false do
   watch(%r{^test/(.*)/?(.*)_test\.rb$})
   watch('test/test_helper.rb') { 'test' }
@@ -51,6 +54,7 @@ guard :minitest, spring: 'bin/rails test', all_on_start: false do
       ['test/integration/posts_interface_test.rb']
   end
 end
+# rubocop:enable Metrics/BlockLength
 
 # Returns the integration tests corresponding to the given resource.
 def integration_tests(resource = :all)

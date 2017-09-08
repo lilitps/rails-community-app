@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# An account activations controller to activate users accounts
 class AccountActivationsController < ApplicationController
   # HTTP 	    URL	                                Action	    Named route	                          Purpose
   # request

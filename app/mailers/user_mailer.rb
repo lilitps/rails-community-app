@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A mailer to send account activation and password reset mails
 class UserMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
