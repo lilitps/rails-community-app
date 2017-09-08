@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# An application user
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name: 'Relationship',
@@ -24,12 +27,12 @@ class User < ApplicationRecord
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    update_attributes(remember_digest: User.digest(remember_token))
   end
 
   # Forgets a user.
   def forget
-    update_attribute(:remember_digest, nil)
+    update_attributes(remember_digest: nil)
   end
 
   # Returns the hash digest of the given string.
@@ -52,7 +55,7 @@ class User < ApplicationRecord
 
   # Activates an account.
   def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
+    update_attributes(activated: true, activated_at: Time.zone.now)
   end
 
   # Sends activation email.
@@ -63,7 +66,7 @@ class User < ApplicationRecord
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
-    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+    update_attributes(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
   end
 
   # Sends password reset email.

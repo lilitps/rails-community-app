@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# A password resets controller to reset and update users password
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: %i[edit update]
+  before_action :find_user, only: %i[edit update]
   before_action :valid_user, only: %i[edit update]
   before_action :check_expiration, only: %i[edit update]
 
@@ -32,7 +35,7 @@ class PasswordResetsController < ApplicationController
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
-      @user.update_attribute(:reset_digest, nil)
+      @user.update_attributes(reset_digest: nil)
       flash[:success] = t('password_has_been_reset')
       redirect_to @user
     else
@@ -47,22 +50,20 @@ class PasswordResetsController < ApplicationController
   end
 
   # Before filters
-  def get_user
+  def find_user
     @user = User.find_by(email: params[:email])
   end
 
   # Confirms a valid user.
   def valid_user
-    unless @user && @user.activated? && @user.authenticated?(:reset, params[:id])
-      redirect_to root_url
-    end
+    return if @user && @user.activated? && @user.authenticated?(:reset, params[:id])
+    redirect_to root_url
   end
 
   # Checks expiration of reset token.
   def check_expiration
-    if @user.password_reset_expired?
-      flash[:danger] = t('password_reset_has_expired')
-      redirect_to new_password_reset_url
-    end
+    return unless @user.password_reset_expired?
+    flash[:danger] = t('password_reset_has_expired')
+    redirect_to new_password_reset_url
   end
 end

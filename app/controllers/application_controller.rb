@@ -1,26 +1,29 @@
+# frozen_string_literal: true
+
+# Top level controller adds settings and methods for all application controllers
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   include SessionsHelper
 
   private
+
   # Before filters
 
   # Managing the Locale across Requests
   def set_locale
     I18n.locale = current_user&.locale ||
-        session[:locale] ||
-        http_accept_language.preferred_language_from(I18n.available_locales) ||
-        I18n.default_locale
+                  session[:locale] ||
+                  http_accept_language.preferred_language_from(I18n.available_locales) ||
+                  I18n.default_locale
   end
 
   # Confirms a logged-in user.
   def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = t('please_log_in')
-      redirect_to login_url
-    end
+    return if logged_in?
+    store_location
+    flash[:danger] = t('please_log_in')
+    redirect_to login_url
   end
 
   # Confirms an admin user.
@@ -30,6 +33,6 @@ class ApplicationController < ActionController::Base
 
   # Include the locale params in every URL
   def default_url_options
-    {locale: I18n.locale}
+    { locale: I18n.locale }
   end
 end
