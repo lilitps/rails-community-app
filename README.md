@@ -304,3 +304,12 @@ $ pkill -15 -f spring
 
 For more information, see the
 [*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
+
+## RuboCop static code analyzer
+
+Check code with [RuboCop](https://rubocop.readthedocs.io) before committing to Git repository. 
+Run in the project project directory:
+
+```
+$ rubocop -FRE -a
+```
