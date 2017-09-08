@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -52,21 +54,21 @@ if Rails.env.development?
   admins = User.where(admin: true)
   2.times do
     content = Faker::Lorem.sentence(5)
-    admins.each { |user| user.posts.create!(content: content) }
+    admins.each { |admin| admin.posts.create!(content: content) }
   end
 
   # Posts by non admins
-  users = User.where(admin: false)
+  non_admins = User.where(admin: false)
   2.times do
     content = Faker::Lorem.sentence(5)
-    users.each { |user| user.posts.create!(content: content) }
+    non_admins.each { |non_admin| non_admin.posts.create!(content: content) }
   end
 
   # Following relationships
-  users = User.all
-  user  = users.first
-  following = users[2..users.count]
-  followers = users[3..users.count - 5]
+  non_admins = User.all
+  user = non_admins.first
+  following = non_admins[2..non_admins.count]
+  followers = non_admins[3..non_admins.count - 5]
   following.each { |followed| user.follow(followed) }
   followers.each { |follower| follower.follow(user) }
 end
