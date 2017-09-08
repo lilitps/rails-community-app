@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PostsHelperTest < ActionView::TestCase
@@ -15,15 +17,19 @@ class PostsHelperTest < ActionView::TestCase
       assert feed.to_a.size == 3
       post_keys = %w[id type icon name message permalink_url link full_picture description created_time].to_a
       feed.each do |post|
-        assert post_keys.to_a.any? { |k| post.key?(k) }
+        assert post_keys.to_a.any? do |k|
+          post.key?(k)
+        end
         assert post.key?('story') if post['type'] == 'event' || post['type'] == 'photo'
       end
     end
   end
 
   test 'should simple format a text with html tags' do
+    # rubocop:disable LineLength
     text = 'Nur noch eine Woche bis zurLange Nacht der Astronomie 2017!\nWir freuen uns auf eueren Besuch am #Gleisdreieck und bringen euch gerne dem Himmel etwas näher!'
     simple_formated_text = '<p>Nur noch eine Woche bis zurLange Nacht der Astronomie 2017!\\nWir freuen uns auf eueren Besuch am #Gleisdreieck und bringen euch gerne dem Himmel etwas näher!</p>'
     assert_equal auto_format_html(text), simple_formated_text
+    # rubocop:enable LineLength
   end
 end

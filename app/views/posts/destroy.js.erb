@@ -1,7 +1,3 @@
-$("#edit-post-modal-<%= @destroedPostId %>").remove();
-$("#image-modal-<%= @destroedPostId %>").remove();
-var all_modals = $('#all-modals');
-all_modals.append("<%= escape_javascript(render('posts/post_image_modal', post: @feed.last)) %>");
-all_modals.append("<%= escape_javascript(render('posts/post_form_modal', post: @feed.last)) %>");
+$('#all-modals').detach();
 $("#feed").replaceWith("<%= escape_javascript(render('shared/feed')) %>");
 $("#flash").replaceWith("<%= escape_javascript(render 'shared/flash_messages') %>");
