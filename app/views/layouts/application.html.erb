@@ -4,8 +4,9 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
-    <%= render 'layouts/bootstrap_default' %>
     <%= render 'application/favicon' %>
+    <!-- bootstrap viewport meta tag to ensure proper rendering and touch zooming -->
+    <%= tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1') if protect_against_forgery? %>
   </head>
   <body>
     <%= render 'layouts/header' %>
