@@ -59,3 +59,9 @@
     :why: MIT
     :versions: []
     :when: 2017-07-25 09:51:39.509866000 Z
+- - :whitelist
+  - 2-clause BSDL
+  - :who: Viktor Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2017-09-08 14:11:26.735508000 Z
