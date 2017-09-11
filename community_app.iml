@@ -36,21 +36,27 @@
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.3.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="auto_html (v2.0.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="autoparse (v0.3.3, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v7.1.4, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="awesome_print (v1.8.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.11, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="better_errors (v2.3.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.5.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.3.7, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-will_paginate (v1.0.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="brakeman (v3.7.2, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bullet (v5.6.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.15.4, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler-audit (v0.6.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v9.1.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="carrierwave (v1.1.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.2, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.2.2, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.12.2, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.0.5, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.3, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20170404, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v2.2.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv-rails (v2.2.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
@@ -103,6 +109,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.2.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.10.3, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest-reporters (v1.1.17, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.12.2, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.6.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.0.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nenv (v0.3.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
@@ -111,6 +118,7 @@
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.8.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="notiffany (v0.1.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="os (v0.9.6, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parallel (v1.12.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v2.4.0.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="powerpack (v0.1.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.10.4, RVM: ruby-2.4.1 [global]) [gem]" level="application" />

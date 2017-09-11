@@ -84,6 +84,9 @@ end
 group :development do
   # Use with 'ap object' for nice print Ruby objects in console
   gem 'awesome_print'
+  # Better Errors replaces the standard Rails error page with a much better and more useful error page.
+  gem 'better_errors'
+  gem 'binding_of_caller'
   # bundler-audit provides patch-level verification for Bundled apps
   gem 'bundler-audit', '~> 0.6.0'
   # compare licenses against a user-defined whitelist, and give you an actionable exception report
@@ -118,7 +121,9 @@ group :production do
   gem 'pg', '>= 0.20.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby] if Gem.win_platform?
-# to avoid polling for changes
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+if Gem.win_platform?
+  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+  gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+  # to avoid polling for changes
+  gem 'wdm', '>= 0.1.0'
+end
