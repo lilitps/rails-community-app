@@ -13,9 +13,12 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user && @user.authenticate(params[:session][:password])
-      activated? @user
+      if @user.activated?
+        process_log_in @user
+      else
+        process_with_warning_message
+      end
     else
-      # Create an error message.
       flash.now[:danger] = t('invalid_credentials')
       render 'new'
     end
@@ -28,16 +31,16 @@ class SessionsController < ApplicationController
 
   private
 
-  def activated?(user)
-    if user.activated?
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or user
-    else
-      message  = t('account_not_activated')
-      message += t('check_email_to_activate_account')
-      flash[:warning] = message
-      redirect_to root_url
-    end
+  def process_log_in(user)
+    log_in user
+    params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+    redirect_back_or user
+  end
+
+  def process_with_warning_message
+    message  = t('account_not_activated')
+    message += t('check_email_to_activate_account')
+    flash[:warning] = message
+    redirect_to root_url
   end
 end
