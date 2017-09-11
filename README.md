@@ -314,6 +314,15 @@ Run in the project directory:
 $ rubocop -FRE -a
 ```
 
+## Brakeman security scanner
+
+Check security with [Brakeman](https://brakemanscanner.org/docs/introduction/) before committing to Git repository. 
+Run in the project directory:
+
+```
+$ brakeman -AI
+```
+
 ## Manage license dependencies
 
 Check dependencies with [license_finder](http://www.rubydoc.info/gems/license_finder), 

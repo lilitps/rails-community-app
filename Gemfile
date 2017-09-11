@@ -90,6 +90,8 @@ group :development do
   gem 'license_finder', '~> 3.0', '>= 3.0.1'
   # Use for fighting the N+1 problem in Ruby
   gem 'bullet'
+  # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
+  gem 'brakeman', require: false
   # Use i18n-tasks to find and manage missing and unused translations
   gem 'i18n-tasks', '~> 0.9.15'
   gem 'listen', '~> 3.1'
