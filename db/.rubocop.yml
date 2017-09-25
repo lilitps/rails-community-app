@@ -5,3 +5,9 @@ Metrics/BlockLength:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/AbcSize:
+  Enabled: no
+
+Metrics/MethodLength:
+  Enabled: no
