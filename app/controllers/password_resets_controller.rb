@@ -4,20 +4,18 @@
 class PasswordResetsController < ApplicationController
   before_action :find_user, only: %i[edit update]
   before_action :valid_user, only: %i[edit update]
-  before_action :check_expiration, only: %i[edit update]
 
   # HTTP 	    URL	                          Action	    Named route	                      Purpose
   # request
   # GET	    /password_resets/new	          new	        new_password_reset_path
   # POST	  /password_resets	              create	    password_resets_path
   # GET	    /password_resets/<token>/edit	  edit	      edit_password_reset_path(token)
-  # PATCH	  /password_resets/<token>	      update	    password_reset_url(token)
+  # PATCH	  /password_resets/<token>	      update	    password_reset_path(token)
   def new; end
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
-      @user.create_reset_digest
       @user.send_password_reset_email
       flash[:info] = t('password_reset_email_sent')
       redirect_to root_url
@@ -35,7 +33,6 @@ class PasswordResetsController < ApplicationController
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
-      @user.update_attributes(reset_digest: nil)
       flash[:success] = t('password_has_been_reset')
       redirect_to @user
     else
@@ -54,16 +51,10 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by(email: params[:email])
   end
 
-  # Confirms a valid user.
+  # Confirms a valid user and checks expiration of token.
   def valid_user
-    return if @user && @user.activated? && @user.authenticated?(:reset, params[:id])
-    redirect_to root_url
-  end
-
-  # Checks expiration of reset token.
-  def check_expiration
-    return unless @user.password_reset_expired?
+    return if @user && @user.active? && User.find_using_perishable_token(params[:id])
     flash[:danger] = t('password_reset_has_expired')
-    redirect_to new_password_reset_url
+    redirect_to root_url
   end
 end

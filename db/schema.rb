@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_170_623_101_332) do
+ActiveRecord::Schema.define(version: 20_170_912_104_501) do
   create_table 'posts', force: :cascade do |t|
     t.text 'content'
     t.integer 'user_id'
@@ -33,20 +33,40 @@ ActiveRecord::Schema.define(version: 20_170_623_101_332) do
     t.index ['follower_id'], name: 'index_relationships_on_follower_id'
   end
 
+  create_table 'user_sessions', force: :cascade do |t|
+    t.string 'session_id', null: false
+    t.text 'data'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['session_id'], name: 'index_user_sessions_on_session_id'
+    t.index ['updated_at'], name: 'index_user_sessions_on_updated_at'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'name'
     t.string 'email'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.string 'password_digest'
-    t.string 'remember_digest'
+    t.string 'crypted_password'
+    t.string 'persistence_token'
     t.boolean 'admin', default: false
-    t.string 'activation_digest'
-    t.boolean 'activated', default: false
     t.datetime 'activated_at'
-    t.string 'reset_digest'
-    t.datetime 'reset_sent_at'
     t.string 'locale', default: 'en'
+    t.string 'password_salt'
+    t.string 'perishable_token'
+    t.integer 'login_count', default: 0, null: false
+    t.integer 'failed_login_count', default: 0, null: false
+    t.datetime 'last_request_at'
+    t.datetime 'current_login_at'
+    t.datetime 'last_login_at'
+    t.string 'current_login_ip'
+    t.string 'last_login_ip'
+    t.boolean 'active', default: false
+    t.boolean 'approved', default: false
+    t.boolean 'confirmed', default: false
     t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['last_request_at'], name: 'index_users_on_last_request_at'
+    t.index ['perishable_token'], name: 'index_users_on_perishable_token', unique: true
+    t.index ['persistence_token'], name: 'index_users_on_persistence_token', unique: true
   end
 end

@@ -5,7 +5,7 @@
 
   <nav>
     <ul>
-      <% if logged_in? && current_user.admin? %>
+      <% if logged_in? && @current_user.admin? %>
           <li class="dropdown dropup">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t('menu.administration.administration') %> <b class="caret"></b> </a>

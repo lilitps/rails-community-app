@@ -7,6 +7,6 @@
   <%= t('click_link_to_activate') %>
 </p>
 
-<%= link_to t('activate'), edit_account_activation_url(@user.activation_token,
+<%= link_to t('activate'), edit_account_activation_url(@user.perishable_token,
                                                     email: @user.email,
                                                     locale: I18n.locale) %>

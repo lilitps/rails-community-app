@@ -2,7 +2,7 @@
 
 # A posts controller to manage users posts interface
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: %i[create edit update destroy]
+  before_action :require_user, only: %i[create edit update destroy]
   before_action :admin_user, only: [:create]
   before_action :admin_user, :correct_user, only: %i[edit update destroy]
   include PostsHelper
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   # DELETE	  /posts/1	      destroy	    post_path(post)
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = @current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
         flash.now[:success] = t('post_created')
@@ -68,12 +68,12 @@ class PostsController < ApplicationController
   end
 
   def correct_user
-    @post = current_user.posts.find_by(id: params[:id]) if logged_in?
+    @post = @current_user.posts.find_by(id: params[:id]) if logged_in?
     redirect_to root_url if @post.nil?
   end
 
   def reset_feed
-    @post = current_user.posts.build if logged_in? && current_user.admin?
+    @post = @current_user.posts.build if logged_in? && @current_user.admin?
     @feed = feed(params[:page])
   end
 end

@@ -2,7 +2,7 @@
 
 # A users controller to manage users
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[index edit update destroy following followers]
+  before_action :require_user, only: %i[index edit update destroy following followers]
   before_action :correct_user, only: %i[edit update]
   before_action :admin_user, only: %i[index destroy]
 
@@ -20,12 +20,12 @@ class UsersController < ApplicationController
   # GET	      /users/1/followers	  followers	  followers_user_path(1)
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page])
+    @users = User.where(approved: true).paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
-    redirect_to(root_url) && return unless @user.activated
+    redirect_to(root_url) && return unless @user.approved
     @feed = @user.posts.paginate(page: params[:page])
   end
 
@@ -45,11 +45,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = @current_user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = @current_user
     if @user.update_attributes(user_params)
       flash[:success] = t('profile_updated', locale: @user.locale)
       redirect_to @user
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    @current_user.destroy
     flash[:success] = t('user_deleted')
     redirect_to users_url
   end

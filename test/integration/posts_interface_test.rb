@@ -18,6 +18,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: '' } }
     end
+    log_out
     # Invalid submission as admin
     log_in_as(@admin)
     get root_path
@@ -67,6 +68,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     # Visit different user as admin
     get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 2
+    log_out
     # Visit different user as non admin (no delete links)
     log_in_as(@non_admin)
     get user_path(users(:archer))

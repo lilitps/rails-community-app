@@ -4,11 +4,65 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  include SessionsHelper
+  include UserSessionsHelper
+  helper_method :log_in, :log_out, :logged_in?, :current_user?, :current_user_session, :current_user
+
+  protected
+
+  def handle_unverified_request
+    current_user_session&.destroy
+    redirect_to root_url
+  end
 
   private
 
+  # Logs in the given user and remembers in a persistent session.
+  def log_in(user)
+    UserSession.new(user).save
+  end
+
+  # Logs out the current user and forgets a persistent session.
+  def log_out
+    current_user_session&.destroy
+    @current_user = nil
+  end
+
+  # Returns true if the user is logged in, false otherwise.
+  def logged_in?
+    !@current_user.nil?
+  end
+
+  # Returns true if the given user is the current user.
+  def current_user?(user)
+    user == @current_user
+  end
+
+  # Returns the current user session (if any).
+  def current_user_session
+    @current_user_session ||= UserSession.find
+  end
+
+  # Returns the current logged-in user (if any).
+  def current_user
+    @current_user ||= current_user_session&.user
+  end
+
   # Before filters
+
+  # Confirms a logged-in user.
+  def require_user
+    return if current_user
+    store_location
+    flash[:notice] = t('please_log_in')
+    redirect_to login_url
+  end
+
+  def require_no_user
+    return unless current_user
+    store_location
+    flash[:notice] = t('please_log_out')
+    redirect_to root_url
+  end
 
   # Managing the Locale across Requests
   def set_locale
@@ -18,17 +72,9 @@ class ApplicationController < ActionController::Base
                   I18n.default_locale
   end
 
-  # Confirms a logged-in user.
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t('please_log_in')
-    redirect_to login_url
-  end
-
   # Confirms an admin user.
   def admin_user
-    redirect_to(root_url) unless current_user.admin?
+    redirect_to(root_url) unless @current_user.admin?
   end
 
   # Include the locale params in every URL

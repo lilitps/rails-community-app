@@ -7,13 +7,13 @@
   </h1>
 </div>
 
-<% if logged_in? && current_user.admin? %>
+<% if logged_in? && @current_user.admin? %>
     <%= render 'posts/post_form_modal', post: @post %>
 <% end %>
 
 <h2>
   <%= t('feed_header') %>
-  <% if logged_in? && current_user.admin? %>
+  <% if logged_in? && @current_user.admin? %>
       <%= link_to "<span class=\"pull-right glyphicon glyphicon-plus\"
       aria-label=\"#{t('compose_new_post')}\"></span>".html_safe,
                   '#', data: {toggle: 'modal', target: '#new-post-modal'} %>

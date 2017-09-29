@@ -27,9 +27,9 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     assert_template 'static_pages/home'
     assert_select 'a>img.gravatar', count: 3
     assert_select '#feed>div>div>.thumbnail', count: 3
-    first_page_of_feed = feed(1)
-    assert_not first_page_of_feed.empty?
-    first_page_of_feed.each do |post|
+    @first_page_of_feed = assigns(:feed)
+    assert_not @first_page_of_feed.empty?
+    @first_page_of_feed.each do |post|
       assert_select 'div#post-' + post.id.to_s, count: 1
       assert_match post.content, response.body
     end
@@ -38,12 +38,13 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
   test 'should display first 3 posts on home page feed with gravatar and admin links if logged in as admin' do
     log_in_as(@admin)
     assert logged_in?
-    assert current_user.admin?
+    @current_user = assigns(:current_user)
+    assert @current_user.admin?
     get root_path
     assert_template 'static_pages/home'
-    first_page_of_feed = feed(1)
-    assert_not first_page_of_feed.empty?
-    first_page_of_feed.each do |post|
+    @first_page_of_feed = assigns(:feed)
+    assert_not @first_page_of_feed.empty?
+    @first_page_of_feed.each do |post|
       assert_select 'a[href=?]', edit_post_path(post), text: 'edit'
       assert_select 'a[href=?]', post_path(post), text: 'delete'
     end
@@ -53,9 +54,9 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     log_in_as(@non_admin)
     get root_path
     assert_template 'static_pages/home'
-    first_page_of_feed = feed(1)
-    assert_not first_page_of_feed.empty?
-    first_page_of_feed.each do |post|
+    @first_page_of_feed = assigns(:feed)
+    assert_not @first_page_of_feed.empty?
+    @first_page_of_feed.each do |post|
       if post.content.present? && post.content.length > 150
         assert_match auto_format_html(truncate(post.content, length: 150)), response.body
         assert_select '.read-more-' + post.id, count: 1
@@ -79,9 +80,9 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
 
   test 'for logged in users feed should have user, following users and admin posts' do
     # Posts from admin user, logged in user and following users
-    posts = posts(:most_recent, :orange, :tone)
     log_in_as(@non_admin)
     assert logged_in?
+    posts = posts(:most_recent, :orange, :tone)
     get root_path
     @feed = assigns(:feed)
     assert_not @feed.empty?
@@ -94,9 +95,11 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     tina.posts.each do |post_unfollowed|
       assert_not @feed.include?(post_unfollowed)
     end
+    log_out
     # Posts from self
-    posts = posts(:most_recent, :enthusiastic, :orange)
     log_in_as(tina)
+    assert logged_in?
+    posts = posts(:most_recent, :enthusiastic, :orange)
     get root_path
     @feed = assigns(:feed)
     assert_not @feed.empty?

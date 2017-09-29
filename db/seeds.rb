@@ -14,7 +14,9 @@ User.create!(name: 'Viktor Schmidt',
              password_confirmation: 'password',
              admin: true,
              locale: 'en',
-             activated: true,
+             active: true,
+             approved: true,
+             confirmed: true,
              activated_at: Time.zone.now)
 
 user = User.first
@@ -32,7 +34,9 @@ if Rails.env.development?
                  password_confirmation: password,
                  admin: true,
                  locale: 'en',
-                 activated: true,
+                 active: true,
+                 approved: true,
+                 confirmed: true,
                  activated_at: Time.zone.now)
   end
 
@@ -46,7 +50,9 @@ if Rails.env.development?
                  password: password,
                  password_confirmation: password,
                  locale: 'en',
-                 activated: true,
+                 active: true,
+                 approved: true,
+                 confirmed: true,
                  activated_at: Time.zone.now)
   end
 

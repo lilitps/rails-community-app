@@ -5,6 +5,7 @@ de:
   log_in: "Einloggen"
   loging_in: "Einloggen..."
   please_log_in: "Bitte loggen Sie sich ein."
+  please_log_out: "Bitte loggen Sie sich aus."
   account_not_activated: "Konto ist nicht aktiviert. "
   invalid_credentials: "Ungültige E-Mail- / Passwort-Kombination"
 

@@ -33,8 +33,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.6'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1'
+# Authlogic is a clean, simple, and unobtrusive ruby authentication solution
+gem 'authlogic'
+# SCrypt is the default provider for Authlogic
+gem 'scrypt'
 # Use Faker to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '~> 1.7'
 # Use Will Paginate for performing paginated queries with Active Record
@@ -86,6 +88,7 @@ group :development do
   gem 'awesome_print'
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
   gem 'better_errors'
+  # necessary to use Better Errors' advanced features
   gem 'binding_of_caller'
   # bundler-audit provides patch-level verification for Bundled apps
   gem 'bundler-audit', '~> 0.6.0'
@@ -113,6 +116,7 @@ group :test do
   gem 'guard', '~> 2.14'
   gem 'guard-minitest', '~> 2.4'
   gem 'minitest-reporters', '~> 1.1'
+  # bring back the original controller testing for Authlogic
   gem 'rails-controller-testing', '~> 1.0'
 end
 

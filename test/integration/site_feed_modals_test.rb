@@ -47,7 +47,8 @@ class SiteFeedModalsTest < ActionDispatch::IntegrationTest
     # log in as admin user
     log_in_as(@admin)
     assert logged_in?
-    assert current_user.admin?
+    @current_user = assigns(:current_user)
+    assert @current_user.admin?
     get root_path
     assert_template 'static_pages/home'
     @feed = assigns(:feed)

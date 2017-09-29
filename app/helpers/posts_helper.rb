@@ -5,7 +5,7 @@ require 'auto_html'
 
 # Adds helper methods to be used in context of a post
 module PostsHelper
-  include SessionsHelper
+  include UserSessionsHelper
 
   # Returns most recent posts per page
   def feed(page, per_page = 3, only_admin = true)
@@ -15,7 +15,7 @@ module PostsHelper
       query = query.or(Post.includes(:user)
                            .where(users: { admin: !only_admin })
                            .where("user_id IN (#{following_ids}) OR user_id = :user_id",
-                                  user_id: current_user.id))
+                                  user_id: @current_user.id))
     end
     query.paginate(page: page, per_page: per_page)
   end

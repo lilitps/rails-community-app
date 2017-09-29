@@ -1,8 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 DEFAULTS: &DEFAULTS
-  password_digest: <%= User.digest('password') %>
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::SCrypt.encrypt('password' + salt) %>
   locale: 'en'
-  activated: true
+  active: true
+  approved: true
+  confirmed: true
   activated_at: <%= Time.zone.now %>
 
 lana:

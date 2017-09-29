@@ -30,7 +30,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
-    assert_not user.activated?
+    assert_not user.active?
     # Try to log in before activation.
     log_in_as(user)
     assert_not logged_in?
@@ -38,11 +38,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get edit_account_activation_path('invalid token', email: user.email)
     assert_not logged_in?
     # Valid token, wrong email
-    get edit_account_activation_path(user.activation_token, email: 'wrong')
+    get edit_account_activation_path(user.perishable_token, email: 'wrong')
     assert_not logged_in?
     # Valid activation token
-    get edit_account_activation_path(user.activation_token, email: user.email)
-    assert user.reload.activated?
+    get edit_account_activation_path(user.perishable_token, email: user.email)
+    assert user.reload.active?
+    assert user.reload.approved?
+    assert user.reload.confirmed?
     follow_redirect!
     assert_template 'users/show'
     assert logged_in?
@@ -50,5 +52,28 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     flash.each do |_message_type, _message|
       assert message 'Welcome to the Community App!'
     end
+  end
+
+  test 'expired activation token' do
+    get signup_path
+    assert_difference 'User.count', 1 do
+      post users_path, params: { user: { name:  'Example User',
+                                         email: 'user@example.com',
+                                         password:              'password',
+                                         password_confirmation: 'password' } }
+    end
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    user = assigns(:user)
+    assert_not user.active?
+    user.update_attributes(updated_at: 2.hours.ago)
+    get edit_account_activation_path(user.perishable_token, email: user.email)
+    assert_not user.reload.active?
+    assert_not user.reload.approved?
+    assert_not user.reload.confirmed?
+    assert_response :redirect
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_not flash.empty?
+    assert flash[:danger] = 'Invalid activation link'
   end
 end
