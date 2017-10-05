@@ -1,3 +1,5 @@
+<% provide(:feed_title, t('feed_header')) %>
+
 <%= render 'static_pages/introduction_carousel' %>
 
 <div id="news_anchor"></div>
@@ -9,27 +11,16 @@
 
 <% if logged_in? && @current_user.admin? %>
     <%= render 'posts/post_form_modal', post: @post %>
-<% end %>
 
-<h2>
-  <%= t('feed_header') %>
-  <% if logged_in? && @current_user.admin? %>
-      <%= link_to "<span class=\"pull-right glyphicon glyphicon-plus\"
+    <%= link_to "<span class=\"pull-right glyphicon glyphicon-plus\"
       aria-label=\"#{t('compose_new_post')}\"></span>".html_safe,
-                  '#', data: {toggle: 'modal', target: '#new-post-modal'} %>
-  <% end %>
-</h2>
-
-<% if @feed && @feed.any? %>
-    <div class="row">
-      <%= render 'shared/feed' %>
-    </div>
+                '#', data: {toggle: 'modal', target: '#new-post-modal'} %>
 <% end %>
 
-<% if @fb_feed && @fb_feed.any? %>
-    <h2><%= t('fb_feed_header') %></h2>
+<div class="row">
+  <%= render 'shared/feed' %>
+</div>
 
-    <div class="row">
-      <%= render 'facebook/fb_feed' %>
-    </div>
-<% end %>
+<div class="row">
+  <%= render 'facebook/fb_feed' %>
+</div>

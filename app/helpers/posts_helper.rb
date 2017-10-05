@@ -7,6 +7,15 @@ require 'auto_html'
 module PostsHelper
   include UserSessionsHelper
 
+  # Returns the feed title.
+  def feed_title(feed_title = '')
+    if feed_title.empty?
+      I18n.t('feed_header')
+    else
+      feed_title
+    end
+  end
+
   # Returns most recent posts per page
   def feed(page, per_page = 3, only_admin = true)
     query = Post.includes(:user).where(users: { admin: only_admin })

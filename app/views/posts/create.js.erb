@@ -6,7 +6,6 @@ var new_post = $("#new_post");
   $('#new-post-modal').modal('hide');
   new_post.find('input:text,textarea').val('');
   new_post.find('#error_explanation').empty();
-  $('#all-modals').detach();
   $("#feed").replaceWith("<%= escape_javascript(render('shared/feed')) %>");
   $("#flash").replaceWith("<%= escape_javascript(render 'shared/flash_messages') %>");
 <% end %>
