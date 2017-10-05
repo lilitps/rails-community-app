@@ -1,3 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+@checkImageSize = (picture_input) ->
+  size_in_megabytes = picture_input.files[0].size / 1024 / 1024
+  if size_in_megabytes > 5
+    alert '<%= I18n.t('maximum_file_size_alert') %>'
+  return
