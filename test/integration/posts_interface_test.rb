@@ -35,7 +35,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     end
     assert_not flash.empty?
     assert @admin.posts.first.picture?
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     follow_redirect!
     assert_match content, response.body
   end

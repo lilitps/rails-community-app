@@ -27,7 +27,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'user_sessions/new'
     assert_not_nil session[:forwarding_url]
     log_in_as(@user)
-    assert_redirected_to edit_user_url(@user)
+    assert_redirected_to edit_user_path(@user)
     follow_redirect!
     name = 'Foo Bar'
     email = 'foo@bar.com'

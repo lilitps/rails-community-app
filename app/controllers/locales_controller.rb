@@ -2,6 +2,8 @@
 
 # A locales controller to set and update application language for users
 class LocalesController < ApplicationController
+  before_action :require_user
+
   include LocalesHelper
 
   # HTTP 	    URL	            Action	    Named route	            Purpose
@@ -12,5 +14,14 @@ class LocalesController < ApplicationController
     remember(params[:locale])
     flash[:success] = t('locale_set_to', language: t('language_name'))
     redirect_to root_path
+  end
+
+  private
+
+  # Remembers the user locale.
+  def remember(locale)
+    @current_user.update_attributes(locale: locale) if logged_in?
+    session[:locale] = locale
+    I18n.locale = locale
   end
 end

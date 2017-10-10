@@ -2,9 +2,10 @@
 
 # A posts controller to manage users posts interface
 class PostsController < ApplicationController
-  before_action :require_user, only: %i[create edit update destroy]
-  before_action :admin_user, only: [:create]
-  before_action :admin_user, :correct_user, only: %i[edit update destroy]
+  before_action :require_user
+  authorize_resource only: :create
+  load_and_authorize_resource only: %i[edit update destroy]
+
   include PostsHelper
 
   # HTTP 	    URL	            Action	    Named route	            Purpose
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
       if @post.save
         flash.now[:success] = t('post_created')
         reset_feed
-        format.html { redirect_to root_url }
+        format.html { redirect_to root_path }
       else
         @feed = []
         format.html { render 'static_pages/home' }
@@ -30,7 +31,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
     respond_to do |format|
       format.html { redirect_to edit_post_path(@post) }
       format.js
@@ -38,12 +38,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
     respond_to do |format|
       if @post.update_attributes(post_params)
         flash.now[:success] = t('post_updated')
         @feed = feed(params[:page])
-        format.html { redirect_back(fallback_location: root_url) }
+        format.html { redirect_back(fallback_location: root_path) }
       else
         format.html { render 'static_pages/home' }
       end
@@ -56,7 +55,7 @@ class PostsController < ApplicationController
     flash.now[:success] = t('post_deleted')
     reset_feed
     respond_to do |format|
-      format.html { redirect_back(fallback_location: root_url) }
+      format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
   end
@@ -65,11 +64,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, :picture)
-  end
-
-  def correct_user
-    @post = @current_user.posts.find_by(id: params[:id]) if logged_in?
-    redirect_to root_url if @post.nil?
   end
 
   def reset_feed

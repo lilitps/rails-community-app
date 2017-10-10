@@ -25,30 +25,30 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_not_equal @user.perishable_token, @user.reload.perishable_token
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_not flash.empty?
-    assert_redirected_to root_url
+    assert_redirected_to root_path
   end
 
   test 'password reset form' do
     # Password reset form
     post password_resets_path,
          params: { password_reset: { email: @user.email } }
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     user = assigns(:user)
     follow_redirect!
-    assert flash[:info] = 'Email sent with password reset instructions'
+    assert flash[:info] == 'Email sent with password reset instructions'
     # Wrong email
     get edit_password_reset_path(user.perishable_token, email: '')
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     follow_redirect!
     # Inactive user
     user.update_attributes(active: false)
     get edit_password_reset_path(user.perishable_token, email: user.email)
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     follow_redirect!
     user.update_attributes(active: true)
     # Right email, wrong token
     get edit_password_reset_path('wrong token', email: user.email)
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     follow_redirect!
     # Right email, right token
     get edit_password_reset_path(user.perishable_token, email: user.email)
@@ -60,7 +60,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
   test 'password reset confirmation' do
     post password_resets_path,
          params: { password_reset: { email: @user.email } }
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     user = assigns(:user)
     follow_redirect!
     # Invalid password & confirmation
@@ -97,17 +97,17 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                     user: { password:              'foobar',
                             password_confirmation: 'foobar' } }
     assert_response :redirect
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     follow_redirect!
     assert_not flash.empty?
-    assert flash[:danger] = 'Password reset has expired.'
+    assert flash[:danger] == 'Password reset has expired.'
   end
 
   test 'invalid reset token after login' do
     # Password reset form
     post password_resets_path,
          params: { password_reset: { email: @user.email } }
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     user = assigns(:user)
     follow_redirect!
     # Valid login
@@ -118,10 +118,10 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     patch password_reset_path(user.perishable_token), params: { email: user.email,
                                                                 user: { password: 'foobaz',
                                                                         password_confirmation: 'foobaz' } }
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     follow_redirect!
     assert_not logged_in?
     assert_not flash.empty?
-    assert flash[:danger] = 'Password reset has expired.'
+    assert flash[:danger] == 'Password reset has expired.'
   end
 end

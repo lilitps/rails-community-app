@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.6'
 gem 'authlogic'
 # SCrypt is the default provider for Authlogic
 gem 'scrypt'
+# CanCanCan is an authorization library which restricts what resources a given user is allowed to access
+gem 'cancancan', '~> 2.0'
 # Use Faker to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '~> 1.7'
 # Use Will Paginate for performing paginated queries with Active Record

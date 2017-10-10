@@ -11,10 +11,19 @@ class ApplicationController < ActionController::Base
 
   def handle_unverified_request
     current_user_session&.destroy
-    redirect_to root_url
+    redirect_to root_path
   end
 
   private
+
+  # Handle Unauthorized Access
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: exception.message }
+      format.js   { head :forbidden, content_type: 'text/html' }
+      format.any  { raise exception }
+    end
+  end
 
   # Logs in the given user and remembers in a persistent session.
   def log_in(user)
@@ -54,14 +63,14 @@ class ApplicationController < ActionController::Base
     return if current_user
     store_location
     flash[:notice] = t('please_log_in')
-    redirect_to login_url
+    redirect_to login_path
   end
 
   def require_no_user
     return unless current_user
     store_location
     flash[:notice] = t('please_log_out')
-    redirect_to root_url
+    redirect_to root_path
   end
 
   # Managing the Locale across Requests
@@ -74,7 +83,7 @@ class ApplicationController < ActionController::Base
 
   # Confirms an admin user.
   def admin_user
-    redirect_to(root_url) unless @current_user.admin?
+    redirect_to root_path unless @current_user.admin?
   end
 
   # Include the locale params in every URL

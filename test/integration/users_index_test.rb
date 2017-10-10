@@ -27,9 +27,13 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   end
 
   test 'index as non-admin' do
+    get users_path
+    assert_redirected_to login_path
     log_in_as(@non_admin)
     get users_path
-    assert_redirected_to root_url
-    assert_select 'a', text: 'delete', count: 0
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_not flash.empty?
+    assert flash[:notice] == 'You are not authorized to access this page.'
   end
 end

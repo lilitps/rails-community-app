@@ -18,7 +18,7 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.send_password_reset_email
       flash[:info] = t('password_reset_email_sent')
-      redirect_to root_url
+      redirect_to root_path
     else
       flash.now[:danger] = t('email_address_not_found')
       render 'new'
@@ -55,6 +55,6 @@ class PasswordResetsController < ApplicationController
   def valid_user
     return if @user && @user.active? && User.find_using_perishable_token(params[:id])
     flash[:danger] = t('password_reset_has_expired')
-    redirect_to root_url
+    redirect_to root_path
   end
 end

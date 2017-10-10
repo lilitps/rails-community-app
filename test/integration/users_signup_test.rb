@@ -71,9 +71,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_not user.reload.approved?
     assert_not user.reload.confirmed?
     assert_response :redirect
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     follow_redirect!
     assert_not flash.empty?
-    assert flash[:danger] = 'Invalid activation link'
+    assert flash[:danger] == 'Invalid activation link'
   end
 end

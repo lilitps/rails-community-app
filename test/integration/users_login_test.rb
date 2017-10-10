@@ -31,7 +31,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     # Simulate a user clicking logout.
     delete logout_path
     assert_not logged_in?
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     # Simulate a user clicking logout in a second window.
     delete logout_path
     follow_redirect!
@@ -43,7 +43,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test 'login with remembering' do
     log_in_as(@user, remember_me: '1')
     assert logged_in?
-    @current_user_session = assigns(:current_user_session)
     assert @current_user_session.remember_me?
   end
 
@@ -51,7 +50,17 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     # Log in again and verify that the cookie is deleted.
     log_in_as(@user, remember_me: 'false')
     assert logged_in?
-    @current_user_session = assigns(:current_user_session)
     assert_not @current_user_session.remember_me?
+  end
+
+  test 'logged in user should get notice after another login try' do
+    log_in_as(@user)
+    assert logged_in?
+    log_in_as(@user)
+    assert logged_in?
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_not flash.empty?
+    assert flash[:notice] == 'Please log out.'
   end
 end

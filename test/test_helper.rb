@@ -28,6 +28,7 @@ module ActionDispatch
       post login_path, params: { user_session: { email: user.email,
                                                  password: password,
                                                  remember_me: remember_me } }
+      @current_user_session = assigns(:current_user_session)
     end
 
     # Returns true if a test user is logged in, false otherwise.

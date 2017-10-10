@@ -4,15 +4,16 @@
 class UserSessionsController < ApplicationController
   before_action :require_no_user, only: %i[new create]
   before_action :require_user, only: :destroy
+  load_and_authorize_resource only: :new
+  authorize_resource only: %i[create destroy]
+
   # Sessions a fully RESTful resource
   # HTTP 	    URL	            Action	    Named route	            Purpose
   # request
   # GET	      /login	      login_path	  new	                    page for a new session (login)
   # POST	    /login	      login_path	  create	                create a new session (login)
   # DELETE	  /logout	      logout_path	  destroy	                delete a session (log out)
-  def new
-    @user_session = UserSession.new
-  end
+  def new; end
 
   def create
     # converts the ActionController::Parameters to a Hash.
@@ -32,7 +33,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     @current_user_session&.destroy
-    redirect_to root_url
+    redirect_to root_path
   end
 
   private
@@ -41,7 +42,7 @@ class UserSessionsController < ApplicationController
     message  = t('account_not_activated')
     message += t('check_email_to_activate_account')
     flash[:warning] = message
-    redirect_to root_url
+    redirect_to root_path
   end
 
   def user_session_params

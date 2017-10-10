@@ -67,7 +67,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   end
 
   test 'page title when logged in' do
-    user = users(:michael)
+    user = users(:lana)
     log_in_as(user)
     # menu account
     get user_path(user)
