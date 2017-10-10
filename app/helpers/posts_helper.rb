@@ -19,7 +19,7 @@ module PostsHelper
   # Returns most recent posts per page
   def feed(page, per_page = 3, only_admin = true)
     query = Post.includes(:user).where(users: { admin: only_admin })
-    if logged_in?
+    if @current_user
       following_ids = 'SELECT followed_id FROM relationships WHERE  follower_id = :user_id'
       query = query.or(Post.includes(:user)
                            .where(users: { admin: !only_admin })

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   include UserSessionsHelper
-  helper_method :log_in, :log_out, :logged_in?, :current_user?, :current_user_session, :current_user
+  helper_method :log_in, :log_out, :current_user?, :current_user_session, :current_user
 
   protected
 
@@ -34,11 +34,6 @@ class ApplicationController < ActionController::Base
   def log_out
     current_user_session&.destroy
     @current_user = nil
-  end
-
-  # Returns true if the user is logged in, false otherwise.
-  def logged_in?
-    !@current_user.nil?
   end
 
   # Returns true if the given user is the current user.
@@ -75,7 +70,7 @@ class ApplicationController < ActionController::Base
 
   # Managing the Locale across Requests
   def set_locale
-    I18n.locale = current_user&.locale ||
+    I18n.locale = @current_user&.locale ||
                   session[:locale] ||
                   http_accept_language.preferred_language_from(I18n.available_locales) ||
                   I18n.default_locale

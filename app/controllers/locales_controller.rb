@@ -20,7 +20,7 @@ class LocalesController < ApplicationController
 
   # Remembers the user locale.
   def remember(locale)
-    @current_user.update_attributes(locale: locale) if logged_in?
+    @current_user&.update_attributes(locale: locale)
     session[:locale] = locale
     I18n.locale = locale
   end
