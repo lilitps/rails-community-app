@@ -34,22 +34,18 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
          params: { password_reset: { email: @user.email } }
     assert_redirected_to root_path
     user = assigns(:user)
-    follow_redirect!
     assert flash[:info] == 'Email sent with password reset instructions'
     # Wrong email
     get edit_password_reset_path(user.perishable_token, email: '')
     assert_redirected_to root_path
-    follow_redirect!
     # Inactive user
     user.update_attributes(active: false)
     get edit_password_reset_path(user.perishable_token, email: user.email)
     assert_redirected_to root_path
-    follow_redirect!
     user.update_attributes(active: true)
     # Right email, wrong token
     get edit_password_reset_path('wrong token', email: user.email)
     assert_redirected_to root_path
-    follow_redirect!
     # Right email, right token
     get edit_password_reset_path(user.perishable_token, email: user.email)
     assert_response :success
@@ -62,7 +58,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
          params: { password_reset: { email: @user.email } }
     assert_redirected_to root_path
     user = assigns(:user)
-    follow_redirect!
     # Invalid password & confirmation
     patch password_reset_path(user.perishable_token), params: { email: user.email,
                                                                 user: { password: 'foobaz',
@@ -98,7 +93,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                             password_confirmation: 'foobar' } }
     assert_response :redirect
     assert_redirected_to root_path
-    follow_redirect!
     assert_not flash.empty?
     assert flash[:danger] == 'Password reset has expired.'
   end
@@ -109,7 +103,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
          params: { password_reset: { email: @user.email } }
     assert_redirected_to root_path
     user = assigns(:user)
-    follow_redirect!
     # Valid login
     log_in_as(user, remember_me: '1')
     delete logout_path
@@ -119,7 +112,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                                                                 user: { password: 'foobaz',
                                                                         password_confirmation: 'foobaz' } }
     assert_redirected_to root_path
-    follow_redirect!
     assert_not logged_in?
     assert_not flash.empty?
     assert flash[:danger] == 'Password reset has expired.'

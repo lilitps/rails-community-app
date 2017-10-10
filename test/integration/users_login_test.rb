@@ -22,9 +22,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as @user
     assert logged_in?
     assert_redirected_to @user
+    assert flash.empty?
     follow_redirect!
     assert_template 'users/show'
-    assert flash.empty?
     assert_select 'a[href=?]', login_path, count: 0
     assert_select 'a[href=?]', logout_path
     assert_select 'a[href=?]', user_path(@user)
@@ -34,6 +34,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
     # Simulate a user clicking logout in a second window.
     delete logout_path
+    assert_redirected_to login_path
+    assert_not flash.empty?
+    assert flash[:notice] == 'Please log in.'
     follow_redirect!
     assert_select 'a[href=?]', login_path
     assert_select 'a[href=?]', logout_path,      count: 0
@@ -59,7 +62,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     assert logged_in?
     assert_redirected_to root_path
-    follow_redirect!
     assert_not flash.empty?
     assert flash[:notice] == 'Please log out.'
   end

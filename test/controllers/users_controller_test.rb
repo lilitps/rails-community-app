@@ -36,7 +36,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@other_user)
     get edit_user_path(@user)
     assert_redirected_to root_path
-    follow_redirect!
     assert_not flash.empty?
     assert flash[:notice] == 'You are not authorized to access this page.'
   end
@@ -46,7 +45,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     patch user_path(@user), params: { user: { name: @user.name,
                                               email: @user.email } }
     assert_redirected_to root_path
-    follow_redirect!
     assert_not flash.empty?
     assert flash[:notice] == 'You are not authorized to access this page.'
   end

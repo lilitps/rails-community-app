@@ -10,19 +10,30 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     @post = posts(:orange)
   end
 
-  test 'post submission interface' do
+  test 'post submission as non admin' do
     log_in_as(@non_admin)
     get root_path
     assert_select 'div.pagination-sm'
-    # Invalid submission
+    # Invalid submission (non admin)
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: '' } }
     end
-    log_out
-    # Invalid submission as admin
+    # Valid submission (non admin)
+    content = 'This post really ties the room together'
+    picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
+    assert_no_difference 'Post.count', 1 do
+      post posts_path, params: { post: { content: content, picture: picture } }
+    end
+    assert_redirected_to root_path
+    assert_not flash.empty?
+    assert flash[:notice] == 'You are not authorized to access this page.'
+  end
+
+  test 'post submission interface as admin' do
     log_in_as(@admin)
     get root_path
     assert_select 'input[type=file]'
+    # Invalid submission as admin
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: '' } }
     end
@@ -33,9 +44,9 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference 'Post.count', 1 do
       post posts_path, params: { post: { content: content, picture: picture } }
     end
+    assert_redirected_to root_path
     assert_not flash.empty?
     assert @admin.posts.first.picture?
-    assert_redirected_to root_path
     follow_redirect!
     assert_match content, response.body
   end
@@ -64,6 +75,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference 'Post.count', -1 do
       delete post_path(first_post)
     end
+    assert_redirected_to root_path
     assert_not flash.empty?
     # Visit different user as admin
     get user_path(users(:archer))
@@ -101,6 +113,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Post.count' do
       patch post_path(@post), params: { post: { content: content, picture: picture } }
     end
+    assert_redirected_to root_path
     assert_not flash.empty?
     @post.reload
     assert_equal @post.content, content

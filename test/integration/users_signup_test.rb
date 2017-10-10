@@ -45,10 +45,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert user.reload.active?
     assert user.reload.approved?
     assert user.reload.confirmed?
+    assert_redirected_to user_path(user)
+    assert_not flash.empty?
     follow_redirect!
     assert_template 'users/show'
     assert logged_in?
-    assert_not flash.empty?
     flash.each do |_message_type, _message|
       assert message 'Welcome to the Community App!'
     end
@@ -72,7 +73,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_not user.reload.confirmed?
     assert_response :redirect
     assert_redirected_to root_path
-    follow_redirect!
     assert_not flash.empty?
     assert flash[:danger] == 'Invalid activation link'
   end
