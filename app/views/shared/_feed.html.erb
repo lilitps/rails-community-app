@@ -5,7 +5,7 @@
                 <%= render 'posts/post_image_modal', post: post %>
             <% end %>
 
-        <% if logged_in? && @current_user.admin? %>
+        <% if can? :edit, Post %>
                 <% @feed.each do |post| %>
                     <%= render 'posts/post_form_modal', post: post %>
                 <% end %>

@@ -53,7 +53,6 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     flash.now[:success] = t('post_deleted')
-    reset_feed
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
       format.js
@@ -67,7 +66,7 @@ class PostsController < ApplicationController
   end
 
   def reset_feed
-    @post = @current_user.posts.build if logged_in? && @current_user.admin?
+    @post = @current_user&.posts&.build if can? :create, Post
     @feed = feed(params[:page])
   end
 end

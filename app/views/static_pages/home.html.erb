@@ -9,7 +9,7 @@
   </h1>
 </div>
 
-<% if logged_in? && @current_user.admin? %>
+<% if can? :create, @post %>
     <%= render 'posts/post_form_modal', post: @post %>
 
     <%= link_to "<span class=\"pull-right glyphicon glyphicon-plus\"

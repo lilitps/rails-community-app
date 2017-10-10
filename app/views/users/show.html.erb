@@ -9,7 +9,7 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <%= render 'follow_form' if logged_in? %>
+    <%= render 'follow_form' if can? %i[following followers], User %>
   </div>
 </div>
 
