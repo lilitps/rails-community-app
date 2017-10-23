@@ -260,9 +260,28 @@ Before deploying to Heroku, it’s a good idea to turn maintenance mode on befor
 
 ```
 $ heroku maintenance:on
+```
+
+Use the Heroku config command to set first admin user data:
+
+```
+$ heroku config:set ADMIN_NAME=**'<your-admin-first-and-last-name>'**
+$ heroku config:set ADMIN_EMAIL=**<your-admin-email>**
+$ heroku config:set ADMIN_PASSWORD=**<your-admin-password>**
+```
+
+Commit the file changes and push to git and then to Heroku:
+
+```
+$ git commit -a -m "Change defaults"
+$ git push
 $ git push heroku
+```
+
+Migrate or reset the production database:
+
+```
 $ heroku run rails db:migrate
-$ heroku maintenance:off
 ```
 
 To reset the production database use:
@@ -271,13 +290,23 @@ To reset the production database use:
 $ heroku pg:reset DATABASE
 ```
 
-After the production database reset, seed the database with start users 
+After the production database reset, seed the database with start users and admin 
 (Rails uses the standard file **db/seeds.rb**):
 
 ```
-$ heroku run rails db:migrate
 $ heroku run rails db:seed
+```
+
+In case you added or changed gems or gem version, please do not forget to restart Heroku:
+
+```
 $ heroku restart
+```
+
+And finally, turn maintenance mode off:
+
+```
+$ heroku maintenance:off
 ```
 
 ## Spring processes
