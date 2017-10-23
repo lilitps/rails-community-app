@@ -53,7 +53,7 @@ class PasswordResetsController < ApplicationController
 
   # Confirms a valid user and checks expiration of token.
   def valid_user
-    return if @user && @user.active? && User.find_using_perishable_token(params[:id])
+    return if @user&.active? && User.find_using_perishable_token(params[:id])
     flash[:danger] = t('password_reset_has_expired')
     redirect_to root_path
   end

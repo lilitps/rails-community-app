@@ -46,13 +46,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert user.reload.approved?
     assert user.reload.confirmed?
     assert_redirected_to user_path(user)
-    assert_not flash.empty?
     follow_redirect!
     assert_template 'users/show'
     assert logged_in?
-    flash.each do |_message_type, _message|
-      assert message 'Welcome to the Community App!'
-    end
+    assert_not flash.empty?
+    assert flash[:success] == 'Account activated!'
   end
 
   test 'expired activation token' do

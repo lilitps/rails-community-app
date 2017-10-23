@@ -1,36 +1,16 @@
 {
   "ignored_warnings": [
     {
-      "warning_type": "Unscoped Find",
-      "warning_code": 82,
-      "fingerprint": "166c9cb4674870933c8f8274c7d28baed405c2f0bf5fcaf98eb109fa43346604",
-      "check_name": "UnscopedFind",
-      "message": "Unscoped call to Post#find",
-      "file": "app/controllers/posts_controller.rb",
-      "line": 33,
-      "link": "http://brakemanscanner.org/docs/warning_types/unscoped_find/",
-      "code": "Post.find(params[:id])",
-      "render_path": null,
-      "location": {
-        "type": "method",
-        "class": "PostsController",
-        "method": "edit"
-      },
-      "user_input": "params[:id]",
-      "confidence": "Weak",
-      "note": "using before_action filter"
-    },
-    {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
-      "fingerprint": "518c8b9dc22e0e30a72f5e39e79c33ec6c3640f86bf95c5ce2472e6399072f71",
+      "fingerprint": "02d7c00a258bba986c1826d17234562dd577a9a4c90a6e873c2c7bfd657c76c8",
       "check_name": "Render",
       "message": "Render path contains parameter value",
       "file": "app/views/users/show_follow.html.erb",
       "line": 20,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => User.find(params[:id]).followers.paginate(:page => params[:page]), {})",
-      "render_path": [{"type":"controller","class":"UsersController","method":"followers","line":78,"file":"app/controllers/users_controller.rb"}],
+      "code": "render(action => @user.followers.paginate(:page => params[:page]), {})",
+      "render_path": [{"type":"controller","class":"UsersController","method":"followers","line":68,"file":"app/controllers/users_controller.rb"}],
       "location": {
         "type": "template",
         "template": "users/show_follow"
@@ -40,24 +20,23 @@
       "note": "open issue in brakeman"
     },
     {
-      "warning_type": "Unscoped Find",
-      "warning_code": 82,
-      "fingerprint": "a7f2cb8f633a4689a55a1466075cc217f905dda0424921265ac00fb58b7441ff",
-      "check_name": "UnscopedFind",
-      "message": "Unscoped call to Post#find",
-      "file": "app/controllers/posts_controller.rb",
-      "line": 41,
-      "link": "http://brakemanscanner.org/docs/warning_types/unscoped_find/",
-      "code": "Post.find(params[:id])",
-      "render_path": null,
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "9f79e27ea253b17e24c9ce0e8e564183a283feb9549ecf8ceec8e01efd8ee508",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/users/index.html.erb",
+      "line": 7,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => @users.where(:approved => true).paginate(:page => params[:page]), {})",
+      "render_path": [{"type":"controller","class":"UsersController","method":"index","line":23,"file":"app/controllers/users_controller.rb"}],
       "location": {
-        "type": "method",
-        "class": "PostsController",
-        "method": "update"
+        "type": "template",
+        "template": "users/index"
       },
-      "user_input": "params[:id]",
+      "user_input": "params[:page]",
       "confidence": "Weak",
-      "note": "using before_action filter"
+      "note": "open issue in brakeman"
     },
     {
       "warning_type": "Weak Hash",
@@ -80,6 +59,6 @@
       "note": "Gravatar URLs are based on an MD5 hash"
     }
   ],
-  "updated": "2017-09-11 14:17:06 +0200",
-  "brakeman_version": "3.7.2"
+  "updated": "2017-10-23 16:13:20 +0200",
+  "brakeman_version": "4.0.1"
 }
