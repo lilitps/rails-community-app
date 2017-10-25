@@ -1,9 +1,15 @@
 <% provide(:title, t('page_title.about')) %>
-<h1><%= yield(:title) %></h1>
-<p>
-  <%= t('community_about_html') %>
-</p>
+<h1><%= yield(:title) + ' ' + t('community.name') %></h1>
 
-<p>
-  <%= t('community_description_html') %>
-</p>
+<div class="text-justify">
+  <%= t('community.about_html', community_name: t('community.name'),
+        about_url: link_to(t('community.about_link'), about_url)) %>
+
+  <%= t('community.description_html', community_name: t('community.name')) %>
+</div>
+
+<h1><%= t('community.about_history') %></h1>
+
+<div class="text-justify">
+  <%= t('community.about_history_description_html') %>
+</div>

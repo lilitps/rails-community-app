@@ -4,7 +4,7 @@
 module ApplicationHelper
   # Returns the full title on a per-page basis.
   def full_title(page_title = '')
-    base_title = I18n.t('community_name')
+    base_title = I18n.t('community.name')
     if page_title.empty?
       base_title
     else

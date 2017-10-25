@@ -1,0 +1,16 @@
+<div id="introduction">
+  <div class="page-header">
+    <h1><%= t('community.name') %>
+      <small class="clearfix"> <%= t('community.short_introduction') %></small>
+    </h1>
+    <em class="text-justify">
+      <%= t('community.about_html', community_name: t('community.name'),
+            about_url: link_to(t('community.about_link'), about_url)) %>
+
+      <%= t('community.home_page.introduction_html',
+            fez_url: link_to('FEZ-Berlin', 'https://fez-berlin.de/'.html_safe, target: '_blank'),
+            contact_url: link_to(t('community.contact_link'), contact_url)) %>
+    </em>
+    <div id="news_anchor"></div>
+  </div>
+</div>

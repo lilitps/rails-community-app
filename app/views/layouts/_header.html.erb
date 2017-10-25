@@ -2,7 +2,9 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="row">
-        <%= link_to image_tag("logo.png", height: "20", alt: t('community_logo')), root_path, class: "navbar-brand" %>
+        <%= link_to image_tag("logo.png", height: "20",
+                              alt: t('community.logo', community_name: t('community.name'))),
+                    root_path, class: "navbar-brand" %>
         <%= link_to full_title, root_path, class: "navbar-brand" %>
 
         <!-- Brand and toggle get grouped for better mobile display -->

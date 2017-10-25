@@ -4,7 +4,7 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @base_title = 'Community App'
+    @base_title = I18n.t('community.name')
   end
 
   test 'should get home' do
