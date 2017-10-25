@@ -29,6 +29,7 @@ module ActionDispatch
                                                  password: password,
                                                  remember_me: remember_me } }
       @current_user_session = assigns(:current_user_session)
+      @current_user = assigns(:current_user)
     end
 
     # Returns true if a test user is logged in, false otherwise.

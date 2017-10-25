@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   include PostsHelper
 
   def home
-    @post = @current_user.posts.build if can? :create, Post
+    @post = current_user.posts.build if can? :create, Post
     @feed = feed(params[:page])
     @fb_feed = fb_feed
   end

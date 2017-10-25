@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   # DELETE	  /posts/1	      destroy	    post_path(post)
 
   def create
-    @post = @current_user.posts.build(post_params)
+    @post = current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
         flash.now[:success] = t('post_created')
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
   end
 
   def reset_feed
-    @post = @current_user&.posts&.build if can? :create, Post
+    @post = current_user&.posts&.build if can? :create, Post
     @feed = feed(params[:page])
   end
 end

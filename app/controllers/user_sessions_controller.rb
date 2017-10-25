@@ -21,7 +21,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(user_session_params.to_h)
     if @user_session.save
       if current_user.approved?
-        redirect_back_or @current_user
+        redirect_back_or current_user
       else
         process_with_warning_message
       end
@@ -32,7 +32,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    @current_user_session&.destroy
+    current_user_session&.destroy
     redirect_to root_path
   end
 

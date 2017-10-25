@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   # Returns true if the given user is the current user.
   def current_user?(user)
-    user == @current_user
+    user == current_user
   end
 
   # Returns the current user session (if any).
@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
 
   # Managing the Locale across Requests
   def set_locale
-    I18n.locale = @current_user&.locale ||
+    I18n.locale = current_user&.locale ||
                   session[:locale] ||
                   http_accept_language.preferred_language_from(I18n.available_locales) ||
                   I18n.default_locale
@@ -78,7 +78,7 @@ class ApplicationController < ActionController::Base
 
   # Confirms an admin user.
   def admin_user
-    redirect_to root_path unless @current_user.admin?
+    redirect_to root_path unless current_user&.admin?
   end
 
   # Include the locale params in every URL

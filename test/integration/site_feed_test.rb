@@ -38,7 +38,6 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
   test 'should display first 3 posts on home page feed with gravatar and admin links if logged in as admin' do
     log_in_as(@admin)
     assert logged_in?
-    @current_user = assigns(:current_user)
     assert @current_user.admin?
     get root_path
     assert_template 'static_pages/home'
