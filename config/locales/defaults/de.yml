@@ -67,6 +67,16 @@ de:
                           Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als anerkannter Träger der
                           deutschen Jugendhilfe bezeichnen.<p>"
 
+    about_fee: "Beitragsinformationen"
+    about_admission_fee: "Aufnahmegebühr"
+    about_fee_contribution_quarter: "Beitrag pro Monat"
+    about_fee_contribution_year: "Beitrag pro Jahr"
+    about_fee_adults: "Erwachsene"
+    about_fee_students: "Studenten"
+    about_fee_youth: "Schüler/Jugend"
+    about_fee_bank_details: "Bankverbindung"
+    about_fee_link: "Beitragsinformationen"
+
     contact_html: "Kontaktieren Sie die Gemeinschaft."
     contact_link: "Kontaktformular"
 
@@ -88,7 +98,7 @@ de:
                             <p>Wenn Du neugierig geworden bist,
                             dann empfiehlt es sich, einfach unverbindlich vorbeizuschauen.
                             Solltest du dann dem Verein beitreten wollen, findest du hier
-                            die Beitragsinformationen.</p>"
+                            die %{fee_url}.</p>"
 
   rails_logo: "Logo von Rails"
 
