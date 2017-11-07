@@ -9,8 +9,8 @@
 
       <%= t('community.home_page.introduction_html',
             fez_url: link_to('FEZ-Berlin', 'https://fez-berlin.de/'.html_safe, target: '_blank'),
-            contact_url: link_to(t('community.contact_link'), contact_url),
-            fee_url: link_to(t('community.about_fee_link'), about_path(anchor: "fee_anchor"))) %>
+            contact_url: link_to(t('community.contact_link'), contact_path),
+            fee_url: link_to(t('community.about_fee_link'), about_path(anchor: 'fee_anchor'))) %>
     </em>
     <div id="news_anchor"></div>
   </div>

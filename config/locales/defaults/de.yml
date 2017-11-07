@@ -77,7 +77,7 @@ de:
     about_fee_bank_details: "Bankverbindung"
     about_fee_link: "Beitragsinformationen"
 
-    contact_html: "Kontaktieren Sie die Gemeinschaft."
+    contact_html: "Kontaktieren Sie die %{community_name}."
     contact_link: "Kontaktformular"
 
     about_board_of_directors: "Vorstand des Vereins"
