@@ -1,24 +1,24 @@
-<%= form_for(post, html: {class: "caption"}, remote: true) do |f| %>
+<%= form_for(post, html: {class: 'caption'}, remote: true) do |f| %>
     <div class="thumbnail">
       <%= render 'shared/error_messages', object: f.object %>
 
       <div class="content">
-        <p><%= f.text_area :content, size: "24x6" %></p>
+        <p><%= f.text_area :content, size: '24x6' %></p>
       </div>
 
-      <%= image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: "middle") if post.picture? %>
+      <%= image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: 'middle') if post.picture? %>
 
       <span class="picture_input">
               <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png',
-                               aria: {describedby: "helpBlock"},
+                               aria: {describedby: 'helpBlock'},
                                onchange: 'checkImageSize(this)' %>
           </span>
       <span id="helpBlock" class="help-block"><%= t('maximum_file_size') %></span>
 
       <% if post.id? %>
-          <%= f.submit t('save_changes'), data: {disable_with: t('saving_changes')}, class: "btn btn-primary" %>
+          <%= f.submit t('save_changes'), data: {disable_with: t('saving_changes')}, class: 'btn btn-primary' %>
       <% else %>
-          <%= f.submit t('post'), data: {disable_with: t('posting')}, object: f.object, class: "btn btn-primary" %>
+          <%= f.submit t('post'), data: {disable_with: t('posting')}, object: f.object, class: 'btn btn-primary' %>
       <% end %>
     </div>
 <% end %>

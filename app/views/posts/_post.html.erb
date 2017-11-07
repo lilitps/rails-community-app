@@ -7,7 +7,7 @@
               <%= link_to gravatar_for(post.user, size: 40), post.user %>
 
               <%= t('posted_by') %>
-              <%= link_to post.user.name, post.user, class: "user" %>
+              <%= link_to post.user.name, post.user, class: 'user' %>
 
               <% if current_user&.admin? %>
                   <li class="dropdown pull-right options">
@@ -29,8 +29,8 @@
           <% end %>
         </div>
 
-        <%= link_to image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: "middle"),
-                    '#', target: "_blank",
+        <%= link_to image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: 'middle'),
+                    '#', target: '_blank',
                     data: {toggle: 'modal', target: "#image-modal-#{post.id}"} if post.picture? %>
 
         <div class="content">

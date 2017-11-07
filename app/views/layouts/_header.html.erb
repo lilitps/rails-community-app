@@ -2,10 +2,10 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="row">
-        <%= link_to image_tag("logo.png", height: "20",
+        <%= link_to image_tag('logo.png', height: '20',
                               alt: t('community.logo', community_name: t('community.name'))),
-                    root_path, class: "navbar-brand" %>
-        <%= link_to full_title, root_path, class: "navbar-brand" %>
+                    root_path, class: 'navbar-brand' %>
+        <%= link_to full_title, root_path, class: 'navbar-brand' %>
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-left">
           <li><%= link_to t('menu.home'), root_path %></li>
-          <li><%= link_to t('menu.news'), root_path(anchor: "news_anchor") %></li>
+          <li><%= link_to t('menu.news'), root_path(anchor: 'news_anchor') %></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
