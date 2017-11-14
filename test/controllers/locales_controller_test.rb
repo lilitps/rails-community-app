@@ -11,20 +11,20 @@ class LocalesControllerTest < ActionDispatch::IntegrationTest
     assert_equal I18n.default_locale, I18n.locale
     # try set locale before log in
     post locale_path(locale: 'de')
-    assert_redirected_to login_path
+    assert_redirected_to root_path(locale: 'de')
     follow_redirect!
-    assert_template 'user_sessions/new'
-    assert_nil session[:forwarding_url]
+    assert_equal 'de', session['locale']
+    assert_equal :de, I18n.locale
     log_in_as(@user)
     assert logged_in?
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
     # set local after log in
-    post locale_path(locale: 'de')
-    assert_redirected_to root_path(locale: 'de')
+    post locale_path(locale: 'en')
+    assert_redirected_to root_path(locale: 'en')
     assert_not flash[:success].empty?
-    assert_equal 'de', session['locale']
-    assert_equal :de, I18n.locale
+    assert_equal 'en', session['locale']
+    assert_equal :en, I18n.locale
   end
 end
