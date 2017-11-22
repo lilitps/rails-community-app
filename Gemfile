@@ -81,6 +81,12 @@ group :development, :test do
   gem 'letter_opener'
   # Use IRB alternative for better code completion in console
   gem 'pry'
+  # Behaviour Driven Development for Ruby
+  gem 'rspec-rails'
+  # RSpec::CollectionMatchers lets you express expected outcomes on collections of an object in an example
+  gem 'rspec-collection_matchers'
+  # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
+  gem 'parallel_tests'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
@@ -93,22 +99,23 @@ group :development do
   # necessary to use Better Errors' advanced features
   gem 'binding_of_caller'
   # bundler-audit provides patch-level verification for Bundled apps
-  gem 'bundler-audit', '~> 0.6.0'
+  gem 'bundler-audit', '~> 0.6.0', require: false
   # compare licenses against a user-defined whitelist, and give you an actionable exception report
-  gem 'license_finder', '~> 3.0', '>= 3.0.1'
+  gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
   # Use for fighting the N+1 problem in Ruby
   gem 'bullet'
   # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
   gem 'brakeman', require: false
   # Use i18n-tasks to find and manage missing and unused translations
-  gem 'i18n-tasks', '~> 0.9.15'
+  gem 'i18n-tasks', '~> 0.9.15', require: false
   gem 'listen', '~> 3.1'
   # setup your favicon
-  gem 'rails_real_favicon'
+  gem 'rails_real_favicon', require: false
   # RuboCop configuration which has the same code style checking as official Ruby on Rails
   gem 'rubocop', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
