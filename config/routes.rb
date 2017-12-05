@@ -1,17 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'posts_controller/edit'
-
-  get 'posts_controller/update'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Use an optional locale in path scope
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     get     '/posts',     to: 'static_pages#home'
     get     '/feed',      to: 'static_pages#home'
     get     '/about',     to: 'static_pages#about'
-    get     '/contact',   to: 'static_pages#contact'
     get     '/help',      to: 'static_pages#help'
 
     get     '/signup',    to: 'users#new'
@@ -22,6 +17,9 @@ Rails.application.routes.draw do
     delete  '/logout',    to: 'user_sessions#destroy'
 
     post    '/locale',    to: 'locales#update'
+
+    get     '/contact',   to: 'contacts#new'
+    post    '/contact',   to: 'contacts#create'
 
     resources :users do
       member do

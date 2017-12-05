@@ -1,0 +1,17 @@
+en:
+  contacts:
+    new:
+      email: "Email"
+      message: "Message"
+      name: "Name"
+      subject: "Subject"
+      submit: "Submit"
+      submitting: "Submitting..."
+  notices:
+    error: "You must enter all fields."
+    success: "Contact email was successfully sent."
+  contact_mailer:
+        contact:
+          sent_by_contact_form: "Sent by contact form from %{email}"
+          sent_by_name: "Sent by %{name} from %{email}"
+          subject: "Contact message from %{email}"

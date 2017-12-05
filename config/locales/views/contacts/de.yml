@@ -1,0 +1,17 @@
+de:
+  contacts:
+    new:
+      email: "E-Mail"
+      message: "Nachricht"
+      name: "Name"
+      subject: "Betreff"
+      submit: "Abschicken"
+      submitting: "Abschicken..."
+  notices:
+    error: "Alle Felder müssen ausgefüllt werden."
+    success: "Die Nachricht wurde erfolgreich versendet."
+  contact_mailer:
+        contact:
+          sent_by_contact_form: "Gesendet durch das Kontaktformular. %{email}"
+          sent_by_name: "Nachricht von %{name} mit der E-Mail Adresse %{email}"
+          subject: "Nachricht von %{email}"

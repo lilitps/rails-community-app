@@ -2,7 +2,6 @@
 
 # A locales controller to set and update application language for users
 class LocalesController < ApplicationController
-
   include LocalesHelper
 
   # HTTP 	    URL	            Action	    Named route	            Purpose

@@ -131,12 +131,15 @@ host = '<your-heroku-app>.herokuapp.com'
 .
 ```
 
+### Account activation and password reset mailer
+
 #### Mailer layout (optional)
 
-Change mailer layout corresponding to the email format.
+Change mailer layout corresponding to the email format, 
+which is common to all mailers in the application.
 The HTML and plain-text mailer layouts can be found under **app/views/layouts**
 
-#### Default from address (optional)
+#### Default from address
 
 Change default **from** address, which is common to all mailers in the application, can be 
 found in **app/mailers/application_mailer.rb**
@@ -145,8 +148,23 @@ found in **app/mailers/application_mailer.rb**
 
 Change two view templates (if needed) for each mailer, 
 one for plain-text email and one for HTML email, found in 
-**app/views/user_mailer/account_activation.text.erb** and
-**app/views/user_mailer/account_activation.html.erb**
+**app/views/user_mailer/account_activation.text.erb**,
+**app/views/user_mailer/account_activation.html.erb**,
+**app/views/user_mailer/password_reset.html.erb** and
+**app/views/user_mailer/password_reset.text.erb**
+
+### Contact mailer
+
+#### Default to address
+
+Change default **to** email address can be found in **app/mailers/contact_mailer.rb**
+
+#### Mailer templates (optional)
+
+Change two view templates (if needed) for each mailer, 
+one for plain-text email and one for HTML email, found in 
+**app/views/contact_mailer/contact.text.erb** and
+**app/views/contact_mailer/contact.html.erb**
 
 ### Picture uploader
 
