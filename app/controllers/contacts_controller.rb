@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-    if @contact.valid?
+    if @contact.valid? && simple_captcha_valid?
       flash[:success] = t('notices.success')
       ContactMailer.contact(@contact).deliver_now
       redirect_to root_path

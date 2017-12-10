@@ -74,4 +74,23 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert flash[:danger] == 'Invalid activation link'
   end
+
+  test 'signup form' do
+    get signup_path
+    assert_template 'users/new'
+    assert_select 'form#new_user'
+    assert_select 'input#user_name'
+    assert_select 'input#user_email'
+    assert_select 'input#user_password'
+    assert_select 'input#user_password_confirmation'
+    assert_select 'select#user_locale'
+    assert_select 'div.simple_captcha'
+    assert_select 'div.simple_captcha_image'
+    assert_select 'img[alt=captcha]'
+    assert_select 'div.simple_captcha_field'
+    assert_select 'input[name=captcha]'
+    assert_select 'input[name=captcha_key]'
+    assert_select 'input[name=commit]'
+    assert_select 'label', 5
+  end
 end

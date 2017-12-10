@@ -1,0 +1,8 @@
+en:
+  simple_captcha:
+    placeholder: "Enter the image value"
+    label: "Please type in the text from the image in the field above as spam-protection."
+    refresh_button_text: "Refresh"
+    message:
+      default: "Secret Code did not match with the Image"
+      user: "The secret Image and code were different"
