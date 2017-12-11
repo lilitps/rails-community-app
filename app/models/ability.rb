@@ -44,7 +44,7 @@ class Ability
       # User permissions
       can %i[edit update destroy], User, id: user.id, active: true
       can %i[following followers], User
-      cannot :index, User
+      cannot %i[index new create], User
       # UserSession permissions
       can :destroy, UserSession
       # Relationship permissions
