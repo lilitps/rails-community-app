@@ -17,3 +17,10 @@ de:
         created_at: "Angelegt am"
         updated_at: "Aktualisiert am"
         picture: "Bild"
+  activemodel:
+    attributes:
+      contact:
+        email: "E-Mail"
+        message: "Nachricht"
+        name: "Name"
+        subject: "Betreff"

@@ -1,10 +1,6 @@
 en:
   contacts:
     new:
-      email: "Email"
-      message: "Message"
-      name: "Name"
-      subject: "Subject"
       submit: "Submit"
       submitting: "Submitting..."
   notices:

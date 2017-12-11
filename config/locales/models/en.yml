@@ -17,3 +17,10 @@ en:
         created_at: "Created at"
         updated_at: "Updated at"
         picture: "Picture"
+  activemodel:
+    attributes:
+      contact:
+        email: "Email"
+        message: "Message"
+        name: "Name"
+        subject: "Subject"

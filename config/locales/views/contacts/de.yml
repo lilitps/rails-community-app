@@ -1,10 +1,6 @@
 de:
   contacts:
     new:
-      email: "E-Mail"
-      message: "Nachricht"
-      name: "Name"
-      subject: "Betreff"
       submit: "Abschicken"
       submitting: "Abschicken..."
   notices:

@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
       ContactMailer.contact(@contact).deliver_now
       redirect_to root_path
     else
-      flash[:error] = t('notices.error')
+      flash.now[:error] = t('notices.error')
       render :new
     end
   end
