@@ -47,7 +47,7 @@
     <orderEntry type="library" scope="PROVIDED" name="brakeman (v4.0.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bullet (v5.6.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.15.4, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler-audit (v0.6.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v9.1.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cancancan (v2.0.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
@@ -90,6 +90,7 @@
     <orderEntry type="library" scope="PROVIDED" name="http_accept_language (v2.1.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="httparty (v0.15.6, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.9.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n-active_record (v0.2.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n-tasks (v0.9.18, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.7.0, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.3.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
