@@ -23,10 +23,10 @@ user = User.first
 user.posts.create! content: 'This is the first community post!'
 
 # Community introduction and description
-Translation.create!(key: 'community.name', locale: 'de',
-                    value: 'Sternfreunde im FEZ e.V.')
-Translation.create!(key: 'community.home_page.introduction_html', locale: 'de',
-                    value: '<p>Wir treffen uns jeden ersten Sonntag im Monat, ab 15 Uhr zu den Vereinssitzungen
+Translation.create!([{ key: 'community.name',
+                       value: 'Sternfreunde im FEZ e.V.' },
+                     { key: 'community.home_page.introduction_html',
+                       value: '<p>Wir treffen uns jeden ersten Sonntag im Monat, ab 15 Uhr zu den Vereinssitzungen
                             in unseren <b>Raum 401</b> im <b>%{fez_url}</b> in der <b>Straße zum FEZ 2</b>.
                             Außerdem sind wir bei vielen astronomischen Events in der Region anzutreffen.
                             Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
@@ -35,19 +35,19 @@ Translation.create!(key: 'community.home_page.introduction_html', locale: 'de',
                             <p>Wenn Du neugierig geworden bist,
                             dann empfiehlt es sich, einfach unverbindlich vorbeizuschauen.
                             Solltest du dann dem Verein beitreten wollen, findest du hier
-                            die %{fee_url}.</p>')
-Translation.create!(key: 'community.about_html', locale: 'de',
-                    value: '<p>Willkommen auf der Homepage des %<community_name>s.</p>
-                  <p>Wir sind ein %<about_url>s
-                  in <b>Berlin Treptow-Köpenick</b> mit mehr als 35 Jahren Geschichte.
-                  Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden
-                  bei uns Kinder und Jugendliche aktiv an die Astronomie herangeführt.</p>')
-Translation.create!(key: 'community.short_introduction_html', locale: 'de',
-                    value: 'Astronomie für Kinder und Jugendliche in Berlin.')
-Translation.create!(key: 'community.about_link_html', locale: 'de',
-                    value: 'gemeinnütziger, astronomischer Verein')
-Translation.create!(key: 'community.description_html', locale: 'de',
-                    value: '<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>.
+                            die %{fee_url}.</p>' },
+                     { key: 'community.about_html',
+                       value: '<p>Willkommen auf der Homepage des %{community_name}.</p>
+                            <p>Wir sind ein %{about_url}
+                            in <b>Berlin Treptow-Köpenick</b> mit mehr als 35 Jahren Geschichte.
+                            Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden
+                            bei uns Kinder und Jugendliche aktiv an die Astronomie herangeführt.</p>' },
+                     { key: 'community.short_introduction_html',
+                       value: 'Astronomie für Kinder und Jugendliche in Berlin.' },
+                     { key: 'community.about_link_html',
+                       value: 'gemeinnütziger, astronomischer Verein' },
+                     { key: 'community.description_html',
+                       value: '<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>.
                         Die Mitglieder des Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und
                         wir beteiligen uns an <b>astronomischen Veranstaltungen</b> in der Region.</p>
 
@@ -58,9 +58,9 @@ Translation.create!(key: 'community.description_html', locale: 'de',
 
                         <p>Wir vermitteln <b>Astronomie, Physik, Informatik und Mathematik</b>,
                         bieten Fernrohre und Fotoausrüstung an, genauso wie
-                        Tutorials in der digitalen Bildbearbeitung.</p>')
-Translation.create!(key: 'community.about_history_description_html', locale: 'de',
-                    value: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei uns
+                        Tutorials in der digitalen Bildbearbeitung.</p>' },
+                     { key: 'community.about_history_description_html',
+                       value: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei uns
                           Kinder und Jugendliche aktiv an die Astronomie herangeführt. Vor allem die Sonnenbeobachter
                           können auf eine volle Sonnenperiode zurückschauen.</p>
 
@@ -76,21 +76,25 @@ Translation.create!(key: 'community.about_history_description_html', locale: 'de
                           <p>Seit dem 24. Juni 1995 sind wir ein Verein. Nach einem langen Briefwechsel mit
                           Amtsgericht und Finanzamt war es Ende 1999 geschafft. Wir dürfen uns jetzt auch
                           Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als anerkannter Träger der
-                          deutschen Jugendhilfe bezeichnen.<p>")
-Translation.create!(key: 'community.about_entrance_fee', locale: 'de',
-                    value: "<p>Alle Beiträge in Euro. Die Aufnahmegebühren beträgt 10 Euro.<p>")
-Translation.create!(key: 'community.about_fee_link_html', locale: 'de',
-                    value: 'Beitragsinformationen')
-Translation.create!(key: 'community.contact_link_html', locale: 'de',
-                    value: 'Kontaktformular')
+                          deutschen Jugendhilfe bezeichnen.</p>" },
+                     { key: 'community.about_entrance_fee_html',
+                       value: '<p><b>*</b>Alle Beiträge <b>in Euro</b>.</p>' },
+                     { key: 'community.about_fee_link_html',
+                       value: 'Beitragsinformationen' },
+                     { key: 'community.contact_link_html',
+                       value: 'Kontaktformular' }]) do |translation|
+  translation.locale = I18n.default_locale
+end
 
 # Community board of directors
-Translation.create!(key: 'community.about_board_of_directors_chairman_name', locale: 'de',
-                    value: ENV['ABOUT_BOARD_OF_DIRECTORS_CHAIRMAN_NAME'])
-Translation.create!(key: 'community.about_board_of_directors_vice_chairman_name', locale: 'de',
-                    value: ENV['ABOUT_BOARD_OF_DIRECTORS_VICE_CHAIRMAN_NAME'])
-Translation.create!(key: 'community.about_board_of_directors_treasurer_name', locale: 'de',
-                    value: ENV['ABOUT_BOARD_OF_DIRECTORS_TREASURER_NAME'])
+Translation.create!([{ key: 'community.about_board_of_directors_chairman_name',
+                       value: ENV['ABOUT_BOARD_OF_DIRECTORS_CHAIRMAN_NAME'] },
+                     { key: 'community.about_board_of_directors_vice_chairman_name',
+                       value: ENV['ABOUT_BOARD_OF_DIRECTORS_VICE_CHAIRMAN_NAME'] },
+                     { key: 'community.about_board_of_directors_treasurer_name',
+                       value: ENV['ABOUT_BOARD_OF_DIRECTORS_TREASURER_NAME'] }]) do |translation|
+  translation.locale = I18n.default_locale
+end
 
 if Rails.env.development?
   # Admins
@@ -130,14 +134,14 @@ if Rails.env.development?
   admins = User.where(admin: true)
   2.times do
     content = Faker::Lorem.sentence(5)
-    admins.each {|admin| admin.posts.create!(content: content)}
+    admins.each { |admin| admin.posts.create!(content: content) }
   end
 
   # Posts by non admins
   non_admins = User.where(admin: false)
   2.times do
     content = Faker::Lorem.sentence(5)
-    non_admins.each {|non_admin| non_admin.posts.create!(content: content)}
+    non_admins.each { |non_admin| non_admin.posts.create!(content: content) }
   end
 
   # Following relationships
@@ -145,6 +149,6 @@ if Rails.env.development?
   user = non_admins.first
   following = non_admins[2..non_admins.count]
   followers = non_admins[3..non_admins.count - 5]
-  following.each {|followed| user.follow(followed)}
-  followers.each {|follower| follower.follow(user)}
+  following.each { |followed| user.follow(followed) }
+  followers.each { |follower| follower.follow(user) }
 end

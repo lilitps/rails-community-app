@@ -1,10 +1,14 @@
 inherit_from: ../.rubocop.yml
 
-Metrics/BlockLength:
-  Enabled: no
 
 Style/Documentation:
   Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: no
 
 Metrics/AbcSize:
   Enabled: no

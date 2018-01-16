@@ -3,12 +3,13 @@
 require 'i18n/backend/active_record'
 
 # The locale-specific translations are stored in the translations table
-Translation = I18n::Backend::ActiveRecord::Translation
+translation = I18n::Backend::ActiveRecord::Translation
 
-if Translation.table_exists?
+if translation.table_exists?
   I18n.backend = I18n::Backend::ActiveRecord.new
 
   I18n::Backend::ActiveRecord.send(:include, I18n::Backend::Memoize)
+  I18n::Backend::ActiveRecord.send(:include, I18n::Backend::Flatten)
   I18n::Backend::Simple.send(:include, I18n::Backend::Memoize)
   I18n::Backend::Simple.send(:include, I18n::Backend::Pluralization)
 
@@ -16,6 +17,8 @@ if Translation.table_exists?
   # If no match is found, the translation is looked up in the corresponding YML file.
   I18n.backend = I18n::Backend::Chain.new(I18n::Backend::Simple.new, I18n.backend)
 end
+
+I18n::Backend::Chain.send(:include, I18n::Backend::Fallbacks)
 
 # Where the I18n library should search for translation files
 I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
