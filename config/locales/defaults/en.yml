@@ -64,6 +64,7 @@ en:
     home: "Home"
     news: "News"
     about: "About"
+    membership: "Membership"
     contact: "Contact"
     help: "Help"
 
@@ -108,6 +109,11 @@ en:
     form_contains_errors: "The form contains %{errors}"
     can_not_be_empty: "can't be empty"
     maximum_file_size: "should be less than 5MB"
+
+  # warning
+  warning:
+    facebook:
+      no_connection: "No connection to Facebook client."
 
   # certain keys must be escaped
   success:

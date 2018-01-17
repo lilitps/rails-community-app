@@ -15,12 +15,10 @@ class PostsHelperTest < ActionView::TestCase
       assert_not_nil feed
       assert feed.any?
       assert feed.to_a.size == 3
-      post_keys = %w[id type icon name message permalink_url link full_picture description created_time].to_a
       feed.each do |post|
-        assert post_keys.to_a.any? do |k|
+        assert PostsHelper::FIELDS.to_a.any? do |k|
           post.key?(k)
         end
-        assert post.key?('story') if post['type'] == 'event' || post['type'] == 'photo'
       end
     end
   end

@@ -7,6 +7,8 @@ require 'auto_html'
 module PostsHelper
   include UserSessionsHelper
 
+  FIELDS = %w[id type icon story name message permalink_url link full_picture description created_time].freeze
+
   # Returns the feed title.
   def feed_title(feed_title = '')
     if feed_title.empty?
@@ -31,15 +33,19 @@ module PostsHelper
 
   # Returns most recent posts from facebook page
   def fb_feed(limit = 3)
-    fields = %w[id type icon story name message permalink_url link full_picture description created_time]
-    facebook_app_client&.get_connection(ENV['MY_PAGE_ID'],
-                                        'posts',
-                                        {
-                                          limit: limit,
-                                          fields: fields,
-                                          locale: I18n.locale,
-                                          return_ssl_resources: true
-                                        })
+    fb_client = facebook_app_client
+    if fb_client
+      fb_client&.get_connection(ENV['MY_PAGE_ID'],
+                                'posts',
+                                {
+                                  limit: limit,
+                                  fields: PostsHelper::FIELDS,
+                                  locale: I18n.locale,
+                                  return_ssl_resources: true
+                                })
+    else
+      []
+    end
   end
 
   # Returns a composition of filters that transforms input by passing the output
@@ -63,6 +69,9 @@ module PostsHelper
     return unless Koala.config.app_id.present? && Koala.config.app_secret.present?
     oauth = Koala::Facebook::OAuth.new(ENV['MY_APP_ID'], ENV['MY_APP_SECRET'])
     oauth_token = oauth&.get_app_access_token
+  rescue Faraday::ConnectionFailed
+    return
+  else
     Koala::Facebook::API.new(oauth_token)
   end
 end
