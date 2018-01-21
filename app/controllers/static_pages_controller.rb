@@ -15,4 +15,11 @@ class StaticPagesController < ApplicationController
   def about; end
 
   def help; end
+
+  def membership_application
+    send_file(
+      Rails.root.join('public', 'sifez-aufnahmeantrag.pdf'),
+      type: 'application/pdf'
+    )
+  end
 end

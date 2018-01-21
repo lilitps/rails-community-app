@@ -1,21 +1,23 @@
-<% provide(:feed_title, t('feed_header')) %>
-
 <%= render 'static_pages/introduction_carousel' %>
 
 <%= render 'static_pages/introduction' %>
 
 <% if can? :create, @post %>
-    <%= render 'posts/post_form_modal', post: @post %>
+  <%= render 'posts/post_form_modal', post: @post %>
 
-    <%= link_to "<span class=\"pull-right glyphicon glyphicon-plus\"
+  <%= link_to "<span class=\"pull-right glyphicon glyphicon-plus\"
       aria-label=\"#{t('compose_new_post')}\"></span>".html_safe,
-                '#', data: {toggle: 'modal', target: '#new-post-modal'} %>
+              '#', data: {toggle: 'modal', target: '#new-post-modal'} %>
 <% end %>
 
-<div class="row">
-  <%= render 'shared/feed' %>
-</div>
+<div id="news_anchor"></div>
+<%= render 'shared/feed' %>
 
-<div class="row">
-  <%= render 'facebook/fb_feed' %>
-</div>
+<%= render 'facebook/fb_feed' %>
+
+
+<%= render 'static_pages/membership' %>
+
+<div id="contact_anchor"></div>
+<%= render 'contacts/board_of_directors' %>
+<%= render 'contacts/form' %>

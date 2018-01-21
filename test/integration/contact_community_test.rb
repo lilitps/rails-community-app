@@ -8,6 +8,12 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
+  test 'community board of directors and contact' do
+    get contact_path
+    assert_select '#about_board_of_directors', count: 1
+    assert_select '#contact', count: 1
+  end
+
   test 'contact the community with invalid email' do
     get contact_path
     assert_template 'contacts/new'

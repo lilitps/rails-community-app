@@ -47,11 +47,7 @@ Translation.create!([{ key: 'community.name',
                      { key: 'community.about_link_html',
                        value: 'gemeinnütziger, astronomischer Verein' },
                      { key: 'community.description_html',
-                       value: '<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>.
-                        Die Mitglieder des Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und
-                        wir beteiligen uns an <b>astronomischen Veranstaltungen</b> in der Region.</p>
-
-                        <p>Als anerkannter Träger der deutschen Jugendhilfe führen wir die
+                       value: '<p>Als anerkannter Träger der deutschen Jugendhilfe führen wir die
                         <b>Kinder und Jugendliche</b> aktiv an die Astronomie heran.
                         Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
                         machen begeistert <b>Astrofotografie</b>.</p>
@@ -77,6 +73,14 @@ Translation.create!([{ key: 'community.name',
                           Amtsgericht und Finanzamt war es Ende 1999 geschafft. Wir dürfen uns jetzt auch
                           Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als anerkannter Träger der
                           deutschen Jugendhilfe bezeichnen.</p>" },
+                     { key: 'community.about_membership_html',
+                       value: '<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>.
+                        Die Mitglieder des Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und
+                        wir beteiligen uns an <b>astronomischen Veranstaltungen</b> in der Region.</p>
+
+                        <p>Jetzt den %{membership_application_url} ausfüllen und Mitglied werden!</p>' },
+                     { key: 'community.about_membership_application_link_html',
+                       value: 'Aufnahmeantrag der %{community_name}' },
                      { key: 'community.about_entrance_fee_html',
                        value: '<p><b>*</b>Alle Beiträge <b>in Euro</b>.</p>' },
                      { key: 'community.about_fee_link_html',

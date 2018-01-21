@@ -1,45 +1,8 @@
 <% provide(:title, t('page_title.about')) %>
-<h1><%= yield(:title) + ' ' + t('community.name') %></h1>
 
-<div class="text-justify">
-  <%= t('community.about_html', community_name: t('community.name'),
-        about_url: link_to(t('community.about_link_html'), about_url)) %>
+<%= render 'static_pages/description' %>
 
-  <%= t('community.description_html', community_name: t('community.name')) %>
-</div>
-
-<h1><%= t('community.about_history') %></h1>
-
-<div class="text-justify">
-  <%= t('community.about_history_description_html') %>
-</div>
+<%= render 'static_pages/history' %>
 
 <div id="fee_anchor"></div>
-<h1><%= t('community.about_fee') %></h1>
-
-<table class="table">
-  <tr>
-    <th scope="col"></th>
-    <th scope="col"><%= t('community.about_admission_fee') %></th>
-    <th scope="col"><%= t('community.about_fee_contribution_quarter') %></th>
-    <th scope="col"><%= t('community.about_fee_contribution_year') %></th>
-  </tr>
-  <tr>
-    <td><%= t('community.about_fee_adults') %></td>
-    <td>10</td>
-    <td>3</td>
-    <td>36</td>
-  </tr>
-  <tr>
-    <td><%= t('community.about_fee_students') %></td>
-    <td>10</td>
-    <td>2</td>
-    <td>24</td>
-  </tr>
-  <tr>
-    <td><%= t('community.about_fee_youth') %></td>
-    <td>10</td>
-    <td>2</td>
-    <td>24</td>
-  </tr>
-</table>
+<%= render 'static_pages/membership' %>

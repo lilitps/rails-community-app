@@ -10,6 +10,9 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', root_path, count: 3
     assert_select '.navbar-brand', count: 2
     assert_select 'a[href=?]', root_path, text: 'Home', count: 1
+    assert_select 'a[href=?]', root_path + '#news_anchor', text: 'News', count: 1
+    assert_select 'a[href=?]', root_path + '#membership_anchor', text: 'Membership', count: 1
+    assert_select 'a[href=?]', root_path + '#contact_anchor', text: 'Contact', count: 1
     assert_select 'a[href=?]', login_path, count: 1
     assert_select 'a[href=?]', signup_path, count: 1
     assert_select 'a[href=?]', logout_path, count: 0
@@ -92,14 +95,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'li.dropdown>a.dropdown-toggle', count: 6
   end
 
-  test 'page title when logged in as admin' do
-    user = users(:lana)
-    log_in_as(user)
-    # menu administration
-    get users_path
-    assert_select 'title', full_title('All users')
-  end
-
   test 'community introduction carousel' do
     get root_path
     assert_select '#introduction-carousel', count: 1
@@ -116,5 +111,27 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     assert_select '.page-header', count: 1
     assert_select '.page-header h1 > small', count: 1
+  end
+
+  test 'community introduction' do
+    get root_path
+    assert_select '#introduction', count: 1
+    assert_select '#introduction h1', count: 1
+    assert_select '#introduction h1 > small', count: 1
+  end
+
+  test 'community membership' do
+    get root_path
+    assert_select '#membership', count: 1
+    assert_select 'table#admission_fee', count: 1
+    assert_select 'tr', count: 4
+    assert_select 'th', count: 4
+    assert_select 'td', count: 12
+  end
+
+  test 'community board of directors and contact' do
+    get root_path
+    assert_select '#about_board_of_directors', count: 1
+    assert_select '#contact', count: 1
   end
 end

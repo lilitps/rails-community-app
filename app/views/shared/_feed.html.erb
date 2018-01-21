@@ -1,14 +1,17 @@
-<div id="feed" class="feed">
-  <% if @feed&.any? %>
+<% provide(:feed_title, t('feed_header')) %>
+
+<div class="row">
+  <div id="feed" class="feed">
+    <% if @feed&.any? %>
       <div id="all-modals">
-            <% @feed.each do |post| %>
-                <%= render 'posts/post_image_modal', post: post %>
-            <% end %>
+        <% @feed.each do |post| %>
+          <%= render 'posts/post_image_modal', post: post %>
+        <% end %>
 
         <% if can? :edit, Post %>
-                <% @feed.each do |post| %>
-                    <%= render 'posts/post_form_modal', post: post %>
-                <% end %>
+          <% @feed.each do |post| %>
+            <%= render 'posts/post_form_modal', post: post %>
+          <% end %>
         <% end %>
       </div>
 
@@ -19,5 +22,6 @@
       <div class="col-sm-12 col-md-12 col-lg-12 center">
         <%= will_paginate @feed, class: 'pagination-sm', inner_window: 2, outer_window: 0 %>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

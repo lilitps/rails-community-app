@@ -24,6 +24,7 @@ class PostsController < ApplicationController
         format.html { redirect_to root_path }
       else
         @feed = []
+        @contact = Contact.new
         format.html { render 'static_pages/home' }
       end
       format.js
@@ -44,6 +45,7 @@ class PostsController < ApplicationController
         @feed = feed(params[:page])
         format.html { redirect_back(fallback_location: root_path) }
       else
+        @contact = Contact.new
         format.html { render 'static_pages/home' }
       end
       format.js
