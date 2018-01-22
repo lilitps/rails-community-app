@@ -42,12 +42,6 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert_select 'input#contact_email'
     assert_select 'input#contact_subject'
     assert_select 'textarea#contact_message'
-    assert_select 'div.simple_captcha'
-    assert_select 'div.simple_captcha_image'
-    assert_select 'img[alt=captcha]'
-    assert_select 'div.simple_captcha_field'
-    assert_select 'input[name=captcha]'
-    assert_select 'input[name=captcha_key]'
     assert_select 'input[name=commit]'
     assert_select 'label', 4
   end

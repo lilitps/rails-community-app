@@ -1,8 +1,0 @@
-de:
-  simple_captcha:
-    placeholder: "Die im Bild angezeigten Zeichen eingeben"
-    label: "Bitte den Text wie auf diesem Bild dargestellt als Spam-Schutz ins Formularfeld eingeben."
-    refresh_button_text: "Neu laden"
-    message:
-      default: "Die Zeichen stimmten nicht mit dem Bild überein"
-      user: "Das Bild und die Zeichen waren unterschiedlich"

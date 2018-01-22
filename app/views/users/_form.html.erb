@@ -19,7 +19,5 @@
                                            @user.locale),
                class: 'form-control') %>
 
-  <%= show_simple_captcha unless current_user %>
-
   <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
 <% end %>

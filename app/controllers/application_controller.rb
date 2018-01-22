@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   include UserSessionsHelper
-  include SimpleCaptcha::ControllerHelpers
   helper_method :log_in, :log_out, :current_user?, :current_user_session, :current_user
 
   protected

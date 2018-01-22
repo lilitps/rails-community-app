@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_171_211_174_801) do
+ActiveRecord::Schema.define(version: 20_180_122_105_706) do
   create_table 'posts', force: :cascade do |t|
     t.text 'content'
     t.integer 'user_id'
@@ -31,14 +31,6 @@ ActiveRecord::Schema.define(version: 20_171_211_174_801) do
     t.index ['followed_id'], name: 'index_relationships_on_followed_id'
     t.index %w[follower_id followed_id], name: 'index_relationships_on_follower_id_and_followed_id', unique: true
     t.index ['follower_id'], name: 'index_relationships_on_follower_id'
-  end
-
-  create_table 'simple_captcha_data', force: :cascade do |t|
-    t.string 'key', limit: 40
-    t.string 'value', limit: 6
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['key'], name: 'idx_key'
   end
 
   create_table 'translations', force: :cascade do |t|

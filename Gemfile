@@ -70,8 +70,6 @@ gem 'will-paginate-i18n', '~> 0.1'
 gem 'koala', '~> 3.0'
 # Collection of filters for transforming text into HTML code
 gem 'auto_html', '~> 2.0'
-# simplest and a robust captcha plugin
-gem 'simple_captcha2', require: 'simple_captcha'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -84,12 +84,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select 'input#user_password'
     assert_select 'input#user_password_confirmation'
     assert_select 'select#user_locale'
-    assert_select 'div.simple_captcha'
-    assert_select 'div.simple_captcha_image'
-    assert_select 'img[alt=captcha]'
-    assert_select 'div.simple_captcha_field'
-    assert_select 'input[name=captcha]'
-    assert_select 'input[name=captcha_key]'
     assert_select 'input[name=commit]'
     assert_select 'label', 5
   end

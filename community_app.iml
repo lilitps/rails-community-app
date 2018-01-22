@@ -163,7 +163,6 @@
     <orderEntry type="library" scope="PROVIDED" name="scrypt (v3.0.5, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shellany (v0.0.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="signet (v0.8.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="simple_captcha2 (v0.4.3, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring (v2.0.2, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring-commands-rspec (v1.0.4, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring-watcher-listen (v2.0.1, RVM: ruby-2.4.1 [global]) [gem]" level="application" />
