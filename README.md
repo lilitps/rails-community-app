@@ -212,6 +212,16 @@ $ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=**<your-bucket-name, e.g.
 Hint: In order to use these [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1), 
 you should add them with right values to **.env** file in the root of your project.
 
+### Google G Suite Admin (optional)
+
+You can use Google G Suite in order to use emails, shared calendars and more in your community.
+One of set up steps is to **Verify your domain and set up email**. 
+In this step you will get a **google-site-verification** token, which you have to set up in Heroku:
+
+```
+$ heroku config:set GOOGLE_SITE_VERIFICATION=**<your-tag-content>**
+```
+
 ### Facebook page posts (optional)
 
 You can use Facebook App to get public posts from some certain public pages 
