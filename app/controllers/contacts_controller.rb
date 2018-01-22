@@ -11,13 +11,17 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-    if @contact.valid?
-      flash[:success] = t('notices.success')
-      ContactMailer.contact(@contact).deliver_now
-      redirect_to root_path
-    else
-      flash.now[:error] = t('notices.error')
-      render :new
+    respond_to do |format|
+      if @contact.valid?
+        flash[:success] = t('notices.success')
+        ContactMailer.contact(@contact).deliver_now
+        @contact = Contact.new
+        format.html { redirect_to root_path }
+      else
+        flash.now[:error] = t('notices.error')
+        format.html { render :new }
+      end
+      format.js
     end
   end
 
