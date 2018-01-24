@@ -19,7 +19,7 @@
                                            @user.locale),
                class: 'form-control') %>
 
-  <%= recaptcha_tags unless current_user %>
+  <%= recaptcha_tags ajax: true, hl: I18n.locale unless current_user %>
 
   <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
 <% end %>
