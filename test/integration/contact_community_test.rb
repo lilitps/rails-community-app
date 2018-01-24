@@ -106,6 +106,7 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert_select 'input#contact_email'
     assert_select 'input#contact_subject'
     assert_select 'textarea#contact_message'
+    assert_select 'div.g-recaptcha'
     assert_select 'input[name=commit]'
     assert_select 'label', 4
 
@@ -116,6 +117,7 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert_select 'input#contact_email'
     assert_select 'input#contact_subject'
     assert_select 'textarea#contact_message'
+    assert_select 'div.g-recaptcha'
     assert_select 'input[name=commit]'
     assert_select 'label', 4
   end

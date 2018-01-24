@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def new; end
 
   def create
-    if @user.save
+    if verify_recaptcha(model: @user) && @user.save
       @user.send_activation_email
       flash[:info] = t('check_email_to_activate_account')
       redirect_to root_path

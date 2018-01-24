@@ -212,6 +212,16 @@ $ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=**<your-bucket-name, e.g.
 Hint: In order to use these [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1), 
 you should add them with right values to **.env** file in the root of your project.
 
+### Google reCAPTCHA
+
+This App adds [reCAPTCHA API (V2)](https://www.google.com/recaptcha) in order to use state of the art spam and abuse 
+protection. Obtain a [reCAPTCHA API key](https://www.google.com/recaptcha/admin) and make sure to set up in Heroku:
+
+```
+$ heroku config:set RECAPTCHA_SITE_KEY=**<your-site-key>**
+$ heroku config:set RECAPTCHA_SECRET_KEY=**<your-secret-key>**
+```
+
 ### Google G Suite Admin (optional)
 
 You can use Google G Suite in order to use emails, shared calendars and more in your community.

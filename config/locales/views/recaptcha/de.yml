@@ -1,0 +1,5 @@
+de:
+  recaptcha:
+    errors:
+      verification_failed: "reCAPTCHA-Überprüfung fehlgeschlagen, bitte versuchen Sie es erneut."
+      recaptcha_unreachable: "Beim Versuch, den reCAPTCHA zu überprüfen, ist ein Zeitüberschreitungsfehler aufgetreten."

@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     respond_to do |format|
-      if @contact.valid?
+      if @contact.valid? && verify_recaptcha(model: @contact)
         flash[:success] = t('notices.success')
         ContactMailer.contact(@contact).deliver_now
         @contact = Contact.new

@@ -84,7 +84,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select 'input#user_password'
     assert_select 'input#user_password_confirmation'
     assert_select 'select#user_locale'
-    assert_select 'input[name=commit]'
+    assert_select 'div.g-recaptcha'
     assert_select 'label', 5
   end
 end
