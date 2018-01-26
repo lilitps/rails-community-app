@@ -42,9 +42,9 @@ class Ability
     elsif user&.active
       can :read, :all
       # User permissions
-      can %i[edit update destroy], User, id: user.id, active: true
+      can %i[edit update], User, id: user.id, active: true
       can %i[following followers], User
-      cannot %i[index new create], User
+      cannot %i[index new create destroy], User
       # UserSession permissions
       can :destroy, UserSession
       # Relationship permissions

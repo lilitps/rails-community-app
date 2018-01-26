@@ -11,9 +11,13 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select '.navbar-brand', count: 2
     assert_select 'a[href=?]', root_path, text: 'Home', count: 1
     assert_select 'a[href=?]', root_path + '#news_anchor', text: 'News', count: 1
+    assert_select '#news_anchor', count: 1
     assert_select 'a[href=?]', root_path + '#membership_anchor', text: 'Membership', count: 1
+    assert_select '#membership_anchor', count: 1
     assert_select 'a[href=?]', root_path + '#contact_anchor', text: 'Contact', count: 1
+    assert_select '#contact_anchor', count: 1
     assert_select 'a[href=?]', root_path + '#directions_anchor', text: 'Directions', count: 1
+    assert_select '#directions_anchor', count: 1
     assert_select 'a[href=?]', login_path, count: 1
     assert_select 'a[href=?]', signup_path, count: 1
     assert_select 'a[href=?]', logout_path, count: 0

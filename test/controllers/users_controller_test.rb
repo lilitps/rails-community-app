@@ -75,6 +75,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test 'should redirect destroy as a non-admin, when user destroys himself' do
+    log_in_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete user_path(@other_user)
+    end
+    assert_redirected_to root_path
+  end
+
   test 'should redirect following when not logged in' do
     get following_user_path(@user)
     assert_redirected_to login_path
