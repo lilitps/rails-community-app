@@ -1,13 +1,13 @@
 <div id="membership">
   <h1><%= t('community.about_membership') %></h1>
 
-  <div class="text-justify">
+  <p class="text-justify">
     <%= t('community.about_membership_html',
           community_name: t('community.name'),
           membership_application_url: link_to(t('community.about_membership_application_link_html',
                                                 community_name: t('community.name')),
                                               membership_application_path)) %>
-  </div>
+  </p>
 
   <h2><%= t('community.about_fee') + '*' %></h2>
   <table id="admission_fee" class="table">

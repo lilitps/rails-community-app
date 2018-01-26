@@ -131,27 +131,19 @@ host = '<your-heroku-app>.herokuapp.com'
 .
 ```
 
-### Account activation and password reset mailer
+### Change  community (provider) identification
 
-#### Mailer layout (optional)
+Add default address of your organization in Heroku:
 
-Change mailer layout corresponding to the email format, 
-which is common to all mailers in the application.
-The HTML and plain-text mailer layouts can be found under **app/views/layouts**
+```
+$ heroku config:set ADDRESS_OF_THE_ORGANIZATION=<'%{community_name}</br>address 1</br>address 2</br>zip code city'>
+```
 
-#### Default from address
+You can add official register or sales tax identification number or commercial register number
 
-Change default **from** address, which is common to all mailers in the application, can be 
-found in **app/mailers/application_mailer.rb**
-
-#### Mailer templates (optional)
-
-Change two view templates (if needed) for each mailer, 
-one for plain-text email and one for HTML email, found in 
-**app/views/user_mailer/account_activation.text.erb**,
-**app/views/user_mailer/account_activation.html.erb**,
-**app/views/user_mailer/password_reset.html.erb** and
-**app/views/user_mailer/password_reset.text.erb**
+```
+$ heroku config:set IDENTIFICATION_NUMBER=<'<b>District Court Charlottenburg:</b> XY ##### Z'>
+```
 
 ### Contact mailer
 
@@ -165,6 +157,28 @@ Change two view templates (if needed) for each mailer,
 one for plain-text email and one for HTML email, found in 
 **app/views/contact_mailer/contact.text.erb** and
 **app/views/contact_mailer/contact.html.erb**
+
+### Account activation and password reset mailer
+
+#### Default from address
+
+Change default **from** address, which is common to all mailers in the application, can be 
+found in **app/mailers/application_mailer.rb**
+
+#### Mailer layout (optional)
+
+Change mailer layout corresponding to the email format, 
+which is common to all mailers in the application.
+The HTML and plain-text mailer layouts can be found under **app/views/layouts**
+
+#### Mailer templates (optional)
+
+Change two view templates (if needed) for each mailer, 
+one for plain-text email and one for HTML email, found in 
+**app/views/user_mailer/account_activation.text.erb**,
+**app/views/user_mailer/account_activation.html.erb**,
+**app/views/user_mailer/password_reset.html.erb** and
+**app/views/user_mailer/password_reset.text.erb**
 
 ### Picture uploader to Google Cloud Storage
 
@@ -204,9 +218,9 @@ for [Google Cloud Storage](https://github.com/carrierwaveuploader/carrierwave#us
 using Google's interoperability keys to access it:
 
 ```
-$ heroku config:set G_STORAGE_ACCESS_KEY=**<your-access-key>**
-$ heroku config:set G_STORAGE_SECRET_KEY=**<your-secret>**
-$ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=**<your-bucket-name, e.g. 'communityapp'>**
+$ heroku config:set G_STORAGE_ACCESS_KEY=<your-access-key>
+$ heroku config:set G_STORAGE_SECRET_KEY=<your-secret>
+$ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=<your-bucket-name, e.g. 'communityapp'>
 ```
 
 Hint: In order to use these [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1), 
@@ -218,8 +232,8 @@ This App adds [reCAPTCHA API (V2)](https://www.google.com/recaptcha) in order to
 protection. Obtain a [reCAPTCHA API key](https://www.google.com/recaptcha/admin) and make sure to set up in Heroku:
 
 ```
-$ heroku config:set RECAPTCHA_SITE_KEY=**<your-site-key>**
-$ heroku config:set RECAPTCHA_SECRET_KEY=**<your-secret-key>**
+$ heroku config:set RECAPTCHA_SITE_KEY=<your-site-key>
+$ heroku config:set RECAPTCHA_SECRET_KEY=<your-secret-key>
 ```
 
 ### Google Maps
@@ -231,9 +245,9 @@ a Google Maps **API Key** from Google Cloud Platform,
 Heroku your key and a position to show in the map:
 
 ```
-$ heroku config:set GOOGLE_MAPS_API_KEY=**<your-apis-key>**
-$ heroku config:set GOOGLE_MAPS_LAT=**<your-position-latitude>**
-$ heroku config:set GOOGLE_MAPS_LNG=**<your-position-longitude>**
+$ heroku config:set GOOGLE_MAPS_API_KEY=<your-apis-key>
+$ heroku config:set GOOGLE_MAPS_LAT=<your-position-latitude>
+$ heroku config:set GOOGLE_MAPS_LNG=<your-position-longitude>
 ```
 
 Finally, go to [Dashboard](https://console.cloud.google.com/apis/dashboard) and enable
@@ -247,7 +261,7 @@ One of set up steps is to **Verify your domain and set up email**.
 In this step you will get a **google-site-verification** token, which you have to set up in Heroku:
 
 ```
-$ heroku config:set GOOGLE_SITE_VERIFICATION=**<your-tag-content>**
+$ heroku config:set GOOGLE_SITE_VERIFICATION=<your-tag-content>
 ```
 
 ### Facebook page posts (optional)
@@ -268,9 +282,9 @@ Finally, use the Heroku config command to [setup config vars](https://devcenter.
 for Facebook App.
 
 ```
-$ heroku config:set MY_APP_ID=**<your-fb-app-id>**
-$ heroku config:set MY_APP_SECRET=**<your-fb-app-secret>**
-$ heroku config:set MY_PAGE_ID=**<your-fb-page-id>**
+$ heroku config:set MY_APP_ID=<your-fb-app-id>
+$ heroku config:set MY_APP_SECRET=<your-fb-app-secret>
+$ heroku config:set MY_PAGE_ID=<your-fb-page-id>
 ```
 
 You will find the Facebook App ID and Facebook App SECRET on your Facebook App Dashboard.
@@ -321,9 +335,9 @@ $ heroku maintenance:on
 Use the Heroku config command to set first admin user data:
 
 ```
-$ heroku config:set ADMIN_NAME=**'<your-admin-first-and-last-name>'**
-$ heroku config:set ADMIN_EMAIL=**<your-admin-email>**
-$ heroku config:set ADMIN_PASSWORD=**<your-admin-password>**
+$ heroku config:set ADMIN_NAME=<your-admin-first-and-last-name>
+$ heroku config:set ADMIN_EMAIL=<your-admin-email>
+$ heroku config:set ADMIN_PASSWORD=<your-admin-password>
 ```
 
 Commit the file changes and push to git and then to Heroku:

@@ -82,23 +82,22 @@ Translation.create!([{ key: 'community.name',
                      { key: 'community.about_membership_application_link_html',
                        value: 'Aufnahmeantrag der %{community_name}' },
                      { key: 'community.about_entrance_fee_html',
-                       value: '<p><b>*</b>Alle Beiträge <b>in Euro</b>.</p>' },
+                       value: '<b>*</b>Alle Beiträge <b>in Euro</b>.' },
                      { key: 'community.about_fee_link_html',
                        value: 'Beitragsinformationen' },
                      { key: 'community.contact_link_html',
                        value: 'Kontaktformular' },
                      { key: 'community.directions_html',
-                       value: '<p>%{community_name}</br>
-                                  Straße zum FEZ 2</br>
-                                  <b>Raum 401</b></br>
-                                  12459 Berlin</p>' },
+                       value: ENV['ADDRESS_OF_THE_ORGANIZATION'] },
                      { key: 'community.about_directions_html',
-                       value: '<p>Gehen Sie in den FEZ-Haupteingang rein, geradeaus die Haupttreppe hoch,
+                       value: 'Gehen Sie in den FEZ-Haupteingang rein, geradeaus die Haupttreppe hoch,
                                 in Richtung der Puppenbühne.
                                 Rechts daneben befindet sich der Eingang zu uns,
-                                <b>zum Raum 401</b> auf dem Dach.</p>' },
+                                <b>zum Raum 401</b> auf dem Dach.' },
                      { key: 'community.directions_link_html',
-                       value: '<b>Berlin Treptow-Köpenick</b>' }]) do |translation|
+                       value: '<b>Berlin Treptow-Köpenick</b>' },
+                     { key: 'community.identification_number_html',
+                       value: ENV['IDENTIFICATION_NUMBER'] }]) do |translation|
   translation.locale = I18n.default_locale
 end
 
