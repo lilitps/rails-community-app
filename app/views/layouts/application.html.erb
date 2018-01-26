@@ -9,6 +9,7 @@
     <%= tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1') if protect_against_forgery? %>
     <!-- google g suite admin verification. Verify that you own the domain of this community app -->
     <%= tag.meta(name: 'google-site-verification', content: ENV['GOOGLE_SITE_VERIFICATION']) unless ENV['GOOGLE_SITE_VERIFICATION'].empty? %>
+    <%= javascript_include_tag 'google_maps' %>
   </head>
   <body>
     <%= render 'layouts/header' %>

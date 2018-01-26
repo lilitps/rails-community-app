@@ -45,6 +45,8 @@ en:
     about_board_of_directors_vice_chairman: "Vice Chairman"
     about_board_of_directors_treasurer: "Treasurer"
 
+    directions: "You will find us at the following address"
+
   rails_logo: "Rails logo"
 
   # Page titles
@@ -67,6 +69,7 @@ en:
     about: "About"
     membership: "Membership"
     contact: "Contact"
+    directions: "Directions"
     help: "Help"
 
     account:

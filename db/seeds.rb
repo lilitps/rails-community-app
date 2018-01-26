@@ -39,7 +39,7 @@ Translation.create!([{ key: 'community.name',
                      { key: 'community.about_html',
                        value: '<p>Willkommen auf der Homepage des %{community_name}.</p>
                             <p>Wir sind ein %{about_url}
-                            in <b>Berlin Treptow-Köpenick</b> mit mehr als 35 Jahren Geschichte.
+                            in %{directions_url} mit mehr als 35 Jahren Geschichte.
                             Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden
                             bei uns Kinder und Jugendliche aktiv an die Astronomie herangeführt.</p>' },
                      { key: 'community.short_introduction_html',
@@ -86,7 +86,19 @@ Translation.create!([{ key: 'community.name',
                      { key: 'community.about_fee_link_html',
                        value: 'Beitragsinformationen' },
                      { key: 'community.contact_link_html',
-                       value: 'Kontaktformular' }]) do |translation|
+                       value: 'Kontaktformular' },
+                     { key: 'community.directions_html',
+                       value: '<p>%{community_name}</br>
+                                  Straße zum FEZ 2</br>
+                                  <b>Raum 401</b></br>
+                                  12459 Berlin</p>' },
+                     { key: 'community.about_directions_html',
+                       value: '<p>Gehen Sie in den FEZ-Haupteingang rein, geradeaus die Haupttreppe hoch,
+                                in Richtung der Puppenbühne.
+                                Rechts daneben befindet sich der Eingang zu uns,
+                                <b>zum Raum 401</b> auf dem Dach.</p>' },
+                     { key: 'community.directions_link_html',
+                       value: '<b>Berlin Treptow-Köpenick</b>' }]) do |translation|
   translation.locale = I18n.default_locale
 end
 

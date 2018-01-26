@@ -330,6 +330,17 @@ input {
   margin-left: 0;
 }
 
+/* Directions */
+
+#directions {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  .about_directions {
+    text-align: justify;
+  }
+}
+
 /* Users index */
 
 .users {

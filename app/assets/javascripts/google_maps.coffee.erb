@@ -1,0 +1,19 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+# Integrate the Google Maps API v3
+# https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+# see further contacts_helper.rb
+window.initGoogleMap = ->
+  position =
+    lat: <%= ENV['GOOGLE_MAPS_LAT'] %>
+    lng: <%= ENV['GOOGLE_MAPS_LNG'] %>
+  map = new (google.maps.Map)(document.getElementById('map'),
+    zoom: 15
+    center: position)
+  marker = new (google.maps.Marker)(
+    position: position
+    map: map)
+  console.log 'Google Maps API version: ' + google.maps.version
+  return

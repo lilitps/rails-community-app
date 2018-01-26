@@ -166,7 +166,7 @@ one for plain-text email and one for HTML email, found in
 **app/views/contact_mailer/contact.text.erb** and
 **app/views/contact_mailer/contact.html.erb**
 
-### Picture uploader
+### Picture uploader to Google Cloud Storage
 
 This app needs Google Cloud Storage service to store images separately from application.
 To store images, this app uses [fog-google](https://github.com/fog/fog-google/blob/master/README.md) 
@@ -221,6 +221,24 @@ protection. Obtain a [reCAPTCHA API key](https://www.google.com/recaptcha/admin)
 $ heroku config:set RECAPTCHA_SITE_KEY=**<your-site-key>**
 $ heroku config:set RECAPTCHA_SECRET_KEY=**<your-secret-key>**
 ```
+
+### Google Maps
+
+The Community App uses [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript) in 
+order to show directions map on e.g. contact page. Similar to picture upload to Google Cloud Storage, obtain
+a Google Maps **API Key** from Google Cloud Platform, 
+[APIs and Services Credentials](https://console.cloud.google.com/apis/credentials) and make sure to set up in 
+Heroku your key and a position to show in the map:
+
+```
+$ heroku config:set GOOGLE_MAPS_API_KEY=**<your-apis-key>**
+$ heroku config:set GOOGLE_MAPS_LAT=**<your-position-latitude>**
+$ heroku config:set GOOGLE_MAPS_LNG=**<your-position-longitude>**
+```
+
+Finally, go to [Dashboard](https://console.cloud.google.com/apis/dashboard) and enable
+[Google Maps Embaded API](https://console.cloud.google.com/apis/api/maps-embed-backend.googleapis.com/overview) and 
+[Google Maps JavaScript API](https://console.cloud.google.com/apis/api/maps-backend.googleapis.com/overview).
 
 ### Google G Suite Admin (optional)
 

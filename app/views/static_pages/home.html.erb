@@ -20,11 +20,7 @@
 
 <div id="contact_anchor"></div>
 <%= render 'contacts/board_of_directors' %>
-<div id="contact">
-  <h1><%= t('community.contact', community_name: t('community.name')) %></h1>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <%= render 'contacts/form' %>
-    </div>
-  </div>
-</div>
+<%= render 'contacts/contact' %>
+
+<div id="directions_anchor"></div>
+<%= render 'contacts/directions' %>

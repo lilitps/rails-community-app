@@ -45,6 +45,8 @@ de:
     about_board_of_directors_vice_chairman: "stv. Vorsitzender"
     about_board_of_directors_treasurer: "Schatzmeister"
 
+    directions: "Sie finden uns unter folgender Adresse"
+
   rails_logo: "Logo von Rails"
 
   # Page titles
@@ -67,6 +69,7 @@ de:
       about: "Über"
       membership: "Mitgliedschaft"
       contact: "Kontakt"
+      directions: "Anfahrtsweg"
       help: "Hilfe"
 
       account:

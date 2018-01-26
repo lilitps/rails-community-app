@@ -122,6 +122,18 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert_select 'label', 4
   end
 
+  test 'community directions' do
+    get contact_path
+    assert_select '#directions', count: 1
+    assert_select '#directions > script', count: 1
+    assert_select '.directions', count: 1
+    assert_select '.about_directions', count: 1
+    assert_select '#map', count: 1
+    assert_match '/assets/google_maps', response.body
+    assert_match 'https://maps.googleapis.com/maps/api/js?', response.body
+    assert_match 'callback=initGoogleMap', response.body
+  end
+
   test 'contact the community form with errors' do
     get contact_path
     assert_template 'contacts/new'

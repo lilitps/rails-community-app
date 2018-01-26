@@ -12,7 +12,7 @@
               <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png',
                                aria: {describedby: 'helpBlock'},
                                onchange: 'checkImageSize(this)' %>
-          </span>
+      </span>
       <span id="helpBlock" class="help-block"><%= t('maximum_file_size') %></span>
 
       <% if post.id? %>

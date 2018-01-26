@@ -13,6 +13,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', root_path + '#news_anchor', text: 'News', count: 1
     assert_select 'a[href=?]', root_path + '#membership_anchor', text: 'Membership', count: 1
     assert_select 'a[href=?]', root_path + '#contact_anchor', text: 'Contact', count: 1
+    assert_select 'a[href=?]', root_path + '#directions_anchor', text: 'Directions', count: 1
     assert_select 'a[href=?]', login_path, count: 1
     assert_select 'a[href=?]', signup_path, count: 1
     assert_select 'a[href=?]', logout_path, count: 0
@@ -133,5 +134,17 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     assert_select '#about_board_of_directors', count: 1
     assert_select '#contact', count: 1
+  end
+
+  test 'community directions' do
+    get root_path
+    assert_select '#directions', count: 1
+    assert_select '#directions > script', count: 1
+    assert_select '.directions', count: 1
+    assert_select '.about_directions', count: 1
+    assert_select '#map', count: 1
+    assert_match '/assets/google_maps', response.body
+    assert_match 'https://maps.googleapis.com/maps/api/js?', response.body
+    assert_match 'callback=initGoogleMap', response.body
   end
 end
