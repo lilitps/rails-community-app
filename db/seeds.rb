@@ -29,7 +29,7 @@ Translation.create!([{ key: 'community.name',
                        value: 'Sternfreunde im FEZ e.V.' },
                      { key: 'community.home_page.introduction_html',
                        value: '<p>Wir treffen uns jeden ersten Sonntag im Monat, ab 15 Uhr zu den Vereinssitzungen
-                            in unseren <b>Raum 401</b> im <b>%{fez_url}</b> in der <b>Straße zum FEZ 2</b>.
+                            in unserem <b>Raum 401</b> im <b>%{fez_url}</b> in der <b>Straße zum FEZ 2</b>.
                             Außerdem sind wir bei vielen astronomischen Events in der Region anzutreffen.
                             Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
                             machen begeistert <b>Astrofotografie</b>. Über das %{contact_url}
@@ -96,8 +96,8 @@ Translation.create!([{ key: 'community.name',
                      { key: 'community.directions_html',
                        value: ENV['ADDRESS_OF_THE_ORGANIZATION'] },
                      { key: 'community.about_directions_html',
-                       value: 'Gehen Sie in den FEZ-Haupteingang rein, geradeaus die Haupttreppe hoch,
-                                in Richtung der Puppenbühne.
+                       value: 'Du gehst in den FEZ-Haupteingang rein, dann geradeaus die Haupttreppe hoch,
+                                in Richtung Puppenbühne.
                                 Rechts daneben befindet sich der Eingang zu uns,
                                 <b>zum Raum 401</b> auf dem Dach.' },
                      { key: 'community.directions_link_html',
