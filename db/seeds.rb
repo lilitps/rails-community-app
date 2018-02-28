@@ -8,19 +8,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name: ENV['ADMIN_NAME'],
-             email: ENV['ADMIN_EMAIL'],
-             password: ENV['ADMIN_PASSWORD'],
-             password_confirmation: ENV['ADMIN_PASSWORD'],
-             admin: true,
-             locale: 'en',
-             active: true,
-             approved: true,
-             confirmed: true,
-             activated_at: Time.zone.now)
+unless User.find_by(email: ENV['ADMIN_EMAIL'])
+  User.create!(name: ENV['ADMIN_NAME'],
+               email: ENV['ADMIN_EMAIL'],
+               password: ENV['ADMIN_PASSWORD'],
+               password_confirmation: ENV['ADMIN_PASSWORD'],
+               admin: true,
+               locale: 'en',
+               active: true,
+               approved: true,
+               confirmed: true,
+               activated_at: Time.zone.now)
 
-user = User.first
-user.posts.create! content: 'This is the first community post!'
+  user = User.first
+  user.posts.create! content: 'This is the first community post!'
+end
 
 # Community introduction and description
 Translation.create!([{ key: 'community.name',
@@ -118,35 +120,39 @@ end
 if Rails.env.development?
   # Admins
   3.times do |n|
-    name = Faker::Name.name
-    email = "example-#{n + 1}@railstutorial.org"
-    password = 'password'
-    User.create!(name: name,
-                 email: email,
-                 password: password,
-                 password_confirmation: password,
-                 admin: true,
-                 locale: 'en',
-                 active: true,
-                 approved: true,
-                 confirmed: true,
-                 activated_at: Time.zone.now)
+    unless User.find_by(email: "example-#{n + 1}@railstutorial.org")
+      name = Faker::Name.name
+      email = "example-#{n + 1}@railstutorial.org"
+      password = 'password'
+      User.create!(name: name,
+                   email: email,
+                   password: password,
+                   password_confirmation: password,
+                   admin: true,
+                   locale: 'en',
+                   active: true,
+                   approved: true,
+                   confirmed: true,
+                   activated_at: Time.zone.now)
+    end
   end
 
   # Users
   10.times do |n|
-    name = Faker::Name.name
-    email = "example-#{n + 100}@railstutorial.org"
-    password = 'password'
-    User.create!(name: name,
-                 email: email,
-                 password: password,
-                 password_confirmation: password,
-                 locale: 'en',
-                 active: true,
-                 approved: true,
-                 confirmed: true,
-                 activated_at: Time.zone.now)
+    unless User.find_by(email: "example-#{n + 100}@railstutorial.org")
+      name = Faker::Name.name
+      email = "example-#{n + 100}@railstutorial.org"
+      password = 'password'
+      User.create!(name: name,
+                   email: email,
+                   password: password,
+                   password_confirmation: password,
+                   locale: 'en',
+                   active: true,
+                   approved: true,
+                   confirmed: true,
+                   activated_at: Time.zone.now)
+    end
   end
 
   # Posts by admins
@@ -168,6 +174,6 @@ if Rails.env.development?
   user = non_admins.first
   following = non_admins[2..non_admins.count]
   followers = non_admins[3..non_admins.count - 5]
-  following.each { |followed| user.follow(followed) }
-  followers.each { |follower| follower.follow(user) }
+  following.each { |followed| user.follow(followed) unless user.following? followed }
+  followers.each { |follower| follower.follow(user) unless follower.following? user }
 end
