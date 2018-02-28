@@ -10,9 +10,7 @@ if defined?(BetterErrors) && Rails.env.development?
   module BetterErrorsHugeInspectWarning
     def inspect_value(obj)
       inspected = obj.inspect
-      if inspected.size > 20_000
-        inspected = "Object was too large to inspect (#{inspected.size} bytes). "
-      end
+      inspected = "Object was too large to inspect (#{inspected.size} bytes). " if inspected.size > 20_000
       CGI.escapeHTML(inspected)
     rescue NoMethodError
       "<span class='unsupported'>(object doesn't support inspect)</span>"

@@ -4,9 +4,7 @@ require 'test_helper'
 
 class PostsHelperTest < ActionView::TestCase
   test 'should get facebook app client' do
-    if Koala.config.app_id.present? && Koala.config.app_secret.present?
-      assert_not_nil facebook_app_client
-    end
+    assert_not_nil facebook_app_client if Koala.config.app_id.present? && Koala.config.app_secret.present?
   end
 
   test 'should get 3 posts from facebook page' do

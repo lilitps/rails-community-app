@@ -53,7 +53,6 @@ Translation.create!([{ key: 'community.name',
                         <b>Kinder und Jugendliche</b> aktiv an die Astronomie heran.
                         Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
                         machen begeistert <b>Astrofotografie</b>.</p>
-
                         <p>Wir vermitteln <b>Astronomie, Physik, Informatik und Mathematik</b>,
                         bieten Fernrohre und Fotoausrüstung an, genauso wie
                         Tutorials in der digitalen Bildbearbeitung.</p>' },
@@ -61,16 +60,12 @@ Translation.create!([{ key: 'community.name',
                        value: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei uns
                           Kinder und Jugendliche aktiv an die Astronomie herangeführt. Vor allem die Sonnenbeobachter
                           können auf eine volle Sonnenperiode zurückschauen.</p>
-
                           <p>Nach der politischen Wende in der DDR wurde der Pionierpalast umbenannt in
                           Freizeit- und Erholungszentrum Wuhlheide, kurz FEZ. Bis 1995 hatten wir dort immer noch
                           viel Raum für unsere Astronomie. Doch im Rahmen von Stellenabbau und Überführung des FEZ in
                           eine gemeinnützige GmbH wurde die Planstelle Astronomie gestrichen.</p>
-
                           <p>Um auch weiterhin Astronomie im FEZ anzubieten gab es nur eine Möglichkeit:</p>
-
                           <p class='text-center'><b>Wir gründen einen Verein!</b></p>
-
                           <p>Seit dem 24. Juni 1995 sind wir ein Verein. Nach einem langen Briefwechsel mit
                           Amtsgericht und Finanzamt war es Ende 1999 geschafft. Wir dürfen uns jetzt auch
                           Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als anerkannter Träger der
@@ -79,7 +74,6 @@ Translation.create!([{ key: 'community.name',
                        value: '<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>.
                         Die Mitglieder des Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und
                         wir beteiligen uns an <b>astronomischen Veranstaltungen</b> in der Region.</p>
-
                         <p>Jetzt den %{membership_application_url} ausfüllen und Mitglied werden!</p>' },
                      { key: 'community.about_membership_application_link_html',
                        value: 'Aufnahmeantrag der %{community_name}' },
@@ -120,39 +114,37 @@ end
 if Rails.env.development?
   # Admins
   3.times do |n|
-    unless User.find_by(email: "example-#{n + 1}@railstutorial.org")
-      name = Faker::Name.name
-      email = "example-#{n + 1}@railstutorial.org"
-      password = 'password'
-      User.create!(name: name,
-                   email: email,
-                   password: password,
-                   password_confirmation: password,
-                   admin: true,
-                   locale: 'en',
-                   active: true,
-                   approved: true,
-                   confirmed: true,
-                   activated_at: Time.zone.now)
-    end
+    next if User.find_by(email: "example-#{n + 1}@railstutorial.org")
+    name = Faker::Name.name
+    email = "example-#{n + 1}@railstutorial.org"
+    password = 'password'
+    User.create!(name: name,
+                 email: email,
+                 password: password,
+                 password_confirmation: password,
+                 admin: true,
+                 locale: 'en',
+                 active: true,
+                 approved: true,
+                 confirmed: true,
+                 activated_at: Time.zone.now)
   end
 
   # Users
   10.times do |n|
-    unless User.find_by(email: "example-#{n + 100}@railstutorial.org")
-      name = Faker::Name.name
-      email = "example-#{n + 100}@railstutorial.org"
-      password = 'password'
-      User.create!(name: name,
-                   email: email,
-                   password: password,
-                   password_confirmation: password,
-                   locale: 'en',
-                   active: true,
-                   approved: true,
-                   confirmed: true,
-                   activated_at: Time.zone.now)
-    end
+    next if User.find_by(email: "example-#{n + 100}@railstutorial.org")
+    name = Faker::Name.name
+    email = "example-#{n + 100}@railstutorial.org"
+    password = 'password'
+    User.create!(name: name,
+                 email: email,
+                 password: password,
+                 password_confirmation: password,
+                 locale: 'en',
+                 active: true,
+                 approved: true,
+                 confirmed: true,
+                 activated_at: Time.zone.now)
   end
 
   # Posts by admins
