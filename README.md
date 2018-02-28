@@ -85,6 +85,12 @@ Rename the application as follows:
 $ heroku rename <your-heroku-app>
 ```
 
+You can change your Heroku git remote any time:
+
+```
+$ heroku git:remote -a <your-heroku-app>
+```
+
 #### Custom domain
 
 In addition to supporting subdomains, Heroku also supports custom domains.
