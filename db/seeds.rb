@@ -25,90 +25,98 @@ unless User.find_by(email: ENV['ADMIN_EMAIL'])
 end
 
 # Community introduction and description
-Translation.create!([{ key: 'community.name',
-                       value: 'Sternfreunde im FEZ e.V.' },
-                     { key: 'community.home_page.introduction_html',
-                       value: '<p>Wir treffen uns jeden ersten Sonntag im Monat, ab 15 Uhr zu den Vereinssitzungen
-                            in unserem <b>Raum 401</b> im <b>%{fez_url}</b> in der <b>Straße zum FEZ 2</b>.
-                            Außerdem sind wir bei vielen astronomischen Events in der Region anzutreffen.
-                            Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
-                            machen begeistert <b>Astrofotografie</b>. Über das %{contact_url}
-                            kannst Du jederzeit bei uns mitmachen.</p>
-                            <p>Wenn Du neugierig geworden bist,
-                            dann empfiehlt es sich, einfach unverbindlich vorbeizuschauen.
-                            Solltest du dann dem Verein beitreten wollen, findest du hier
-                            die %{fee_url}.</p>' },
-                     { key: 'community.about_html',
-                       value: '<p>Willkommen auf der Homepage des %{community_name}.</p>
-                            <p>Wir sind ein %{about_url}
-                            in %{directions_url} mit mehr als 35 Jahren Geschichte.
-                            Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden
-                            bei uns Kinder und Jugendliche aktiv an die Astronomie herangeführt.</p>' },
-                     { key: 'community.short_introduction_html',
-                       value: 'Astronomie für Kinder und Jugendliche in Berlin.' },
-                     { key: 'community.about_link_html',
-                       value: 'gemeinnütziger, astronomischer Verein' },
-                     { key: 'community.description_html',
-                       value: '<p>Als anerkannter Träger der deutschen Jugendhilfe führen wir die
-                        <b>Kinder und Jugendliche</b> aktiv an die Astronomie heran.
-                        Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
-                        machen begeistert <b>Astrofotografie</b>.</p>
-                        <p>Wir vermitteln <b>Astronomie, Physik, Informatik und Mathematik</b>,
-                        bieten Fernrohre und Fotoausrüstung an, genauso wie
-                        Tutorials in der digitalen Bildbearbeitung.</p>' },
-                     { key: 'community.about_history_description_html',
-                       value: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei uns
-                          Kinder und Jugendliche aktiv an die Astronomie herangeführt. Vor allem die Sonnenbeobachter
-                          können auf eine volle Sonnenperiode zurückschauen.</p>
-                          <p>Nach der politischen Wende in der DDR wurde der Pionierpalast umbenannt in
-                          Freizeit- und Erholungszentrum Wuhlheide, kurz FEZ. Bis 1995 hatten wir dort immer noch
-                          viel Raum für unsere Astronomie. Doch im Rahmen von Stellenabbau und Überführung des FEZ in
-                          eine gemeinnützige GmbH wurde die Planstelle Astronomie gestrichen.</p>
-                          <p>Um auch weiterhin Astronomie im FEZ anzubieten gab es nur eine Möglichkeit:</p>
-                          <p class='text-center'><b>Wir gründen einen Verein!</b></p>
-                          <p>Seit dem 24. Juni 1995 sind wir ein Verein. Nach einem langen Briefwechsel mit
-                          Amtsgericht und Finanzamt war es Ende 1999 geschafft. Wir dürfen uns jetzt auch
-                          Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als anerkannter Träger der
-                          deutschen Jugendhilfe bezeichnen.</p>" },
-                     { key: 'community.about_membership_html',
-                       value: '<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>.
-                        Die Mitglieder des Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und
-                        wir beteiligen uns an <b>astronomischen Veranstaltungen</b> in der Region.</p>
-                        <p>Jetzt den %{membership_application_url} ausfüllen und Mitglied werden!</p>' },
-                     { key: 'community.about_membership_application_link_html',
-                       value: 'Aufnahmeantrag der %{community_name}' },
-                     { key: 'community.about_entrance_fee_html',
-                       value: '<b>*</b>Alle Beiträge <b>in Euro</b>.' },
-                     { key: 'community.about_entrance_fee_html',
-                       value: '<b>*</b>Alle Beiträge <b>in Euro</b>.' },
-                     { key: 'community.partner_austria_html',
-                       value: 'Die SiFEZ-Mitglieder erhalten bis zu 10% Rabatt bei unserem Partner Teleskop-Austria.' },
-                     { key: 'community.partner_austria_image',
-                       value: 'Partner Teleskop-Austria' },
-                     { key: 'community.contact_link_html',
-                       value: 'Kontaktformular' },
-                     { key: 'community.directions_html',
-                       value: ENV['ADDRESS_OF_THE_ORGANIZATION'] },
-                     { key: 'community.about_directions_html',
-                       value: 'Du gehst in den FEZ-Haupteingang rein, dann geradeaus die Haupttreppe hoch,
-                                in Richtung Puppenbühne.
-                                Rechts daneben befindet sich der Eingang zu uns,
-                                <b>zum Raum 401</b> auf dem Dach.' },
-                     { key: 'community.directions_link_html',
-                       value: '<b>Berlin Treptow-Köpenick</b>' },
-                     { key: 'community.identification_number_html',
-                       value: ENV['IDENTIFICATION_NUMBER'] }]) do |translation|
-  translation.locale = I18n.default_locale
+[
+  { key: 'community.name',
+    value: 'Sternfreunde im FEZ e.V.' },
+  { key: 'community.home_page.introduction_html',
+    value: '<p>Wir treffen uns jeden ersten Sonntag im Monat, ab 15 Uhr zu den Vereinssitzungen
+                          in unserem <b>Raum 401</b> im <b>%{fez_url}</b> in der <b>Straße zum FEZ 2</b>.
+                          Außerdem sind wir bei vielen astronomischen Events in der Region anzutreffen.
+                          Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
+                          machen begeistert <b>Astrofotografie</b>. Über das %{contact_url}
+                          kannst Du jederzeit bei uns mitmachen.</p>
+                          <p>Wenn Du neugierig geworden bist,
+                          dann empfiehlt es sich, einfach unverbindlich vorbeizuschauen.
+                          Solltest du dann dem Verein beitreten wollen, findest du hier
+                          die %{fee_url}.</p>' },
+  { key: 'community.about_html',
+    value: '<p>Willkommen auf der Homepage des %{community_name}.</p>
+                          <p>Wir sind ein %{about_url}
+                          in %{directions_url} mit mehr als 35 Jahren Geschichte.
+                          Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden
+                          bei uns Kinder und Jugendliche aktiv an die Astronomie herangeführt.</p>' },
+  { key: 'community.short_introduction_html',
+    value: 'Astronomie für Kinder und Jugendliche in Berlin.' },
+  { key: 'community.about_link_html',
+    value: 'gemeinnütziger, astronomischer Verein' },
+  { key: 'community.description_html',
+    value: '<p>Als anerkannter Träger der deutschen Jugendhilfe führen wir die
+                      <b>Kinder und Jugendliche</b> aktiv an die Astronomie heran.
+                      Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und
+                      machen begeistert <b>Astrofotografie</b>.</p>
+                      <p>Wir vermitteln <b>Astronomie, Physik, Informatik und Mathematik</b>,
+                      bieten Fernrohre und Fotoausrüstung an, genauso wie
+                      Tutorials in der digitalen Bildbearbeitung.</p>' },
+  { key: 'community.about_history_description_html',
+    value: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei uns
+                        Kinder und Jugendliche aktiv an die Astronomie herangeführt. Vor allem die Sonnenbeobachter
+                        können auf eine volle Sonnenperiode zurückschauen.</p>
+                        <p>Nach der politischen Wende in der DDR wurde der Pionierpalast umbenannt in
+                        Freizeit- und Erholungszentrum Wuhlheide, kurz FEZ. Bis 1995 hatten wir dort immer noch
+                        viel Raum für unsere Astronomie. Doch im Rahmen von Stellenabbau und Überführung des FEZ in
+                        eine gemeinnützige GmbH wurde die Planstelle Astronomie gestrichen.</p>
+                        <p>Um auch weiterhin Astronomie im FEZ anzubieten gab es nur eine Möglichkeit:</p>
+                        <p class='text-center'><b>Wir gründen einen Verein!</b></p>
+                        <p>Seit dem 24. Juni 1995 sind wir ein Verein. Nach einem langen Briefwechsel mit
+                        Amtsgericht und Finanzamt war es Ende 1999 geschafft. Wir dürfen uns jetzt auch
+                        Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als anerkannter Träger der
+                        deutschen Jugendhilfe bezeichnen.</p>" },
+  { key: 'community.about_membership_html',
+    value: '<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>.
+                      Die Mitglieder des Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und
+                      wir beteiligen uns an <b>astronomischen Veranstaltungen</b> in der Region.</p>
+                      <p>Jetzt den %{membership_application_url} ausfüllen und Mitglied werden!</p>' },
+  { key: 'community.about_membership_application_link_html',
+    value: 'Aufnahmeantrag der %{community_name}' },
+  { key: 'community.about_entrance_fee_html',
+    value: '<b>*</b>Alle Beiträge <b>in Euro</b>.' },
+  { key: 'community.partner_austria_html',
+    value: 'Die SiFEZ-Mitglieder erhalten bis zu 10% Rabatt bei unserem Partner Teleskop-Austria.' },
+  { key: 'community.partner_austria_image',
+    value: 'Partner Teleskop-Austria' },
+  { key: 'community.contact_link_html',
+    value: 'Kontaktformular' },
+  { key: 'community.directions_html',
+    value: ENV['ADDRESS_OF_THE_ORGANIZATION'] },
+  { key: 'community.about_directions_html',
+    value: 'Du gehst in den FEZ-Haupteingang rein, dann geradeaus die Haupttreppe hoch,
+                              in Richtung Puppenbühne.
+                              Rechts daneben befindet sich der Eingang zu uns,
+                              <b>zum Raum 401</b> auf dem Dach.' },
+  { key: 'community.directions_link_html',
+    value: '<b>Berlin Treptow-Köpenick</b>' },
+  { key: 'community.identification_number_html',
+    value: ENV['IDENTIFICATION_NUMBER'] }
+].each do |translation|
+  unless Translation.find_by(key: translation[:key])
+    translation.locale = I18n.default_locale
+    Translation.create! translation
+  end
 end
 
 # Community board of directors
-Translation.create!([{ key: 'community.about_board_of_directors_chairman_name',
-                       value: ENV['ABOUT_BOARD_OF_DIRECTORS_CHAIRMAN_NAME'] },
-                     { key: 'community.about_board_of_directors_vice_chairman_name',
-                       value: ENV['ABOUT_BOARD_OF_DIRECTORS_VICE_CHAIRMAN_NAME'] },
-                     { key: 'community.about_board_of_directors_treasurer_name',
-                       value: ENV['ABOUT_BOARD_OF_DIRECTORS_TREASURER_NAME'] }]) do |translation|
-  translation.locale = I18n.default_locale
+[
+  { key: 'community.about_board_of_directors_chairman_name',
+    value: ENV['ABOUT_BOARD_OF_DIRECTORS_CHAIRMAN_NAME'] },
+  { key: 'community.about_board_of_directors_vice_chairman_name',
+    value: ENV['ABOUT_BOARD_OF_DIRECTORS_VICE_CHAIRMAN_NAME'] },
+  { key: 'community.about_board_of_directors_treasurer_name',
+    value: ENV['ABOUT_BOARD_OF_DIRECTORS_TREASURER_NAME'] }
+].each do |translation|
+  unless Translation.find_by(key: translation[:key])
+    translation.locale = I18n.default_locale
+    Translation.create! translation
+  end
 end
 
 if Rails.env.development?
