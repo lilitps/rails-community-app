@@ -80,6 +80,8 @@ end
     value: 'Aufnahmeantrag der %{community_name}' },
   { key: 'community.about_entrance_fee_html',
     value: '<b>*</b>Alle Beiträge <b>in Euro</b>.' },
+  { key: 'community.about_fee_link_html',
+    value: 'Beitragsinformationen' },
   { key: 'community.partner_austria_html',
     value: 'Die SiFEZ-Mitglieder erhalten bis zu 10% Rabatt bei unserem Partner Teleskop-Austria.' },
   { key: 'community.partner_austria_image',
