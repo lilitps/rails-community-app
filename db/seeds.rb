@@ -101,7 +101,7 @@ end
     value: ENV['IDENTIFICATION_NUMBER'] }
 ].each do |translation|
   unless Translation.find_by(key: translation[:key])
-    translation.locale = I18n.default_locale
+    translation[:locale] = I18n.default_locale
     Translation.create! translation
   end
 end
@@ -116,7 +116,7 @@ end
     value: ENV['ABOUT_BOARD_OF_DIRECTORS_TREASURER_NAME'] }
 ].each do |translation|
   unless Translation.find_by(key: translation[:key])
-    translation.locale = I18n.default_locale
+    translation[:locale] = I18n.default_locale
     Translation.create! translation
   end
 end
