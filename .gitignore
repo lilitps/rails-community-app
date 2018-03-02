@@ -28,3 +28,4 @@ public/uploads
 
 # Ignore dev environment variables
 .env
+.idea/
