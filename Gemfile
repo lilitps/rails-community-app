@@ -76,31 +76,38 @@ gem 'recaptcha', require: 'recaptcha/rails'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  # Step-by-step debugging and stack navigation in Pry
+  gem 'pry-byebug', platform: :ruby
+  # Pry is a powerful alternative to the standard IRB shell for Ruby
+  gem 'pry-rails'
+  # Pretty print your Ruby objects with style -- in full color and with proper indentation. Use with 'ap object'
+  gem 'awesome_print'
   # Shim to load environment variables from .env into ENV
   gem 'dotenv-rails'
   # Preview email in the default browser instead of sending it.
   gem 'letter_opener'
-  # Use IRB alternative for better code completion in console
-  gem 'pry'
   # Behaviour Driven Development for Ruby
   gem 'rspec-rails'
   # RSpec::CollectionMatchers lets you express expected outcomes on collections of an object in an example
   gem 'rspec-collection_matchers'
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
   gem 'parallel_tests'
+  # Pretty print your Ruby objects with style -- in full color and with proper indentation. Use with 'ap object'
+  gem 'awesome_print'
+  # Add a comment summarizing the current schema to the top or bottom of each of your ActiveRecord models, Specs, factory_girl factories...
+  gem 'annotate'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
 
 group :development do
-  # Use with 'ap object' for nice print Ruby objects in console
-  gem 'awesome_print'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.1'
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
   gem 'better_errors'
   # necessary to use Better Errors' advanced features
-  gem 'binding_of_caller'
+  gem 'binding_of_caller', platforms: :ruby
   # bundler-audit provides patch-level verification for Bundled apps
   gem 'bundler-audit', '~> 0.6.0', require: false
   # compare licenses against a user-defined whitelist, and give you an actionable exception report
@@ -111,7 +118,6 @@ group :development do
   gem 'brakeman', require: false
   # Use i18n-tasks to find and manage missing and unused translations
   gem 'i18n-tasks', '~> 0.9.15', require: false
-  gem 'listen', '~> 3.1'
   # setup your favicon
   gem 'rails_real_favicon', require: false
   # RuboCop configuration which has the same code style checking as official Ruby on Rails
@@ -120,8 +126,6 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0'
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
@@ -130,6 +134,12 @@ group :test do
   gem 'minitest-reporters', '~> 1.1'
   # bring back the original controller testing for Authlogic
   gem 'rails-controller-testing', '~> 1.0'
+  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
+  gem 'database_cleaner'
+  # Code coverage for Ruby
+  gem 'simplecov', require: false
+  # Collection of testing matchers extracted from Shoulda
+  gem 'shoulda-matchers'
 end
 
 group :production do
