@@ -61,6 +61,7 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.12.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.0.5, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.3, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cuba (v3.9.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.6.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.3, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
@@ -90,6 +91,7 @@
     <orderEntry type="library" scope="PROVIDED" name="guard (v2.14.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-compat (v1.2.1, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-minitest (v2.4.6, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="guard-rubocop (v1.3.0, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="highline (v1.7.10, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.3, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http_accept_language (v2.1.1, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
@@ -97,6 +99,7 @@
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.9.5, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n-active_record (v0.2.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n-tasks (v0.9.20, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="iye (v1.1.1, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.7.0, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.3.1, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.1.0, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
@@ -137,6 +140,7 @@
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.11.3, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry-byebug (v3.6.0, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry-rails (v0.3.6, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="psych (v3.0.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v3.0.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v3.11.2, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.4, RVM: ruby-2.4.1 [community_app]) [gem]" level="application" />

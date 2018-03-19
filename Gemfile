@@ -118,10 +118,13 @@ group :development do
   gem 'brakeman', require: false
   # Use i18n-tasks to find and manage missing and unused translations
   gem 'i18n-tasks', '~> 0.9.15', require: false
+  # IYE makes it easy to translate your Rails I18N files and keeps them up to date
+  gem 'iye', require: false
   # setup your favicon
   gem 'rails_real_favicon', require: false
   # RuboCop configuration which has the same code style checking as official Ruby on Rails
   gem 'rubocop', '~> 0.51.0', require: false
+  gem 'guard-rubocop', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
