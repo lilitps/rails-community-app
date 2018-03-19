@@ -1,5 +1,40 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer          not null, primary key
+#  name               :string
+#  email              :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  crypted_password   :string
+#  persistence_token  :string
+#  admin              :boolean          default(FALSE)
+#  activated_at       :datetime
+#  locale             :string           default("en")
+#  password_salt      :string
+#  perishable_token   :string
+#  login_count        :integer          default(0), not null
+#  failed_login_count :integer          default(0), not null
+#  last_request_at    :datetime
+#  current_login_at   :datetime
+#  last_login_at      :datetime
+#  current_login_ip   :string
+#  last_login_ip      :string
+#  active             :boolean          default(FALSE)
+#  approved           :boolean          default(FALSE)
+#  confirmed          :boolean          default(FALSE)
+#
+# Indexes
+#
+#  index_users_on_email              (email) UNIQUE
+#  index_users_on_last_request_at    (last_request_at)
+#  index_users_on_perishable_token   (perishable_token) UNIQUE
+#  index_users_on_persistence_token  (persistence_token) UNIQUE
+#
+
 # An application user
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
