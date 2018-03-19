@@ -29,3 +29,11 @@ public/uploads
 # Ignore dev environment variables
 .env
 .idea/
+.DS_Store
+/*.iml
+*.fsl
+.fslckout
+/.bowerrc
+/ref/
+/*.sublime-*
+coverage
