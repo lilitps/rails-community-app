@@ -178,6 +178,10 @@ GEM
     guard-annotate (2.3)
       annotate (~> 2.4, >= 2.4.0)
       guard-compat (~> 1.2, >= 1.2.1)
+    guard-bundler (2.1.0)
+      bundler (~> 1.0)
+      guard (~> 2.2)
+      guard-compat (~> 1.1)
     guard-compat (1.2.1)
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
@@ -479,6 +483,7 @@ DEPENDENCIES
   gritter (~> 1.2)
   guard (~> 2.14)
   guard-annotate (~> 2.3)
+  guard-bundler (~> 2.1)
   guard-minitest (~> 2.4)
   guard-rubocop
   http_accept_language (~> 2.1)

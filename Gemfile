@@ -114,6 +114,8 @@ group :development do
   gem 'binding_of_caller', platforms: :ruby
   # bundler-audit provides patch-level verification for Bundled apps
   gem 'bundler-audit', '~> 0.6.0', require: false
+  # Bundler guard allows to automatically & intelligently install/update bundle when needed.
+  gem 'guard-bundler', '~> 2.1', require: false
   # compare licenses against a user-defined whitelist, and give you an actionable exception report
   gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
   # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
