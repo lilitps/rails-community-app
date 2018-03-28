@@ -175,6 +175,9 @@ GEM
       pry (>= 0.9.12)
       shellany (~> 0.0)
       thor (>= 0.18.1)
+    guard-annotate (2.3)
+      annotate (~> 2.4, >= 2.4.0)
+      guard-compat (~> 1.2, >= 1.2.1)
     guard-compat (1.2.1)
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
@@ -475,6 +478,7 @@ DEPENDENCIES
   google-api-client (> 0.8.5, < 0.9)
   gritter (~> 1.2)
   guard (~> 2.14)
+  guard-annotate (~> 2.3)
   guard-minitest (~> 2.4)
   guard-rubocop
   http_accept_language (~> 2.1)

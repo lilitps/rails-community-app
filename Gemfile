@@ -98,6 +98,8 @@ group :development, :test do
   gem 'awesome_print'
   # Add a comment summarizing the current schema to the top or bottom of each of your ActiveRecord models, Specs, factory_girl factories...
   gem 'annotate'
+  # Annotate guard runs the annotate gem when needed
+  gem 'guard-annotate', '~> 2.3'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
