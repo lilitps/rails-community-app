@@ -82,6 +82,8 @@ group :development, :test do
   gem 'pry-rails'
   # Pretty print your Ruby objects with style -- in full color and with proper indentation. Use with 'ap object'
   gem 'awesome_print'
+  # Use for fighting the N+1 problem in Ruby
+  gem 'bullet'
   # Shim to load environment variables from .env into ENV
   gem 'dotenv-rails'
   # Preview email in the default browser instead of sending it.
@@ -112,8 +114,6 @@ group :development do
   gem 'bundler-audit', '~> 0.6.0', require: false
   # compare licenses against a user-defined whitelist, and give you an actionable exception report
   gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
-  # Use for fighting the N+1 problem in Ruby
-  gem 'bullet'
   # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
   gem 'brakeman', require: false
   # Use i18n-tasks to find and manage missing and unused translations
