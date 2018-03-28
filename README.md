@@ -119,23 +119,20 @@ Add it to community app as follows:
 $ heroku addons:create sendgrid:starter
 ```
 
-#### Define a host variable and change to custom domain
+#### Define a host variable
 
-You will also have to define a **host** variable with the address of your production website, 
-that can be found under **config/environments/production.rb**. If you use custom domain, please change it too.
+You will also have to define a **host** variable with the address of your production website.
 
 ```
-.
-.
-host = '<your-heroku-app>.herokuapp.com'
-.
-.
-    .
-    :domain         => 'heroku.com',
-    .
-.
-.
+$ heroku config:set APP_MAILER_HOST_NAME=<your-app-name.heroku.com>
 ```
+
+If you use custom domain, please change it too your custom host name.
+
+```
+$ heroku config:set APP_MAILER_HOST_NAME=<your-domain.com>
+```
+
 
 ### Change community (provider) identification
 
