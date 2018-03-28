@@ -9,7 +9,7 @@ class ContactMailer < ApplicationMailer
   #
   def contact(contact)
     @contact = contact
-    contact_email = 'kontakt@sifez.de'
+    contact_email = ENV['CONTACT_MAIL_TO']
     mail from: @contact.email,
          to: contact_email,
          reply_to: @contact.email,

@@ -137,7 +137,7 @@ host = '<your-heroku-app>.herokuapp.com'
 .
 ```
 
-### Change  community (provider) identification
+### Change community (provider) identification
 
 Add default address of your organization in Heroku:
 
@@ -153,9 +153,13 @@ $ heroku config:set IDENTIFICATION_NUMBER=<'<b>District Court Charlottenburg:</b
 
 ### Contact mailer
 
-#### Default to address
+#### Default TO address
 
-Change default **to** email address can be found in **app/mailers/contact_mailer.rb**
+Change default **TO** email address for contact mailer
+
+```
+$ heroku config:set CONTACT_MAIL_TO=<your-contact@email-adress.de>
+```
 
 #### Mailer templates (optional)
 
@@ -387,7 +391,7 @@ $ heroku maintenance:off
 
 ## Spring processes
 
-Whether  something isn’t behaving as expected, or a process appears to be frozen, 
+Whether something isn’t behaving as expected, or a process appears to be frozen, 
 it’s a good idea to run 
 
 ```
