@@ -28,7 +28,7 @@ class SiteFbFeedTest < ActionDispatch::IntegrationTest
         # link and description
         if post['story'].present?
           assert_select 'a', post['name'] ? post['name'] : '', post['link']
-          assert_select 'a[href=?]', post['link']
+          assert_select 'a[href=?]', post['link'] if post['link']
         end
         if post['description'].present? && post['description'].length > 150
           assert_match auto_format_html(truncate(post['description'], length: 150)), response.body
