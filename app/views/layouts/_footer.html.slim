@@ -1,0 +1,19 @@
+footer.footer
+  small.rails-logo
+    = link_to image_tag('rails.png', height: '30', alt: t('rails_logo')), 'http://rubyonrails.org/'
+  nav
+    ul
+      - if current_user&.admin?
+        li.dropdown.dropup
+          a.dropdown-toggle[href="#" data-toggle="dropdown"]
+            = t('menu.administration.administration')
+            b.caret
+          ul.dropdown-menu
+            li
+              = link_to t('menu.administration.users'), users_path
+      li
+        = link_to t('menu.about'), about_path
+      li
+        = link_to t('menu.contact'), contact_path
+      li
+        = link_to t('menu.help'), help_path
