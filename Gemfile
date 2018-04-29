@@ -15,22 +15,22 @@ gem 'rails', '~> 5.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.8'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '5.0.6'
 # Use Twitter Bootstrap SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 3.2.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
+gem 'bootstrap-sass', '~> 3.3.7'
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '4.3.1'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '3.2.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '4.2.2'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'turbolinks', '5.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.6'
+gem 'jbuilder', '2.7.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Authlogic is a clean, simple, and unobtrusive ruby authentication solution
@@ -74,6 +74,8 @@ gem 'auto_html', '~> 2.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Slim allows you to write very minimal templates
+gem 'slim'
 
 group :development, :test do
   # Step-by-step debugging and stack navigation in Pry
@@ -94,8 +96,6 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
   gem 'parallel_tests'
-  # Pretty print your Ruby objects with style -- in full color and with proper indentation. Use with 'ap object'
-  gem 'awesome_print'
   # Add a comment summarizing the current schema to the top or bottom of each of your ActiveRecord models, Specs, factory_girl factories...
   gem 'annotate'
   # Annotate guard runs the annotate gem when needed
@@ -133,6 +133,8 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0'
+  # Convert HTML to Slim templates. Because HTML sux and Slim rules. That's why.
+  gem 'html2slim', require: false
 end
 
 group :test do

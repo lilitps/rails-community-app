@@ -440,8 +440,14 @@ $ license_finder
 ```
 
 **license_finder** will inform you whenever you have an unapproved dependency. 
-To approve the dependency run e.g.:
+To approve the dependency for all gems with MIT license run e.g.:
 
 ```
 $ license_finder whitelist add 'MIT' --who '...' --why 'free to use'
+```
+
+or for one gem only run:
+
+```
+$ license_finder approval add awesome_gpl_gem --who '...' --why 'free to use'
 ```
