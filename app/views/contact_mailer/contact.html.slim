@@ -1,0 +1,6 @@
+p
+  = @contact.message
+p
+  | ---------------------
+p
+  = t('.sent_by_name', :email => @contact.email, :name => @contact.name)
