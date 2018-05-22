@@ -8,7 +8,7 @@ class Contact
   attr_accessor :name, :email, :subject, :message
 
   validates :name, presence: true
-  validates :email, format: { with: Authlogic::Regex.email_nonascii }, presence: true
+  validates :email, format: { with: Authlogic::Regex::EMAIL_NONASCII }, presence: true
   validates :subject, presence: true
   validates :message, presence: true
 

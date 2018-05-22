@@ -53,7 +53,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   acts_as_authentic do |c|
-    c.validates_format_of_email_field_options = { with: Authlogic::Regex.email_nonascii }
+    c.validates_format_of_email_field_options = { with: Authlogic::Regex::EMAIL_NONASCII }
     c.validates_length_of_email_field_options = { maximum: 255 }
     c.validates_uniqueness_of_email_field_options = { case_sensitive: false }
     c.merge_validates_length_of_password_field_options presence: true, minimum: 6, allow_nil: true
