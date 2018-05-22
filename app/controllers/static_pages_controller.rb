@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
 
   def about; end
 
-  def help; end
+  def imprint; end
 
   def membership_application
     send_file(

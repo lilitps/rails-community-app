@@ -55,8 +55,8 @@ de:
     log_in: "Einloggen"
     sign_up: "Anmelden"
     about: "Über"
+    imprint: "Impressum"
     contact: "Kontakt"
-    help: "Hilfe"
     edit_user: "Benutzer bearbeiten"
     all_users: "Alle Benutzer"
     forgot_password: "Passwort vergessen"
@@ -67,10 +67,10 @@ de:
       home: "Startseite"
       news: "Nachrichten"
       about: "Über"
+      imprint: "Impressum"
       membership: "Mitgliedschaft"
       contact: "Kontakt"
       directions: "Anfahrtsweg"
-      help: "Hilfe"
 
       account:
         account: "Konto"

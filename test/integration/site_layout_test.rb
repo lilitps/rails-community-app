@@ -29,7 +29,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     # footer
     assert_select 'a[href=?]', about_path
     assert_select 'a[href=?]', contact_path
-    assert_select 'a[href=?]', help_path
+    assert_select 'a[href=?]', imprint_path
 
     # no menu for account and administration
     assert_select 'li.dropdown>a.dropdown-toggle', count: 1
@@ -49,8 +49,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'title', full_title('About')
     get contact_path
     assert_select 'title', full_title('Contact')
-    get help_path
-    assert_select 'title', full_title('Help')
+    get imprint_path
+    assert_select 'title', full_title('Imprint')
   end
 
   test 'layout links when logged in' do
@@ -68,7 +68,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     # footer
     assert_select 'a[href=?]', about_path
     assert_select 'a[href=?]', contact_path
-    assert_select 'a[href=?]', help_path
+    assert_select 'a[href=?]', imprint_path
 
     # no menu for administration
     assert_select 'li.dropdown>a.dropdown-toggle', count: 2

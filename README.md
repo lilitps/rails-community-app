@@ -148,6 +148,12 @@ You can add official register or sales tax identification number or commercial r
 $ heroku config:set IDENTIFICATION_NUMBER=<'<b>District Court Charlottenburg:</b> XY ##### Z'>
 ```
 
+And finally, add a phone number of your organization:
+
+```
+$ heroku config:set PHONE_NUMBER_OF_THE_ORGANIZATION=<'010 20 345 6789'>
+```
+
 ### Contact mailer
 
 #### Default TO address

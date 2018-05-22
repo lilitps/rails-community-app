@@ -55,8 +55,8 @@ en:
     log_in: "Log in"
     sign_up: "Sign up"
     about: "About"
+    imprint: "Imprint"
     contact: "Contact"
-    help: "Help"
     edit_user: "Edit user"
     all_users: "All users"
     forgot_password: "Forgot password"
@@ -67,10 +67,10 @@ en:
     home: "Home"
     news: "News"
     about: "About"
+    imprint: "Imprint"
     membership: "Membership"
     contact: "Contact"
     directions: "Directions"
-    help: "Help"
 
     account:
       account: "Account"
