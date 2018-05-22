@@ -63,7 +63,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 25px;
   text-align: center;
@@ -72,9 +72,18 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1em;
+  font-size: 1.5em;
   letter-spacing: -1px;
   margin-bottom: 20px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+h4 {
+  font-size: 1.3em;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
   text-align: center;
   font-weight: normal;
   color: $gray-light;
@@ -132,7 +141,7 @@ div .gritter-item {
     -moz-border-radius: 0px;
     border-radius: 0px;
     padding-top: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
 
     .gritter-title {
       font-size: 1.3em;
@@ -141,7 +150,7 @@ div .gritter-item {
 
     .gritter-with-image,
     .gritter-without-image {
-      padding: 0px;
+      padding: 0;
     }
 
     .gritter-image {

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get     '/feed',      to: 'static_pages#home'
     get     '/membership_application', to: 'static_pages#membership_application'
     get     '/about',     to: 'static_pages#about'
-    get     '/help',      to: 'static_pages#help'
+    get     '/imprint',   to: 'static_pages#imprint'
 
     get     '/signup',    to: 'users#new'
     post    '/signup',    to: 'users#create'
