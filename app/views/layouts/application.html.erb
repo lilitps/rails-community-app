@@ -12,6 +12,8 @@
     <%= javascript_include_tag 'google_maps' %>
   </head>
   <body>
+    <%= render 'cookies_eu/consent_banner', link: imprint_path %>
+
     <%= render 'layouts/header' %>
 
     <div class="container">

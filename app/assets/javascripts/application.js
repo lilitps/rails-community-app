@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require gritter
 //= require turbolinks
+//= require cookies_eu
 //= require_tree .

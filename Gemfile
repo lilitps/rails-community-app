@@ -74,6 +74,8 @@ gem 'auto_html', '~> 2.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Gem to add cookie consent
+gem 'cookies_eu'
 
 group :development, :test do
   # Step-by-step debugging and stack navigation in Pry
