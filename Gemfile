@@ -140,7 +140,6 @@ end
 group :test do
   gem 'guard', '~> 2.14'
   gem 'guard-minitest', '~> 2.4'
-  gem 'minitest-reporters', '~> 1.1'
   # bring back the original controller testing for Authlogic
   gem 'rails-controller-testing', '~> 1.0'
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
