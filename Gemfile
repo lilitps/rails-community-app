@@ -76,6 +76,8 @@ gem 'recaptcha', require: 'recaptcha/rails'
 # gem 'capistrano-rails', group: :development
 # Slim allows you to write very minimal templates
 gem 'slim'
+# Gem to add cookie consent
+gem 'cookies_eu'
 
 group :development, :test do
   # Step-by-step debugging and stack navigation in Pry
@@ -140,7 +142,6 @@ end
 group :test do
   gem 'guard', '~> 2.14'
   gem 'guard-minitest', '~> 2.4'
-  gem 'minitest-reporters', '~> 1.1'
   # bring back the original controller testing for Authlogic
   gem 'rails-controller-testing', '~> 1.0'
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.

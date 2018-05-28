@@ -8,9 +8,7 @@ SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'minitest/reporters'
 require 'authlogic/test_case'
-Minitest::Reporters.use!
 
 module MiniTestWithBullet
   require 'minitest/unit'
