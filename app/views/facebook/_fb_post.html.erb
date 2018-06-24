@@ -10,7 +10,7 @@
               <%= post['name'] %>
           <% end %>
           <%= link_to "<span class=\"pull-right glyphicon glyphicon-link\"></span>".html_safe,
-                      post['permalink_url'], target: '_blank' if post['permalink_url'].present? %>
+                      post['permalink_url'], target: '_blank', rel: 'noopener' if post['permalink_url'].present? %>
           <br>
           <%= t('ago', time_ago_in_words: time_ago_in_words(post['created_time'])) %>
         </div>
@@ -33,10 +33,10 @@
         <div class="thumbnail">
           <div class="caption">
             <div class="stamp">
-              <%= link_to post['name'] ? post['name'] : '', post['link'], target: '_blank' if post['story'].present? %>
+              <%= link_to post['name'] ? post['name'] : '', post['link'], target: '_blank', rel: 'noopener' if post['story'].present? %>
             </div>
             <%= link_to image_tag(post['full_picture'], alt: post['name'], align: 'middle'),
-                        post['link'], target: '_blank' if post['full_picture'].present? %>
+                        post['link'], target: '_blank', rel: 'noopener' if post['full_picture'].present? %>
 
             <div class="content">
               <% if post['description'].present? && post['description'].length > 150 %>

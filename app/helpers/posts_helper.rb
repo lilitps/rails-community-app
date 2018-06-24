@@ -54,7 +54,7 @@ module PostsHelper
   # Note that the order of filters is important - ie you want 'Image' before 'Link' filter
   # so that URL of the image gets transformed to 'img' tag and not 'a' tag.
   def format_pipeline
-    AutoHtml::Pipeline.new(AutoHtml::Image.new, AutoHtml::Link.new(target: '_blank'))
+    AutoHtml::Pipeline.new(AutoHtml::Image.new, AutoHtml::Link.new(target: '_blank', rel: 'noopener'))
   end
 
   # Returns simple format of text with html tags
