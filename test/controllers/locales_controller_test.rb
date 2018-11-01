@@ -20,11 +20,12 @@ class LocalesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
-    # set local after log in
-    post locale_path(locale: 'en')
-    assert_redirected_to root_path(locale: 'en')
-    assert_not flash[:success].empty?
-    assert_equal 'en', session['locale']
     assert_equal :en, I18n.locale
+    # set local after log in
+    post locale_path(locale: 'de')
+    assert_redirected_to root_path(locale: 'de')
+    assert_not flash[:success].empty?
+    assert_equal 'de', session['locale']
+    assert_equal :de, I18n.locale
   end
 end
