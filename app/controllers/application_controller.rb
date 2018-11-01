@@ -4,11 +4,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
+  check_authorization
   include UserSessionsHelper
   helper_method :log_in, :log_out, :current_user?, :current_user_session, :current_user
 
   protected
 
+  # Because Authlogic introduces its own methods for storing user sessions,
+  # the CSRF (Cross Site Request Forgery) protection that is built into Rails will not work out of the box.
   def handle_unverified_request
     current_user_session&.destroy
     redirect_to root_path

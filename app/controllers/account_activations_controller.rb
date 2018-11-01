@@ -4,6 +4,7 @@
 class AccountActivationsController < ApplicationController
   before_action :find_user, only: %i[edit]
   before_action :valid_user, only: %i[edit]
+  skip_authorization_check
 
   # HTTP 	    URL	                                Action	    Named route	                          Purpose
   # request

@@ -2,6 +2,7 @@
 
 # A static pages controller to manage static pages like home or contact page
 class StaticPagesController < ApplicationController
+  skip_authorization_check
   include PostsHelper
 
   def home

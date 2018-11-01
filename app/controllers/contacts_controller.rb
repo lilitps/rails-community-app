@@ -2,6 +2,7 @@
 
 # A contacts controller to manage contact interface
 class ContactsController < ApplicationController
+  skip_authorization_check
   # GET /contacts/new
   def new
     @contact = Contact.new

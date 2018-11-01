@@ -2,6 +2,7 @@
 
 # A locales controller to set and update application language for users
 class LocalesController < ApplicationController
+  skip_authorization_check
   include LocalesHelper
 
   # HTTP 	    URL	            Action	    Named route	            Purpose

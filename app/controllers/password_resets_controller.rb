@@ -4,6 +4,7 @@
 class PasswordResetsController < ApplicationController
   before_action :find_user, only: %i[edit update]
   before_action :valid_user, only: %i[edit update]
+  skip_authorization_check
 
   # HTTP 	    URL	                          Action	    Named route	                      Purpose
   # request
