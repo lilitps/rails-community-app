@@ -5,9 +5,8 @@ var new_post = $("#new_post");
 <% else %>
   $('#new-post-modal').modal('hide');
   new_post.find('.field_with_errors').removeClass('field_with_errors');
-  new_post.find('input:text,textarea').val('');
   new_post.find('#error_explanation').empty();
-  new_post.replaceWith("<%= escape_javascript(render('posts/post_form', post: @post)) %>");
+  new_post[0].reset();
   $("#feed").replaceWith("<%= escape_javascript(render('shared/feed')) %>");
   $("#flash").replaceWith("<%= escape_javascript(render 'shared/flash_messages') %>");
 <% end %>
