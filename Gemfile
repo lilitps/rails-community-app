@@ -98,8 +98,6 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
   gem 'parallel_tests'
-  # Add a comment summarizing the current schema to the top or bottom of each of your ActiveRecord models, Specs, factory_girl factories...
-  gem 'annotate'
   # Annotate guard runs the annotate gem when needed
   gem 'guard-annotate', '~> 2.3'
   # Use sqlite3 as the database for Active Record
@@ -107,6 +105,8 @@ group :development, :test do
 end
 
 group :development do
+  # Add a comment summarizing the current schema to the top or bottom of each of your ActiveRecord models, Specs, factory_girl factories...
+  gem 'annotate'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.1'
