@@ -4,7 +4,6 @@ html
     title
       = full_title(yield(:title))
     = render 'layouts/rails_default'
-    = render 'layouts/shim'
     = render 'application/favicon'
     = tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1') if protect_against_forgery?
     = tag.meta(name: 'google-site-verification', content: ENV['GOOGLE_SITE_VERIFICATION']) unless ENV['GOOGLE_SITE_VERIFICATION'].empty?
