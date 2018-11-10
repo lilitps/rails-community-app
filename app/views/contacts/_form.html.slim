@@ -1,0 +1,12 @@
+= form_for(@contact, url: contact_path, remote: true) do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
+  = f.label :email
+  = f.text_field :email, class: 'form-control'
+  = f.label :subject
+  = f.text_field :subject, class: 'form-control'
+  = f.label :message
+  = f.text_area :message, class: 'form-control'
+  = recaptcha_tags ajax: true, hl: I18n.locale unless current_user
+  = f.submit t('contacts.new.submit'), data: {disable_with: t('contacts.new.submitting')}, class: 'btn btn-primary'
