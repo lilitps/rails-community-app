@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     respond_to do |format|
       if @contact.valid? && verify_recaptcha(model: @contact)
-        flash[:success] = t('notices.success')
+        flash.now[:success] = t('notices.success')
         ContactMailer.contact(@contact).deliver_now
         @contact = Contact.new
         format.html { redirect_to root_path }

@@ -96,6 +96,9 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     }, xhr: true
     assert_not flash.empty?
     assert_equal 2, ActionMailer::Base.deliveries.size
+    get root_path
+    assert_template 'static_pages/home'
+    assert flash.empty?
   end
 
   test 'contact the community form' do
