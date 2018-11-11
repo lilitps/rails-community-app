@@ -108,12 +108,12 @@ end
 
 # Community board of directors
 [
-  { key: 'community.about_board_of_directors_chairman_name',
-    value: ENV['ABOUT_BOARD_OF_DIRECTORS_CHAIRMAN_NAME'] },
-  { key: 'community.about_board_of_directors_vice_chairman_name',
-    value: ENV['ABOUT_BOARD_OF_DIRECTORS_VICE_CHAIRMAN_NAME'] },
-  { key: 'community.about_board_of_directors_treasurer_name',
-    value: ENV['ABOUT_BOARD_OF_DIRECTORS_TREASURER_NAME'] }
+  { key: 'community.chairman_name',
+    value: ENV['CHAIRMAN_NAME'] },
+  { key: 'community.vice_chairman_name',
+    value: ENV['VICE_CHAIRMAN_NAME'] },
+  { key: 'community.treasurer_name',
+    value: ENV['TREASURER_NAME'] }
 ].each do |translation|
   unless Translation.find_by(key: translation[:key])
     translation[:locale] = I18n.default_locale
