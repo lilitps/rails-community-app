@@ -1,0 +1,15 @@
+- provide(:feed_title, t('feed_header'))
+
+.row#feed.feed
+	- if @feed&.any?
+		#all-modals
+			- @feed.each do |post|
+				= render 'posts/post_image_modal', post: post
+			- if can? :edit, Post
+				- @feed.each do |post|
+					= render 'posts/post_form_modal', post: post
+		h2
+			= feed_title(yield(:feed_title))
+		= render @feed
+		.col-sm-12.col-md-12.col-lg-12.center
+			= will_paginate @feed, class: 'pagination-sm', inner_window: 2, outer_window: 0
