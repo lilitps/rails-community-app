@@ -6,12 +6,12 @@ class PasswordResetsController < ApplicationController
   before_action :valid_user, only: %i[edit update]
   skip_authorization_check
 
-  # HTTP 	    URL	                          Action	    Named route	                      Purpose
+  # HTTP       URL                            Action      Named route                        Purpose
   # request
-  # GET	    /password_resets/new	          new	        new_password_reset_path
-  # POST	  /password_resets	              create	    password_resets_path
-  # GET	    /password_resets/<token>/edit	  edit	      edit_password_reset_path(token)
-  # PATCH	  /password_resets/<token>	      update	    password_reset_path(token)
+  # GET       /password_resets/new            new         new_password_reset_path
+  # POST      /password_resets                create      password_resets_path
+  # GET       /password_resets/<token>/edit   edit        edit_password_reset_path(token)
+  # PATCH     /password_resets/<token>        update      password_reset_path(token)
   def new; end
 
   def create
@@ -32,7 +32,7 @@ class PasswordResetsController < ApplicationController
     if params[:user][:password].empty?
       @user.errors.add(:password, t('errors.can_not_be_empty'))
       render 'edit'
-    elsif @user.update_attributes(user_params)
+    elsif @user.update(user_params)
       log_in @user
       flash[:success] = t('password_has_been_reset')
       redirect_to @user
@@ -55,6 +55,7 @@ class PasswordResetsController < ApplicationController
   # Confirms a valid user and checks expiration of token.
   def valid_user
     return if @user&.active? && User.find_using_perishable_token(params[:id])
+
     flash[:danger] = t('password_reset_has_expired')
     redirect_to root_path
   end

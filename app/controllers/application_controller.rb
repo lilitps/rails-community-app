@@ -59,6 +59,7 @@ class ApplicationController < ActionController::Base
   # Confirms a logged-in user.
   def require_user
     return if current_user
+
     store_location
     flash[:notice] = t('please_log_in')
     redirect_to login_path
@@ -66,6 +67,7 @@ class ApplicationController < ActionController::Base
 
   def require_no_user
     return unless current_user
+
     store_location
     flash[:notice] = t('please_log_out')
     redirect_to root_path

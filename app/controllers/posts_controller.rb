@@ -8,12 +8,12 @@ class PostsController < ApplicationController
 
   include PostsHelper
 
-  # HTTP 	    URL	            Action	    Named route	            Purpose
+  # HTTP       URL              Action      Named route              Purpose
   # request
-  # POST	    /posts	        create	    posts_path
-  # GET	      /posts/1/edit	  edit	      edit_post_path(post)	  page to edit post with id 1
-  # PATCH	    /posts/1	      update	    post_path(post)	        update post
-  # DELETE	  /posts/1	      destroy	    post_path(post)
+  # POST       /posts           create      posts_path
+  # GET        /posts/1/edit    edit        edit_post_path(post)     page to edit post with id 1
+  # PATCH      /posts/1         update      post_path(post)          update post
+  # DELETE     /posts/1         destroy     post_path(post)
 
   def create
     @post = current_user.posts.build(post_params)
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @post.update_attributes(post_params)
+      if @post.update(post_params)
         flash.now[:success] = t('post_updated')
         @feed = feed(params[:page])
         format.html { redirect_back(fallback_location: root_path) }

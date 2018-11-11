@@ -54,7 +54,10 @@ Style/FormatString:
 Style/TrailingCommaInArguments:
   Enabled: no
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  Enabled: no
+  
+Style/TrailingCommaInHashLiteral:
   Enabled: no
 
 Style/EmptyMethod:

@@ -67,10 +67,11 @@ module PostsHelper
   # Log in to facebook app and get app client with authentication
   def facebook_app_client
     return unless Koala.config.app_id.present? && Koala.config.app_secret.present?
+
     oauth = Koala::Facebook::OAuth.new(ENV['MY_APP_ID'], ENV['MY_APP_SECRET'])
     oauth_token = oauth&.get_app_access_token
   rescue Faraday::ConnectionFailed
-    return # TODO: need some failure handling
+    nil # TODO: need some failure handling
   else
     Koala::Facebook::API.new(oauth_token)
   end

@@ -39,10 +39,10 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     get edit_password_reset_path(user.perishable_token, email: '')
     assert_redirected_to root_path
     # Inactive user
-    user.update_attributes(active: false)
+    user.update(active: false)
     get edit_password_reset_path(user.perishable_token, email: user.email)
     assert_redirected_to root_path
-    user.update_attributes(active: true)
+    user.update(active: true)
     # Right email, wrong token
     get edit_password_reset_path('wrong token', email: user.email)
     assert_redirected_to root_path
@@ -86,10 +86,10 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
          params: { password_reset: { email: @user.email } }
 
     @user = assigns(:user)
-    @user.update_attributes(updated_at: 2.hours.ago)
+    @user.update(updated_at: 2.hours.ago)
     patch password_reset_path(@user.perishable_token),
           params: { email: @user.email,
-                    user: { password:              'foobar',
+                    user: { password: 'foobar',
                             password_confirmation: 'foobar' } }
     assert_response :redirect
     assert_redirected_to root_path

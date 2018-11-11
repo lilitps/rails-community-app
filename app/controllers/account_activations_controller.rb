@@ -6,9 +6,9 @@ class AccountActivationsController < ApplicationController
   before_action :valid_user, only: %i[edit]
   skip_authorization_check
 
-  # HTTP 	    URL	                                Action	    Named route	                          Purpose
+  # HTTP       URL                                  Action      Named route                            Purpose
   # request
-  # GET	      /account_activation/<token>/edit	  edit	      edit_account_activation_path(token)
+  # GET        /account_activation/<token>/edit     edit        edit_account_activation_path(token)
   def edit
     @user.activate
     log_in @user
@@ -26,6 +26,7 @@ class AccountActivationsController < ApplicationController
   # Confirms a valid user.
   def valid_user
     return if @user && !@user.active? && User.find_using_perishable_token(params[:id])
+
     flash[:danger] = t('invalid_activation_link')
     redirect_to root_path
   end

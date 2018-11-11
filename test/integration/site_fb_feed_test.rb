@@ -27,7 +27,7 @@ class SiteFbFeedTest < ActionDispatch::IntegrationTest
         end
         # link and description
         if post['story'].present?
-          assert_select 'a', post['name'] ? post['name'] : '', post['link']
+          assert_select 'a', post['name'] || '', post['link']
           assert_select 'a[href=?]', post['link'] if post['link']
         end
         if post['description'].present? && post['description'].length > 150

@@ -5,9 +5,9 @@ class LocalesController < ApplicationController
   skip_authorization_check
   include LocalesHelper
 
-  # HTTP 	    URL	            Action	    Named route	            Purpose
+  # HTTP       URL              Action      Named route              Purpose
   # request
-  # PATCH	    /locales/	      update	    locale_path(local)
+  # PATCH      /locales/        update      locale_path(local)
 
   def update
     remember(params[:locale])

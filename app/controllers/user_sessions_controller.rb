@@ -8,11 +8,11 @@ class UserSessionsController < ApplicationController
   authorize_resource only: %i[create destroy]
 
   # Sessions a fully RESTful resource
-  # HTTP 	    URL	            Action	    Named route	            Purpose
+  # HTTP       URL          Action        Named route             Purpose
   # request
-  # GET	      /login	      login_path	  new	                    page for a new session (login)
-  # POST	    /login	      login_path	  create	                create a new session (login)
-  # DELETE	  /logout	      logout_path	  destroy	                delete a session (log out)
+  # GET       /login        login_path    new                     page for a new session (login)
+  # POST      /login        login_path    create                  create a new session (login)
+  # DELETE    /logout       logout_path   destroy                 delete a session (log out)
   def new; end
 
   def create
