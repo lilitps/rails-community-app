@@ -7,7 +7,7 @@ require 'auto_html'
 module PostsHelper
   include UserSessionsHelper
 
-  FIELDS = %w[id type icon story name message permalink_url link full_picture description created_time].freeze
+  FB_POST_FIELDS = %w[id type icon story name message permalink_url link full_picture description created_time].freeze
 
   # Returns the feed title.
   def feed_title(feed_title = '')
@@ -33,13 +33,13 @@ module PostsHelper
 
   # Returns most recent posts from facebook page
   def fb_feed(limit = 3)
-    fb_client = facebook_app_client
-    if fb_client
-      fb_client&.get_connection(ENV['MY_PAGE_ID'],
+    @fb_client ||= facebook_app_client
+    if @fb_client
+      @fb_client&.get_connection(ENV['MY_PAGE_ID'],
                                 'posts',
                                 {
                                   limit: limit,
-                                  fields: PostsHelper::FIELDS,
+                                  fields: PostsHelper::FB_POST_FIELDS,
                                   locale: I18n.locale,
                                   return_ssl_resources: true
                                 })
@@ -70,7 +70,7 @@ module PostsHelper
     oauth = Koala::Facebook::OAuth.new(ENV['MY_APP_ID'], ENV['MY_APP_SECRET'])
     oauth_token = oauth&.get_app_access_token
   rescue Faraday::ConnectionFailed
-    return
+    return # TODO: need some failure handling
   else
     Koala::Facebook::API.new(oauth_token)
   end

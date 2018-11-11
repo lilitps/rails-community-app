@@ -14,7 +14,7 @@ class PostsHelperTest < ActionView::TestCase
       assert feed.any?
       assert feed.to_a.size == 3
       feed.each do |post|
-        assert PostsHelper::FIELDS.to_a.any? do |k|
+        assert PostsHelper::FB_POST_FIELDS.to_a.any? do |k|
           post.key?(k)
         end
       end
