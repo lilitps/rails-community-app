@@ -1,0 +1,8 @@
+- provide(:title, @user.name)
+- provide(:feed_title, t('user_feed_header', user_name: @user.name))
+.row
+  aside.col-md-4
+    = render 'user_info'
+    = render 'stats'
+.row
+  = render 'shared/feed'

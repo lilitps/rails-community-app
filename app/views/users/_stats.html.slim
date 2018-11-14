@@ -1,0 +1,14 @@
+section.stats
+	.stats
+		a href=following_user_path(@user) 
+			strong#following.stat
+				= @user.following.count
+			= t('following')
+		a href=followers_user_path(@user) 
+			strong#followers.stat
+				= @user.followers.count
+			= t('followers')
+
+.row
+	.col-md-12
+		= render 'follow_form' if can? %i[following followers], User

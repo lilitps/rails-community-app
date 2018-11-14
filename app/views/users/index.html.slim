@@ -1,0 +1,7 @@
+- provide(:title, t('page_title.all_users'))
+h1
+  = yield(:title)
+= will_paginate class: 'pagination-sm', inner_window: 2, outer_window: 0
+ul.users
+  = render @users
+= will_paginate class: 'pagination-sm', inner_window: 2, outer_window: 0
