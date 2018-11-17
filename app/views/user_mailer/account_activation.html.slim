@@ -1,0 +1,8 @@
+h1
+  = t('community.name')
+p
+  = t('greeting', user_name: @user.name)
+p
+  = t('welcome', community_name: t('community.name'))
+  = t('click_link_to_activate')
+= link_to t('activate'), edit_account_activation_url(@user.perishable_token, email: @user.email, locale: I18n.locale)

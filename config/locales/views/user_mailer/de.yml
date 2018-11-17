@@ -6,7 +6,7 @@ de:
       subject: "Passwort zurücksetzen"
 
   # account activation
-  greeting: "Hallo %{user_name}"
+  greeting: "Hallo %{user_name},"
   welcome: "Willkommen in %{community_name}!"
   click_link_to_activate: "Um Ihr Konto zu aktivieren, klicken Sie auf den Link unten:"
   activate: "Aktivieren"

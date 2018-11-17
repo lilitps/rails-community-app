@@ -1,8 +1,0 @@
-<%= t('greeting', user_name: @user.name) %>,
-
-<%= t('welcome', community_name: t('community.name'))  %>
-<%= t('click_link_to_activate') %>
-
-<%= edit_account_activation_url(@user.perishable_token,
-                                email: @user.email,
-                                locale: I18n.locale) %>
