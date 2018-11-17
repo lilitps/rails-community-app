@@ -82,6 +82,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'title', full_title(user.name)
     get edit_user_path
     assert_select 'title', full_title('Edit user')
+    # relationships
+    get following_user_path(user)
+    assert_select 'title', full_title('Following')
+    get followers_user_path(user)
+    assert_select 'title', full_title('Followers')
   end
 
   test 'layout links when logged in as admin' do
