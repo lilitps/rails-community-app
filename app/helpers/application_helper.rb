@@ -11,4 +11,20 @@ module ApplicationHelper
       page_title + ' | ' + base_title
     end
   end
+
+  # creates mailto community link
+  def mail_to_community
+    mail_to ENV['CONTACT_MAIL_TO'], nil, subject: "#{t('page_title.imprint')} #{t('community.name')}"
+  end
+
+  # creates btn with glyphicon icon.
+  # Do not forget to call .html_safe in your templates
+  def glyphicon_btn(pull_right: true, glyphicon: :plus, btn_text: 'Add')
+    span = "<span class=\""
+    span += 'pull-right ' if pull_right
+    span += 'btn '
+    span += (glyphicon == :plus) ? 'glyphicon-btn-blue ' : 'glyphicon-btn-red '
+    span += 'btn-md glyphicon glyphicon-' + glyphicon.to_s
+    span + "\" aria-label=\"" + btn_text + "\"></span>"
+  end
 end

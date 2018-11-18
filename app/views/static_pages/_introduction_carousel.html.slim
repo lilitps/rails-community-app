@@ -1,0 +1,21 @@
+#introduction-carousel.carousel.slide data-ride="carousel"
+	ol.carousel-indicators
+		- (0..3).each do |i|
+			- activ = i == 0 ? 'active' : ' '
+			li data-target="#introduction-carousel" data-slide-to="#{i}" class="#{activ}"
+	.carousel-inner role="listbox"
+		- (0..3).each do |i|
+			- activ = i == 0 ? 'active' : ' '
+			div class="item #{activ}"
+				= image_tag("introduction/item-#{i}.jpg", alt: t("introduction.item_#{i}"))
+				.carousel-caption
+					p
+						= t("introduction.item_#{i}")
+	a.left.carousel-control href="#introduction-carousel" role="button" data-slide="prev"
+		span.glyphicon.glyphicon-chevron-left aria-hidden="true"
+		span.sr-only
+			= t('previous')
+	a.right.carousel-control href="#introduction-carousel" role="button" data-slide="next"
+		span.glyphicon.glyphicon-chevron-right aria-hidden="true"
+		span.sr-only
+			= t('next')

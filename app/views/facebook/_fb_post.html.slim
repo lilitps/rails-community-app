@@ -3,13 +3,13 @@
 		.thumbnail
 			.caption
 				.stamp
-					= image_tag(post['icon'], alt: post['icon'], align: 'middle') if post['icon'].present?
+					=> image_tag(post['icon'], alt: post['icon'], align: 'middle') if post['icon'].present?
 					- if post['story'].present?
 						= post['story']
 					- else
 						= post['name']
-					= link_to "<span class=\"pull-right glyphicon glyphicon-link\"></span>".html_safe,
-						-post['permalink_url'], target: '_blank', rel: 'noopener' if post['permalink_url'].present?
+					= link_to glyphicon_btn(glyphicon: :link, btn_text: '').html_safe, 
+						post['permalink_url'], target: '_blank', rel: 'noopener' if post['permalink_url'].present?
 					br
 					= t('ago', time_ago_in_words: time_ago_in_words(post['created_time']))
 				.content
@@ -28,7 +28,7 @@
 						.stamp
 							= link_to post['name'] ? post['name'] : '', post['link'], target: '_blank', rel: 'noopener' if post['story'].present?
 						= link_to image_tag(post['full_picture'], alt: post['name'], align: 'middle'),
-							-post['link'], target: '_blank', rel: 'noopener' if post['full_picture'].present?
+							post['link'], target: '_blank', rel: 'noopener' if post['full_picture'].present?
 						.content
 							- if post['description'].present? && post['description'].length > 150
 								= auto_format_html(truncate post['description'], length: 150)
