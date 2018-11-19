@@ -1,0 +1,41 @@
+div id="post-#{post.id}"
+	.col-sm-12.col-md-6.col-lg-4
+		.thumbnail
+			.caption
+				.stamp
+					- if current_user
+						= link_to gravatar_for(post.user, size: 40), post.user
+						= t('posted_by')
+						= link_to post.user.name, post.user, class: 'user'
+						- if current_user&.admin?
+							li.dropdown.pull-right.options
+								a.dropdown-toggle href="#" data-toggle="dropdown"
+									b.caret
+								ul.dropdown-menu
+									li
+										= link_to t('edit'), edit_post_path(post),
+											data: {toggle: 'modal', target: "#edit-post-modal-#{post.id}"}, remote: true
+									li
+										= link_to t('delete'), post, method: :delete,
+											data: {confirm: t('you_sure'), disable_with: t('deleting')}, remote: true
+						br
+						= t('ago', time_ago_in_words: time_ago_in_words(post.created_at))
+					- else
+						= t('posted')
+						= t('ago', time_ago_in_words: time_ago_in_words(post.created_at))
+						| . 
+				= link_to image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: 'middle'),
+					'#', target: '_blank', rel: 'noopener',
+					data: {toggle: 'modal', target: "#image-modal-#{post.id}"} if post.picture?
+				.content
+					- if post.content.present? && post.content.length > 150
+						p
+							= auto_format_html(truncate post.content, length: 150)
+						= link_to t('read_more'), '', class: "read-more-#{post.id}"
+						javascript:
+							$("read-more-#{post.id}").on('click', function (e) {
+								e.preventDefault()
+								$(this).parent().html("#{ escape_javascript auto_format_html(post.content) }")
+							})
+					- else
+						= auto_format_html post.content

@@ -3,7 +3,7 @@
 - if can? :create, @post
 	= render 'posts/post_form_modal', post: @post
 	= link_to glyphicon_btn(btn_text: t('compose_new_post')).html_safe, '#',
-		data: {toggle: 'modal', target: '#new-post-modal'}
+		data: {toggle: 'modal', target: '#create-new-post-modal'}
 #news_anchor
 = render 'shared/feed'
 = render 'facebook/fb_feed'

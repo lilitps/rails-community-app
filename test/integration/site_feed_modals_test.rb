@@ -40,7 +40,7 @@ class SiteFeedModalsTest < ActionDispatch::IntegrationTest
       assert_select '#image-modal-' + post.id.to_s, count: 1 if post.picture?
       assert_select '#edit-post-modal-' + post.id.to_s, false, 'home page must contain no modals'
     end
-    assert_select '#new-post-modal', false, 'home page must contain no new post modal'
+    assert_select '#create-new-post-modal', false, 'home should not contain a create new post modal'
   end
 
   test 'should render all posts with image and edit modals for all posts if logged in as admin' do
@@ -60,9 +60,9 @@ class SiteFeedModalsTest < ActionDispatch::IntegrationTest
       assert_select '#editPost' + post.id.to_s + 'ModalLabel', 'Edit post...'
       assert_select '#edit_post_' + post.id.to_s, count: 1
     end
-    assert_select '#new-post-modal', true, 'home page must contain new post modal'
-    assert_select '#editPostModalLabel', count: 1
-    assert_select '#editPostModalLabel', 'Compose new post...'
+    assert_select '#create-new-post-modal', true, 'home page must contain a create new post modal'
+    assert_select '#createNewPostModalLabel', count: 1
+    assert_select '#createNewPostModalLabel', 'Compose new post...'
     assert_select '#new_post', count: 1
   end
 end
