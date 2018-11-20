@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 # Specifying an exact Ruby version
-ruby '2.4.1'
+ruby '2.4.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -129,7 +129,7 @@ group :development do
   # setup your favicon
   gem 'rails_real_favicon', require: false
   # RuboCop configuration which has the same code style checking as official Ruby on Rails
-  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'rubocop', '~> 0.60.0', require: false
   gem 'guard-rubocop', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
