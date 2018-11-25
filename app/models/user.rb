@@ -53,12 +53,25 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   acts_as_authentic do |c|
-    c.validates_format_of_email_field_options = { with: Authlogic::Regex::EMAIL_NONASCII }
-    c.validates_length_of_email_field_options = { maximum: 255 }
-    c.validates_uniqueness_of_email_field_options = { case_sensitive: false }
-    c.merge_validates_length_of_password_field_options presence: true, minimum: 6, allow_nil: true
+    c.validate_email_field = false
+    c.validate_login_field = false
+    c.validate_password_field = false
+    c.require_password_confirmation = true
     c.perishable_token_valid_for = 2.hours
   end
+
+  # Validate email, login, and password as you see fit.
+  # In 4.4.0 automatic validations were deprecated. See
+  # https://github.com/binarylogic/authlogic/blob/master/doc/use_normal_rails_validation.md
+  validates :email,
+            format: { with: ::Authlogic::Regex::EMAIL_NONASCII },
+            length: { maximum: 100 },
+            uniqueness: { case_sensitive: false, if: :email_changed? }
+  validates :password,
+            confirmation: { if: :require_password? },
+            length: { minimum: 8, if: :require_password? }
+  validates :password_confirmation,
+            length: { minimum: 8, if: :require_password? }
 
   # Activates an account.
   def activate

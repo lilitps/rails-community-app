@@ -17,7 +17,6 @@ class UserSessionsController < ApplicationController
 
   def create
     # converts the ActionController::Parameters to a Hash.
-    # FixMe: https://github.com/binarylogic/authlogic/pull/560
     @user_session = UserSession.new(user_session_params.to_h)
     if @user_session.save
       if current_user.approved?

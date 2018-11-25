@@ -60,8 +60,8 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     user = assigns(:user)
     # Invalid password & confirmation
     patch password_reset_path(user.perishable_token), params: { email: user.email,
-                                                                user: { password: 'foobaz',
-                                                                        password_confirmation: 'barquux' } }
+                                                                user: { password: 'foobaz56',
+                                                                        password_confirmation: 'barquux1' } }
 
     assert_select 'div#error_explanation'
     # Empty password
@@ -72,8 +72,8 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     # Valid password & confirmation
     patch password_reset_path(user.perishable_token), params: { email: user.email,
-                                                                user: { password: 'foobaz',
-                                                                        password_confirmation: 'foobaz' } }
+                                                                user: { password: 'foobaz34',
+                                                                        password_confirmation: 'foobaz34' } }
 
     assert_redirected_to user
     assert logged_in?
