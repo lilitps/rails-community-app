@@ -1,7 +1,10 @@
 de:
   # users
+  activerecord:
+    attributes:
+      user:
+        password_confirmation: "Passwortbestätigung" 
   # create account
-  password_confirmation: "Passwortbestätigung"
   create_my_account: "Mein Konto erstellen"
 
   # account activation
