@@ -86,6 +86,17 @@ end
     value: 'Die SiFEZ-Mitglieder erhalten bis zu 10% Rabatt bei unserem Partner Teleskop-Austria.' },
   { key: 'community.partner_austria_image',
     value: 'Partner Teleskop-Austria' },
+  { key: 'community.about_consultation_html',
+    value: '<p>Unser Verein verfügt über eine ganze Reihe von Teleskopen, die von den Mitgliedern genutzt werden können.
+                      Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich für Einsteiger
+                      für die Hobby-Astronomie eignen.</p>
+            <p>Grundsätzlich empfehlen wird bei einer unserer öffentlichen Beobachtungen vorbeizuschauen. Es sind
+                      meistens verschiedene Teleskoptzpen vertreten, sodass man sich einen EIndruck verschaffen kann.
+                      Schreibt uns per Kontaktformular an!</p>
+            <p>Wer im Vorfeld sich zum Thema informieren möchte, der kann das gerne
+                      unter %{idealo_consultation_url} tun.</p>' },
+  { key: 'community.idealo_consultation_link_html',
+    value: 'Checkliste für Teleskopkauf von idealo' },
   { key: 'community.contact_link_html',
     value: 'Kontaktformular' },
   { key: 'community.directions_html',

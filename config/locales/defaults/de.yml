@@ -29,6 +29,7 @@ de:
     about_history: "Geschichte"
 
     about_membership: "Mitgliedschaft"
+    about_consultation: "Teleskopsprechstunde"
     about_fee: "Beitragsinformationen"
     about_admission_fee: "Aufnahmegebühr"
     about_fee_contribution_quarter: "Beitrag pro Monat"
@@ -69,6 +70,7 @@ de:
       about: "Über"
       imprint: "Impressum"
       membership: "Mitgliedschaft"
+      consultation: "Teleskopsprechstunde"
       contact: "Kontakt"
       directions: "Anfahrtsweg"
 
