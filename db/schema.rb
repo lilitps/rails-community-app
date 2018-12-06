@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20181205101220) do
     t.string "persistence_token"
     t.boolean "admin", default: false
     t.datetime "activated_at"
-    t.string "locale", default: "en"
+    t.string "locale", default: "de"
     t.string "password_salt"
     t.string "perishable_token"
     t.integer "login_count", default: 0, null: false
