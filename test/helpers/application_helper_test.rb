@@ -8,6 +8,15 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal full_title('Help'), 'Help | ' + I18n.t('community.name')
   end
 
+  test 'check the expiry date' do
+    ENV['IDEALO_CONSULTATION_EXPIRY_DATE'] = '2016-12-31'
+    assert expiry_date_past?
+    ENV['IDEALO_CONSULTATION_EXPIRY_DATE'] = Date.current.to_s
+    assert_not expiry_date_past?
+    ENV['IDEALO_CONSULTATION_EXPIRY_DATE'] = (Date.current + 2.years).to_s
+    assert_not expiry_date_past?
+  end
+
   test 'mail to link helper' do
     mailto = ENV['CONTACT_MAIL_TO']
     page_title = I18n.t('page_title.imprint')

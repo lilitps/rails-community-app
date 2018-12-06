@@ -2,7 +2,8 @@
 	h1
 		= t('community.about_consultation')
 	div.text-justify
-		= t('community.about_consultation_html',
+		= t('community.about_consultation_html')
+		= t('community.idealo_consultation_html',
 			idealo_consultation_url: link_to(t('community.idealo_consultation_link_html'),
 				'https://www.idealo.de/magazin/2018/10/19/teleskope-im-vergleich-arten-kosten-und-einsatzbereiche/'.html_safe,
-				target: '_blank', rel: 'noopener'))
+				target: '_blank', rel: 'noopener')) unless expiry_date_past?

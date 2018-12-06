@@ -12,6 +12,11 @@ module ApplicationHelper
     end
   end
 
+  # Checks if the expiry date is reached or note
+  def expiry_date_past?
+    Date.parse(ENV['IDEALO_CONSULTATION_EXPIRY_DATE']).past?
+  end
+
   # creates mailto community link
   def mail_to_community
     mail_to ENV['CONTACT_MAIL_TO'], nil, subject: "#{t('page_title.imprint')} #{t('community.name')}"

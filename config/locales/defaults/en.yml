@@ -88,8 +88,9 @@ en:
     für die Hobby-Astronomie eignen.</p>
     <p>Grundsätzlich empfehlen wird bei einer unserer öffentlichen Beobachtungen vorbeizuschauen. Es sind meistens 
     verschiedene Teleskoptzpen vertreten, sodass man sich einen EIndruck verschaffen kann. Schreibt uns 
-    per Kontaktformular an!</p>
-    <p>Wer im Vorfeld sich zum Thema informieren möchte, der kann das gerne unter %{idealo_consultation_url} tun.</p>"
+    per Kontaktformular an!</p>"
+    idealo_consultation_html: "<p>Wer im Vorfeld sich zum Thema informieren möchte, der kann das gerne 
+    unter %{idealo_consultation_url} tun.</p>"
     idealo_consultation_link_html: "Checkliste für Teleskopkauf von idealo"
 
     contact: "Contact the %{community_name}"
