@@ -14,6 +14,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select '#news_anchor', count: 1
     assert_select 'a[href=?]', root_path + '#membership_anchor', text: 'Membership', count: 1
     assert_select '#membership_anchor', count: 1
+    assert_select 'a[href=?]', root_path + '#consultation_anchor', text: 'Telescopic Consultations', count: 1
+    assert_select '#consultation_anchor', count: 1
     assert_select 'a[href=?]', root_path + '#contact_anchor', text: 'Contact', count: 1
     assert_select '#contact_anchor', count: 1
     assert_select 'a[href=?]', root_path + '#directions_anchor', text: 'Directions', count: 1

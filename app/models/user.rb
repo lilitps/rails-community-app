@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -13,7 +12,7 @@
 #  persistence_token  :string
 #  admin              :boolean          default(FALSE)
 #  activated_at       :datetime
-#  locale             :string           default("en")
+#  locale             :string           default("de")
 #  password_salt      :string
 #  perishable_token   :string
 #  login_count        :integer          default(0), not null

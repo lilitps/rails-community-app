@@ -26,27 +26,86 @@ de:
   community:
     logo: "Logo der %{community_name}"
 
+    name: "Sternfreunde im FEZ e.V."
+    short_introduction_html: "Astronomie für Kinder und Jugendliche in Berlin."
+    
+    introduction_html: "<p>Wir treffen uns jeden ersten Sonntag im Monat, ab 15 Uhr zu den Vereinssitzungen
+    in unserem <b>Raum 401</b> im <b>%{fez_url}</b> in der <b>Straße zum FEZ 2</b>.
+    Außerdem sind wir bei vielen astronomischen Events in der Region anzutreffen.
+    Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und machen begeistert <b>Astrofotografie</b>. 
+    Über das %{contact_url} kannst Du jederzeit bei uns mitmachen.</p>
+    <p>Wenn Du neugierig geworden bist, dann empfiehlt es sich, einfach unverbindlich vorbeizuschauen.
+    Solltest du dann dem Verein beitreten wollen, findest du hier die %{fee_url}.</p>'"
+    description_html: "<p>Als anerkannter Träger der deutschen Jugendhilfe führen wir die <b>Kinder und Jugendliche</b> 
+    aktiv an die Astronomie heran. Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und machen 
+    begeistert <b>Astrofotografie</b>.</p>
+    <p>Wir vermitteln <b>Astronomie, Physik, Informatik und Mathematik</b>, bieten Fernrohre und Fotoausrüstung an, 
+    genauso wie Tutorials in der digitalen Bildbearbeitung.</p>"
+
+    about_html: "<p>Willkommen auf der Homepage des %{community_name}.</p> 
+    <p>Wir sind ein %{about_url} in %{directions_url} mit mehr als 35 Jahren Geschichte.
+    Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden bei uns Kinder und Jugendliche 
+    aktiv an die Astronomie herangeführt.</p>"
+    about_link_html: "gemeinnütziger, astronomischer Verein"
+    
     about_history: "Geschichte"
+    about_history_description_html: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei 
+    uns Kinder und Jugendliche aktiv an die Astronomie herangeführt. Vor allem die Sonnenbeobachter können auf eine 
+    volle Sonnenperiode zurückschauen.</p>
+    <p>Nach der politischen Wende in der DDR wurde der Pionierpalast umbenannt in Freizeit- und Erholungszentrum 
+    Wuhlheide, kurz FEZ. Bis 1995 hatten wir dort immer noch viel Raum für unsere Astronomie. Doch im Rahmen von 
+    Stellenabbau und Überführung des FEZ in eine gemeinnützige GmbH wurde die Planstelle Astronomie gestrichen.</p>
+    <p>Um auch weiterhin Astronomie im FEZ anzubieten gab es nur eine Möglichkeit:</p>
+    <p class='text-center'><b>Wir gründen einen Verein!</b></p>
+    <p>Seit dem 24. Juni 1995 sind wir ein Verein. Nach einem langen Briefwechsel mit Amtsgericht und Finanzamt war 
+    es Ende 1999 geschafft. Wir dürfen uns jetzt auch Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als 
+    anerkannter Träger der deutschen Jugendhilfe bezeichnen.</p>"
 
     about_membership: "Mitgliedschaft"
+    about_membership_html: "<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>. Die Mitglieder des 
+    Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und wir beteiligen uns an 
+    <b>astronomischen Veranstaltungen</b> in der Region.</p>
+    <p>Jetzt den %{membership_application_url} ausfüllen und Mitglied werden!</p>"
+    about_membership_application_link_html: "Aufnahmeantrag der %{community_name}"
+    
     about_consultation: "Teleskopsprechstunde"
     about_fee: "Beitragsinformationen"
+    about_fee_link_html: "Beitragsinformationen"
     about_admission_fee: "Aufnahmegebühr"
+    about_entrance_fee_html: "<b>*</b>Alle Beiträge <b>in Euro</b>."
     about_fee_contribution_quarter: "Beitrag pro Monat"
     about_fee_contribution_year: "Beitrag pro Jahr"
     about_fee_adults: "Erwachsene"
     about_fee_students: "Studenten"
     about_fee_youth: "Schüler/Jugend"
     about_fee_bank_details: "Bankverbindung"
+    
+    partner_austria_html: "Die SiFEZ-Mitglieder erhalten bis zu 10% Rabatt bei unserem Partner Teleskop-Austria."
+    partner_austria_image: "Partner Teleskop-Austria"
+
+    about_consultation_html: "<p>Unser Verein verfügt über eine ganze Reihe von Teleskopen, die von den Mitgliedern 
+    genutzt werden können. Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich für Einsteiger
+    für die Hobby-Astronomie eignen.</p>
+    <p>Grundsätzlich empfehlen wird bei einer unserer öffentlichen Beobachtungen vorbeizuschauen. Es sind meistens 
+    verschiedene Teleskoptzpen vertreten, sodass man sich einen EIndruck verschaffen kann. Schreibt uns 
+    per Kontaktformular an!</p>
+    <p>Wer im Vorfeld sich zum Thema informieren möchte, der kann das gerne unter %{idealo_consultation_url} tun.</p>"
+    idealo_consultation_link_html: "Checkliste für Teleskopkauf von idealo"
 
     contact: "Kontaktieren Sie die %{community_name}"
+    contact_link_html: "Kontaktformular"
 
     about_board_of_directors: "Vorstand des Vereins"
     about_board_of_directors_chairman: "Vorsitzender"
     about_board_of_directors_vice_chairman: "stv. Vorsitzender"
     about_board_of_directors_treasurer: "Schatzmeister"
+    identification_number_html: ""
 
     directions: "Sie finden uns unter folgender Adresse"
+    directions_html: "%{community_name} %{address_of_the_organization}"
+    about_directions_html: "Du gehst in den FEZ-Haupteingang rein, dann geradeaus die Haupttreppe hoch, 
+    in Richtung Puppenbühne. Rechts daneben befindet sich der Eingang zu uns, <b>zum Raum 401</b> auf dem Dach."
+    directions_link_html: "<b>Berlin Treptow-Köpenick</b>"
 
   rails_logo: "Logo von Rails"
 

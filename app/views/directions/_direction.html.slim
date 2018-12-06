@@ -3,7 +3,8 @@
     = t('community.directions')
   .center
     p.directions
-      = t('community.directions_html', community_name: t('community.name'))
+      = t('community.directions_html', community_name: t('community.name'),
+				address_of_the_organization: address_of_the_organization)
     p.about_directions
       = t('community.about_directions_html')
   #map[style="width: 100%; height: 400px"]

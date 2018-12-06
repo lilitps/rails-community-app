@@ -17,6 +17,12 @@ module ApplicationHelper
     mail_to ENV['CONTACT_MAIL_TO'], nil, subject: "#{t('page_title.imprint')} #{t('community.name')}"
   end
 
+  # For prevent an error "incompatible character encodings: ASCII-8BIT and UTF-8" and
+  # "can't modify frozen string" for encoding a varible
+  def address_of_the_organization
+    ENV['ADDRESS_OF_THE_ORGANIZATION'].dup.force_encoding(Encoding::UTF_8).html_safe
+  end
+
   # creates btn with glyphicon icon.
   # Do not forget to call .html_safe in your templates
   def glyphicon_btn(pull_right: true, glyphicon: :plus, btn_text: 'Add')

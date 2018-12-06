@@ -8,7 +8,7 @@
       = t('community.about_html', community_name: t('community.name'), 
 				about_url: link_to(t('community.about_link_html'), about_url),
 				directions_url: link_to(t('community.directions_link_html'), root_path(anchor: 'directions_anchor')))
-      = t('community.home_page.introduction_html',
+      = t('community.introduction_html',
 				fez_url: link_to('FEZ-Berlin', 'https://fez-berlin.de/'.html_safe, target: '_blank', rel: 'noopener'),
 				contact_url: link_to(t('community.contact_link_html'), contact_path),
 				fee_url: link_to(t('community.about_fee_link_html'), about_path(anchor: 'fee_anchor')))
