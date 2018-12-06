@@ -25,7 +25,8 @@ module ApplicationHelper
   # For prevent an error "incompatible character encodings: ASCII-8BIT and UTF-8" and
   # "can't modify frozen string" for encoding a varible
   def address_of_the_organization
-    ENV['ADDRESS_OF_THE_ORGANIZATION'].dup.force_encoding(Encoding::UTF_8).html_safe
+    address_of_the_organization = ENV['ADDRESS_OF_THE_ORGANIZATION'].dup.force_encoding(Encoding::UTF_8)
+    address_of_the_organization.html_safe # rubocop:disable Rails/OutputSafety
   end
 
   # creates btn with glyphicon icon.
