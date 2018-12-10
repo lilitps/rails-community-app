@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 # Specifying an exact Ruby version
-ruby '2.4.5'
+ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
