@@ -139,7 +139,7 @@ $ heroku config:set APP_MAILER_HOST_NAME=<your-domain.com>
 Add default address of your organization in Heroku:
 
 ```
-$ heroku config:set ADDRESS_OF_THE_ORGANIZATION=<'%{community_name}</br>address 1</br>address 2</br>zip code city'>
+$ heroku config:set ADDRESS_OF_THE_ORGANIZATION=<'</br>address 1</br>address 2</br>zip code city'>
 ```
 
 You can add official register or sales tax identification number or commercial register number
@@ -423,7 +423,7 @@ Check code with [RuboCop](https://rubocop.readthedocs.io) before committing to G
 Run in the project directory:
 
 ```
-$ rubocop -FRE -a
+$ rubocop -FREa -C true
 ```
 
 ## Brakeman security scanner
