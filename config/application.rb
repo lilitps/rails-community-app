@@ -20,5 +20,9 @@ module CommunityApp
 
     # Include the authenticity token in remote forms.
     config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    # set to false is deprecated
+    # (SQLite databases have used 't' and 'f' to serialize boolean values)
+    config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end
