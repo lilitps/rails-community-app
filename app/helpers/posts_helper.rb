@@ -35,7 +35,7 @@ module PostsHelper
   def fb_feed(limit = 3)
     @fb_client ||= facebook_app_client
     if @fb_client
-      @fb_client&.get_connection(ENV['MY_PAGE_ID'],
+      @fb_client&.get_connection(ENV['FB_PAGE_ID'],
                                 'posts',
                                 {
                                   limit: limit,
@@ -68,7 +68,7 @@ module PostsHelper
   def facebook_app_client
     return unless Koala.config.app_id.present? && Koala.config.app_secret.present?
 
-    oauth = Koala::Facebook::OAuth.new(ENV['MY_APP_ID'], ENV['MY_APP_SECRET'])
+    oauth = Koala::Facebook::OAuth.new(Koala.config.app_id, Koala.config.app_secret)
     oauth_token = oauth&.get_app_access_token
   rescue Faraday::ConnectionFailed
     nil # TODO: need some failure handling

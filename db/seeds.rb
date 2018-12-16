@@ -11,8 +11,8 @@
 unless User.find_by(email: ENV['ADMIN_EMAIL'])
   User.create!(name: ENV['ADMIN_NAME'],
                email: ENV['ADMIN_EMAIL'],
-               password: ENV['ADMIN_PASSWORD'],
-               password_confirmation: ENV['ADMIN_PASSWORD'],
+               password: Rails.application.credentials.admin[:password],
+               password_confirmation: Rails.application.credentials.admin[:password],
                admin: true,
                locale: 'en',
                active: true,

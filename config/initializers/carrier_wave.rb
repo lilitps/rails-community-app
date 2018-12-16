@@ -6,8 +6,8 @@ if Rails.env.production?
     config.fog_credentials = {
       # Configuration for Google Drive
       provider: 'Google',
-      google_storage_access_key_id: ENV['G_STORAGE_ACCESS_KEY'],
-      google_storage_secret_access_key: ENV['G_STORAGE_SECRET_KEY']
+      google_storage_access_key_id: Rails.application.credentials.g_storage[:access_key],
+      google_storage_secret_access_key: Rails.application.credentials.g_storage[:secret_key]
     }
     config.storage = :fog
     config.fog_directory = ENV['G_STORAGE_PICTURE_UPLOAD_DIRECTORY']

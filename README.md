@@ -49,6 +49,18 @@ Use Guard to automate the running of the tests.
 $ bundle exec guard
 ```
 
+## Using Rails credentials
+
+This application uses Rails credentials. New credentials should be stored in the file config/credentials.yml.enc, 
+as [described in this tutorial](https://medium.com/cedarcode/rails-5-2-credentials-9b3324851336).
+
+Use the Heroku config command to 
+[setup config vars](https://devcenter.heroku.com/articles/config-vars) and set the `RAILS_MASTER_KEY` variable:
+
+```
+$ heroku config:set RAILS_MASTER_KEY=<your-master-key>
+```
+
 ## Production webserver
 
 This app uses Puma webserver that is suitable for production applications on Heroku platform (cloud platform as a service). 
@@ -122,15 +134,17 @@ $ heroku addons:create sendgrid:starter
 #### Define a host variable
 
 You will also have to define a **host** variable with the address of your production website.
+Use the Heroku config command to 
+[setup config vars](https://devcenter.heroku.com/articles/config-vars) and set the `host` variable:
 
 ```
-$ heroku config:set APP_MAILER_HOST_NAME=<your-app-name.heroku.com>
+$ heroku config:set APP_MAILER_HOST=<your-app-name.heroku.com>
 ```
 
-If you use custom domain, please change it too your custom host name.
+If you use custom domain, please change it too your custom host:
 
 ```
-$ heroku config:set APP_MAILER_HOST_NAME=<your-domain.com>
+$ heroku config:set APP_MAILER_HOST=<your-domain.com>
 ```
 
 
@@ -225,14 +239,21 @@ to get an **Access Key** and a **Secret**.
 
 #### Heroku config vars setup
 
-Finally, use the Heroku config command to 
-[setup config vars](https://devcenter.heroku.com/articles/config-vars) 
-for [Google Cloud Storage](https://github.com/carrierwaveuploader/carrierwave#using-google-storage-for-developers) 
-using Google's interoperability keys to access it:
+Setup Rails credentials as described in chapter [Using Rails credentials](#using-rails-credentials) for 
+[Google Cloud Storage](https://github.com/carrierwaveuploader/carrierwave#using-google-storage-for-developers) 
+using Google's interoperability `keys` to access it:
 
 ```
-$ heroku config:set G_STORAGE_ACCESS_KEY=<your-access-key>
-$ heroku config:set G_STORAGE_SECRET_KEY=<your-secret>
+  g_storage:
+    access_key: <your-access-key>
+    secret_key: <your-secret>
+```
+
+Finally, use the Heroku config command to 
+[setup config vars](https://devcenter.heroku.com/articles/config-vars) and 
+set Google Storage `picture upload directory`:
+
+```
 $ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=<your-bucket-name, e.g. 'communityapp'>
 ```
 
@@ -242,11 +263,13 @@ you should add them with right values to **.env** file in the root of your proje
 ### Google reCAPTCHA
 
 This App adds [reCAPTCHA API (V2)](https://www.google.com/recaptcha) in order to use state of the art spam and abuse 
-protection. Obtain a [reCAPTCHA API key](https://www.google.com/recaptcha/admin) and make sure to set up in Heroku:
+protection. Obtain a [reCAPTCHA API key](https://www.google.com/recaptcha/admin) and make sure 
+to set up appropriate Rails credentials:
 
 ```
-$ heroku config:set RECAPTCHA_SITE_KEY=<your-site-key>
-$ heroku config:set RECAPTCHA_SECRET_KEY=<your-secret-key>
+  g_recaptcha:
+    site_key: <your-site-key>
+    secret_key: <your-secret-key>
 ```
 
 ### Google Maps
@@ -255,12 +278,18 @@ The Community App uses [Google Maps JavaScript API](https://developers.google.co
 order to show directions map on e.g. contact page. Similar to picture upload to Google Cloud Storage, obtain
 a Google Maps **API Key** from Google Cloud Platform, 
 [APIs and Services Credentials](https://console.cloud.google.com/apis/credentials) and make sure to set up in 
-Heroku your key and a position to show in the map:
+Heroku your position to show in the map:
 
 ```
-$ heroku config:set GOOGLE_MAPS_API_KEY=<your-apis-key>
-$ heroku config:set GOOGLE_MAPS_LAT=<your-position-latitude>
-$ heroku config:set GOOGLE_MAPS_LNG=<your-position-longitude>
+$ heroku config:set G_MAPS_LAT=<your-position-latitude>
+$ heroku config:set G_MAPS_LNG=<your-position-longitude>
+```
+
+and `api_key` in Rails credentials:
+
+```
+  g_maps:
+    api_key: <your-apis-key>
 ```
 
 Finally, go to [Dashboard](https://console.cloud.google.com/apis/dashboard) and enable
@@ -271,10 +300,11 @@ Finally, go to [Dashboard](https://console.cloud.google.com/apis/dashboard) and 
 
 You can use Google G Suite in order to use emails, shared calendars and more in your community.
 One of set up steps is to **Verify your domain and set up email**. 
-In this step you will get a **google-site-verification** token, which you have to set up in Heroku:
+In this step you will get a `google-site-verification` token, which you have to set up in Rails credentials:
 
 ```
-$ heroku config:set GOOGLE_SITE_VERIFICATION=<your-tag-content>
+  g_site:
+    verification: <your-tag-content>
 ```
 
 ### Facebook page posts (optional)
@@ -292,12 +322,18 @@ Go to Facebook App Settings > Advanced > Security and switch "Require App Secret
 #### Facebook App config vars setup 
 
 Finally, use the Heroku config command to [setup config vars](https://devcenter.heroku.com/articles/config-vars) 
-for Facebook App.
+for Facebook page.
 
 ```
-$ heroku config:set MY_APP_ID=<your-fb-app-id>
-$ heroku config:set MY_APP_SECRET=<your-fb-app-secret>
-$ heroku config:set MY_PAGE_ID=<your-fb-page-id>
+$ heroku config:set FB_PAGE_ID=<your-fb-page-id>
+```
+
+Also, setup `app_id` and `app_secret` for development, test and production environment in Rails credentials:
+
+```
+  fb:
+    app_id: <your-fb-app-id>
+    app_secret: <your-fb-app-secret>
 ```
 
 You will find the Facebook App ID and Facebook App SECRET on your Facebook App Dashboard.
@@ -350,13 +386,19 @@ Use the Heroku config command to set first admin user data:
 ```
 $ heroku config:set ADMIN_NAME=<your-admin-first-and-last-name>
 $ heroku config:set ADMIN_EMAIL=<your-admin-email>
-$ heroku config:set ADMIN_PASSWORD=<your-admin-password>
+```
+
+And setup the default admin `password` in Rails credentials: 
+
+```
+  admin:
+    password: <your-admin-password>
 ```
 
 Commit the file changes and push to git and then to Heroku:
 
 ```
-$ git commit -a -m "Change defaults"
+$ git commit -a -m "Change defaults for admin"
 $ git push
 $ git push heroku
 ```

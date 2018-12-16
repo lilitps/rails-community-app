@@ -16,7 +16,7 @@ module DirectionsHelper
 
   # returns the google maps api key
   def google_maps_api_key
-    ENV['GOOGLE_MAPS_API_KEY']
+    Rails.application.credentials.g_maps[:api_key]
   end
 
   # returns the API url from the Google Maps API v3

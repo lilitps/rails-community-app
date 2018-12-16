@@ -6,7 +6,7 @@ html
     = render 'layouts/rails_default'
     = render 'application/favicon'
     = tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1') if protect_against_forgery?
-    = tag.meta(name: 'google-site-verification', content: ENV['GOOGLE_SITE_VERIFICATION']) unless ENV['GOOGLE_SITE_VERIFICATION'].empty?
+    = tag.meta(name: 'google-site-verification', content: google_suite_verification)
     = javascript_include_tag 'google_maps'
   body
     = render 'layouts/header'

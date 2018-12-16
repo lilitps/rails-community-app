@@ -12,6 +12,12 @@ module ApplicationHelper
     end
   end
 
+  # Returns the Site verification token for Google Suite
+  def google_suite_verification
+    google_suite_verification = Rails.application.credentials.g_site[:verification]
+    'no_google_suite_verification' if google_suite_verification.empty?
+  end
+
   # Checks if the expiry date is reached or note
   def expiry_date_past?
     Date.parse(ENV['IDEALO_CONSULTATION_EXPIRY_DATE']).past?

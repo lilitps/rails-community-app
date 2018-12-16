@@ -7,8 +7,8 @@
 # see further contacts_helper.rb
 window.initGoogleMap = ->
   position =
-    lat: <%= ENV['GOOGLE_MAPS_LAT'] %>
-    lng: <%= ENV['GOOGLE_MAPS_LNG'] %>
+    lat: <%= ENV['G_MAPS_LAT'] %>
+    lng: <%= ENV['G_MAPS_LNG'] %>
   map = new (google.maps.Map)(document.getElementById('map'),
     zoom: 15
     center: position)
