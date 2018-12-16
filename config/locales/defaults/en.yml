@@ -87,10 +87,10 @@ en:
     genutzt werden können. Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich für Einsteiger
     für die Hobby-Astronomie eignen.</p>
     <p>Grundsätzlich empfehlen wird bei einer unserer öffentlichen Beobachtungen vorbeizuschauen. Es sind meistens 
-    verschiedene Teleskoptzpen vertreten, sodass man sich einen EIndruck verschaffen kann. Schreibt uns 
+    verschiedene Teleskoptypen vertreten, sodass man sich einen Eindruck verschaffen kann. Schreibt uns 
     per Kontaktformular an!</p>"
-    idealo_consultation_html: "<p>Wer im Vorfeld sich zum Thema informieren möchte, der kann das gerne 
-    unter %{idealo_consultation_url} tun.</p>"
+    idealo_consultation_html: "<p>Wer sich im Vorfeld zum Thema informieren möchte, der kann das gerne mit der
+    %{idealo_consultation_url} tun.</p>"
     idealo_consultation_link_html: "Checkliste für Teleskopkauf von idealo"
 
     contact: "Contact the %{community_name}"
