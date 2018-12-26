@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Configure Koala to use global settings
+# https://github.com/arsduo/koala#configuration
 Koala.configure do |config|
   config.app_id = Rails.application.credentials[Rails.env.to_sym][:fb][:app_id]
   config.app_secret = Rails.application.credentials[Rails.env.to_sym][:fb][:app_secret]

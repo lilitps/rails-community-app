@@ -24,28 +24,32 @@ module PostsHelper
     if current_user
       following_ids = 'SELECT followed_id FROM relationships WHERE  follower_id = :user_id'
       query = query.or(Post.includes(:user)
-                           .where(users: { admin: !only_admin })
-                           .where("user_id IN (#{following_ids}) OR user_id = :user_id",
-                                  user_id: current_user.id))
+                         .where(users: { admin: !only_admin })
+                         .where("user_id IN (#{following_ids}) OR user_id = :user_id",
+                                user_id: current_user.id))
     end
     query.paginate(page: page, per_page: per_page)
   end
 
-  # Returns most recent posts from facebook page
+  # Returns the feed of posts (including status updates) and links published by this page, or by others on this page.
+  # https://developers.facebook.com/docs/graph-api/reference/v3.2/page/feed#read
   def fb_feed(limit = 3)
     @fb_client ||= facebook_app_client
     if @fb_client
       @fb_client&.get_connection(ENV['FB_PAGE_ID'],
-                                'posts',
-                                {
-                                  limit: limit,
-                                  fields: PostsHelper::FB_POST_FIELDS,
-                                  locale: I18n.locale,
-                                  return_ssl_resources: true
-                                })
+                                 'feed',
+                                 {
+                                   limit: limit,
+                                   fields: PostsHelper::FB_POST_FIELDS,
+                                   locale: I18n.locale,
+                                   return_ssl_resources: true
+                                 })
     else
       []
     end
+  rescue Koala::Facebook::ClientError => e
+    Rails.logger.error e.message # TODO: need some failure handling
+    []
   end
 
   # Returns a composition of filters that transforms input by passing the output
@@ -65,13 +69,16 @@ module PostsHelper
   private
 
   # Log in to facebook app and get app client with authentication
+  # https://github.com/arsduo/koala/wiki/Graph-API
   def facebook_app_client
     return unless Koala.config.app_id.present? && Koala.config.app_secret.present?
 
-    oauth = Koala::Facebook::OAuth.new(Koala.config.app_id, Koala.config.app_secret)
+    # application-access-tokens don't expire, but you can still get the hash with get_app_access_token_info
+    # https://github.com/arsduo/koala/wiki/OAuth#application-access-tokens
+    oauth = Koala::Facebook::OAuth.new
     oauth_token = oauth&.get_app_access_token
-  rescue Faraday::ConnectionFailed
-    nil # TODO: need some failure handling
+  rescue Koala::Facebook::OAuthTokenRequestError => e
+    Rails.logger.error e.message # TODO: need some failure handling
   else
     Koala::Facebook::API.new(oauth_token)
   end
