@@ -183,6 +183,7 @@ div .community-page-image {
     width: 100%;
     padding-top: 10px;
     text-align: justify;
+    overflow: auto;
   }
   .stamp {
     color: $gray-light;
