@@ -77,8 +77,9 @@ module PostsHelper
     # https://github.com/arsduo/koala/wiki/OAuth#application-access-tokens
     oauth = Koala::Facebook::OAuth.new
     oauth_token = oauth&.get_app_access_token
-  rescue Koala::Facebook::OAuthTokenRequestError => e
+  rescue Koala::Facebook::OAuthTokenRequestError, Faraday::ConnectionFailed, SocketError => e
     Rails.logger.error e.message # TODO: need some failure handling
+    nil
   else
     Koala::Facebook::API.new(oauth_token)
   end
