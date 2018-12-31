@@ -55,6 +55,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     flash.now[:success] = t('post_deleted')
+    reset_feed
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
       format.js
