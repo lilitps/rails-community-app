@@ -14,6 +14,8 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.8'
+# Ruby Language Metrics (https://devcenter.heroku.com/articles/language-runtime-metrics-ruby#getting-started)
+gem "barnes"
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.6'
 # Use Twitter Bootstrap SCSS for stylesheets
