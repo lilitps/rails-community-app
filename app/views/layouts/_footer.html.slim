@@ -1,19 +1,21 @@
 footer.footer
-  small.rails-logo
-    = link_to image_tag('rails.png', height: '30', alt: t('rails_logo')), 'http://rubyonrails.org/'
-  nav
-    ul
-      - if current_user&.admin?
-        li.dropdown.dropup
-          a.dropdown-toggle[href="#" data-toggle="dropdown"]
-            = t('menu.administration.administration')
-            b.caret
-          ul.dropdown-menu
-            li
-              = link_to t('menu.administration.users'), users_path
-      li
-        = link_to t('menu.about'), about_path
-      li
-        = link_to t('menu.contact'), contact_path
-      li
-        = link_to t('menu.imprint'), imprint_path
+	nav.navbar.fixed-bottom.navbar-expand-lg.navbar-light.bg-light
+		small.rails-logo
+			= link_to image_tag('rails.png', height: '30', alt: t('rails_logo'), class: 'd-inline-block align-top'),
+				'http://rubyonrails.org/', class: 'navbar-brand'
+		ul.navbar-nav.ml-auto
+			- if current_user&.admin?
+				li.nav-item.dropdown.dropup
+					#usersDropdown.a.nav-link.dropdown-toggle [
+						href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+					]
+						= t('menu.administration.administration')
+						b.caret
+					div.dropdown-menu aria-labelledby="usersDropdown"
+						= link_to t('menu.administration.users'), users_path, class: 'dropdown-item'
+			li.nav-item
+				= link_to t('menu.about'), about_path, class: 'nav-link'
+			li.nav-item
+				= link_to t('menu.contact'), contact_path, class: 'nav-link'
+			li.nav-item
+				= link_to t('menu.imprint'), imprint_path, class: 'nav-link'

@@ -1,56 +1,52 @@
 header
-  nav.navbar.navbar-default.navbar-fixed-top
-    .container
-      .row
-        = link_to image_tag('logo.png', height: '20', alt: t('community.logo', community_name: t('community.name'))),
-        - root_path, class: 'navbar-brand'
-        = link_to full_title, root_path, class: 'navbar-brand'
-        .navbar-header
-          button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"]
-            span.sr-only
-              | Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-      #navbar-collapse.collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-left
-          li
-            = link_to t('menu.home'), root_path
-          li
-            = link_to t('menu.news'), root_path(anchor: 'news_anchor')
-          li
-            = link_to t('menu.membership'), root_path(anchor: 'membership_anchor')
-          li
-            = link_to t('menu.consultation'), root_path(anchor: 'consultation_anchor')
-          li
-            = link_to t('menu.contact'), root_path(anchor: 'contact_anchor')
-          li
-            = link_to t('menu.directions'), root_path(anchor: 'directions_anchor')
-        ul.nav.navbar-nav.navbar-right
-          - if current_user
-            li.dropdown
-              a.dropdown-toggle[href="#" data-toggle="dropdown"]
-                = t('menu.account.account')
-                b.caret
-              ul.dropdown-menu
-                li
-                  = link_to t('menu.account.profile'), current_user
-                li
-                  = link_to t('menu.account.profile_settings'), edit_user_path(current_user)
-                li.divider[role="separator"]
-                li
-                  = link_to t('menu.account.log_out'), logout_path, method: :delete
-          - else
-            li
-              = link_to t('menu.account.log_in'), login_path
-            li
-              = link_to t('menu.account.sign_up_now'), signup_path
-          li.dropdown
-            a.dropdown-toggle[href="#" data-toggle="dropdown"]
-              = t('menu.language.language')
-              b.caret
-            ul.dropdown-menu
-              li
-                = link_to t('menu.language.english'), locale_path(locale: 'en'), method: :post
-              li
-                = link_to t('menu.language.german'), locale_path(locale: 'de'), method: :post
+	nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
+		= link_to "#{image_tag('logo.png', height: '30', alt: t('community.logo',
+			community_name: t('community.name')), class: 'd-inline-block align-top')}#{full_title}".html_safe, 
+			root_path, class: 'navbar-brand'
+		button.navbar-toggler.collapsed [
+			type="button" data-toggle="collapse" aria-controls="navbar-collapse" data-target="#navbar-collapse" 
+			aria-expanded="false" aria-label="Toggle navigation"
+		]
+			span.navbar-toggler-icon
+
+		#navbar-collapse.collapse.navbar-collapse
+			ul.navbar-nav.ml-auto
+				li.nav-item
+					= link_to t('menu.home'), root_path, class: 'nav-link'
+				li.nav-item
+					= link_to t('menu.news'), root_path(anchor: 'news_anchor'), class: 'nav-link'
+				li.nav-item
+					= link_to t('menu.membership'), root_path(anchor: 'membership_anchor'), class: 'nav-link'
+				li.nav-item
+					= link_to t('menu.consultation'), root_path(anchor: 'consultation_anchor'), class: 'nav-link'
+				li.nav-item
+					= link_to t('menu.contact'), root_path(anchor: 'contact_anchor'), class: 'nav-link'
+				li.nav-item
+					= link_to t('menu.directions'), root_path(anchor: 'directions_anchor'), class: 'nav-link'
+			ul.navbar-nav.ml-auto
+				- if current_user
+					li.nav-item.dropdown
+						#accountDropdown.a.nav-link.dropdown-toggle [
+							href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+						]
+							= t('menu.account.account')
+							b.caret
+						div.dropdown-menu aria-labelledby="accountDropdown"
+							= link_to t('menu.account.profile'), current_user, class: 'dropdown-item'
+							= link_to t('menu.account.profile_settings'), edit_user_path(current_user), class: 'dropdown-item'
+
+							= link_to t('menu.account.log_out'), logout_path, method: :delete, class: 'dropdown-item'
+				- else
+					li.nav-item
+						= link_to t('menu.account.log_in'), login_path, class: 'nav-link'
+					li.nav-item
+						= link_to t('menu.account.sign_up_now'), signup_path, class: 'nav-link'
+				li.nav-item.dropdown
+					#languageDropdown.a.nav-link.dropdown-toggle [
+						href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+					]
+						= t('menu.language.language')
+						b.caret
+					div.dropdown-menu aria-labelledby="languageDropdown"
+						= link_to t('menu.language.english'), locale_path(locale: 'en'), method: :post, class: 'dropdown-item'
+						= link_to t('menu.language.german'), locale_path(locale: 'de'), method: :post, class: 'dropdown-item'

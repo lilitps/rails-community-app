@@ -53,9 +53,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   acts_as_authentic do |c|
-    c.validate_email_field = false
-    c.validate_login_field = false
-    c.validate_password_field = false
     c.require_password_confirmation = true
     c.perishable_token_valid_for = 2.hours
   end
@@ -63,8 +60,16 @@ class User < ApplicationRecord
   # Validate email, login, and password as you see fit.
   # In 4.4.0 automatic validations were deprecated. See
   # https://github.com/binarylogic/authlogic/blob/master/doc/use_normal_rails_validation.md
+  EMAIL = /
+    \A
+    [A-Z0-9_.&%+\-']+   # mailbox
+    @
+    (?:[A-Z0-9\-]+\.)+  # subdomains
+    (?:[A-Z]{2,25})     # TLD
+    \z
+  /ix
   validates :email,
-            format: { with: ::Authlogic::Regex::EMAIL_NONASCII },
+            format: { with: EMAIL },
             length: { maximum: 100 },
             uniqueness: { case_sensitive: false, if: :email_changed? }
   validates :password,

@@ -5,7 +5,7 @@ html
       = full_title(yield(:title))
     = render 'layouts/rails_default'
     = render 'application/favicon'
-    = tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1') if protect_against_forgery?
+    = tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no') if protect_against_forgery?
     = tag.meta(name: 'google-site-verification', content: google_suite_verification)
     = javascript_include_tag 'google_maps'
   body

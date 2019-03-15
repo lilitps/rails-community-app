@@ -8,10 +8,12 @@ div id="post-#{post.id}"
 						=> t('posted_by')
 						= link_to post.user.name, post.user, class: 'user'
 						- if current_user&.admin?
-							li.dropdown.pull-right.options
-								a.dropdown-toggle href="#" data-toggle="dropdown"
+							li.nav-item.dropdown.pull-right.options
+								#editPostsDropdown.a.nav-link.dropdown-toggle [
+									href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+								]
 									b.caret
-								ul.dropdown-menu
+								div.dropdown-menu aria-labelledby="editPostsDropdown"
 									li
 										= link_to t('edit'), edit_post_path(post),
 											data: {toggle: 'modal', target: "#edit-post-modal-#{post.id}"}, remote: true
