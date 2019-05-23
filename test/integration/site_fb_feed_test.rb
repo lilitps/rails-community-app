@@ -12,7 +12,7 @@ class SiteFbFeedTest < ActionDispatch::IntegrationTest
       get root_path
       assert_template 'static_pages/home'
       assert_select 'div#fb-feed', count: 1
-      assert_select '#fb-feed>div>div>.thumbnail', count: 3
+      assert_select '#fb-feed>div>div>.card', count: 3
       feed = fb_feed
       assert_not feed.empty?
       feed.each do |post|

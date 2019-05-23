@@ -1,10 +1,11 @@
 = form_for(post, html: {class: 'caption'}, remote: true) do |f|
-  .thumbnail
-    = render 'shared/error_messages', object: f.object
-    .content
-      p
+  .card
+    .card-body
+      = render 'shared/error_messages', object: f.object
+      p.card-text
         = f.text_area :content, size: '24x6'
-    = image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: 'middle') if post.picture?
+    = image_tag(post.picture.thumb.url, alt: post.picture.file.filename, \
+			align: 'middle', class: 'card-img-bottom') if post.picture?
     span.picture_input
       = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', 
 				aria: {describedby: 'helpBlock'}, onchange: 'checkImageSize(this)'

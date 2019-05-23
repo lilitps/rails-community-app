@@ -13,7 +13,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
   test 'post submission as non admin' do
     log_in_as(@non_admin)
     get root_path
-    assert_select 'div.pagination-sm'
+    assert_select 'ul.pagination-sm'
     # Invalid submission (non admin)
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: '' } }
@@ -71,7 +71,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     # Delete post
     assert_select 'a', text: 'delete'
-    first_post = @admin.posts.paginate(page: 1).first
+    first_post = @admin.posts.page(1).first
     assert_difference 'Post.count', -1 do
       delete post_path(first_post)
     end
@@ -93,7 +93,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     # Delete post
     assert_select 'a', text: 'delete'
-    first_post = @admin.posts.paginate(page: 1).first
+    first_post = @admin.posts.page(1).first
     assert_difference 'Post.count', -1 do
       delete post_path(first_post), xhr: true
     end

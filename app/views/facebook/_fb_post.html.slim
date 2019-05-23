@@ -8,7 +8,7 @@
 						= post['story']
 					- else
 						= post['name']
-					= link_to glyphicon_btn(glyphicon: :link, btn_text: '').html_safe, 
+					= link_to fa_icon('link'), 
 						post['permalink_url'], target: '_blank', rel: 'noopener' if post['permalink_url'].present?
 					br
 					= t('ago', time_ago_in_words: time_ago_in_words(post['created_time']))

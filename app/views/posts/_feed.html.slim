@@ -1,5 +1,5 @@
 - provide(:feed_title, t('feed_header'))
-.row#feed.feed
+#feed.feed
 	- if @feed&.any?
 		#all-modals
 			- @feed.each do |post|
@@ -9,6 +9,8 @@
 					= render 'posts/post_form_modal', post: post
 		h2
 			= feed_title(yield(:feed_title))
-		= render @feed
-		.col-sm-12.col-md-12.col-lg-12.center
-			= will_paginate @feed, class: 'pagination-sm', inner_window: 2, outer_window: 0
+		.row
+			= render @feed
+		
+		= paginate @feed, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm justify-content-center',
+			nav_class: "p-2", inner_window: 2, outer_window: 0

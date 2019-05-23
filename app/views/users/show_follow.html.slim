@@ -14,4 +14,6 @@
     - if @users.any?
       ul.users.follow
         = render @users
-      = will_paginate class: 'pagination-sm', inner_window: 2, outer_window: 0
+
+			= paginate @users, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm justify-content-center',
+				nav_class: "p-2", inner_window: 2, outer_window: 0

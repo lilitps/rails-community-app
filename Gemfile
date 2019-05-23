@@ -44,10 +44,12 @@ gem 'scrypt'
 gem 'cancancan', '~> 2.0'
 # Use Faker to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '~> 1.7'
-# Use Will Paginate for performing paginated queries with Active Record
-gem 'will_paginate', '~> 3.1'
-# Use Bootstrap Will Paginate to format the html to match Twitter Bootstrap styling
-gem 'bootstrap-will_paginate', '~> 1.0'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
+gem 'kaminari'
+# Bootstrap 4 styling for Kaminari
+gem 'bootstrap4-kaminari-views'
+# Provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem "font-awesome-rails"
 # Easily add Growl-like notifications
 gem 'gritter', '~> 1.2'
 # Use CarrierWave to upload files
@@ -66,8 +68,6 @@ gem 'rails-i18n', '~> 5.0' # For 5.0.x and 5.1.x
 # I18n library for ActiveRecord model/data translation
 # gem 'globalize', git: 'https://github.com/globalize/globalize'
 # gem 'activemodel-serializers-xml'
-# Translations for the will_paginate gem
-gem 'will-paginate-i18n', '~> 0.1'
 # SDK for Facebook. It allows read/write access to the social graph
 gem 'koala', '~> 3.0'
 # Collection of filters for transforming text into HTML code

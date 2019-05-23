@@ -19,12 +19,12 @@ class UsersController < ApplicationController
   # GET        /users/1/followers    followers    followers_user_path(1)
 
   def index
-    @users = @users.where(approved: true).paginate(page: params[:page])
+    @users = @users.where(approved: true).page(params[:page])
   end
 
   def show
     redirect_to root_path && return unless @user.approved
-    @feed = @user.posts.paginate(page: params[:page])
+    @feed = @user.posts.page(params[:page])
   end
 
   def new; end
@@ -58,13 +58,13 @@ class UsersController < ApplicationController
 
   def following
     @title = t('following')
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.following.page(params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = t('followers')
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.page(params[:page])
     render 'show_follow'
   end
 

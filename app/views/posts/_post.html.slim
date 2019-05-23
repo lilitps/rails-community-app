@@ -1,43 +1,37 @@
-div id="post-#{post.id}"
-	.col-sm-12.col-md-6.col-lg-4
-		.thumbnail
-			.caption
-				.stamp
-					- if current_user
-						= link_to gravatar_for(post.user, size: 40), post.user
-						=> t('posted_by')
-						= link_to post.user.name, post.user, class: 'user'
-						- if current_user&.admin?
-							li.nav-item.dropdown.pull-right.options
-								#editPostsDropdown.a.nav-link.dropdown-toggle [
-									href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-								]
-									b.caret
-								div.dropdown-menu aria-labelledby="editPostsDropdown"
-									li
-										= link_to t('edit'), edit_post_path(post),
-											data: {toggle: 'modal', target: "#edit-post-modal-#{post.id}"}, remote: true
-									li
-										= link_to t('delete'), post, method: :delete,
-											data: {confirm: t('you_sure'), disable_with: t('deleting')}, remote: true
-						br
-						= t('ago', time_ago_in_words: time_ago_in_words(post.created_at))
-					- else
-						= t('posted')
-						= t('ago', time_ago_in_words: time_ago_in_words(post.created_at))
-						| . 
-				= link_to image_tag(post.picture.thumb.url, alt: post.picture.file.filename, align: 'middle'),
-					'#', target: '_blank', rel: 'noopener',
-					data: {toggle: 'modal', target: "#image-modal-#{post.id}"} if post.picture?
-				.content
-					- if post.content.present? && post.content.length > 150
-						p
-							= auto_format_html(truncate post.content, length: 150)
-						= link_to t('read_more'), '', class: "read-more-#{post.id}"
-						javascript:
-							$("read-more-#{post.id}").on('click', function (e) {
-								e.preventDefault()
-								$(this).parent().html("#{ escape_javascript auto_format_html(post.content) }")
-							})
-					- else
-						= auto_format_html post.content
+.col-sm-4 id="post-#{post.id}"
+	.card
+		.card-header
+			- if current_user&.admin?
+				.dropdown.float-right
+					#editPostsDropdown.a.dropdown-toggle [ href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ]
+					.dropdown-menu.dropdown-menu-right aria-labelledby="editPostsDropdown"
+						= link_to t('edit'), edit_post_path(post), class: 'dropdown-item',
+							data: {toggle: 'modal', target: "#edit-post-modal-#{post.id}"}, remote: true
+						= link_to t('delete'), post, class: 'dropdown-item', method: :delete,
+							data: {confirm: t('you_sure'), disable_with: t('deleting')}, remote: true
+			- if current_user
+				= link_to gravatar_for(post.user, size: 45), post.user
+				=> t('posted_by')
+				= link_to post.user.name, post.user, class: 'user'
+			- else
+				= t('posted')
+			=< t('ago', time_ago_in_words: time_ago_in_words(post.created_at))
+
+		.card-body
+			.card-text
+				- if post.content.present? && post.content.length > 150
+					= auto_format_html(truncate post.content, length: 150)
+					= link_to t('read_more'), '', class: "read-more-#{post.id}"
+					javascript:
+						$(".read-more-#{post.id}").on('click', function (e) {
+							e.preventDefault()
+							console.log($(this).parent())
+							$(this).parent().html("#{ escape_javascript auto_format_html(post.content) }")
+						})
+				- else
+					= auto_format_html post.content
+
+		= link_to image_tag(post.picture.thumb.url, alt: post.picture.file.filename,
+			align: 'middle', class: 'card-img-bottom p-1'),
+			'#', target: '_blank', rel: 'noopener',
+			data: {toggle: 'modal', target: "#image-modal-#{post.id}"} if post.picture?

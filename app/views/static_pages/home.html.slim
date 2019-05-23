@@ -2,7 +2,7 @@
 = render 'static_pages/introduction'
 - if can? :create, @post
 	= render 'posts/post_form_modal', post: @post
-	= link_to glyphicon_btn(btn_text: t('compose_new_post')).html_safe, '#',
+	= link_to fa_icon('plus', title: t('compose_new_post'), class: 'pull-right'), '#',
 		data: {toggle: 'modal', target: '#create-new-post-modal'}
 #news_anchor
 = render 'posts/feed'

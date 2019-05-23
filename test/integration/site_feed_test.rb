@@ -15,7 +15,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
   test 'should display first 3 posts on home page feed without gravatar if not logged in' do
     get root_path
     assert_template 'static_pages/home'
-    assert_select 'div.pagination-sm', count: 1
+    assert_select 'ul.pagination-sm', count: 1
     assert_select 'div#feed', count: 1
     assert_select 'a>img.gravatar', count: 0
   end
@@ -26,7 +26,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template 'static_pages/home'
     assert_select 'a>img.gravatar', count: 3
-    assert_select '#feed>div>div>.thumbnail', count: 3
+    assert_select '#feed>div>div>.card', count: 3
     @first_page_of_feed = assigns(:feed)
     assert_not @first_page_of_feed.empty?
     @first_page_of_feed.each do |post|
