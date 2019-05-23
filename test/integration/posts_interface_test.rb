@@ -46,7 +46,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_path
     assert_not flash.empty?
-    assert @admin.posts.first.picture?
+    assert assigns(:feed).first.picture?
     follow_redirect!
     assert_match content, response.body
   end
@@ -61,7 +61,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
       post posts_path, params: { post: { content: content, picture: picture } }, xhr: true
     end
     assert_not flash.empty?
-    assert @admin.posts.first.picture?
+    assert assigns(:feed).first.picture?
     assert_match content, response.body
   end
 
@@ -71,7 +71,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     # Delete post
     assert_select 'a', text: 'delete'
-    first_post = @admin.posts.page(1).first
+    first_post = assigns(:feed).first
     assert_difference 'Post.count', -1 do
       delete post_path(first_post)
     end
@@ -93,7 +93,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     # Delete post
     assert_select 'a', text: 'delete'
-    first_post = @admin.posts.page(1).first
+    first_post = assigns(:feed).first
     assert_difference 'Post.count', -1 do
       delete post_path(first_post), xhr: true
     end
