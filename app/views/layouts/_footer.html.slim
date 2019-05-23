@@ -1,21 +1,29 @@
-footer.footer
+footer.footer.d-flex
 	nav.navbar.fixed-bottom.navbar-expand-lg.navbar-light.bg-light
-		small.rails-logo
+		small.rails-logo.mr-auto
 			= link_to image_tag('rails.png', height: '30', alt: t('rails_logo'), class: 'd-inline-block align-top'),
 				'http://rubyonrails.org/', class: 'navbar-brand'
-		ul.navbar-nav.ml-auto
-			- if current_user&.admin?
-				li.nav-item.dropdown.dropup
-					#usersDropdown.a.nav-link.dropdown-toggle [
-						href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-					]
-						= t('menu.administration.administration')
-						b.caret
-					div.dropdown-menu aria-labelledby="usersDropdown"
-						= link_to t('menu.administration.users'), users_path, class: 'dropdown-item'
-			li.nav-item
-				= link_to t('menu.about'), about_path, class: 'nav-link'
-			li.nav-item
-				= link_to t('menu.contact'), contact_path, class: 'nav-link'
-			li.nav-item
-				= link_to t('menu.imprint'), imprint_path, class: 'nav-link'
+			
+		button.navbar-toggler.collapsed [
+			type="button" data-toggle="collapse" aria-controls="footer-navbar-collapse" data-target="#footer-navbar-collapse"
+			aria-expanded="false" aria-label="Toggle navigation"
+			]
+				span.navbar-toggler-icon
+
+		#footer-navbar-collapse.collapse.navbar-collapse
+			ul.navbar-nav.ml-auto
+				- if current_user&.admin?
+					li.nav-item.dropdown.dropup
+						#admin-dropdown.a.nav-link.dropdown-toggle [
+							href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+						]
+							= t('menu.administration.administration')
+							b.caret
+						div.dropdown-menu aria-labelledby="admin-dropdown"
+							= link_to t('menu.administration.users'), users_path, class: 'dropdown-item'
+				li.nav-item
+					= link_to t('menu.about'), about_path, class: 'nav-link'
+				li.nav-item
+					= link_to t('menu.contact'), contact_path, class: 'nav-link'
+				li.nav-item
+					= link_to t('menu.imprint'), imprint_path, class: 'nav-link'

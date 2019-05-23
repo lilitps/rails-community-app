@@ -7,7 +7,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     # header
     assert_template 'static_pages/home'
-    assert_select 'a[href=?]', root_path, count: 3
+    assert_select 'a[href=?]', root_path, count: 2
     assert_select '.navbar-brand', count: 2
     assert_select 'a[href=?]', root_path, text: 'Home', count: 1
     assert_select 'a[href=?]', root_path + '#news_anchor', text: 'News', count: 1
@@ -24,7 +24,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', signup_path, count: 1
     assert_select 'a[href=?]', logout_path, count: 0
     # menu Language
-    assert_select 'li.nav-item.dropdown>a.nav-link.dropdown-toggle', 'Language'
+    assert_select 'div#language-dropdown.a.nav-link.dropdown-toggle', 'Language'
     assert_select 'a[href=?]', locale_path(locale: 'en'), text: 'English'
     assert_select 'a[href=?]', locale_path(locale: 'de'), text: 'Deutsch'
 
@@ -34,7 +34,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', imprint_path
 
     # no menu for account and administration
-    assert_select 'li.nav-item.dropdown>a.nav-link.dropdown-toggle', count: 1
+    assert_select '.a.nav-link.dropdown-toggle', count: 1
   end
 
   test 'page title when not logged in' do
@@ -62,7 +62,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     # header
     assert_select 'a[href=?]', login_path, count: 0
     # menu account
-    assert_select 'li.nav-item.dropdown>a.nav-link.dropdown-toggle', 'Account'
+    assert_select 'li.nav-item.dropdown>.a.nav-link.dropdown-toggle', 'Account'
     assert_select 'a[href=?]', user_path(user)
     assert_select 'a[href=?]', edit_user_path(user)
     assert_select 'a[href=?]', logout_path
@@ -73,7 +73,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', imprint_path
 
     # no menu for administration
-    assert_select 'li.nav-item.dropdown>a.nav-link.dropdown-toggle', count: 2
+    assert_select '.a.nav-link.dropdown-toggle', count: 2
   end
 
   test 'page title when logged in' do
@@ -100,16 +100,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
     # footer
     # menu administration
-    assert_select 'li.nav-item.dropdown>a.nav-link.dropdown-toggle', 'Administration'
+    assert_select 'li.nav-item.dropdown>.a.nav-link.dropdown-toggle', 'Administration'
     assert_select 'a[href=?]', users_path
 
     # all menus and posts menus active
-    assert_select 'li.nav-item.dropdown>a.nav-link.dropdown-toggle', count: 6
-  end
-
-  test 'page header' do
-    get root_path
-    assert_select '.page-header', count: 1
-    assert_select '.page-header h1 > small', count: 1
+    assert_select '.a.dropdown-toggle', count: 6
+    assert_select '.a.nav-link.dropdown-toggle', count: 3
   end
 end
