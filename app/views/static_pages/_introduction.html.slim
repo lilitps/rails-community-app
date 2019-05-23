@@ -1,14 +1,13 @@
 #introduction
-  .page-header
-    h1
-      = t('community.name')
-      small.clearfix
-        = t('community.short_introduction_html')
-    em.text-justify
-      = t('community.about_html', community_name: t('community.name'), 
-				about_url: link_to(t('community.about_link_html'), about_url),
-				directions_url: link_to(t('community.directions_link_html'), root_path(anchor: 'directions_anchor')))
-      = t('community.introduction_html',
-				fez_url: link_to('FEZ-Berlin', 'https://fez-berlin.de/'.html_safe, target: '_blank', rel: 'noopener'),
-				contact_url: link_to(t('community.contact_link_html'), contact_path),
-				fee_url: link_to(t('community.about_fee_link_html'), about_path(anchor: 'fee_anchor')))
+	h1.mt-3.mb-0
+		= t('community.name')
+	p.mt-0.mb-4.lead.text-center.text-secondary
+		= t('community.short_introduction_html')
+	div.text-justify
+		= t('community.about_html', community_name: t('community.name'), 
+			about_url: link_to(t('community.about_link_html'), about_url),
+			directions_url: link_to(t('community.directions_link_html'), root_path(anchor: 'directions_anchor')))
+		= t('community.introduction_html',
+			fez_url: link_to('FEZ-Berlin', 'https://fez-berlin.de/'.html_safe, target: '_blank', rel: 'noopener'),
+			contact_url: link_to(t('community.contact_link_html'), contact_path),
+			fee_url: link_to(t('community.about_fee_link_html'), about_path(anchor: 'fee_anchor')))

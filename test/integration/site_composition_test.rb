@@ -9,17 +9,16 @@ class SiteCompositionTest < ActionDispatch::IntegrationTest
     assert_select '.carousel-indicators', count: 1
     assert_select '.carousel-indicators > li', count: 4
     assert_select '.carousel-inner', count: 1
-    assert_select '.item', count: 4
-    assert_select '.item > img', count: 4
+    assert_select '.carousel-item', count: 4
+    assert_select '.carousel-item > img', count: 4
     assert_select '.carousel-caption', count: 4
-    assert_select '.carousel-control', count: 2
+    assert_select 'a[class^=carousel-control-]', count: 2
   end
 
   test 'community introduction' do
     get root_path
     assert_select '#introduction', count: 1
     assert_select '#introduction h1', count: 1
-    assert_select '#introduction h1 > small', count: 1
   end
 
   test 'community membership' do
