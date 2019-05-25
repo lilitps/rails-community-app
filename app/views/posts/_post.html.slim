@@ -25,7 +25,6 @@
 					javascript:
 						$(".read-more-#{post.id}").on('click', function (e) {
 							e.preventDefault()
-							console.log($(this).parent())
 							$(this).parent().html("#{ escape_javascript auto_format_html(post.content) }")
 						})
 				- else

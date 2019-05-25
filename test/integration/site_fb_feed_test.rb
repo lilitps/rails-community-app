@@ -30,11 +30,13 @@ class SiteFbFeedTest < ActionDispatch::IntegrationTest
           assert_select 'a', post['name'] || '', post['link']
           assert_select 'a[href=?]', post['link'] if post['link']
         end
-        if post['description'].present? && post['description'].length > 150
-          assert_match auto_format_html(truncate(post['description'], length: 150)), response.body
-          assert_select '.read-more-description-' + post['id'], count: 1
-        else
-          assert_match auto_format_html(post['description']), response.body
+        if post['description'].present?
+          if post['description'].length > 150
+            assert_match auto_format_html(truncate(post['description'], length: 150)), response.body
+            assert_select '.read-more-description-' + post['id'], count: 1
+          else
+            assert_match auto_format_html(post['description']), response.body
+          end
         end
       end
     end
