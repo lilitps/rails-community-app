@@ -6,11 +6,11 @@
 				= post['story']
 			- else
 				= post['name']
-			=< link_to fa_icon('link'), 
+			=< link_to fa_icon('link'),
 				post['permalink_url'], target: '_blank', rel: 'noopener' if post['permalink_url'].present?
 			br
 			= t('ago', time_ago_in_words: time_ago_in_words(post['created_time']))
-		
+
 		.card-body
 			.card-text
 				- if post['message'].present? && post['message'].length > 150
@@ -23,12 +23,12 @@
 						})
 				- else
 					= auto_format_html(post['message'])
-			
+
 		.card.m-2
 			- if post['story'].present?
 				.card-header
 					= link_to post['name'] ? post['name'] : '', post['link'], target: '_blank', rel: 'noopener'
-			
+
 			- if post['description'].present?
 				.card-body
 					- if post['description'].length > 150
@@ -42,6 +42,6 @@
 								})
 					- else
 						= auto_format_html(post['description'])
-			
+
 			= link_to image_tag(post['full_picture'], alt: post['name'], align: 'middle', class: 'card-img-bottom p-1'),
 				post['link'], target: '_blank', rel: 'noopener' if post['full_picture'].present?

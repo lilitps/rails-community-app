@@ -1,6 +1,6 @@
 li.media
 	= gravatar_for user, size: 50
 	.media-body
-	  = link_to user.name, user, class: 'mt-0 mb-1'
+		= link_to user.name, user, class: 'mt-0 mb-1'
 	- if can? :destroy, user
 		= link_to t('delete'), user, method: :delete, data: {confirm: t('you_sure')}
