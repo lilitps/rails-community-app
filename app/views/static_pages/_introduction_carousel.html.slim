@@ -7,7 +7,7 @@
 		- (0..3).each do |i|
 			- activ = i == 0 ? 'active' : ' '
 			div class="carousel-item #{activ}"
-				= image_tag("introduction/carousel-item-#{i}.jpg", alt: t("introduction.item_#{i}"))
+				= image_tag("introduction/carousel-item-#{i}.jpg", alt: t("introduction.item_#{i}"), class: 'd-block w-100')
 				.carousel-caption
 					p
 						= t("introduction.item_#{i}")
