@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2018_12_05_101220) do
 
-  create_table "posts", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "posts", id: :serial, force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_101220) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", id: :serial, force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_101220) do
     t.index ["updated_at"], name: "index_user_sessions_on_updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -69,4 +72,5 @@ ActiveRecord::Schema.define(version: 2018_12_05_101220) do
     t.index ["persistence_token"], name: "index_users_on_persistence_token", unique: true
   end
 
+  add_foreign_key "posts", "users"
 end

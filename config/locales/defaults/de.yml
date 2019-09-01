@@ -80,8 +80,34 @@ de:
     about_fee_youth: "Schüler/Jugend"
     about_fee_bank_details: "Bankverbindung"
     
+    about_partner_wildlife_park: "Eine eigene Sternwarte für alle Mitglieder!"
+    about_partner_wildlife_park_html: "In Zusammenarbeit mit dem %{wildlife_park_url} haben wir für unseren Verein 
+    eine eigene Sternwarte inklusive zusätzlicher Teleskopsäulen gebaut. Unter einem der dunkelsten Himmel in 
+    Brandenburg und Deutschland haben wir hier die besten Möglichkeiten für die Beobachtung und Astrofotografie."
+    partner_wildlife_park_link_html: "Wildpark Johannismühle"
+    partner_wildlife_park_image: "Partner Wildpark Johannismühle"
+    
     partner_austria_html: "Die SiFEZ-Mitglieder erhalten bis zu 10% Rabatt bei unserem Partner Teleskop-Austria."
     partner_austria_image: "Partner Teleskop-Austria"
+
+    about_partner_clubs: "Partner Astronomie-Vereine"
+    
+    partner_bhb_observatory_title: "Bruno-H.-Bürgel-Sternwarte e. V."
+    partner_bhb_observatory_subtitle: "Spandau"
+    partner_bhb_observatory_description_html: "<ul><li>Teleskop Selbstbau</li><li>Planeten</li></ul>"
+    partner_bhb_observatory_image: "Partner Astronomie-Verein Bruno-H.-Bürgel-Sternwarte e. V."
+
+    partner_astw_observatory_title: "Förderverein der Archenhold-Sternwarte und des Zeiss-Großplanetariums Berlin e. V."
+    partner_astw_observatory_subtitle: "Treptow"
+    partner_astw_observatory_description_html: "<ul><li>Bedeckungen und Kleinplaneten</li>
+    <li>Nicht-optische Astronomie</li></ul>"
+    partner_astw_observatory_image: "Partner Astronomie-Verein Förderverein der Archenhold-Sternwarte und des 
+    Zeiss-Großplanetariums Berlin e. V."
+
+    partner_wfs_observatory_title: "Wilhelm-Foerster-Sternwarte e.V."
+    partner_wfs_observatory_subtitle: "Schöneberg"
+    partner_wfs_observatory_description_html: "<ul><li>Mond</li><li>Galaxien</li><li>Astrophysik</li></ul>"
+    partner_wfs_observatory_image: "Partner Astronomie-Verein Wilhelm-Foerster-Sternwarte e.V."
 
     about_consultation_html: "<p>Unser Verein verfügt über eine ganze Reihe von Teleskopen, die von den Mitgliedern 
     genutzt werden können. Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich für Einsteiger
