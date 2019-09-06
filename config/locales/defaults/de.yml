@@ -62,7 +62,7 @@ de:
     anerkannter Träger der deutschen Jugendhilfe bezeichnen.</p>"
 
     about_membership: "Mitgliedschaft"
-    about_membership_html: "<p>%{community_name} ist offen für alle Beuscher <b>ab 8 Jahre</b>. Die Mitglieder des 
+    about_membership_html: "<p>%{community_name} ist offen für alle Besucher <b>ab 8 Jahre</b>. Die Mitglieder des 
     Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und wir beteiligen uns an 
     <b>astronomischen Veranstaltungen</b> in der Region.</p>
     <p>Jetzt den %{membership_application_url} ausfüllen und Mitglied werden!</p>"
@@ -83,7 +83,7 @@ de:
     about_partner_wildlife_park: "Eine eigene Sternwarte für alle Mitglieder!"
     about_partner_wildlife_park_html: "In Zusammenarbeit mit dem %{wildlife_park_url} haben wir für unseren Verein 
     eine eigene Sternwarte inklusive zusätzlicher Teleskopsäulen gebaut. Unter einem der dunkelsten Himmel in 
-    Brandenburg und Deutschland haben wir hier die besten Möglichkeiten für die Beobachtung und Astrofotografie."
+    Brandenburg und Deutschland haben wir hier die besten Möglichkeiten für Beobachtung und Astrofotografie."
     partner_wildlife_park_link_html: "Wildpark Johannismühle"
     partner_wildlife_park_image: "Partner Wildpark Johannismühle"
     
@@ -110,9 +110,9 @@ de:
     partner_wfs_observatory_description_html: "<ul><li>Mond</li><li>Galaxien</li><li>Astrophysik</li></ul>"
     partner_wfs_observatory_image: "Partner Astronomie-Verein Wilhelm-Foerster-Sternwarte e.V."
 
-    about_consultation_html: "<p>Unser Verein verfügt über eine ganze Reihe von Teleskopen, die von den Mitgliedern 
-    genutzt werden können. Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich für Einsteiger
-    für die Hobby-Astronomie eignen.</p>
+    about_consultation_html: "<p>Unser Verein verfügt über eine ganze Reihe verschiedener Teleskope, die von 
+    den Mitgliedern genutzt werden können. Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich 
+    für den Einstieg am Besten eignet.</p>
     <p>Grundsätzlich empfehlen wird bei einer unserer öffentlichen Beobachtungen vorbeizuschauen. Es sind meistens 
     verschiedene Teleskoptypen vertreten, sodass man sich einen Eindruck verschaffen kann. Schreibt uns 
     per Kontaktformular an!</p>"
@@ -120,7 +120,7 @@ de:
     %{idealo_consultation_url} tun.</p>"
     idealo_consultation_link_html: "Checkliste für Teleskopkauf von idealo"
 
-    contact: "Kontaktieren Sie die %{community_name}"
+    contact: "Kontaktiere die %{community_name}"
     contact_link_html: "Kontaktformular"
 
     about_board_of_directors: "Vorstand des Vereins"
@@ -128,7 +128,7 @@ de:
     about_board_of_directors_vice_chairman: "stv. Vorsitzender"
     about_board_of_directors_treasurer: "Schatzmeister"
 
-    directions: "Sie finden uns unter folgender Adresse"
+    directions: "Du findest uns unter folgender Adresse"
     directions_html: "%{community_name} %{address_of_the_organization}"
     about_directions_html: "Du gehst in den FEZ-Haupteingang rein, dann geradeaus die Haupttreppe hoch, 
     in Richtung Puppenbühne. Rechts daneben befindet sich der Eingang zu uns, <b>zum Raum 401</b> auf dem Dach."
@@ -166,7 +166,7 @@ de:
         profile_settings: "Profil Einstellungen"
         log_in: "Einloggen"
         log_out: "Ausloggen"
-        sign_up_now: "Melden Sie sich jetzt an!"
+        sign_up_now: "Melden dich jetzt an!"
 
       language:
         language: "Sprache"
@@ -181,7 +181,7 @@ de:
   edit: "bearbeiten"
   delete: "löschen"
   deleting: "lösche..."
-  you_sure: "Sind Sie sicher?"
+  you_sure: "Bist Du sicher?"
   change: "ändern"
   submit: "Senden"
   submitting: "Sende..."

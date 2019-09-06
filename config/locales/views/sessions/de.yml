@@ -4,11 +4,11 @@ de:
   remember_me: "Erinnere mich an diesem Computer"
   log_in: "Einloggen"
   loging_in: "Einloggen..."
-  please_log_in: "Bitte loggen Sie sich ein."
-  please_log_out: "Bitte loggen Sie sich aus."
+  please_log_in: "Bitte logge dich ein."
+  please_log_out: "Bitte logge dich aus."
   account_not_activated: "Konto ist nicht aktiviert. "
   invalid_credentials: "Ungültige E-Mail- / Passwort-Kombination"
 
   # sign up
   new_user: "Neuer Benutzer?"
-  sign_up_now: "Melden Sie sich jetzt an!"
+  sign_up_now: "Melde dich jetzt an!"

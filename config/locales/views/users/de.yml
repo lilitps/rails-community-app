@@ -8,7 +8,7 @@ de:
   create_my_account: "Mein Konto erstellen"
 
   # account activation
-  check_email_to_activate_account: "Bitte überprüfen Sie Ihre E-Mail, um Ihr Konto zu aktivieren."
+  check_email_to_activate_account: "Bitte überprüfe deine E-Mail, um dein Konto zu aktivieren."
   account_activated: "Konto aktiviert!"
   invalid_activation_link: "Kein gültiger Aktivierungslink"
 
