@@ -55,7 +55,7 @@ gem 'gritter', '~> 1.2'
 # Use CarrierWave to upload files
 gem 'carrierwave', '~> 1.1'
 # Use Mini Magick to manipulate images with minimal use of memory
-gem 'mini_magick', '~> 4.7'
+gem 'mini_magick', '~> 4.9'
 # Use google drive to upload and download files through cloud services library fog
 gem 'fog-core', '2.1.0' # FixMe: https://github.com/fog/fog-google/issues/417
 gem 'fog-google'
