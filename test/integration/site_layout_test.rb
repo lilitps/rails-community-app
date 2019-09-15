@@ -10,20 +10,20 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', root_path, count: 2
     assert_select '.navbar-brand', count: 2
     assert_select 'a[href=?]', root_path, text: 'Home', count: 1
-    assert_select 'a[href=?]', root_path + '#news_anchor', text: 'News', count: 1
-    assert_select '#news_anchor', count: 1
-    assert_select 'a[href=?]', root_path + '#membership_anchor', text: 'Membership', count: 1
-    assert_select '#membership_anchor', count: 1
+    assert_select 'a[href=?]', root_path + '#news', text: 'News', count: 1
+    assert_select '#news', count: 1
+    assert_select 'a[href=?]', root_path + '#membership', text: 'Membership', count: 1
+    assert_select '#membership', count: 1
     # partner
     assert_select '#partner-austria', count: 1
     assert_select '#partner-wildlife-park', count: 1
     assert_select '#partner-clubs', count: 1
-    assert_select 'a[href=?]', root_path + '#consultation_anchor', text: 'Telescopic Consultations', count: 1
-    assert_select '#consultation_anchor', count: 1
-    assert_select 'a[href=?]', root_path + '#contact_anchor', text: 'Contact', count: 1
-    assert_select '#contact_anchor', count: 1
-    assert_select 'a[href=?]', root_path + '#directions_anchor', text: 'Directions', count: 1
-    assert_select '#directions_anchor', count: 1
+    assert_select 'a[href=?]', root_path + '#consultation', text: 'Telescopic Consultations', count: 1
+    assert_select '#consultation', count: 1
+    assert_select 'a[href=?]', root_path + '#contact', text: 'Contact', count: 1
+    assert_select '#contact', count: 1
+    assert_select 'a[href=?]', root_path + '#directions', text: 'Directions', count: 1
+    assert_select '#directions', count: 1
     assert_select 'a[href=?]', login_path, count: 1
     assert_select 'a[href=?]', signup_path, count: 1
     assert_select 'a[href=?]', logout_path, count: 0

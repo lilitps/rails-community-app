@@ -8,7 +8,7 @@ class AboutCommunityTest < ActionDispatch::IntegrationTest
     assert_select '#description', count: 1
     assert_select '#history', count: 1
     assert_select '#membership', count: 1
-    assert_select '#fee_anchor', count: 1
+    assert_select '#fee', count: 1
     assert_select 'table#admission_fee', count: 1
     assert_select 'tr', count: 4
     assert_select 'th', count: 4

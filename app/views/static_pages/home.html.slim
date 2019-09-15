@@ -4,18 +4,19 @@
 	= render 'posts/post_form_modal', post: @post
 	= link_to fa_icon('plus', title: t('compose_new_post'), class: 'pull-right'), '#',
 		data: {toggle: 'modal', target: '#create-new-post-modal'}
-#news_anchor
+/ news
+#news
 = render 'posts/feed'
 = render 'facebook/fb_feed'
-#membership_anchor
+/ membership
 = render 'static_pages/membership'
 = render 'static_pages/partner_austria'
 = render 'static_pages/partner_wildlife_park'
 = render 'static_pages/partner_clubs'
-#consultation_anchor
+/ consultation
 = render 'static_pages/consultation'
-#contact_anchor
+/ contact
 = render 'contacts/board_of_directors'
 = render 'contacts/contact'
-#directions_anchor
+/ directions
 = render 'directions/direction'

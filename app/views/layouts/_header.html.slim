@@ -15,15 +15,15 @@ header
 				li.nav-item
 					= link_to t('menu.home'), root_path, class: 'nav-link'
 				li.nav-item
-					= link_to t('menu.news'), root_path(anchor: 'news_anchor'), class: 'nav-link'
+					= link_to t('menu.news'), root_path(anchor: 'news'), class: 'nav-link'
 				li.nav-item
-					= link_to t('menu.membership'), root_path(anchor: 'membership_anchor'), class: 'nav-link'
+					= link_to t('menu.membership'), root_path(anchor: 'membership'), class: 'nav-link'
 				li.nav-item
-					= link_to t('menu.consultation'), root_path(anchor: 'consultation_anchor'), class: 'nav-link'
+					= link_to t('menu.consultation'), root_path(anchor: 'consultation'), class: 'nav-link'
 				li.nav-item
-					= link_to t('menu.contact'), root_path(anchor: 'contact_anchor'), class: 'nav-link'
+					= link_to t('menu.contact'), root_path(anchor: 'contact'), class: 'nav-link'
 				li.nav-item
-					= link_to t('menu.directions'), root_path(anchor: 'directions_anchor'), class: 'nav-link'
+					= link_to t('menu.directions'), root_path(anchor: 'directions'), class: 'nav-link'
 
 			ul.navbar-nav.text-center
 				- if current_user
