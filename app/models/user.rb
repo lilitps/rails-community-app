@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -39,14 +40,14 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   has_many :posts, dependent: :destroy
-  has_many :active_relationships, class_name: 'Relationship',
-                                  foreign_key: 'follower_id',
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
                                   dependent: :destroy,
-                                  inverse_of: 'follower'
-  has_many :passive_relationships, class_name: 'Relationship',
-                                   foreign_key: 'followed_id',
+                                  inverse_of: "follower"
+  has_many :passive_relationships, class_name: "Relationship",
+                                   foreign_key: "followed_id",
                                    dependent: :destroy,
-                                   inverse_of: 'followed'
+                                   inverse_of: "followed"
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
@@ -67,7 +68,7 @@ class User < ApplicationRecord
     (?:[A-Z0-9\-]+\.)+  # subdomains
     (?:[A-Z]{2,25})     # TLD
     \z
-  /ix
+  /ix.freeze
   validates :email,
             format: { with: EMAIL },
             length: { maximum: 100 },
@@ -80,7 +81,8 @@ class User < ApplicationRecord
 
   # Activates an account.
   def activate
-    update(active: true, approved: true, confirmed: true, activated_at: Time.zone.now)
+    update(active: true, approved: true, confirmed: true,
+           activated_at: Time.zone.now)
   end
 
   # Sends activation email.
@@ -111,9 +113,8 @@ class User < ApplicationRecord
   end
 
   private
-
-  # Converts email to all lower-case.
-  def downcase_email
-    email.downcase!
-  end
+    # Converts email to all lower-case.
+    def downcase_email
+      email.downcase!
+    end
 end

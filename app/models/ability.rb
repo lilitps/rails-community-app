@@ -3,6 +3,8 @@
 # User permissions are defined in an Ability class.
 class Ability
   include CanCan::Ability
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
@@ -60,4 +62,6 @@ class Ability
       cannot :all, Relationship
     end
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 end

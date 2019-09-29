@@ -25,8 +25,8 @@ class UserSessionsController < ApplicationController
         process_with_warning_message
       end
     else
-      flash.now[:danger] = t('invalid_credentials')
-      render 'new'
+      flash.now[:danger] = t("invalid_credentials")
+      render "new"
     end
   end
 
@@ -36,15 +36,14 @@ class UserSessionsController < ApplicationController
   end
 
   private
+    def process_with_warning_message
+      message  = t("account_not_activated")
+      message += t("check_email_to_activate_account")
+      flash[:warning] = message
+      redirect_to root_path
+    end
 
-  def process_with_warning_message
-    message  = t('account_not_activated')
-    message += t('check_email_to_activate_account')
-    flash[:warning] = message
-    redirect_to root_path
-  end
-
-  def user_session_params
-    params.require(:user_session).permit(:email, :password, :remember_me)
-  end
+    def user_session_params
+      params.require(:user_session).permit(:email, :password, :remember_me)
+    end
 end

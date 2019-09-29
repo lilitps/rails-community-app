@@ -1,160 +1,160 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
 # Specifying an exact Ruby version
-ruby '2.5.3'
+ruby "2.5.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2'
+gem "rails", "~> 5.2"
 # Use Puma as the app server
-gem 'puma', '~> 3.8'
+gem "puma", "~> 3.8"
 # Use postgreSQL for heroku
-gem 'pg', '>= 0.20.0'
+gem "pg", ">= 0.20.0"
 # Ruby Language Metrics (https://devcenter.heroku.com/articles/language-runtime-metrics-ruby#getting-started)
 gem "barnes"
 # Use Twitter Bootstrap 4 for stylesheets
-gem 'bootstrap', '~> 4.3.1'
+gem "bootstrap", "~> 4.3.1"
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem "jquery-rails"
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '3.2.0'
+gem "uglifier", "3.2.0"
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '4.2.2'
+gem "coffee-rails", "4.2.2"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # MiniRacer provides a minimal two way bridge between the V8 JavaScript engine and Ruby.
-gem 'mini_racer'
+gem "mini_racer"
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '5.0.1'
+gem "turbolinks", "5.0.1"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '2.7.0'
+gem "jbuilder", "2.7.0"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Authlogic is a clean, simple, and unobtrusive ruby authentication solution
-gem 'authlogic'
+gem "authlogic"
 # SCrypt is the default provider for Authlogic
-gem 'scrypt'
+gem "scrypt"
 # CanCanCan is an authorization library which restricts what resources a given user is allowed to access
-gem 'cancancan', '~> 2.0'
+gem "cancancan", "~> 2.0"
 # Use Faker to easily generate fake data: names, addresses, phone numbers, etc.
-gem 'faker', '~> 1.7'
+gem "faker", "~> 1.7"
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
-gem 'kaminari'
+gem "kaminari"
 # Bootstrap 4 styling for Kaminari
-gem 'bootstrap4-kaminari-views'
+gem "bootstrap4-kaminari-views"
 # Provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "font-awesome-rails"
 # Easily add Growl-like notifications
-gem 'gritter', '~> 1.2'
+gem "gritter", "~> 1.2"
 # Use CarrierWave to upload files
-gem 'carrierwave', '~> 1.1'
+gem "carrierwave", "~> 1.1"
 # Use Mini Magick to manipulate images with minimal use of memory
-gem 'mini_magick', '~> 4.9'
+gem "mini_magick", "~> 4.9"
 # Use google drive to upload and download files through cloud services library fog
-gem 'fog-core', '2.1.0' # FixMe: https://github.com/fog/fog-google/issues/417
-gem 'fog-google'
-gem 'google-api-client', '> 0.8.5', '< 0.9'
-gem 'mime-types'
+gem "fog-core", "2.1.0" # FixMe: https://github.com/fog/fog-google/issues/417
+gem "fog-google"
+gem "google-api-client", "> 0.8.5", "< 0.9"
+gem "mime-types"
 # Find out which locale the user preferes by reading the languages they specified in their browser
-gem 'http_accept_language', '~> 2.1'
+gem "http_accept_language", "~> 2.1"
 # Use rails-i18n to get default pluralization and transliteration rules
-gem 'rails-i18n', '~> 5.0' # For 5.0.x and 5.1.x
+gem "rails-i18n", "~> 5.0" # For 5.0.x and 5.1.x
 # I18n library for ActiveRecord model/data translation
 # gem 'globalize', git: 'https://github.com/globalize/globalize'
 # gem 'activemodel-serializers-xml'
 # SDK for Facebook. It allows read/write access to the social graph
-gem 'koala', '~> 3.0'
+gem "koala", "~> 3.0"
 # Collection of filters for transforming text into HTML code
-gem 'auto_html', '~> 2.0'
+gem "auto_html", "~> 2.0"
 # simplest and a robust captcha plugin for Google reCAPTCHA API
-gem 'recaptcha', require: 'recaptcha/rails'
+gem "recaptcha", require: "recaptcha/rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Slim allows you to write very minimal templates
-gem 'slim'
+gem "slim"
 # Gem to add cookie consent
-gem 'cookies_eu'
+gem "cookies_eu"
 
 group :development, :test do
   # Step-by-step debugging and stack navigation in Pry
-  gem 'pry-byebug', platform: :ruby
+  gem "pry-byebug", platform: :ruby
   # Pry is a powerful alternative to the standard IRB shell for Ruby
-  gem 'pry-rails'
+  gem "pry-rails"
   # Pretty print your Ruby objects with style -- in full color and with proper indentation. Use with 'ap object'
-  gem 'awesome_print'
+  gem "awesome_print"
   # Use for fighting the N+1 problem in Ruby
-  gem 'bullet'
+  gem "bullet"
   # Shim to load environment variables from .env into ENV
-  gem 'dotenv-rails'
+  gem "dotenv-rails"
   # Preview email in the default browser instead of sending it.
-  gem 'letter_opener'
+  gem "letter_opener"
   # Behaviour Driven Development for Ruby
-  gem 'rspec-rails'
+  gem "rspec-rails"
   # RSpec::CollectionMatchers lets you express expected outcomes on collections of an object in an example
-  gem 'rspec-collection_matchers'
+  gem "rspec-collection_matchers"
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
-  gem 'parallel_tests'
+  gem "parallel_tests"
   # Annotate guard runs the annotate gem when needed
-  gem 'guard-annotate', '~> 2.3'
+  gem "guard-annotate", "~> 2.3"
 end
 
 group :development do
   # Add a comment summarizing the current schema to the top or bottom of each of your ActiveRecord models, Specs, factory_girl factories...
-  gem 'annotate'
+  gem "annotate"
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.1'
+  gem "web-console", ">= 3.3.0"
+  gem "listen", "~> 3.1"
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
-  gem 'better_errors'
+  gem "better_errors"
   # necessary to use Better Errors' advanced features
-  gem 'binding_of_caller', platforms: :ruby
+  gem "binding_of_caller", platforms: :ruby
   # bundler-audit provides patch-level verification for Bundled apps
-  gem 'bundler-audit', '~> 0.6.0', require: false
+  gem "bundler-audit", "~> 0.6.0", require: false
   # Bundler guard allows to automatically & intelligently install/update bundle when needed.
-  gem 'guard-bundler', '~> 2.1', require: false
+  gem "guard-bundler", "~> 2.1", require: false
   # compare licenses against a user-defined whitelist, and give you an actionable exception report
-  gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
+  gem "license_finder", "~> 3.0", ">= 3.0.1", require: false
   # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
-  gem 'brakeman', require: false
+  gem "brakeman", require: false
   # Use i18n-tasks to find and manage missing and unused translations
-  gem 'i18n-tasks', '~> 0.9.15', require: false
+  gem "i18n-tasks", "~> 0.9.15", require: false
   # IYE makes it easy to translate your Rails I18N files and keeps them up to date
-  gem 'iye', require: false
+  gem "iye", require: false
   # setup your favicon
-  gem 'rails_real_favicon', require: false
+  gem "rails_real_favicon", require: false
   # RuboCop configuration which has the same code style checking as official Ruby on Rails
-  gem 'rubocop', '~> 0.60.0', require: false
-  gem 'guard-rubocop', require: false
+  gem "rubocop-rails_config", require: false
+  gem "guard-rubocop", require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen', '~> 2.0'
+  gem "spring"
+  gem "spring-commands-rspec"
+  gem "spring-watcher-listen", "~> 2.0"
   # Convert HTML to Slim templates. Because HTML sux and Slim rules. That's why.
-  gem 'html2slim', require: false
+  gem "html2slim", require: false
 end
 
 group :test do
-  gem 'guard', '~> 2.14'
-  gem 'guard-minitest', '~> 2.4'
+  gem "guard", "~> 2.14"
+  gem "guard-minitest", "~> 2.4"
   # bring back the original controller testing for Authlogic
-  gem 'rails-controller-testing', '~> 1.0'
+  gem "rails-controller-testing", "~> 1.0"
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
-  gem 'database_cleaner'
+  gem "database_cleaner"
   # Code coverage for Ruby
-  gem 'simplecov', require: false
+  gem "simplecov", require: false
   # Collection of testing matchers extracted from Shoulda
-  gem 'shoulda-matchers'
+  gem "shoulda-matchers"
 end
 
 if Gem.win_platform?
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-  gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+  gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
   # to avoid polling for changes
-  gem 'wdm', '>= 0.1.0'
+  gem "wdm", ">= 0.1.0"
 end

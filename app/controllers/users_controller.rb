@@ -32,10 +32,10 @@ class UsersController < ApplicationController
   def create
     if verify_recaptcha(model: @user) && @user.save
       @user.send_activation_email
-      flash[:info] = t('check_email_to_activate_account')
+      flash[:info] = t("check_email_to_activate_account")
       redirect_to root_path
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -43,34 +43,33 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = t('profile_updated', locale: @user.locale)
+      flash[:success] = t("profile_updated", locale: @user.locale)
       redirect_to @user
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   def destroy
     @user.destroy
-    flash[:success] = t('user_deleted')
+    flash[:success] = t("user_deleted")
     redirect_to users_path
   end
 
   def following
-    @title = t('following')
+    @title = t("following")
     @users = @user.following.page(params[:page])
-    render 'show_follow'
+    render "show_follow"
   end
 
   def followers
-    @title = t('followers')
+    @title = t("followers")
     @users = @user.followers.page(params[:page])
-    render 'show_follow'
+    render "show_follow"
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :locale)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :locale)
+    end
 end

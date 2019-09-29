@@ -1,4 +1,0 @@
-inherit_from: ../.rubocop.yml
-
-Rails/SkipsModelValidations:
-  Enabled: no

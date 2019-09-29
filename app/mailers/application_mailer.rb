@@ -2,6 +2,6 @@
 
 # Top level class for all mailer
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@example.com'
-  layout 'mailer'
+  default from: "noreply@example.com"
+  layout "mailer"
 end

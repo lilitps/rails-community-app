@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require 'simplecov'
+require "simplecov"
 SimpleCov.start
 
 # Previous content of test helper now starts here
 
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
-require 'rails/test_help'
-require 'authlogic/test_case'
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../config/environment", __dir__)
+require "rails/test_help"
+require "authlogic/test_case"
 
 module MiniTestWithBullet
-  require 'minitest/unit'
+  require "minitest/unit"
 
   def before_setup
     Bullet.start_request
@@ -44,7 +44,7 @@ module ActionDispatch
     # Add more helper methods to be used by all tests here...
 
     # Log in as a particular user.
-    def log_in_as(user, password: 'password', remember_me: '1')
+    def log_in_as(user, password: "password", remember_me: "1")
       post login_path, params: { user_session: { email: user.email,
                                                  password: password,
                                                  remember_me: remember_me } }

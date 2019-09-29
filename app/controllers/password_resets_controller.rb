@@ -18,11 +18,11 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
       @user.send_password_reset_email
-      flash[:info] = t('password_reset_email_sent')
+      flash[:info] = t("password_reset_email_sent")
       redirect_to root_path
     else
-      flash.now[:danger] = t('email_address_not_found')
-      render 'new'
+      flash.now[:danger] = t("email_address_not_found")
+      render "new"
     end
   end
 
@@ -30,33 +30,32 @@ class PasswordResetsController < ApplicationController
 
   def update
     if params[:user][:password].empty?
-      @user.errors.add(:password, t('errors.can_not_be_empty'))
-      render 'edit'
+      @user.errors.add(:password, t("errors.can_not_be_empty"))
+      render "edit"
     elsif @user.update(user_params)
       log_in @user
-      flash[:success] = t('password_has_been_reset')
+      flash[:success] = t("password_has_been_reset")
       redirect_to @user
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   private
+    def user_params
+      params.require(:user).permit(:password, :password_confirmation)
+    end
 
-  def user_params
-    params.require(:user).permit(:password, :password_confirmation)
-  end
+    # Before filters
+    def find_user
+      @user = User.find_by(email: params[:email])
+    end
 
-  # Before filters
-  def find_user
-    @user = User.find_by(email: params[:email])
-  end
+    # Confirms a valid user and checks expiration of token.
+    def valid_user
+      return if @user&.active? && User.find_using_perishable_token(params[:id])
 
-  # Confirms a valid user and checks expiration of token.
-  def valid_user
-    return if @user&.active? && User.find_using_perishable_token(params[:id])
-
-    flash[:danger] = t('password_reset_has_expired')
-    redirect_to root_path
-  end
+      flash[:danger] = t("password_reset_has_expired")
+      redirect_to root_path
+    end
 end

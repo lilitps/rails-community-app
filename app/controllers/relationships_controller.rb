@@ -25,8 +25,7 @@ class RelationshipsController < ApplicationController
   end
 
   private
-
-  def relationship_params
-    params.require(:relationship).permit(:id)
-  end
+    def relationship_params
+      params.require(:relationship).permit(:id)
+    end
 end

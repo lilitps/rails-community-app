@@ -12,22 +12,21 @@ class AccountActivationsController < ApplicationController
   def edit
     @user.activate
     log_in @user
-    flash[:success] = t('account_activated')
+    flash[:success] = t("account_activated")
     redirect_to @user
   end
 
   private
+    # Before filters
+    def find_user
+      @user = User.find_by(email: params[:email])
+    end
 
-  # Before filters
-  def find_user
-    @user = User.find_by(email: params[:email])
-  end
+    # Confirms a valid user.
+    def valid_user
+      return if @user && !@user.active? && User.find_using_perishable_token(params[:id])
 
-  # Confirms a valid user.
-  def valid_user
-    return if @user && !@user.active? && User.find_using_perishable_token(params[:id])
-
-    flash[:danger] = t('invalid_activation_link')
-    redirect_to root_path
-  end
+      flash[:danger] = t("invalid_activation_link")
+      redirect_to root_path
+    end
 end

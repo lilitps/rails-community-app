@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -30,11 +31,10 @@ class Post < ApplicationRecord
   validate  :picture_size
 
   private
+    # Validates the size of an uploaded picture.
+    def picture_size
+      return unless picture.size > 5.megabytes
 
-  # Validates the size of an uploaded picture.
-  def picture_size
-    return unless picture.size > 5.megabytes
-
-    errors.add(:picture, t('errors.maximum_file_size'))
-  end
+      errors.add(:picture, t("errors.maximum_file_size"))
+    end
 end

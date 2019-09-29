@@ -19,13 +19,13 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
-        flash.now[:success] = t('post_created')
+        flash.now[:success] = t("post_created")
         reset_feed
         format.html { redirect_to root_path }
       else
         @feed = []
         @contact = Contact.new
-        format.html { render 'static_pages/home' }
+        format.html { render "static_pages/home" }
       end
       format.js
     end
@@ -41,12 +41,12 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        flash.now[:success] = t('post_updated')
+        flash.now[:success] = t("post_updated")
         @feed = feed(params[:page])
         format.html { redirect_back(fallback_location: root_path) }
       else
         @contact = Contact.new
-        format.html { render 'static_pages/home' }
+        format.html { render "static_pages/home" }
       end
       format.js
     end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash.now[:success] = t('post_deleted')
+    flash.now[:success] = t("post_deleted")
     reset_feed
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
@@ -63,13 +63,12 @@ class PostsController < ApplicationController
   end
 
   private
+    def post_params
+      params.require(:post).permit(:content, :picture)
+    end
 
-  def post_params
-    params.require(:post).permit(:content, :picture)
-  end
-
-  def reset_feed
-    @post = current_user&.posts&.build if can? :create, Post
-    @feed = feed(params[:page])
-  end
+    def reset_feed
+      @post = current_user&.posts&.build if can? :create, Post
+      @feed = feed(params[:page])
+    end
 end
