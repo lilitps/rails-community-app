@@ -3,28 +3,71 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
-      "fingerprint": "2312d391388a82e9a15c60fd1a8c6519648c5fa144378dcb3c59a9d2f3adeabb",
+      "fingerprint": "4118d50455c3313ec62a139ad73b65290d405e61e4e69170f3655adce4c9858c",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/users/show_follow.html.slim",
+      "line": 16,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => @user.followers.page(params[:page]), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "UsersController",
+          "method": "followers",
+          "line": 68,
+          "file": "app/controllers/users_controller.rb",
+          "rendered": {
+            "name": "users/show_follow",
+            "file": "app/views/users/show_follow.html.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "users/show_follow"
+      },
+      "user_input": "params[:page]",
+      "confidence": "Weak",
+      "note": "Wrong detection"
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "4a46605f31ca615720f26d4762334437caded0661b7b8c95faeaaa1633bb8b3f",
       "check_name": "Render",
       "message": "Render path contains parameter value",
       "file": "app/views/users/index.html.slim",
-      "line": 6,
+      "line": 10,
       "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => @users.where(:approved => true).paginate(:page => params[:page]), {})",
-      "render_path": [{"type":"controller","class":"UsersController","method":"index","line":23,"file":"app/controllers/users_controller.rb"}],
+      "code": "render(action => @users.where(:approved => true).page(params[:page]), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "UsersController",
+          "method": "index",
+          "line": 23,
+          "file": "app/controllers/users_controller.rb",
+          "rendered": {
+            "name": "users/index",
+            "file": "app/views/users/index.html.slim"
+          }
+        }
+      ],
       "location": {
         "type": "template",
         "template": "users/index"
       },
       "user_input": "params[:page]",
       "confidence": "Weak",
-      "note": ""
+      "note": "Wrong detection"
     },
     {
       "warning_type": "Weak Hash",
       "warning_code": 90,
       "fingerprint": "b7eb9945551b71165af2ec72b82cd156b185408351aa239d1dfb558dc3f718c1",
       "check_name": "WeakHash",
-      "message": "Weak hashing algorithm (MD5) used",
+      "message": "Weak hashing algorithm used: MD5",
       "file": "app/helpers/users_helper.rb",
       "line": 7,
       "link": "https://brakemanscanner.org/docs/warning_types/weak_hash/",
@@ -38,27 +81,8 @@
       "user_input": null,
       "confidence": "Medium",
       "note": "Gravatar URLs are based on an MD5 hash"
-    },
-    {
-      "warning_type": "Dynamic Render Path",
-      "warning_code": 15,
-      "fingerprint": "f003bc521b534e7b62feadd6a2c63180c755615b9ef1e8d1e56785a12b288462",
-      "check_name": "Render",
-      "message": "Render path contains parameter value",
-      "file": "app/views/users/show_follow.html.slim",
-      "line": 16,
-      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => @user.followers.paginate(:page => params[:page]), {})",
-      "render_path": [{"type":"controller","class":"UsersController","method":"followers","line":68,"file":"app/controllers/users_controller.rb"}],
-      "location": {
-        "type": "template",
-        "template": "users/show_follow"
-      },
-      "user_input": "params[:page]",
-      "confidence": "Weak",
-      "note": ""
     }
   ],
-  "updated": "2018-12-10 20:45:16 +0100",
-  "brakeman_version": "4.3.1"
+  "updated": "2019-10-23 21:46:33 +0200",
+  "brakeman_version": "4.7.0"
 }

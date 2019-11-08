@@ -9,6 +9,7 @@ class SiteFeedModalsTest < ActionDispatch::IntegrationTest
   def setup
     @admin = users(:lana)
     @non_admin = users(:archer)
+    @post = posts(:orange)
   end
 
   test "should render all posts with image and without edit modals for all posts if not logged in" do
@@ -19,11 +20,11 @@ class SiteFeedModalsTest < ActionDispatch::IntegrationTest
     assert_not @feed.empty?
     assert_select "#all-modals", count: 1
     @feed.each do |post|
-      assert_select "#image-modal-" + post.id.to_s, count: 1 if post.picture?
-      assert_select "#imagePost" + post.id.to_s + "ModalLabel", count: 1 if post.picture?
-      assert_select "#imagePost" + post.id.to_s + "ModalLabel", post.picture.file.basename if post.picture?
+      assert_select "#image-modal-#{post.id}", count: 1 if post.picture?
+      assert_select "#imagePost#{post.id}ModalLabel", count: 1 if post.picture?
+      assert_select "#imagePost#{post.id}ModalLabel", post.picture.file.basename if post.picture?
       assert_match post.picture.file.basename, response.body if post.picture?
-      assert_select "#edit-post-modal-" + post.id.to_s, false, "home page must contain no modals"
+      assert_select "#edit-post-#{post.id}-modal", false, "home page must contain no modals"
     end
   end
 
@@ -37,8 +38,8 @@ class SiteFeedModalsTest < ActionDispatch::IntegrationTest
     assert_not @feed.empty?
     assert_select "#all-modals", count: 1
     @feed.each do |post|
-      assert_select "#image-modal-" + post.id.to_s, count: 1 if post.picture?
-      assert_select "#edit-post-modal-" + post.id.to_s, false, "home page must contain no modals"
+      assert_select "#image-modal-#{post.id}", count: 1 if post.picture?
+      assert_select "#edit-post-#{post.id}-modal", false, "home page must contain no modals"
     end
     assert_select "#create-new-post-modal", false, "home should not contain a create new post modal"
   end
@@ -54,11 +55,11 @@ class SiteFeedModalsTest < ActionDispatch::IntegrationTest
     assert_not @feed.empty?
     assert_select "#all-modals", count: 1
     @feed.each do |post|
-      assert_select "#image-modal-" + post.id.to_s, count: 1 if post.picture?
-      assert_select "#edit-post-modal-" + post.id.to_s, true, "home page must contain edit modals"
-      assert_select "#editPost" + post.id.to_s + "ModalLabel", count: 1
-      assert_select "#editPost" + post.id.to_s + "ModalLabel", "Edit post..."
-      assert_select "#edit_post_" + post.id.to_s, count: 1
+      assert_select "#image-modal-#{post.id}", count: 1 if post.picture?
+      assert_select "#edit-post-#{post.id}-modal", true, "home page must contain edit modals"
+      assert_select "#editPost#{post.id}ModalLabel", count: 1
+      assert_select "#editPost#{post.id}ModalLabel", "Edit post..."
+      assert_select "#edit_post_#{post.id}", count: 1
     end
     assert_select "#create-new-post-modal", true, "home page must contain a create new post modal"
     assert_select "#createNewPostModalLabel", count: 1

@@ -9,7 +9,6 @@ class StaticPagesController < ApplicationController
     @post = current_user.posts.build if can? :create, Post
     @feed = feed(params[:page])
     @fb_feed = fb_feed
-    flash.now[:warning] = t("warning.facebook.no_connection") unless @fb_feed
     @contact = Contact.new
   end
 

@@ -1,5 +1,5 @@
 - if post.id?
-  div id="edit-post-modal-#{post.id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editPost#{post.id}ModalLabel"
+  div id="edit-post-#{post.id}-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editPost#{post.id}ModalLabel"
   	= render 'posts/post_form_modal_dialog', post: post
 - else
   #create-new-post-modal.modal.fade tabindex="-1" role="dialog" aria-labelledby="createNewPostModalLabel"

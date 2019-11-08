@@ -1,7 +1,14 @@
 <% if @post.errors.any? %>
   $("#edit_post_<%= @post.id %>").replaceWith("<%= escape_javascript(render('posts/post_form', post: @post)) %>");
 <% else %>
-  $("#edit-post-modal-<%= @post.id %>").modal('hide');
+  $("#edit-post-<%= @post.id %>-modal").modal('hide');
+  var all_modals = $("#all-modals");
+  if (all_modals.has("#image-modal-<%= @post.id %>").length) {
+      all_modals.find("#image-modal-<%= @post.id %>")
+          .replaceWith("<%= escape_javascript(render('posts/post_image_modal', post: @post)) %>");
+  } else {
+      all_modals.append("<%= escape_javascript(render('posts/post_image_modal', post: @post)) %>");
+  }
   $("#post-<%= @post.id %>").replaceWith("<%= escape_javascript(render('posts/post', post: @post)) %>");
   $("#flash").replaceWith("<%= escape_javascript(render 'shared/flash_messages') %>");
 <% end %>

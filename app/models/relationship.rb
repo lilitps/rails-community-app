@@ -14,8 +14,7 @@
 #
 #  index_relationships_on_followed_id                  (followed_id)
 #  index_relationships_on_follower_id                  (follower_id)
-#  index_relationships_on_follower_id_and_followed_id
-#    (follower_id,followed_id) UNIQUE
+#  index_relationships_on_follower_id_and_followed_id  (follower_id,followed_id) UNIQUE
 #
 
 # A relationship of tow user

@@ -63,14 +63,14 @@ if Rails.env.development?
   # Posts by admins
   admins = User.where(admin: true)
   2.times do
-    content = Faker::Lorem.sentence(5)
+    content = Faker::Lorem.sentence(word_count: 5)
     admins.each { |admin| admin.posts.create!(content: content) }
   end
 
   # Posts by non admins
   non_admins = User.where(admin: false)
   2.times do
-    content = Faker::Lorem.sentence(5)
+    content = Faker::Lorem.sentence(word_count: 5)
     non_admins.each { |non_admin| non_admin.posts.create!(content: content) }
   end
 

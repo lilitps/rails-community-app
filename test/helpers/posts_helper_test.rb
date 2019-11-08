@@ -22,10 +22,8 @@ class PostsHelperTest < ActionView::TestCase
   end
 
   test "should simple format a text with html tags" do
-    # rubocop:disable LineLength
     text = 'Nur noch eine Woche bis zurLange Nacht der Astronomie 2017!\nWir freuen uns auf eueren Besuch am #Gleisdreieck und bringen euch gerne dem Himmel etwas näher!'
     simple_formated_text = '<p>Nur noch eine Woche bis zurLange Nacht der Astronomie 2017!\\nWir freuen uns auf eueren Besuch am #Gleisdreieck und bringen euch gerne dem Himmel etwas näher!</p>'
     assert_equal auto_format_html(text), simple_formated_text
-    # rubocop:enable LineLength
   end
 end

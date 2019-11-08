@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-require "simplecov"
-SimpleCov.start
+if ENV["COVERAGE"]
+  require "simplecov"
+  SimpleCov.start "rails"
+end
 
 # Previous content of test helper now starts here
 
@@ -32,6 +34,17 @@ module ActiveSupport
     fixtures :all
     include MiniTestWithBullet
     include ApplicationHelper
+    parallelize(workers: :number_of_processors)
+
+    if ENV["COVERAGE"]
+      parallelize_setup do |worker|
+        SimpleCov.command_name "#{SimpleCov.command_name}-#{worker}"
+      end
+
+      parallelize_teardown do |worker|
+        SimpleCov.result
+      end
+    end
     # Add more helper methods to be used by all tests here...
   end
 end
@@ -41,6 +54,17 @@ module ActionDispatch
   class IntegrationTest
     include MiniTestWithBullet
     include UserSessionsHelper
+    parallelize(workers: :number_of_processors)
+
+    if ENV["COVERAGE"]
+      parallelize_setup do |worker|
+        SimpleCov.command_name "#{SimpleCov.command_name}-#{worker}"
+      end
+
+      parallelize_teardown do |worker|
+        SimpleCov.result
+      end
+    end
     # Add more helper methods to be used by all tests here...
 
     # Log in as a particular user.

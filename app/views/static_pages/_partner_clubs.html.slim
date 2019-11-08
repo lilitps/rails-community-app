@@ -6,42 +6,63 @@
 	.card-deck.mt-3.mb-3
 		.card
 			.row.p-2
-				= link_to(image_tag('partner/logo_bhb_stw.png', alt: t('community.partner_bhb_observatory_image'),
-					class: 'card-img-top mx-auto d-block w-50 p-0'), 'https://bhb-sternwarte.de/'.html_safe,
-					target: '_blank', rel: 'noopener', class: 'rounded mx-auto d-block')
+				= link_to(image_tag('partner/logo_bhb_stw.png', 
+					alt: t('community.partner_bhb_observatory_image'),
+					class: 'card-img-top mx-auto d-block w-50 p-0'), 
+					'https://bhb-sternwarte.de/'.html_safe,
+					target: '_blank', rel: 'noopener noreferrer', 
+					class: 'rounded mx-auto d-block')
 			
 			.card-body
 				h5.card-title.text-center
-					= link_to(t('community.partner_bhb_observatory_title'), 'https://bhb-sternwarte.de/'.html_safe,
-						target: '_blank', rel: 'noopener', class: 'rounded mx-auto d-block')
-				h5.card-subtitle.mb-2.text-muted.text-center= t('community.partner_bhb_observatory_subtitle')
+					= link_to(t('community.partner_bhb_observatory_title'), 
+						'https://bhb-sternwarte.de/'.html_safe,
+						target: '_blank', rel: 'noopener noreferrer', 
+						class: 'rounded mx-auto d-block')
+				h5.card-subtitle.mb-2.text-muted.text-center
+					= t('community.partner_bhb_observatory_subtitle')
 			.card-footer.bg-transparent.border-0
-				p.card-text.text-justify= t('community.partner_bhb_observatory_description_html')
+				p.card-text.text-justify
+					= t('community.partner_bhb_observatory_description_html')
 		
 		.card
 			.row.p-2
-				= link_to(image_tag('partner/logo_astw.png', alt: t('community.partner_astw_observatory_image'),
-					class: 'card-img-top mx-auto d-block p-3'), 'https://www.astw.de/'.html_safe,
-					target: '_blank', rel: 'noopener', class: 'rounded mx-auto d-block')
+				= link_to(image_tag('partner/logo_astw.png', 
+					alt: t('community.partner_astw_observatory_image'),
+					class: 'card-img-top mx-auto d-block p-3'), 
+					'https://www.astw.de/'.html_safe,
+					target: '_blank', rel: 'noopener noreferrer', 
+					class: 'rounded mx-auto d-block')
 			
 			.card-body
 				h5.card-title.text-center
-					= link_to(t('community.partner_astw_observatory_title'), 'https://www.astw.de/'.html_safe,
-						target: '_blank', rel: 'noopener', class: 'rounded mx-auto d-block')
-				h5.card-subtitle.mb-2.text-muted.text-center= t('community.partner_astw_observatory_subtitle')
+					= link_to(t('community.partner_astw_observatory_title'), 
+						'https://www.astw.de/'.html_safe,
+						target: '_blank', rel: 'noopener noreferrer', 
+						class: 'rounded mx-auto d-block')
+				h5.card-subtitle.mb-2.text-muted.text-center
+					= t('community.partner_astw_observatory_subtitle')
 			.card-footer.bg-transparent.border-0
-				p.card-text.text-justify= t('community.partner_astw_observatory_description_html')
+				p.card-text.text-justify
+					= t('community.partner_astw_observatory_description_html')
 		
 		.card
 			.row.p-2
-				= link_to(image_tag('partner/logo-wfs.png', alt: t('community.partner_wfs_observatory_image'),
-					class: 'card-img-top mx-auto d-block p-3'), 'https://wfs.berlin/verein/'.html_safe,
-					target: '_blank', rel: 'noopener', class: 'rounded mx-auto d-block')
+				= link_to(image_tag('partner/logo-wfs.png', 
+					alt: t('community.partner_wfs_observatory_image'),
+					class: 'card-img-top mx-auto d-block p-3'), 
+					'https://wfs.berlin/verein/'.html_safe,
+					target: '_blank', rel: 'noopener noreferrer', 
+					class: 'rounded mx-auto d-block')
 			
 			.card-body
 				h5.card-title.text-center
-					= link_to(t('community.partner_wfs_observatory_title'), 'https://wfs.berlin/verein/'.html_safe,
-						target: '_blank', rel: 'noopener', class: 'rounded mx-auto d-block')
-				h5.card-subtitle.mb-2.text-muted.text-center= t('community.partner_wfs_observatory_subtitle')
+					= link_to(t('community.partner_wfs_observatory_title'), 
+						'https://wfs.berlin/verein/'.html_safe,
+						target: '_blank', rel: 'noopener noreferrer', 
+						class: 'rounded mx-auto d-block')
+				h5.card-subtitle.mb-2.text-muted.text-center
+					= t('community.partner_wfs_observatory_subtitle')
 			.card-footer.bg-transparent.border-0
-				p.card-text.text-justify= t('community.partner_wfs_observatory_description_html')
+				p.card-text.text-justify
+					= t('community.partner_wfs_observatory_description_html')

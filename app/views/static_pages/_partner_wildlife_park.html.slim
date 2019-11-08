@@ -2,9 +2,10 @@
 	h2.text-center = t('community.about_partner_wildlife_park')
 	
 	.card.mt-3.mb-3
-		= link_to(image_tag('partner/wildpark_luchs.jpg', alt: t('community.partner_wildlife_park_image'), class: 'card-img-top'),
+		= link_to(image_tag('partner/wildpark_luchs.jpg', 
+			alt: t('community.partner_wildlife_park_image'), class: 'card-img-top'),
 			'https://www.wildpark-johannismuehle.de'.html_safe,
-			target: '_blank', rel: 'noopener', class: 'card-img-top')
+			target: '_blank', rel: 'noopener noreferrer', class: 'card-img-top')
 		
 		.card-body
 			h5.card-title.text-center
@@ -12,4 +13,5 @@
 			p.card-text.text-justify
 				= t('community.about_partner_wildlife_park_html',
 					wildlife_park_url: link_to(t('community.partner_wildlife_park_link_html'),
-						'https://www.wildpark-johannismuehle.de'.html_safe, target: '_blank', rel: 'noopener'))
+						'https://www.wildpark-johannismuehle.de'.html_safe, 
+						target: '_blank', rel: 'noopener noreferrer'))

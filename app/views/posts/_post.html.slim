@@ -6,7 +6,7 @@
 					#editPostsDropdown.a.dropdown-toggle [ href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ]
 					.dropdown-menu.dropdown-menu-right aria-labelledby="editPostsDropdown"
 						= link_to t('edit'), edit_post_path(post), class: 'dropdown-item',
-							data: {toggle: 'modal', target: "#edit-post-modal-#{post.id}"}, remote: true
+							data: {toggle: 'modal', target: "#edit-post-#{post.id}-modal"}, remote: true
 						= link_to t('delete'), post, class: 'dropdown-item', method: :delete,
 							data: {confirm: t('you_sure'), disable_with: t('deleting')}, remote: true
 			- if current_user
@@ -24,9 +24,9 @@
 					= link_to t('read_more'), '', class: "read-more-#{post.id}"
 					javascript:
 						$(".read-more-#{post.id}").on('click', function (e) {
-							e.preventDefault()
+							e.preventDefault();
 							$(this).parent().html("#{ escape_javascript auto_format_html(post.content) }")
-						})
+						});
 				- else
 					= auto_format_html post.content
 

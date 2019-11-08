@@ -43,6 +43,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get membership_application_path
     assert_response :success
     assert_equal "application/pdf", response.content_type
-    assert_equal 'attachment; filename="sifez-aufnahmeantrag.pdf"', response.headers["Content-Disposition"]
+    assert_equal 'attachment; filename="sifez-aufnahmeantrag.pdf"; filename*=UTF-8\'\'sifez-aufnahmeantrag.pdf',
+                 response.headers["Content-Disposition"]
   end
 end

@@ -12,5 +12,7 @@
 		.row
 			= render @feed
 
+		/ Exclude basic form params from pagination links
+		/ https://github.com/kaminari/kaminari/commit/2fd7d36b72af73d2506f8e2ab68704d804f70fc5
 		= paginate @feed, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm justify-content-center',
-			nav_class: "m-2", inner_window: 2, outer_window: 0
+			nav_class: "m-2", inner_window: 2, outer_window: 0, params: {post: nil}

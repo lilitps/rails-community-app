@@ -71,7 +71,7 @@ future:
 
 <% 30.times do |n| %>
 post_<%= n %>:
-  content: <%= Faker::Lorem.sentence(5) %>
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
   created_at: <%= 42.days.ago %>
   user: malory
 <% end %>

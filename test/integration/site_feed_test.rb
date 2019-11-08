@@ -30,7 +30,7 @@ class SiteFeedTest < ActionDispatch::IntegrationTest
     @first_page_of_feed = assigns(:feed)
     assert_not @first_page_of_feed.empty?
     @first_page_of_feed.each do |post|
-      assert_select "div#post-" + post.id.to_s, count: 1
+      assert_select "div#post-#{post.id}", count: 1
       assert_match post.content, response.body
     end
   end
