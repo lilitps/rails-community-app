@@ -114,8 +114,6 @@ group :development, :test do
   gem "letter_opener"
   # Behaviour Driven Development for Ruby
   gem "rspec-rails"
-  # RSpec::CollectionMatchers lets you express expected outcomes on collections of an object in an example
-  gem "rspec-collection_matchers"
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
   gem "parallel_tests"
   # Annotate guard runs the annotate gem when needed
@@ -172,15 +170,15 @@ group :test do
   gem "database_cleaner"
   # Code coverage for Ruby
   gem "simplecov", require: false
-  # Collection of testing matchers extracted from Shoulda
-  gem "shoulda-matchers"
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality
+  gem "shoulda-matchers", "~> 4.1", ">= 4.1.2"
+  # RSpec::CollectionMatchers lets you express expected outcomes on collections of an object in an example
+  gem "rspec-collection_matchers"
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
-  # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
-  gem "parallel_tests"
 end
 
 if Gem.win_platform?
