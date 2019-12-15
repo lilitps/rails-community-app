@@ -43,7 +43,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 # Slim allows you to write very minimal templates
 gem "slim-rails"
 # Use Twitter Bootstrap 4 for stylesheets
-gem "bootstrap", "~> 4.3.1"
+gem "bootstrap", "~> 4.4"
 # Use jquery as the JavaScript library.
 # Bootstrap 4 require jQuery, Popper.js, and our own JavaScript plugins.
 gem "jquery-rails"
@@ -58,7 +58,7 @@ gem "font-awesome-rails"
 gem "gritter", "~> 1.2"
 
 # Use Faker to easily generate fake data: names, addresses, phone numbers, etc.
-gem "faker", "~> 2.6"
+gem "faker", "~> 2.8"
 
 # Collection of filters for transforming text into HTML code
 gem "auto_html", "~> 2.0"
