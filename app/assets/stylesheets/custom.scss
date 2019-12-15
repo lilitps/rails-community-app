@@ -44,6 +44,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  hyphens: auto;
 }
 
 h1 {
@@ -83,6 +84,10 @@ h4 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+table {
+  hyphens: auto;
 }
 
 /* header */
