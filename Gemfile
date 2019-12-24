@@ -14,15 +14,12 @@ gem "puma", "~> 4.3", ">= 4.3.1"
 gem "pg", ">= 0.20.0"
 # Ruby Language Metrics (https://devcenter.heroku.com/articles/language-runtime-metrics-ruby#getting-started)
 gem "barnes"
+# Use SCSS for stylesheets
+gem "sass-rails", ">= 6"
 # Webpacker is the default JavaScript compiler for Rails 6
 gem "webpacker", "~> 4.0"
 # Use CoffeeScript for .coffee assets and views
 gem "coffee-rails", "~> 5.0"
-# Use Uglifier as compressor for JavaScript assets
-gem "uglifier", "~> 4.2"
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# MiniRacer provides a minimal two way bridge between the V8 JavaScript engine and Ruby.
-gem "mini_racer"
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5.2", ">= 5.2.1"
