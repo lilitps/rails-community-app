@@ -20,7 +20,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
+        'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -35,7 +35,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :letter_opener_web
   host = 'localhost:3000' # Don't use this literally; use your local dev host instead
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' } # use https in production
+  config.action_mailer.default_url_options = {host: host, protocol: 'http'} # use https in production
 
   config.action_mailer.perform_caching = false
 
@@ -77,3 +77,6 @@ Rails.application.configure do
     Bullet.add_footer = true
   end
 end
+
+# BetterErrors in Docker container
+BetterErrors::Middleware.allow_ip! "0.0.0.0/0"

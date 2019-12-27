@@ -4,7 +4,7 @@ default: &default
   host: postgres
   port: 5432
   user: postgres
-  password:
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
