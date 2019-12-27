@@ -101,6 +101,16 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
+  test "contact the community as logged in user with Ajax" do
+    log_in_as(@user)
+    get root_path
+    post contact_path, params: {
+        contact: { name: @user.name, email: @user.email, subject: "subject", message: "message" }
+    }, xhr: true
+    assert_not flash.empty?
+    assert_equal 1, ActionMailer::Base.deliveries.size
+  end
+
   test "contact the community form" do
     get root_path
     assert_template "static_pages/home"

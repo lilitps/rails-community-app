@@ -3,6 +3,7 @@
 # A contacts controller to manage contact interface
 class ContactsController < ApplicationController
   skip_authorization_check
+  before_action :check_captcha, only: [:create]
   # GET /contacts/new
   def new
     @contact = Contact.new
@@ -13,7 +14,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     respond_to do |format|
-      if @contact.valid? && verify_recaptcha(model: @contact)
+      if @contact.valid?
         flash.now[:success] = t("notices.success")
         ContactMailer.contact(@contact).deliver_now
         @contact = Contact.new
@@ -30,5 +31,9 @@ class ContactsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:name, :email, :subject, :message)
+    end
+
+    def check_captcha
+      verify_recaptcha(model: @contact) unless current_user
     end
 end
