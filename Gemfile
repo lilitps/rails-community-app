@@ -107,8 +107,6 @@ group :development, :test do
   gem "bullet"
   # Shim to load environment variables from .env into ENV
   gem "dotenv-rails"
-  # Preview email in the default browser instead of sending it.
-  gem "letter_opener"
   # Behaviour Driven Development for Ruby
   gem "rspec-rails"
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
@@ -127,6 +125,8 @@ group :development do
   gem "better_errors"
   # necessary to use Better Errors' advanced features
   gem "binding_of_caller", platforms: :ruby
+  # Preview email in the default browser instead of sending it.
+  gem "letter_opener_web"
   # bundler-audit provides patch-level verification for Bundled apps
   gem "bundler-audit", "~> 0.6.0", require: false
   # Guard is a command line tool to easily handle events on file system modifications

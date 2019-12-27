@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Use an optional locale in path scope
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
+    mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
     get     '/posts',     to: 'static_pages#home'
     get     '/feed',      to: 'static_pages#home'
     get     '/membership_application', to: 'static_pages#membership_application'
