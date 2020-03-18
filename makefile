@@ -16,8 +16,8 @@ usage:
 	@echo "  * db-seed      		  - Seeds the database"
 	@echo "  * logs         		  - Displays logs of all containers"
 	@echo "  * logs-web     		  - Displays logs of web application"
-	@echo "  * test         		  - Runs rspec"
-	@echo "  * test-coverage		  - Runs yarn tests"
+	@echo "  * test         		  - Runs tests"
+	@echo "  * test-coverage		  - Runs tests with coverage"
 
 # docker-compose
 up:
@@ -43,17 +43,12 @@ guard:
 
 # Database
 db-create:
-	$(call dc, up -d mysql_test)
+	$(call dc, up -d postgres)
 	$(call dc-run, rails db:create)
 db-migrate:
 	$(call dc-run, rails db:migrate)
 db-seed:
 	$(call dc-run, rails db:seed)
-
-# Elasticsearch
-es-index-rebuild:
-	@echo "Create and populate Elasticsearch index:"
-	$(call dc-run, rake index:rebuild)
 
 # logs
 logs:
