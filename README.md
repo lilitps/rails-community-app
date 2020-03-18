@@ -59,13 +59,13 @@ Docker Desktop is the best way to get started with Docker.
 and do your work.
 
 ```bash
-docker-compose up -d web
+$ make up
 ```
 
 - You can access the logs by:
 
 ```bash
-docker-compose logs -tf web
+$ make logs-web
 ```
 
 ## Testing
@@ -73,7 +73,7 @@ docker-compose logs -tf web
 Run the test suite to verify that everything is working correctly:
 
 ```bash
-$ docker-compose run --rm test
+$ make test
 ```
 
 If the test suite passes, you'll be ready to run the app in a local server.
@@ -84,7 +84,7 @@ Use Guard to automate the running of the tests and code styles with
 [Rubocop](https://rubocop.readthedocs.io/en/latest/).
 
 ```bash
-$ docker-compose run --rm guard
+$ make guard
 ```
 
 ## Production webserver
