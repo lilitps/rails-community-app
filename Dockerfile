@@ -1,9 +1,13 @@
 ARG RUBY_VERSION=2.6.5
 
-FROM ruby:${RUBY_VERSION}-alpine
+FROM ruby:${RUBY_VERSION}-alpine3.11
 
-RUN apk update && apk add build-base nodejs postgresql-dev tzdata yarn \
-    imagemagick
+ARG NODE_VERSION=12.15.0-r1
+ARG YARN_VERSION=1.19.2-r0
+
+RUN apk update && apk add build-base postgresql-dev \
+    nodejs=$NODE_VERSION yarn=$YARN_VERSION \
+    tzdata imagemagick
 
 RUN mkdir /app
 WORKDIR /app
@@ -24,15 +28,13 @@ ARG BUNDLER_VERSION=2.0.2
 COPY Gemfile Gemfile.lock ./
 RUN gem update --system && \
     gem install bundler -v ${BUNDLER_VERSION} && \
-    bundle install
+    bundle install -j $(nproc) --retry 3 --without production
 
 COPY package.json yarn.lock ./
-# To fix "unmet peer dependency" warnings,
-# https://github.com/rails/webpacker/#installation
-# https://github.com/rails/webpacker/issues/1078
-RUN yarn upgrade && yarn install --non-interactive --check-files
 
-COPY . .
+RUN yarn install --non-interactive --check-files
+
+ENV RAILS_LOG_TO_STDOUT=1
 
 LABEL maintainer="Viktor Schmidt <viktorianer4life@gmail.com>"
 

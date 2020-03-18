@@ -10,12 +10,15 @@ services:
       args:
         RUBY_VERSION: ${RUBY_VERSION:-2.6.5}
         BUNDLER_VERSION: 2.0.2
+        NODE_VERSION: ${NODE_VERSION:-12.15.0-r1}
+        YARN_VERSION: ${YARN_VERSION:-1.19.2-r0}
     volumes:
       - .:/app:cached
       - rails_cache_data:/app/tmp/cache
       - bundle_data:/usr/local/bundle
       - node_modules_data:/app/node_modules
       - packs_data:/app/public/packs
+      - ./log:/app/log
 
   web: &web
     <<: *app
