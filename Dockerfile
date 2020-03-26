@@ -5,7 +5,7 @@ FROM ruby:${RUBY_VERSION}-alpine3.11
 ARG NODE_VERSION=12.15.0-r1
 ARG YARN_VERSION=1.19.2-r0
 
-RUN apk update && apk add build-base postgresql-dev \
+RUN apk update && apk add build-base ca-certificates postgresql-dev \
     nodejs=$NODE_VERSION yarn=$YARN_VERSION \
     tzdata imagemagick
 
