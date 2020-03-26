@@ -38,6 +38,8 @@ console:
 	$(call dc-run, rails console)
 console-sandbox:
 	$(call dc-run, rails console --sandbox)
+rails-cache-clear:
+	$(call dc-run, rails r 'Rails.cache.clear')
 guard:
 	$(call dc-run, guard)
 
@@ -49,6 +51,8 @@ db-migrate:
 	$(call dc-run, rails db:migrate)
 db-seed:
 	$(call dc-run, rails db:seed)
+db-drop:
+	$(call dc-run, rails db:drop)
 
 # logs
 logs:
