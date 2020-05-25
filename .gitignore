@@ -29,6 +29,7 @@ public/uploads
 # Ignore dev environment variables
 .env
 .idea/
+.vscode/
 .DS_Store
 /*.iml
 *.fsl
