@@ -28,46 +28,46 @@ en:
 
     name: "Sternfreunde im FEZ e.V."
     short_introduction_html: "Astronomie für Kinder und Jugendliche in Berlin."
-    
+
     introduction_html: "<p>Wir treffen uns jeden ersten Sonntag im Monat, ab 15 Uhr zu den Vereinssitzungen
       in unserem <b>Raum 401</b> im <b>%{fez_url}</b> in der <b>Straße zum FEZ 2</b>.
       Außerdem sind wir bei vielen astronomischen Events in der Region anzutreffen.
-      Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und machen begeistert <b>Astrofotografie</b>. 
+      Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und machen begeistert <b>Astrofotografie</b>.
       Über das %{contact_url} kannst Du jederzeit bei uns mitmachen.</p>
       <p>Wenn Du neugierig geworden bist, dann empfiehlt es sich, einfach unverbindlich vorbeizuschauen.
       Solltest du dann dem Verein beitreten wollen, findest du hier die %{fee_url}.</p>"
-    description_html: "<p>Als anerkannter Träger der deutschen Jugendhilfe führen wir die <b>Kinder und Jugendliche</b> 
-      aktiv an die Astronomie heran. Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und machen 
+    description_html: "<p>Als anerkannter Träger der deutschen Jugendhilfe führen wir die <b>Kinder und Jugendliche</b>
+      aktiv an die Astronomie heran. Wir führen <b>astronomische Beobachtungen</b> in der Nacht durch und machen
       begeistert <b>Astrofotografie</b>.</p>
-      <p>Wir vermitteln <b>Astronomie, Physik, Informatik und Mathematik</b>, bieten Fernrohre und Fotoausrüstung an, 
+      <p>Wir vermitteln <b>Astronomie, Physik, Informatik und Mathematik</b>, bieten Fernrohre und Fotoausrüstung an,
       genauso wie Tutorials in der digitalen Bildbearbeitung.</p>"
 
-    about_html: "<p>Willkommen auf der Homepage des %{community_name}.</p> 
+    about_html: "<p>Willkommen auf der Homepage des %{community_name}.</p>
       <p>Wir sind ein %{about_url} in %{directions_url} mit mehr als 35 Jahren Geschichte.
-      Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden bei uns Kinder und Jugendliche 
+      Seit Bestehen des Pionierpalastes (Oktober 1979) in der <b>Wuhlheide</b> werden bei uns Kinder und Jugendliche
       aktiv an die Astronomie herangeführt.</p>"
     about_link_html: "gemeinnütziger, astronomischer Verein"
 
     about_history: "History"
-    about_history_description_html: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei 
-      uns Kinder und Jugendliche aktiv an die Astronomie herangeführt. Vor allem die Sonnenbeobachter können auf eine 
+    about_history_description_html: "<p>Seit Bestehen des Pionierpalastes (Oktober 1979) in der Wuhlheide werden bei
+      uns Kinder und Jugendliche aktiv an die Astronomie herangeführt. Vor allem die Sonnenbeobachter können auf eine
       volle Sonnenperiode zurückschauen.</p>
-      <p>Nach der politischen Wende in der DDR wurde der Pionierpalast umbenannt in Freizeit- und Erholungszentrum 
-      Wuhlheide, kurz FEZ. Bis 1995 hatten wir dort immer noch viel Raum für unsere Astronomie. Doch im Rahmen von 
+      <p>Nach der politischen Wende in der DDR wurde der Pionierpalast umbenannt in Freizeit- und Erholungszentrum
+      Wuhlheide, kurz FEZ. Bis 1995 hatten wir dort immer noch viel Raum für unsere Astronomie. Doch im Rahmen von
       Stellenabbau und Überführung des FEZ in eine gemeinnützige GmbH wurde die Planstelle Astronomie gestrichen.</p>
       <p>Um auch weiterhin Astronomie im FEZ anzubieten gab es nur eine Möglichkeit:</p>
       <p class='text-center'><b>Wir gründen einen Verein!</b></p>
-      <p>Seit dem 24. Juni 1995 sind wir ein Verein. Nach einem langen Briefwechsel mit Amtsgericht und Finanzamt war 
-      es Ende 1999 geschafft. Wir dürfen uns jetzt auch Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als 
+      <p>Seit dem 24. Juni 1995 sind wir ein Verein. Nach einem langen Briefwechsel mit Amtsgericht und Finanzamt war
+      es Ende 1999 geschafft. Wir dürfen uns jetzt auch Gemeinnützig bezeichnen. Mittlerweile dürfen wir uns auch als
       anerkannter Träger der deutschen Jugendhilfe bezeichnen.</p>"
 
     about_membership: "Membership"
-    about_membership_html: "<p>%{community_name} ist offen für alle Besucher <b>ab 8 Jahre</b>. Die Mitglieder des 
-    Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und wir beteiligen uns an 
+    about_membership_html: "<p>%{community_name} ist offen für alle Besucher <b>ab 8 Jahre</b>. Die Mitglieder des
+    Vereins sind <b>Sternfreunde aus Berlin und Brandenburg</b> und wir beteiligen uns an
     <b>astronomischen Veranstaltungen</b> in der Region.</p>
     <p>Jetzt den %{membership_application_url} ausfüllen und Mitglied werden!</p>"
     about_membership_application_link_html: "Aufnahmeantrag der %{community_name}"
-    
+
     about_consultation: "Telescopic Consultations Hours"
     about_fee: "Fee information"
     about_fee_link_html: "Beitragsinformationen"
@@ -82,11 +82,11 @@ en:
 
     about_partner_wildlife_park: "An own observatory for all members!"
     about_partner_wildlife_park_html: "In Zusammenarbeit mit dem %{wildlife_park_url} haben wir für unseren Verein
-    eine eigene Sternwarte inklusive zusätzlicher Teleskopsäulen gebaut. Unter einem der dunkelsten Himmel in 
+    eine eigene Sternwarte inklusive zusätzlicher Teleskopsäulen gebaut. Unter einem der dunkelsten Himmel in
     Brandenburg und Deutschland haben wir hier die besten Möglichkeiten für Beobachtung und Astrofotografie."
     partner_wildlife_park_link_html: "Wildpark Johannismühle"
     partner_wildlife_park_image: "Partner Wildpark Johannismühle"
-    
+
     partner_austria_html: "Die SiFEZ-Mitglieder erhalten bis zu 10% Rabatt bei unserem Partner Teleskop-Austria."
     partner_austria_image: "Partner Teleskop-Austria"
 
@@ -97,24 +97,24 @@ en:
     partner_bhb_observatory_subtitle: "Spandau"
     partner_bhb_observatory_description_html: "<ul><li>Teleskop Selbstbau</li><li>Planeten</li></ul>"
     partner_bhb_observatory_image: "Partner Astronomie-Verein Bruno-H.-Bürgel-Sternwarte e. V."
-  
+
     partner_astw_observatory_title: "Förderverein der Archenhold-Sternwarte und des Zeiss-Großplanetariums Berlin e. V."
     partner_astw_observatory_subtitle: "Treptow"
     partner_astw_observatory_description_html: "<ul><li>Bedeckungen und Kleinplaneten</li>
       <li>Nicht-optische Astronomie</li></ul>"
-    partner_astw_observatory_image: "Partner Astronomie-Verein Förderverein der Archenhold-Sternwarte und des 
+    partner_astw_observatory_image: "Partner Astronomie-Verein Förderverein der Archenhold-Sternwarte und des
       Zeiss-Großplanetariums Berlin e. V."
-  
+
     partner_wfs_observatory_title: "Wilhelm-Foerster-Sternwarte e.V."
     partner_wfs_observatory_subtitle: "Schöneberg"
     partner_wfs_observatory_description_html: "<ul><li>Mond</li><li>Galaxien</li><li>Astrophysik</li></ul>"
     partner_wfs_observatory_image: "Partner Astronomie-Verein Wilhelm-Foerster-Sternwarte e.V."
 
-    about_consultation_html: "<p>Unser Verein verfügt über eine ganze Reihe verschiedener Teleskope, die von 
-    den Mitgliedern genutzt werden können. Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich 
+    about_consultation_html: "<p>Unser Verein verfügt über eine ganze Reihe verschiedener Teleskope, die von
+    den Mitgliedern genutzt werden können. Interessierte Einsteiger können bei uns erfahren, welches Teleskop sich
     für den Einstieg am Besten eignet.</p>
-    <p>Grundsätzlich empfehlen wird bei einer unserer öffentlichen Beobachtungen vorbeizuschauen. Es sind meistens 
-    verschiedene Teleskoptypen vertreten, sodass man sich einen Eindruck verschaffen kann. Schreibt uns 
+    <p>Grundsätzlich empfehlen wird bei einer unserer öffentlichen Beobachtungen vorbeizuschauen. Es sind meistens
+    verschiedene Teleskoptypen vertreten, sodass man sich einen Eindruck verschaffen kann. Schreibt uns
     per Kontaktformular an!</p>"
     idealo_consultation_html: "<p>Wer sich im Vorfeld zum Thema informieren möchte, der kann das gerne mit der
     %{idealo_consultation_url} tun.</p>"
@@ -130,7 +130,7 @@ en:
 
     directions: "You will find us at the following address"
     directions_html: "%{community_name} %{address_of_the_organization}"
-    about_directions_html: "Du gehst in den FEZ-Haupteingang rein, dann geradeaus die Haupttreppe hoch, 
+    about_directions_html: "Du gehst in den FEZ-Haupteingang rein, dann geradeaus die Haupttreppe hoch,
     in Richtung Puppenbühne. Rechts daneben befindet sich der Eingang zu uns, <b>zum Raum 401</b> auf dem Dach."
     directions_link_html: "<b>Berlin Treptow-Köpenick</b>"
 
@@ -201,6 +201,10 @@ en:
     form_contains_errors: "The form contains %{errors}"
     can_not_be_empty: "can't be empty"
     maximum_file_size: "should be less than 5MB"
+  exception_handler:
+    not_found: "This is not the web page you are looking for."
+    unauthorized: "You need to login to continue."
+    internal_server_error: "We're sorry, but something went wrong."
 
   # warning
   warning:
