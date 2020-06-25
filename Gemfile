@@ -99,6 +99,8 @@ gem "koala", "~> 3.0"
 # Security
 # ExceptionHandler replaces Rails' default error pages with dynamic views.
 gem "exception_handler", "~> 0.8"
+# The simplest way to add honeypot captchas in your Rails forms.
+gem "honeypot-captcha"
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell for Ruby

@@ -3,7 +3,7 @@ h1
 	= yield(:title)
 .form-row.justify-content-center
 	.col-md-6.col-md-offset-3
-		= form_for(@user_session, url: login_path) do |f|
+		= form_for(@user_session, url: login_path, html: { honeypot: true }) do |f|
 			= f.label :email, t('activerecord.attributes.user.email')
 			= f.email_field :email, class: 'form-control'
 			= f.label :password, t('activerecord.attributes.user.password')

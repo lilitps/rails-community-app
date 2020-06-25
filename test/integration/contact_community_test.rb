@@ -121,7 +121,7 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert_select "textarea#contact_message"
     assert_select "div.g-recaptcha"
     assert_select "input[name=commit]"
-    assert_select "label", 4
+    assert_select "label", 5
 
     get contact_path
     assert_template "contacts/new"
@@ -132,7 +132,7 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert_select "textarea#contact_message"
     assert_select "div.g-recaptcha"
     assert_select "input[name=commit]"
-    assert_select "label", 4
+    assert_select "label", 5
   end
 
   test "community directions" do

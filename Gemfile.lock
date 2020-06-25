@@ -234,6 +234,7 @@ GEM
       guard (~> 2.0)
       rubocop (~> 0.20)
     highline (2.0.3)
+    honeypot-captcha (1.0.1)
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
@@ -585,6 +586,7 @@ DEPENDENCIES
   guard-bundler (~> 2.2)
   guard-minitest (~> 2.4)
   guard-rubocop
+  honeypot-captcha
   html2slim
   http_accept_language (~> 2.1)
   i18n-tasks (~> 0.9.15)

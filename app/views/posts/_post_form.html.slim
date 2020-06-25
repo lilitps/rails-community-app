@@ -7,7 +7,7 @@
     = image_tag(post.picture.thumb.url, alt: post.picture.file.filename, \
 			align: 'middle', class: 'card-img-bottom') if post.picture?
     span.picture_input
-      = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', 
+      = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png',
 				aria: {describedby: 'helpBlock'}, onchange: 'checkImageSize(this)'
     span#helpBlock.help-block
       = t('maximum_file_size')
