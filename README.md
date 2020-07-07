@@ -22,7 +22,7 @@ is available jointly under the MIT License and the Beerware License. See
 To get started with the app, clone the repo and copy .env file:
 
 ```bash
-$ cat config/templates/.env.sample > .env
+cat config/templates/.env.sample > .env
 ```
 
 ### Using Rails credentials
@@ -36,7 +36,7 @@ Use the Heroku config command to
 set the `RAILS_MASTER_KEY` variable:
 
 ```bash
-$ heroku config:set RAILS_MASTER_KEY=<your-master-key>
+heroku config:set RAILS_MASTER_KEY=<your-master-key>
 ```
 
 ## Set up project with Docker
@@ -59,13 +59,13 @@ Docker Desktop is the best way to get started with Docker.
 and do your work.
 
 ```bash
-$ make up
+make up
 ```
 
 - You can access the logs by:
 
 ```bash
-$ make logs-web
+make logs-web
 ```
 
 ## Testing
@@ -73,7 +73,7 @@ $ make logs-web
 Run the test suite to verify that everything is working correctly:
 
 ```bash
-$ make test
+make test
 ```
 
 If the test suite passes, you'll be ready to run the app in a local server.
@@ -84,7 +84,7 @@ Use Guard to automate the running of the tests and code styles with
 [Rubocop](https://rubocop.readthedocs.io/en/latest/).
 
 ```bash
-$ make guard
+make guard
 ```
 
 ## Production webserver
@@ -101,33 +101,46 @@ Then check to see if your system already has the
 [Heroku command-line client installed](https://devcenter.heroku.com/articles/heroku-cli):
 
 ```bash
-$ heroku version
+heroku version
 ```
 
 Use the Heroku command to log in and
 [add your SSH key](https://help.github.com/articles/connecting-to-github-with-ssh/):
 
 ```bash
-$ heroku login
-$ heroku keys:add
+heroku login
+heroku keys:add
 ```
+
 Finally, use the Heroku create command to create a place on the Heroku servers
 for the community app to live:
 
 ```bash
-$ heroku create
+heroku create
 ```
 
 Rename the application as follows:
 
 ```bash
-$ heroku rename <your-heroku-app>
+heroku rename <your-heroku-app>
 ```
 
 You can change your Heroku git remote any time:
 
 ```bash
-$ heroku git:remote -a <your-heroku-app>
+heroku git:remote -a <your-heroku-app>
+```
+
+#### MemCachier
+
+[MemCachier](https://www.memcachier.com/) is an implementation of the Memcache
+in-memory key/value store used for
+[caching data](https://devcenter.heroku.com/articles/memcachier#rails).
+
+Installing the add-on:
+
+```bash
+heroku addons:create memcachier:dev
 ```
 
 #### Custom domain
@@ -155,7 +168,7 @@ to 400 emails a day but costs nothing, is the best fit.
 Add it to community app as follows:
 
 ```bash
-$ heroku addons:create sendgrid:starter
+heroku addons:create sendgrid:starter
 ```
 
 #### Define a host variable
@@ -166,35 +179,34 @@ production website. Use the Heroku config command to
 set the `host` variable:
 
 ```bash
-$ heroku config:set APP_MAILER_HOST=<your-app-name.heroku.com>
+heroku config:set APP_MAILER_HOST=<your-app-name.heroku.com>
 ```
 
 If you use custom domain, please change it too your custom host:
 
 ```bash
-$ heroku config:set APP_MAILER_HOST=<your-domain.com>
+heroku config:set APP_MAILER_HOST=<your-domain.com>
 ```
-
 
 ### Change community (provider) identification
 
 Add default address of your organization in Heroku:
 
 ```bash
-$ heroku config:set ADDRESS_OF_THE_ORGANIZATION=<'</br>address 1</br>address 2</br>zip code city'>
+heroku config:set ADDRESS_OF_THE_ORGANIZATION=<'</br>address 1</br>address 2</br>zip code city'>
 ```
 
 You can add official register or sales tax identification number or commercial
 register number
 
 ```bash
-$ heroku config:set IDENTIFICATION_NUMBER=<'<b>District Court Charlottenburg:</b> XY ##### Z'>
+heroku config:set IDENTIFICATION_NUMBER=<'<b>District Court Charlottenburg:</b> XY ##### Z'>
 ```
 
 And finally, add a phone number of your organization:
 
 ```bash
-$ heroku config:set PHONE_NUMBER_OF_THE_ORGANIZATION=<'010 20 345 6789'>
+heroku config:set PHONE_NUMBER_OF_THE_ORGANIZATION=<'010 20 345 6789'>
 ```
 
 ### Contact mailer
@@ -204,10 +216,10 @@ $ heroku config:set PHONE_NUMBER_OF_THE_ORGANIZATION=<'010 20 345 6789'>
 Change default **TO** email address for contact mailer
 
 ```bash
-$ heroku config:set CONTACT_MAIL_TO=<your-contact@email-adress.de>
+heroku config:set CONTACT_MAIL_TO=<your-contact@email-adress.de>
 ```
 
-#### Mailer templates (optional)
+#### Contact mailer templates (optional)
 
 Change two view templates (if needed) for each mailer,
 one for plain-text email and one for HTML email, found in
@@ -227,7 +239,7 @@ Change mailer layout corresponding to the email format,
 which is common to all mailers in the application.
 The HTML and plain-text mailer layouts can be found under **app/views/layouts**
 
-#### Mailer templates (optional)
+#### Account activation and password reset mailer templates (optional)
 
 Change two view templates (if needed) for each mailer,
 one for plain-text email and one for HTML email, found in
@@ -285,7 +297,7 @@ Finally, use the Heroku config command to
 set Google Storage `picture upload directory`:
 
 ```bash
-$ heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=<your-bucket-name, e.g. 'communityapp'>
+heroku config:set G_STORAGE_PICTURE_UPLOAD_DIRECTORY=<your-bucket-name, e.g. 'communityapp'>
 ```
 
 Hint: In order to use these [vars in development environment](http://www.rubydoc.info/gems/dotenv-rails/2.2.1),
@@ -314,8 +326,8 @@ Google Cloud Platform, [APIs and Services Credentials](https://console.cloud.goo
 and make sure to set up in Heroku your position to show in the map:
 
 ```bash
-$ heroku config:set G_MAPS_LAT=<your-position-latitude>
-$ heroku config:set G_MAPS_LNG=<your-position-longitude>
+heroku config:set G_MAPS_LAT=<your-position-latitude>
+heroku config:set G_MAPS_LNG=<your-position-longitude>
 ```
 
 and `api_key` in Rails credentials:
@@ -362,7 +374,7 @@ to [setup config vars](https://devcenter.heroku.com/articles/config-vars)
 for Facebook page.
 
 ```bash
-$ heroku config:set FB_PAGE_ID=<your-fb-page-id>
+heroku config:set FB_PAGE_ID=<your-fb-page-id>
 ```
 
 Also, setup `app_id` and `app_secret` for development, test and production
@@ -388,8 +400,8 @@ In order to create a logo you can use [ImageMagick](http://www.imagemagick.org),
 for example with convert command:
 
 ```bash
-$ convert big-logo.png -resize 260x260 logo.png
-$ convert logo.png -transparent '#ffffff' logo.png
+convert big-logo.png -resize 260x260 logo.png
+convert logo.png -transparent '#ffffff' logo.png
 ```
 
 You can setup your favicon in your Ruby on Rails project
@@ -410,9 +422,9 @@ use [ImageMagick](https://www.imagemagick.org/Usage/resize/#fill),
 for example with convert command:
 
 ```bash
-$ convert item-0.png -resize 1170x312^ -gravity center -extent 1170x312+0-50 item-0.png
-$ convert item-0.png -depth 8 item-0.png
-$ convert item-0.png -trim -flatten item-0.jpg
+convert item-0.png -resize 1170x312^ -gravity center -extent 1170x312+0-50 item-0.png
+convert item-0.png -depth 8 item-0.png
+convert item-0.png -trim -flatten item-0.jpg
 ```
 
 You can change gravity in any direction, like South or East, and use an
@@ -424,14 +436,14 @@ Before deploying to Heroku, it’s a good idea to turn maintenance mode on
 before making the changes:
 
 ```bash
-$ heroku maintenance:on
+heroku maintenance:on
 ```
 
 Use the Heroku config command to set first admin user data:
 
 ```bash
-$ heroku config:set ADMIN_NAME=<your-admin-first-and-last-name>
-$ heroku config:set ADMIN_EMAIL=<your-admin-email>
+heroku config:set ADMIN_NAME=<your-admin-first-and-last-name>
+heroku config:set ADMIN_EMAIL=<your-admin-email>
 ```
 
 And setup the default admin `password` in Rails credentials:
@@ -444,41 +456,41 @@ And setup the default admin `password` in Rails credentials:
 Commit the file changes and push to git and then to Heroku:
 
 ```bash
-$ git commit -a -m "Change defaults for admin"
-$ git push
-$ git push heroku
+git commit -a -m "Change defaults for admin"
+git push
+git push heroku
 ```
 
 Migrate or reset the production database:
 
 ```bash
-$ heroku run rails db:migrate
+heroku run rails db:migrate
 ```
 
 To reset the production database use:
 
 ```bash
-$ heroku pg:reset DATABASE
+heroku pg:reset DATABASE
 ```
 
 After the production database reset, seed the database with start users and
 admin (Rails uses the standard file **db/seeds.rb**):
 
 ```bash
-$ heroku run rails db:seed
+heroku run rails db:seed
 ```
 
 In case you added or changed gems or gem version, please do not forget to
 restart Heroku:
 
 ```bash
-$ heroku restart
+heroku restart
 ```
 
 And finally, turn maintenance mode off:
 
 ```bash
-$ heroku maintenance:off
+heroku maintenance:off
 ```
 
 ## Spring processes
@@ -487,20 +499,22 @@ Whether something isn’t behaving as expected, or a process appears to be froze
 it’s a good idea to run
 
 ```bash
-$ ps aux | grep spring
+ps aux | grep spring
 ```
+
 to see what’s going on, and then run
 
 ```bash
-$ spring stop
+spring stop
 ```
+
 To kill all the spring processes gunking up your system.
 
 Sometimes this doesn’t work, though, and you can kill all the processes with
 name spring using the pkill command as follows:
 
 ```bash
-$ pkill -15 -f spring
+pkill -15 -f spring
 ```
 
 For more information, see the
@@ -512,7 +526,7 @@ Check code with [RuboCop](https://rubocop.readthedocs.io) before committing to
 Git repository. Run in the project directory:
 
 ```bash
-$ rubocop -FREa -C true
+rubocop -FREa -C true
 ```
 
 ## Brakeman security scanner
@@ -521,7 +535,7 @@ Check security with [Brakeman](https://brakemanscanner.org/docs/introduction/)
 before committing to Git repository. Run in the project directory:
 
 ```bash
-$ brakeman -AI
+brakeman -AI
 ```
 
 ## Manage license dependencies
@@ -531,18 +545,18 @@ detect the licenses and compare those licenses against a whitelist.
 Run in the project directory:
 
 ```bash
-$ license_finder
+license_finder
 ```
 
 **license_finder** will inform you whenever you have an unapproved dependency.
 To approve the dependency for all gems with MIT license run e.g.:
 
 ```bash
-$ license_finder whitelist add 'MIT' --who '...' --why 'free to use'
+license_finder whitelist add 'MIT' --who '...' --why 'free to use'
 ```
 
 or for one gem only run:
 
 ```bash
-$ license_finder approval add awesome_gpl_gem --who '...' --why 'free to use'
+license_finder approval add awesome_gpl_gem --who '...' --why 'free to use'
 ```

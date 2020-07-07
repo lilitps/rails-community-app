@@ -54,7 +54,26 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :mem_cache_store
+
+  # Configure Rack::Cache (rack middleware, whole page / static assets) (we set
+  # value_max_bytes to 10MB, most memcache servers won't allow values larger
+  # than 1MB but this stops Rack::Cache returning a 5xx error. With this
+  # option, Rack::Cache just returns a miss).
+  client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
+                              username: ENV["MEMCACHIER_USERNAME"],
+                              password: ENV["MEMCACHIER_PASSWORD"],
+                              failover: true,
+                              socket_timeout: 1.5,
+                              socket_failure_delay: 0.2,
+                              down_retry_delay: 60,
+                              pool_size: ENV.fetch("WEB_CONCURRENCY") { 5 },
+                              value_max_bytes: 10485760)
+  config.action_dispatch.rack_cache = {
+    metastore:    client,
+    entitystore:  client
+  }
+  config.static_cache_control = "public, max-age=#{2.days.to_i}"
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque

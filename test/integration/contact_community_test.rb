@@ -78,6 +78,14 @@ class ContactCommunityTest < ActionDispatch::IntegrationTest
     assert_equal 2, ActionMailer::Base.deliveries.size
   end
 
+  test "attack contact form" do
+    250.times do
+      post contact_path, params: {
+        contact: { name: @user.name, email: @user.email, subject: "subject", message: "message" }
+      }
+    end
+  end
+
   test "contact the community with valid email with Ajax" do
     get root_path
     assert_template "static_pages/home"

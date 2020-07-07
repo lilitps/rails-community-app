@@ -20,10 +20,24 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
-    config.cache_store = :memory_store
-    config.public_file_server.headers = {
-        'Cache-Control' => "public, max-age=#{2.days.to_i}"
+    config.cache_store = :mem_cache_store
+
+    # Configure Rack::Cache (rack middleware, whole page / static assets) (we set
+    # value_max_bytes to 10MB, most memcache servers won't allow values larger
+    # than 1MB but this stops Rack::Cache returning a 5xx error. With this
+    # option, Rack::Cache just returns a miss).
+    client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "memcached").split(","),
+                                failover: true,
+                                socket_timeout: 1.5,
+                                socket_failure_delay: 0.2,
+                                down_retry_delay: 60,
+                                pool_size: ENV.fetch("WEB_CONCURRENCY") { 5 },
+                                value_max_bytes: 10485760)
+    config.action_dispatch.rack_cache = {
+      metastore:    client,
+      entitystore:  client
     }
+    config.static_cache_control = "public, max-age=#{2.days.to_i}"
   else
     config.action_controller.perform_caching = false
 

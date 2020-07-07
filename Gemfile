@@ -33,8 +33,15 @@ gem "jbuilder", "~> 2.9", ">= 2.9.1"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Caching
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
+# Rack::Cache is suitable as a quick drop-in component to enable HTTP caching
+gem "rack-cache"
+# High performance memcached client for Ruby
+gem "dalli"
+# Multiple connections are created to MemCachier’s servers
+gem "connection_pool"
 
 # Frontend
 # Slim allows you to write very minimal templates
