@@ -101,6 +101,8 @@ gem "koala", "~> 3.0"
 gem "exception_handler", "~> 0.8"
 # The simplest way to add honeypot captchas in your Rails forms.
 gem "honeypot-captcha"
+# A rack middleware for throttling and blocking abusive requests
+gem "rack-attack", "~> 5.4", ">= 5.4.2"
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell for Ruby
