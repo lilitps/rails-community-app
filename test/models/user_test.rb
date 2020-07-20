@@ -26,6 +26,8 @@
 #  active             :boolean          default(FALSE)
 #  approved           :boolean          default(FALSE)
 #  confirmed          :boolean          default(FALSE)
+#  provider           :string
+#  uid                :string
 #
 # Indexes
 #
@@ -33,6 +35,9 @@
 #  index_users_on_last_request_at    (last_request_at)
 #  index_users_on_perishable_token   (perishable_token) UNIQUE
 #  index_users_on_persistence_token  (persistence_token) UNIQUE
+#  index_users_on_provider           (provider)
+#  index_users_on_provider_and_uid   (provider,uid)
+#  index_users_on_uid                (uid)
 #
 
 require "test_helper"

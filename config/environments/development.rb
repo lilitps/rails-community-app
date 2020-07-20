@@ -1,4 +1,5 @@
 Rails.application.configure do
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -92,7 +93,14 @@ Rails.application.configure do
     Bullet.rails_logger = true
     Bullet.add_footer = true
   end
+
+  config.web_console.whitelisted_ips = '172.19.0.1'
 end
 
 # BetterErrors in Docker container
 BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+
+
+
+
+

@@ -13,6 +13,9 @@ h1
 				= f.check_box :remember_me, class: 'form-check-input'
 				= f.label :remember_me, t('remember_me'), class: 'form-check-label'
 			= f.submit t('log_in'), data: {disable_with: t('loging_in')}, class: 'btn btn-primary'
+			
+		p
+			=< link_to "Sign in with Facebook", 'auth/facebook', class: 'btn btn-primary w-100'																						
 		p
 			= t('new_user')
 			=< link_to t('sign_up_now'), signup_path

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_220315) do
+ActiveRecord::Schema.define(version: 2020_09_28_140841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,10 +87,15 @@ ActiveRecord::Schema.define(version: 2019_10_25_220315) do
     t.boolean "active", default: false
     t.boolean "approved", default: false
     t.boolean "confirmed", default: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["last_request_at"], name: "index_users_on_last_request_at"
     t.index ["perishable_token"], name: "index_users_on_perishable_token", unique: true
     t.index ["persistence_token"], name: "index_users_on_persistence_token", unique: true
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid"
+    t.index ["provider"], name: "index_users_on_provider"
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

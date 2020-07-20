@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     post    '/login',     to: 'user_sessions#create'
     delete  '/logout',    to: 'user_sessions#destroy'
 
+    #Routing for Facebook SignIn
+    get 'auth/:provider/callback', to: 'omniauth_sessions#create'
+    get '/auth/facebook', to: 'omniauth_sessions#create'
+
     post    '/locale',    to: 'locales#update'
 
     get     '/contact',   to: 'contacts#new'
