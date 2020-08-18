@@ -32,8 +32,7 @@ ENV PATH /app/bin:$BUNDLE_BIN:$PATH
 ARG BUNDLER_VERSION=2.0.2
 
 COPY Gemfile Gemfile.lock ./
-RUN gem update --system && \
-    gem install bundler -v ${BUNDLER_VERSION} && \
+RUN gem install bundler -v ${BUNDLER_VERSION} && \
     bundle install -j $(nproc) --retry 3 --without production
 
 COPY package.json yarn.lock ./
